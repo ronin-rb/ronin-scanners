@@ -1,7 +1,7 @@
 = Ronin Scanners
 
 * http://ronin.rubyforge.org/scanners/
-* https://github.com/postmodern/ronin-scanners
+* http://github.com/postmodern/ronin-scanners
 * irc.freenode.net ##ronin
 * Postmodern (postmodern.mod3 at gmail.com)
 
