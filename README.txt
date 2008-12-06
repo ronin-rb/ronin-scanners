@@ -8,7 +8,7 @@
 == DESCRIPTION:
 
 Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to
-various third-party scanners.
+various third-party security scanners.
 
 Ronin is a Ruby platform designed for information security and data
 exploration tasks. Ronin allows for the rapid development and distribution
@@ -59,7 +59,7 @@ of Ronin.
 == LICENSE:
 
 Ronin Scanners - A Ruby library for Ronin that provides Ruby interfaces to
-various third-party scanners.
+various third-party security scanners.
 
 Copyright (c) 2008 Hal Brodigan (postmodern.mod3 at gmail.com)
 

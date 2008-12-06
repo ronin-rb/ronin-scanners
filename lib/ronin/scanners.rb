@@ -1,7 +1,7 @@
 #
 #--
 # Ronin Scanners - A Ruby library for Ronin that provides Ruby interfaces to
-# various third-party scanners.
+# various third-party security scanners.
 #
 # Copyright (c) 2008 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
