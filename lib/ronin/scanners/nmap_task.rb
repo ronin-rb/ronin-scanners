@@ -93,8 +93,8 @@ module Ronin
       long_option '--osscan_guess', :name => :max_os_scan
 
       # TIMING AND PERFORMANCE:
-      long_option '--min-hostgroup', :min_host_group
-      long_option '--max-hostgroup', :max_host_group
+      long_option '--min-hostgroup', :name => :min_host_group
+      long_option '--max-hostgroup', :name => :max_host_group
       long_option '--min-parallelism'
       long_option '--max-parallelism'
       long_option '--min-rtt-timeout'
@@ -107,7 +107,7 @@ module Ronin
       long_option '--max-rate'
 
       # FIREWALL/IDS EVASION AND SPOOFING:
-      short_option '-f', :packet_fragments
+      short_option '-f', :name => :packet_fragments
       long_option '--mtu'
       short_option '-D', :name => :decoys
       short_option '-S', :name => :spoof
@@ -125,8 +125,8 @@ module Ronin
       short_option '-oS', :name => :skiddie
       short_option '-oG', :name => :grepable
       short_option '-v', :name => :verbose
-      long_option '--open', :show_open_ports
-      long_option '--packet-trace', :show_packets
+      long_option '--open', :name => :show_open_ports
+      long_option '--packet-trace', :name => :show_packets
       long_option '--iflist', :name => :show_interfaces
       long_option '--log-errors', :name => :show_log_errors
       long_option '--append-output', :name => :append
