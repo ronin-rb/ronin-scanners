@@ -21,9 +21,11 @@
 #++
 #
 
-require 'ronin/scanners/nmap/nmap_task'
+require 'ronin/scanners/nmap_task'
 
 require 'rprogram/program'
+require 'scandb'
+require 'tempfile'
 
 module Ronin
   module Scanners
@@ -31,8 +33,29 @@ module Ronin
 
       name_program 'nmap'
 
+      #
+      # Perform an Nmap scan using the given _options_ and _block_.
+      #
       def scan(options={},&block)
         run_task(NmapTask.new(options,&block))
+      end
+
+      #
+      # Perform an Nmap scan using the given _options_ and save
+      # the resulting scan information into ScanDB. If a _block_ is given,
+      # it will be passed each ScanDB::Host object from the scan.
+      #
+      def import_scan(options={},&block)
+        file = Tempfile.new('nmap',Config::TMP_DIR)
+
+        # perform the scan
+        scan(options.merge(:xml => file))
+
+        # import the xml file into ScanDB
+        hosts = ScanDB::Nmap.import_xml(file,&block)
+
+        file.delete
+        return hosts
       end
 
     end
