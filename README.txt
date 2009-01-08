@@ -39,7 +39,7 @@ of Ronin.
 
 == FEATURES/PROBLEMS:
 
-* Provides an interface to Nmap.
+* Provides a Rubyful interface to Nmap.
 * Allows for recording of Nmap scan results using ScanDB.
 
 == REQUIREMENTS:
