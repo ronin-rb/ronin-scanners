@@ -283,7 +283,7 @@ module Ronin
       short_option :flag => '-V', :name => :version
       short_option :flag => '-h', :name => :help
 
-      non_options :tailing => true, :name => :targets
+      non_option :tailing => true, :name => :targets
 
     end
   end
