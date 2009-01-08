@@ -1,4 +1,6 @@
-=== 0.1.0 / 2008-12-05
+=== 0.1.0 / 2009-01-08
 
 * Initial release.
+  * Provides a Rubyful interface to Nmap.
+  * Allows for the recording of Nmap scan results using ScanDB.
 
