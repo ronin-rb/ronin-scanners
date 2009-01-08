@@ -42,14 +42,10 @@ of Ronin.
 * Provides an interface to Nmap.
 * Allows for recording of Nmap scan results using ScanDB.
 
-== SYNOPSIS:
-
-  $ ronin scanners
-
 == REQUIREMENTS:
 
 * Scandb
-* RProgram
+* RProgram >= 0.1.4
 * Ronin >= 0.1.2
 
 == INSTALL:
