@@ -158,6 +158,8 @@ module Ronin
     # <tt>-V</tt>:: <tt>nmap.version</tt>
     # <tt>-h</tt>:: <tt>nmap.help</tt>
     #
+    # <tt>{target specification}</tt>:: <tt>nmap.targets</tt>
+    #
     class NmapTask < RProgram::Task
 
       # TARGET SPECIFICATIONS:
@@ -280,6 +282,8 @@ module Ronin
       long_option :flag => '--unprivleged'
       short_option :flag => '-V', :name => :version
       short_option :flag => '-h', :name => :help
+
+      non_options :tailing => true, :name => :targets
 
     end
   end
