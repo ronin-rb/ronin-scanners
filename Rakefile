@@ -11,7 +11,7 @@ Hoe.new('ronin-scanners', Ronin::Scanners::VERSION) do |p|
   p.remote_rdoc_dir = 'docs/ronin-scanners'
   p.extra_deps = [
     'scandb',
-    'rprogram',
+    ['rprogram', '>=0.1.4'],
     ['ronin', '>=0.1.2']
   ]
 end
