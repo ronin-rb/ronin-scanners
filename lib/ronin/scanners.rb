@@ -21,4 +21,5 @@
 #++
 #
 
+require 'ronin/scanners/nmap'
 require 'ronin/scanners/version'
