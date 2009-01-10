@@ -202,7 +202,7 @@ module Ronin
       long_option :flag => '--reason', :name => :show_reason
 
       # PORT SPECIFICATION AND SCAN ORDER:
-      short_option :flag => '-p', :name => :ports
+      short_option :flag => '-p', :name => :ports, :separator => ','
       short_option :flag => '-F', :name => :fast
       short_option :flag => '-r', :name => :consecutively
       long_option :flag => '--top-ports'
@@ -246,7 +246,7 @@ module Ronin
       # FIREWALL/IDS EVASION AND SPOOFING:
       short_option :flag => '-f', :name => :packet_fragments
       long_option :flag => '--mtu'
-      short_option :flag => '-D', :name => :decoys
+      short_option :flag => '-D', :name => :decoys, :separator => ','
       short_option :flag => '-S', :name => :spoof
       short_option :flag => '-e', :name => :interface
       short_option :flag => '-g', :name => :source_port
