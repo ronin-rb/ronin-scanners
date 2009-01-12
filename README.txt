@@ -59,16 +59,16 @@ of Ronin.
     require 'ronin/scanners/nmap'
   
     puts Scanners::Nmap.scan(:targets => 'www.google.com', :ports => [80,21,25], :service_scan => true)
-    Starting Nmap 4.68 ( http://nmap.org ) at 2009-01-09 16:51 PST
-    Interesting ports on mh-in-f99.google.com (209.85.173.99):
-    PORT   STATE    SERVICE VERSION
-    21/tcp filtered ftp
-    25/tcp filtered smtp
-    80/tcp open     http    Google httpd 1.3 (GFE)
-    Service Info: OS: Linux
-
-    Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
-    Nmap done: 1 IP address (1 host up) scanned in 11.627 seconds
+    # Starting Nmap 4.68 ( http://nmap.org ) at 2009-01-09 16:51 PST
+    # Interesting ports on mh-in-f99.google.com (209.85.173.99):
+    # PORT   STATE    SERVICE VERSION
+    # 21/tcp filtered ftp
+    # 25/tcp filtered smtp
+    # 80/tcp open     http    Google httpd 1.3 (GFE)
+    # Service Info: OS: Linux
+    #
+    # Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+    # Nmap done: 1 IP address (1 host up) scanned in 11.627 seconds
     # => nil
 
 == LICENSE:
