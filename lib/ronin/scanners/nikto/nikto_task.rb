@@ -63,6 +63,7 @@ module Ronin
       short_option :flag => '-vhost', :name => :vhost
       short_option :flag => '-Version', :name => :version
 
+      short_option :flag => '-404', :name => :not_found_message
       short_option :flag => '-dbcheck', :name => :validate_checks
       short_option :flag => '-debug', :name => :debug
       short_option :flag => '-update', :name => :update
