@@ -35,6 +35,8 @@ module Ronin
 
       #
       # Perform an Nmap scan using the given _options_ and _block_.
+      # If a _block_ is given, it will be passed a newly created
+      # NmapTask object.
       #
       def self.scan(options={},&block)
         self.find.scan(options,&block)
@@ -42,6 +44,8 @@ module Ronin
 
       #
       # Perform an Nmap scan using the given _options_ and _block_.
+      # If a _block_ is given, it will be passed a newly created
+      # NmapTask object.
       #
       def scan(options={},&block)
         run_task(NmapTask.new(options,&block))
