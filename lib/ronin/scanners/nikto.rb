@@ -21,5 +21,5 @@
 #++
 #
 
-require 'ronin/nikto/nikto_task'
-require 'ronin/nikto/nikto'
+require 'ronin/scanners/nikto/nikto_task'
+require 'ronin/scanners/nikto/nikto'
