@@ -21,6 +21,5 @@
 #++
 #
 
-require 'ronin/scanners/nmap'
-require 'ronin/scanners/nikto'
-require 'ronin/scanners/version'
+require 'ronin/nikto/nikto_task'
+require 'ronin/nikto/nikto'

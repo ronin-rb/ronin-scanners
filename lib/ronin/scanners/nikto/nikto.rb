@@ -21,6 +21,34 @@
 #++
 #
 
-require 'ronin/scanners/nmap'
-require 'ronin/scanners/nikto'
-require 'ronin/scanners/version'
+require 'ronin/scanners/nikto/nikto_task'
+
+require 'rprogram/program'
+
+module Ronin
+  module Scanners
+    class Nikto < RProgram::Program
+      
+      name_program 'nikto'
+      alias_program 'nikto.pl'
+
+      #
+      # Perform a Nikto scan using the given _options_ and _block_.
+      # If a _block_ is given, it will be passed a newly created
+      # NiktoTask object.
+      #
+      def self.scan(options={},&block)
+        self.find.scan(options,&block)
+      end
+
+      #
+      # Perform a Nikto scan using the given _options_ and _block_.
+      # If a _block_ is given, it will be passed a newly created
+      # NiktoTask object.
+      #
+      def scan(options={},&block)
+        run_task(NiktoTask.new(options,&block))
+      end
+    end
+  end
+end
