@@ -41,6 +41,7 @@ of Ronin.
 
 * Provides a Rubyful interface to Nmap.
 * Allows for recording of Nmap scan results using ScanDB.
+* Provides a Rubyful interface to Nikto.
 
 == REQUIREMENTS:
 
@@ -70,6 +71,12 @@ of Ronin.
     # Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
     # Nmap done: 1 IP address (1 host up) scanned in 11.627 seconds
     # => nil
+
+* Calling Nikto from Ruby:
+
+  require 'ronin/scanners/nikto'
+  
+  Scanners::Nikto.scan(:host => 'www.example.com')
 
 == LICENSE:
 
