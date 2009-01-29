@@ -53,6 +53,12 @@ of Ronin.
 
   $ sudo gem install ronin-scanners
 
+== SYNOPSIS:
+
+* Start the Ronin console with Ronin Scanners preloaded:
+
+  $ ronin-scanners
+
 == EXAMPLES:
 
 * Calling Nmap from Ruby:
