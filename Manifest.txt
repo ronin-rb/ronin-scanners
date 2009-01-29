@@ -2,6 +2,7 @@ History.txt
 Manifest.txt
 README.txt
 Rakefile
+bin/ronin-scanners
 lib/ronin/scanners.rb
 lib/ronin/scanners/nmap.rb
 lib/ronin/scanners/nmap/nmap.rb
