@@ -45,9 +45,9 @@ of Ronin.
 
 == REQUIREMENTS:
 
-* Scandb
-* RProgram >= 0.1.4
-* Ronin >= 0.1.2
+* {scandb}[http://scandb.rubyforge.org/]
+* {rprogram}[http://rprogram.rubyforge.org/] >= 0.1.4
+* {ronin}[http://ronin.rubyforge.org/] >= 0.1.2
 
 == INSTALL:
 
