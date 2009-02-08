@@ -119,7 +119,8 @@ module Ronin
       end
 
       #
-      # Enable use of Windows style directory separators.
+      # Enable use of Windows style directory separators
+      # (<tt>\\</tt> instead of <tt>/</tt>).
       #
       def windows_directories!
         self.evasion ||= ''
