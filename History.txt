@@ -1,3 +1,9 @@
+=== 0.1.2 / 2009-02-08
+
+* Added a Rubyful interface to the Nikto web scanner:
+  * Ronin::Scanners::Nikto.
+  * Ronin::Scanners::NiktoTask.
+
 === 0.1.1 / 2009-01-09
 
 * Require ScanDB >= 0.1.3 for the latest bug fixes.
