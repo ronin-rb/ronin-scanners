@@ -27,6 +27,30 @@ module Ronin
   module Scanners
     #
     # == Nikto options:
+    # <tt>-h</tt>:: <tt>nikto.host</tt>
+    # <tt>-config</tt>:: <tt>nikto.config</tt>
+    # <tt>-Cgidirs</tt>:: <tt>nikto.cgi_dirs</tt>
+    # <tt>-cookies</tt>:: <tt>nikto.print_cookies</tt>
+    # <tt>-evasion</tt>:: <tt>nikto.evasion</tt>
+    # <tt>-findonly</tt>:: <tt>nikto.evasion</tt>
+    # <tt>-Format</tt>:: <tt>nikto.format</tt>
+    # <tt>-generic</tt>:: <tt>nikto.full_scan</tt>
+    # <tt>-id</tt>:: <tt>nikto.http_auth</tt>
+    # <tt>-mutate</tt>:: <tt>nikto.mutate_checks</tt>
+    # <tt>-nolookup</tt>:: <tt>nikto.no_lookup</tt>
+    # <tt>-output</tt>:: <tt>nikto.output</tt>
+    # <tt>-port</tt>:: <tt>nikto.port</tt>
+    # <tt>-root</tt>:: <tt>nikto.root</tt>
+    # <tt>-ssl</tt>:: <tt>nikto.ssl</tt>
+    # <tt>-timeout</tt>:: <tt>nikto.timeout</tt>
+    # <tt>-useproxy</tt>:: <tt>nikto.enable_proxy</tt>
+    # <tt>-vhost</tt>:: <tt>nikto.vhost</tt>
+    # <tt>-Version</tt>:: <tt>nikto.version</tt>
+    # <tt>-404</tt>:: <tt>nikto.not_found_message</tt>
+    # <tt>-dbcheck</tt>:: <tt>nikto.validate_checks</tt>
+    # <tt>-debug</tt>:: <tt>nikto.debug</tt>
+    # <tt>-update</tt>:: <tt>nikto.update</tt>
+    # <tt>-verbose</tt>:: <tt>nikto.verbose</tt>
     #
     class NiktoTask < RProgram::Task
 
@@ -38,14 +62,23 @@ module Ronin
       short_option :flag => '-findonly', :name => :only_find
       short_option :flag => '-Format', :name => :format
 
+      #
+      # Sets the report format to +HTM+.
+      #
       def html_format!
         self.format = 'HTM'
       end
 
+      #
+      # Sets the report format to +TXT+.
+      #
       def text_format!
         self.format = 'TXT'
       end
 
+      #
+      # Sets the report format to +CVS+.
+      #
       def csv_format!
         self.format = 'CSV'
       end
