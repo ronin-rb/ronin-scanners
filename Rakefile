@@ -12,7 +12,7 @@ Hoe.new('ronin-scanners', Ronin::Scanners::VERSION) do |p|
   p.extra_deps = [
     ['scandb', '>=0.1.3'],
     ['rprogram', '>=0.1.4'],
-    ['ronin', '>=0.2.1']
+    ['ronin', '>=0.2.2']
   ]
 end
 
