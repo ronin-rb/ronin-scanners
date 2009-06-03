@@ -5,7 +5,7 @@ require 'hoe'
 require './tasks/spec.rb'
 require './lib/ronin/scanners/version.rb'
 
-Hoe.new('ronin-scanners', Ronin::Scanners::VERSION) do |p|
+Hoe.spec('ronin-scanners') do |p|
   p.rubyforge_name = 'ronin'
   p.developer('Postmodern', 'postmodern.mod3@gmail.com')
   p.remote_rdoc_dir = 'docs/ronin-scanners'
