@@ -41,16 +41,6 @@ install or update Overlays.
 * Allows for recording of Nmap scan results using ScanDB.
 * Provides a Rubyful interface to Nikto.
 
-== REQUIREMENTS:
-
-* {scandb}[http://scandb.rubyforge.org/]
-* {rprogram}[http://rprogram.rubyforge.org/] >= 0.1.4
-* {ronin}[http://ronin.rubyforge.org/] >= 0.1.2
-
-== INSTALL:
-
-  $ sudo gem install ronin-scanners
-
 == SYNOPSIS:
 
 * Start the Ronin console with Ronin Scanners preloaded:
@@ -81,6 +71,16 @@ install or update Overlays.
   require 'ronin/scanners/nikto'
   
   Scanners::Nikto.scan(:host => 'www.example.com')
+
+== REQUIREMENTS:
+
+* {scandb}[http://scandb.rubyforge.org/]
+* {rprogram}[http://rprogram.rubyforge.org/] >= 0.1.4
+* {ronin}[http://ronin.rubyforge.org/] >= 0.1.2
+
+== INSTALL:
+
+  $ sudo gem install ronin-scanners
 
 == LICENSE:
 
