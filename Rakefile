@@ -13,7 +13,7 @@ Hoe.spec('ronin-scanners') do
   self.extra_deps = [
     ['scandb', '>=0.1.3'],
     ['rprogram', '>=0.1.7'],
-    ['ronin', '>=0.2.4']
+    ['ronin', '>=0.3.0']
   ]
 
   self.extra_dev_deps = [
