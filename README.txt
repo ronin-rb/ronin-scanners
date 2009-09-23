@@ -74,9 +74,9 @@ install or update Overlays.
 
 == REQUIREMENTS:
 
-* {scandb}[http://scandb.rubyforge.org/]
-* {rprogram}[http://rprogram.rubyforge.org/] >= 0.1.4
-* {ronin}[http://ronin.rubyforge.org/] >= 0.1.2
+* {scandb}[http://scandb.rubyforge.org/] >= 0.1.3
+* {rprogram}[http://rprogram.rubyforge.org/] >= 0.1.7
+* {ronin}[http://ronin.rubyforge.org/] >= 0.3.0
 
 == INSTALL:
 
