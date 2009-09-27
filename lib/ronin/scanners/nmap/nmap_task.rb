@@ -158,6 +158,8 @@ module Ronin
     #
     # <tt>target specification</tt>:: <tt>nmap.targets</tt>
     #
+    # @see http://nmap.org/book/man.html
+    #
     class NmapTask < RProgram::Task
 
       # TARGET SPECIFICATIONS:

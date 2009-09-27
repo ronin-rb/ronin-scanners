@@ -50,6 +50,8 @@ module Ronin
     # <tt>-update</tt>:: <tt>nikto.update</tt>
     # <tt>-verbose</tt>:: <tt>nikto.verbose</tt>
     #
+    # @see http://linux.die.net/man/1/nikto
+    #
     class NiktoTask < RProgram::Task
 
       short_option :flag => '-h', :name => :host
