@@ -45,7 +45,7 @@ install or update Overlays.
 
 * Start the Ronin console with Ronin Scanners preloaded:
 
-  $ ronin-scanners
+    $ ronin-scanners
 
 == EXAMPLES:
 
