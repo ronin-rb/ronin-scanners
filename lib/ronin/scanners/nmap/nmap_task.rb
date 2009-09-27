@@ -156,7 +156,7 @@ module Ronin
     # <tt>-V</tt>:: <tt>nmap.version</tt>
     # <tt>-h</tt>:: <tt>nmap.help</tt>
     #
-    # <tt>{target specification}</tt>:: <tt>nmap.targets</tt>
+    # <tt>target specification</tt>:: <tt>nmap.targets</tt>
     #
     class NmapTask < RProgram::Task
 
