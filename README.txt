@@ -68,9 +68,9 @@ install or update Overlays.
 
 * Calling Nikto from Ruby:
 
-  require 'ronin/scanners/nikto'
-  
-  Scanners::Nikto.scan(:host => 'www.example.com')
+    require 'ronin/scanners/nikto'
+    
+    Scanners::Nikto.scan(:host => 'www.example.com')
 
 == REQUIREMENTS:
 
