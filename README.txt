@@ -2,8 +2,9 @@
 
 * http://ronin.rubyforge.org/scanners/
 * http://github.com/postmodern/ronin-scanners
+* http://github.com/postmodern/ronin-scanners/issues
+* http://groups.google.com/group/ronin-ruby
 * irc.freenode.net #ronin
-* Postmodern (postmodern.mod3 at gmail.com)
 
 == DESCRIPTION:
 
