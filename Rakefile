@@ -18,7 +18,7 @@ Hoe.spec('ronin-scanners') do
 
   self.extra_dev_deps = [
     ['rspec', '>=1.1.12'],
-    ['yard', '>=0.2.3.5']
+    ['yard', '>=0.4.0']
   ]
 
   self.spec_extras = {:has_rdoc => 'yard'}
