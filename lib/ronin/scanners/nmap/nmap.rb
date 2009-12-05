@@ -67,6 +67,22 @@ module Ronin
       end
 
       #
+      # Runs nmap.
+      #
+      # @return [true]
+      #   The nmap scan was successful.
+      #
+      def run
+        @xml = nil
+
+        # make sure we have an XML output file
+        @options.xml ||= Tempfile.new('ronin_scanners_nmap').path
+
+        @program.run_task(@options)
+        return true
+      end
+
+      #
       # The XML output of a previous nmap scan.
       #
       # @return [Nmap::XML]
@@ -75,17 +91,7 @@ module Ronin
       # @see http://ruby-nmap.rubyforge.org/Nmap/XML.html
       #
       def xml
-        unless @xml
-          # make sure we have an XML output file
-          @options.xml ||= Tempfile.new('ronin_scanners_nmap').path
-
-          @program.run_task(@options)
-
-          # parse scan results
-          @xml = ::Nmap::XML.new(@options.xml)
-        end
-
-        return @xml
+        @xml ||= ::Nmap::XML.new(@options.xml)
       end
 
       #
