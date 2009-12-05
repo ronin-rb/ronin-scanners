@@ -33,18 +33,26 @@ module Ronin
       #
       # Creates a new Nmap scanner object.
       #
-      # @yield [nmap]
-      #   If a block is given, it will be passed the newly created Nmap
-      #   object.
+      # @yield [options]
+      #   If a block is given, it will be passed the options that will be
+      #   used with nmap.
       #
-      # @yieldparam [Nmap] nmap
-      #   The new Nmap object.
+      # @yieldparam [Nmap::Task] options
+      #   The options that will be used to run nmap.
+      #
+      # @example
+      #   Nmap.new do |nmap|
+      #     nmap.connect_scan = true
+      #     nmap.ports = [80,8080,1080,4444]
+      #   end
+      #
+      # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
       #
       def initialize(&block)
         @program = ::Nmap::Program.find()
         @options = ::Nmap::Task.new()
 
-        block.call(self) if block
+        options(&block) if block
       end
 
       #
