@@ -33,6 +33,9 @@ module Ronin
       include Enumerable
       include Scanner
 
+      # Options to run nmap with
+      attr_reader :options
+
       #
       # Creates a new Nmap scanner object.
       #
@@ -67,28 +70,7 @@ module Ronin
                    end
 
         @options = ::Nmap::Task.new(options)
-
-        self.options(&block) if block
-      end
-
-      #
-      # The options that will be ran with nmap.
-      #
-      # @yield [task]
-      #   If a block is given, it will be passed the nmap options.
-      #
-      # @yieldparam [Nmap::Task] task
-      #   The nmap options.
-      #
-      # @return [Nmap::Task]
-      #   The nmap options.
-      #
-      # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
-      #
-      def options(&block)
         block.call(@options) if block
-
-        return @options
       end
 
       #
@@ -113,15 +95,12 @@ module Ronin
       # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
       #
       def run(&block)
+        block.call(@options) if block
+
+        # make sure we have an XML output file
+        @options.xml ||= Tempfile.new('ronin_scanners_nmap').path
+
         @xml = nil
-
-        options do |opts|
-          block.call(opts) if block
-
-          # make sure we have an XML output file
-          opts.xml ||= Tempfile.new('ronin_scanners_nmap').path
-        end
-
         @program.run_task(@options)
         return true
       end
