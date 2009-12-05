@@ -19,52 +19,45 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/nmap/nmap_task'
-
-require 'rprogram/program'
-require 'scandb'
+require 'nmap/task'
+require 'nmap/program'
 require 'tempfile'
 
 module Ronin
   module Scanners
-    class Nmap < RProgram::Program
+    class Nmap
 
-      name_program 'nmap'
+      include Enumerable
 
-      #
-      # Perform an Nmap scan using the given _options_ and _block_.
-      # If a _block_ is given, it will be passed a newly created
-      # NmapTask object.
-      #
-      def self.scan(options={},&block)
-        self.find.scan(options,&block)
+      def initialize(&block)
+        @program = ::Nmap::Program.find
+        @options = ::Nmap::Task.new()
+
+        block.call(self) if block
       end
 
-      #
-      # Perform an Nmap scan using the given _options_ and _block_.
-      # If a _block_ is given, it will be passed a newly created
-      # NmapTask object.
-      #
-      def scan(options={},&block)
-        run_task(NmapTask.new(options,&block))
+      def options(&block)
+        block.call(@options) if block
+
+        return @options
       end
 
-      #
-      # Perform an Nmap scan using the given _options_ and save
-      # the resulting scan information into ScanDB. If a _block_ is given,
-      # it will be passed each ScanDB::Host object from the scan.
-      #
-      def import_scan(options={},&block)
-        file = Tempfile.new('nmap',Config::TMP_DIR)
+      def xml
+        unless @xml
+          # make sure we have an XML output file
+          @options.xml ||= Tempfile.new('ronin_scanners_nmap').path
 
-        # perform the scan
-        scan(options.merge(:xml => file))
+          @program.run_task(@options)
 
-        # import the xml file into ScanDB
-        hosts = ScanDB::Nmap.import_xml(file,&block)
+          # parse scan results
+          @xml = ::Nmap::XML.new(@options.xml)
+        end
 
-        file.delete
-        return hosts
+        return @xml
+      end
+
+      def each(&block)
+        xml.each_host(&block)
       end
 
     end

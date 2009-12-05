@@ -6,7 +6,6 @@ bin/ronin-scanners
 lib/ronin/scanners.rb
 lib/ronin/scanners/nmap.rb
 lib/ronin/scanners/nmap/nmap.rb
-lib/ronin/scanners/nmap/nmap_task.rb
 lib/ronin/scanners/nikto.rb
 lib/ronin/scanners/nikto/nikto.rb
 lib/ronin/scanners/nikto/nikto_task.rb

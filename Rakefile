@@ -11,8 +11,8 @@ Hoe.spec('ronin-scanners') do
   self.developer('Postmodern', 'postmodern.mod3@gmail.com')
   self.remote_rdoc_dir = 'docs/ronin-scanners'
   self.extra_deps = [
-    ['scandb', '>=0.1.3'],
     ['rprogram', '>=0.1.7'],
+    ['ruby-nmap', '>=0.1.0'],
     ['ronin', '>=0.3.0']
   ]
 
