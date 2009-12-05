@@ -126,10 +126,17 @@ module Ronin
       # @yieldparam [Nmap::Host] host
       #   A host from the previous nmap scan.
       #
+      # @return [Nmap]
+      #   The nmap scanner.
+      #
       # @see http://ruby-nmap.rubyforge.org/Nmap/Host.html
       #
       def each(&block)
-        xml.each_host(&block)
+        if (parser = self.xml)
+          parser.each_host(&block)
+        end
+
+        return self
       end
 
     end
