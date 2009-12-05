@@ -91,7 +91,11 @@ module Ronin
       # @see http://ruby-nmap.rubyforge.org/Nmap/XML.html
       #
       def xml
-        @xml ||= ::Nmap::XML.new(@options.xml)
+        if @options.xml
+          @xml ||= ::Nmap::XML.new(@options.xml)
+        end
+
+        return @xml
       end
 
       #
