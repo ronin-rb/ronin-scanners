@@ -29,6 +29,16 @@ module Ronin
 
       include Enumerable
 
+      #
+      # Creates a new Nmap scanner object.
+      #
+      # @yield [nmap]
+      #   If a block is given, it will be passed the newly created Nmap
+      #   object.
+      #
+      # @yieldparam [Nmap] nmap
+      #   The new Nmap object.
+      #
       def initialize(&block)
         @program = ::Nmap::Program.find
         @options = ::Nmap::Task.new()
@@ -36,12 +46,34 @@ module Ronin
         block.call(self) if block
       end
 
+      #
+      # The options that will be ran with nmap.
+      #
+      # @yield [task]
+      #   If a block is given, it will be passed the nmap options.
+      #
+      # @yieldparam [Nmap::Task] task
+      #   The nmap options.
+      #
+      # @return [Nmap::Task]
+      #   The nmap options.
+      #
+      # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
+      #
       def options(&block)
         block.call(@options) if block
 
         return @options
       end
 
+      #
+      # The XML output of a previous nmap scan.
+      #
+      # @return [Nmap::XML]
+      #   The Nmap XML parser.
+      #
+      # @see http://ruby-nmap.rubyforge.org/Nmap/XML.html
+      #
       def xml
         unless @xml
           # make sure we have an XML output file
@@ -56,6 +88,17 @@ module Ronin
         return @xml
       end
 
+      #
+      # Itereates over every host from a previous nmap scan.
+      #
+      # @yield [host]
+      #   The given block will receive every host from the scan.
+      #
+      # @yieldparam [Nmap::Host] host
+      #   A host from the previous nmap scan.
+      #
+      # @see http://ruby-nmap.rubyforge.org/Nmap/Host.html
+      #
       def each(&block)
         xml.each_host(&block)
       end
