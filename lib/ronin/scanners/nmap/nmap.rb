@@ -19,6 +19,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
+require 'ronin/scanners/scanner'
+
 require 'nmap/task'
 require 'nmap/program'
 require 'nmap/xml'
@@ -29,6 +31,7 @@ module Ronin
     class Nmap
 
       include Enumerable
+      include Scanner
 
       #
       # Creates a new Nmap scanner object.
@@ -159,6 +162,23 @@ module Ronin
         end
 
         return self
+      end
+
+      protected
+
+      #
+      # Performs a nmap scan and passes the scanned hosts to scanner rules.
+      #
+      # @yield [host]
+      #   Every host that nmap scanned, will be passed to the given block.
+      #
+      # @yieldparam [Nmap::Host] host
+      #   A host from the nmap scan.
+      #
+      def each_target(&block)
+        run()
+
+        each(&block)
       end
 
     end
