@@ -40,7 +40,7 @@ module Ronin
       #   The new Nmap object.
       #
       def initialize(&block)
-        @program = ::Nmap::Program.find
+        @program = ::Nmap::Program.find()
         @options = ::Nmap::Task.new()
 
         block.call(self) if block
