@@ -79,6 +79,12 @@ module Ronin
       # @return [true]
       #   The nmap scan was successful.
       #
+      # @example
+      #   nmap.run do |nmap|
+      #     nmap.connect_scan = true
+      #     nmap.ports = [20,21,22,23,25,80]
+      #   end
+      #
       # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
       #
       def run(&block)
