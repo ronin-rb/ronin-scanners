@@ -33,6 +33,12 @@ module Ronin
       #
       # Creates a new Nmap scanner object.
       #
+      # @param [Hash] options
+      #   Nmap options.
+      #
+      # @option options [String] :path
+      #   The specific path to the nmap utility.
+      #
       # @yield [options]
       #   If a block is given, it will be passed the options that will be
       #   used with nmap.
@@ -48,11 +54,18 @@ module Ronin
       #
       # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
       #
-      def initialize(&block)
-        @program = ::Nmap::Program.find()
-        @options = ::Nmap::Task.new()
+      def initialize(options={},&block)
+        path = options.delete(:path)
 
-        options(&block) if block
+        @program = if path
+                     ::Nmap::Program.new(path)
+                   else
+                     ::Nmap::Program.find()
+                   end
+
+        @options = ::Nmap::Task.new(options)
+
+        self.options(&block) if block
       end
 
       #
