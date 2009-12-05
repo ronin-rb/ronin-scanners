@@ -21,6 +21,7 @@
 
 require 'nmap/task'
 require 'nmap/program'
+require 'nmap/xml'
 require 'tempfile'
 
 module Ronin
