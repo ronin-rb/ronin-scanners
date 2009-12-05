@@ -69,14 +69,27 @@ module Ronin
       #
       # Runs nmap.
       #
+      # @yield [options]
+      #   If a block is given, it will be passed the options used with
+      #   nmap, before nmap is ran.
+      #
+      # @yieldparam [Nmap::Task] options
+      #   The nmap options.
+      #
       # @return [true]
       #   The nmap scan was successful.
       #
-      def run
+      # @see http://ruby-nmap.rubyforge.org/Nmap/Task.html
+      #
+      def run(&block)
         @xml = nil
 
-        # make sure we have an XML output file
-        @options.xml ||= Tempfile.new('ronin_scanners_nmap').path
+        options do |opts|
+          block.call(opts) if block
+
+          # make sure we have an XML output file
+          opts.xml ||= Tempfile.new('ronin_scanners_nmap').path
+        end
 
         @program.run_task(@options)
         return true
