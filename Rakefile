@@ -9,7 +9,10 @@ require './tasks/yard.rb'
 Hoe.spec('ronin-scanners') do
   self.rubyforge_name = 'ronin'
   self.developer('Postmodern', 'postmodern.mod3@gmail.com')
+  self.readme_file = 'README.rdoc'
+  self.history_file = 'History.rdoc'
   self.remote_rdoc_dir = 'docs/ronin-scanners'
+
   self.extra_deps = [
     ['rprogram', '>=0.1.7'],
     ['ruby-nmap', '>=0.1.0'],

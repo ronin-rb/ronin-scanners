@@ -1,7 +1,7 @@
 COPYING.txt
-History.txt
+History.rdoc
 Manifest.txt
-README.txt
+README.rdoc
 Rakefile
 bin/ronin-scanners
 lib/ronin/scanners.rb
