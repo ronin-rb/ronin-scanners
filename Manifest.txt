@@ -10,7 +10,6 @@ lib/ronin/scanners/nikto.rb
 lib/ronin/scanners/nikto/nikto.rb
 lib/ronin/scanners/nikto/nikto_task.rb
 lib/ronin/scanners/version.rb
-tasks/spec.rb
 tasks/yard.rb
 spec/spec_helper.rb
 spec/helpers/database.rb
