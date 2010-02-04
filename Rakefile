@@ -16,7 +16,6 @@ Hoe.spec('ronin-scanners') do
   self.remote_yard_dir = 'docs/ronin-scanners'
 
   self.extra_deps = [
-    ['rprogram', '>=0.1.7'],
     ['ruby-nmap', '>=0.1.0'],
     ['ruby-nikto', '>=0.1.0'],
     ['ronin', '>=0.3.0']
