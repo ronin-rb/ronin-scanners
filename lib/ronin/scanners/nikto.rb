@@ -19,5 +19,24 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/nikto/nikto_task'
-require 'ronin/scanners/nikto/nikto'
+require 'ronin/scanners/scanner'
+
+require 'nikto/task'
+require 'nikto/program'
+require 'tempfile'
+
+module Ronin
+  module Scanners
+    class Nikto
+
+      include Enumerable
+      include Scanner
+
+      protected
+
+      def each_target(&block)
+      end
+
+    end
+  end
+end
