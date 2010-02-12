@@ -1,12 +1,12 @@
 # Ronin Scanners
 
-* http://ronin.rubyforge.org/scanners/
-* http://github.com/postmodern/ronin-scanners
-* http://github.com/postmodern/ronin-scanners/issues
-* http://groups.google.com/group/ronin-ruby
+* [ronin.rubyforge.org/scanners](http://ronin.rubyforge.org/scanners/)
+* [github.com/postmodern/ronin-scanners](http://github.com/postmodern/ronin-scanners/)
+* [github.com/postmodern/ronin-scanners/issues](http://github.com/postmodern/ronin-scanners/issues)
+* [groups.google.com/group/ronin-ruby](http://groups.google.com/group/ronin-ruby)
 * irc.freenode.net #ronin
 
-## DESCRIPTION:
+## Description
 
 Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to
 various third-party security scanners.
@@ -36,19 +36,19 @@ data via Overlays. Overlays are directories of code and data that can be
 hosted on any SVN, Hg, Git or Rsync server. Ronin makes it easy to create,
 install or update Overlays.
 
-## FEATURES/PROBLEMS:
+## Features
 
 * Provides a Rubyful interface to Nmap.
 * Allows for recording of Nmap scan results using ScanDB.
 * Provides a Rubyful interface to Nikto.
 
-## SYNOPSIS:
+## Synopsis
 
 Start the Ronin console with Ronin Scanners preloaded:
 
     $ ronin-scanners
 
-## EXAMPLES:
+## Examples
 
 Calling Nmap from Ruby:
 
@@ -73,17 +73,17 @@ Calling Nikto from Ruby:
     
     Scanners::Nikto.scan(:host => 'www.example.com')
 
-## REQUIREMENTS:
+## Requirements
 
-* [scandb](http://scandb.rubyforge.org/) >= 0.1.3
-* [rprogram](http://rprogram.rubyforge.org/) >= 0.1.7
-* [ronin](http://ronin.rubyforge.org/) >= 0.3.0
+* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) >= 0.1.0
+* [ruby-nikto](http://github.com/sophsec/ruby-nikto/) >= 0.1.0
+* [ronin](http://ronin.rubyforge.org/) >= 0.4.0
 
-## INSTALL:
+## Install
 
     $ sudo gem install ronin-scanners
 
-## LICENSE:
+## License
 
 Ronin Scanners - A Ruby library for Ronin that provides Ruby interfaces to
 various third-party security scanners.
