@@ -7,6 +7,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = 'ronin-scanners'
     gem.version = Ronin::Scanners::VERSION
+    gem.licenses = ['GPL-2']
     gem.summary = %Q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
     gem.description = %Q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
     gem.email = 'postmodern.mod3@gmail.com'
