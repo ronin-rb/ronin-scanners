@@ -1,8 +1,8 @@
 # Ronin Scanners
 
 * [ronin.rubyforge.org/scanners](http://ronin.rubyforge.org/scanners/)
-* [github.com/postmodern/ronin-scanners](http://github.com/postmodern/ronin-scanners/)
-* [github.com/postmodern/ronin-scanners/issues](http://github.com/postmodern/ronin-scanners/issues)
+* [github.com/ronin-ruby/ronin-scanners](http://github.com/ronin-ruby/ronin-scanners/)
+* [github.com/ronin-ruby/ronin-scanners/issues](http://github.com/ronin-ruby/ronin-scanners/issues)
 * [groups.google.com/group/ronin-ruby](http://groups.google.com/group/ronin-ruby)
 * irc.freenode.net #ronin
 
