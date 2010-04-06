@@ -19,6 +19,11 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
+require 'ronin/platform/cacheable'
+require 'ronin/model/has_name'
+require 'ronin/model/has_description'
+require 'ronin/model/has_license'
+
 require 'parameters'
 
 module Ronin
@@ -27,6 +32,13 @@ module Ronin
 
       include Enumerable
       include Parameters
+      include Platform::Cacheable
+      include Model::HasName
+      include Model::HasDescription
+      include Model::HasLicense
+      include Model::HasAuthors
+
+      contextify :ronin_scanner
 
       #
       # Creates a new {Scanner} object.
@@ -37,6 +49,8 @@ module Ronin
       # @since 0.2.0
       #
       def initialize(options={})
+        super(options)
+
         initialize_params(options)
       end
 
@@ -57,11 +71,29 @@ module Ronin
       def each(&block)
         return enum_for(:scan) unless block
 
-        scan(&block)
+        scan do |result|
+          block.call(normalize_result(result))
+        end
+
         return self
       end
 
       protected
+
+      #
+      # The default method which normalizes results.
+      #
+      # @param [Object] result
+      #   The incoming result.
+      #
+      # @return [Object]
+      #   The normalized result.
+      #
+      # @since 0.2.0
+      #
+      def normalize_result(result)
+        result
+      end
 
       #
       # The default method which will actually perform the scanning.
