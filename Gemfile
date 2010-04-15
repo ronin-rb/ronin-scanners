@@ -4,7 +4,7 @@ ronin_ruby = "git://github.com/ronin-ruby"
 group :runtime do
   gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
   #gem 'ruby-nikto',	'~> 0.1.0'
-  gem 'ronin-ext'	'~> 0.1.0', :git => "#{ronin_ruby}/ronin-ext.git"
+  gem 'ronin-ext',	'~> 0.1.0', :git => "#{ronin_ruby}/ronin-ext.git"
   gem 'ronin',		'~> 0.4.0', :git => "#{ronin_ruby}/ronin.git"
 end
 
