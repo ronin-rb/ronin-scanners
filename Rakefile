@@ -1,28 +1,28 @@
 require 'rubygems'
-require 'rake'
-require './lib/ronin/scanners/version.rb'
+require 'bundler'
 
 begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = 'ronin-scanners'
-    gem.version = Ronin::Scanners::VERSION
-    gem.licenses = ['GPL-2']
-    gem.summary = %Q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
-    gem.description = %Q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
-    gem.email = 'postmodern.mod3@gmail.com'
-    gem.homepage = 'http://github.com/ronin-ruby/ronin-scanners'
-    gem.authors = ['Postmodern']
-    gem.add_dependency 'ruby-nmap', '~> 0.1.0'
-    gem.add_dependency 'ruby-nikto', '~> 0.1.0'
-    gem.add_dependency 'ronin', '~> 0.4.0'
-    gem.add_development_dependency 'rspec', '~> 1.3.0'
-    gem.add_development_dependency 'yard', '~> 0.5.3'
-    gem.has_rdoc = 'yard'
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  Bundler.setup(:runtime, :development)
+rescue Bundler::BundlerError => e
+  STDERR.puts e.message
+  STDERR.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
+
+require 'rake'
+require 'jeweler'
+require './lib/ronin/scanners/version.rb'
+
+Jeweler::Tasks.new do |gem|
+  gem.name = 'ronin-scanners'
+  gem.version = Ronin::Scanners::VERSION
+  gem.licenses = ['GPL-2']
+  gem.summary = %Q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
+  gem.description = %Q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
+  gem.email = 'postmodern.mod3@gmail.com'
+  gem.homepage = 'http://github.com/ronin-ruby/ronin-scanners'
+  gem.authors = ['Postmodern']
+  gem.has_rdoc = 'yard'
 end
 
 require 'spec/rake/spectask'
@@ -32,15 +32,7 @@ Spec::Rake::SpecTask.new(:spec) do |spec|
   spec.spec_opts = ['--options', '.specopts']
 end
 
-task :spec => :check_dependencies
 task :default => :spec
 
-begin
-  require 'yard'
-
-  YARD::Rake::YardocTask.new
-rescue LoadError
-  task :yard do
-    abort "YARD is not available. In order to run yard, you must: gem install yard"
-  end
-end
+require 'yard'
+YARD::Rake::YardocTask.new
