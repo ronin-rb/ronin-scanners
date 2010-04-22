@@ -68,14 +68,63 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def each(&block)
-        return enum_for(:scan) unless block
+      def each
+        return enum_for(:scan) unless block_given?
 
         scan do |result|
-          block.call(normalize_result(result))
+          yield normalize_result(result)
         end
 
         return self
+      end
+
+      #
+      # Creates new resource objects from the scan results.
+      #
+      # @yield [resource]
+      #   The given block will be passed each resource.
+      #
+      # @yieldparam [DataMapper::Resource]
+      #   A new or pre-existing resource.
+      #
+      # @return [Scanner, Enumerator]
+      #   If no block was given, an `Enumerator` object will be returned.
+      #
+      # @since 0.2.0
+      #
+      def each_resource
+        return enum_for(:import) unless block_given?
+
+        scan do |result|
+          resource = new_resource(normalize_result(result))
+
+          if resource
+            yield resource
+          end
+        end
+      end
+
+      #
+      # Imports the scan results into the Database.
+      #
+      # @yield [resource]
+      #   The given block will be passed each resource, after it has
+      #   been saved into the Database.
+      #
+      # @yieldparam [DataMapper::Resource]
+      #   A resource that exists in the Database.
+      #
+      # @return [Scanner, Enumerator]
+      #   If no block was given, an `Enumerator` object will be returned.
+      #
+      # @since 0.2.0
+      #
+      def import_each
+        return enum_for(:import_each) unless block_given?
+
+        each_resource do |result|
+          yield resource if resource.save
+        end
       end
 
       protected
@@ -93,6 +142,22 @@ module Ronin
       #
       def normalize_result(result)
         result
+      end
+
+      #
+      # Creates a new Database resource.
+      #
+      # @param [result]
+      #   A result from the scan.
+      #
+      # @return [DataMapper::Resource, nil]
+      #   The resource created from the result, or `nil` if a resource
+      #   could not be created from the result.
+      #
+      # @since 0.2.0
+      #
+      def new_resource(result)
+        nil
       end
 
       #
