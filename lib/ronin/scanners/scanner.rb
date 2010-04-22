@@ -40,6 +40,9 @@ module Ronin
 
       contextify :ronin_scanner
 
+      # The primary-key of the scanner
+      property :id, Serial
+
       #
       # Creates a new {Scanner} object.
       #
