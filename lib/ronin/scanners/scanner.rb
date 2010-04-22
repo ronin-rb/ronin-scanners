@@ -69,7 +69,7 @@ module Ronin
       # @since 0.2.0
       #
       def each
-        return enum_for(:scan) unless block_given?
+        return enum_for(:each) unless block_given?
 
         scan do |result|
           yield normalize_result(result)
