@@ -20,5 +20,4 @@
 #
 
 require 'ronin/scanners/nmap'
-require 'ronin/scanners/nikto'
 require 'ronin/scanners/version'
