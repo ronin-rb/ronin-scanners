@@ -42,7 +42,8 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/version.rb",
     "ronin-scanners.gemspec",
     "spec/helpers/database.rb",
-    "spec/scanners_spec.rb",
+    "spec/scanners/scanner_spec.rb",
+    "spec/scanners/scanners_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.has_rdoc = %q{yard}
@@ -53,7 +54,8 @@ Gem::Specification.new do |s|
   s.summary = %q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.test_files = [
     "spec/helpers/database.rb",
-    "spec/scanners_spec.rb",
+    "spec/scanners/scanner_spec.rb",
+    "spec/scanners/scanners_spec.rb",
     "spec/spec_helper.rb"
   ]
 
