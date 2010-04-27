@@ -74,10 +74,10 @@ module Ronin
         return enum_for(:each) unless block_given?
 
         scan do |result|
-          result = normalize_result(result)
-
           if result
-            yield result
+            if (result = normalize_result(result))
+              yield result
+            end
           end
         end
 
@@ -102,13 +102,11 @@ module Ronin
         return enum_for(:import) unless block_given?
 
         scan do |result|
-          result = normalize_result(result)
-
           if result
-            resource = new_resource(result)
-
-            if resource
-              yield resource
+            if (result = normalize_result(result))
+              if (resource = new_resource(result))
+                yield resource
+              end
             end
           end
         end
