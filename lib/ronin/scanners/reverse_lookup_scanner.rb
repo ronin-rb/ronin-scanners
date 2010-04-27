@@ -19,16 +19,31 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/version'
-require 'ronin/database'
+require 'ronin/scanners/host_name_scanner'
 
-Ronin::Database.upgrade do
-  require 'ronin/scanners/scanner'
-  require 'ronin/scanners/ip_scanner'
-  require 'ronin/scanners/host_name_scanner'
-  require 'ronin/scanners/tcp_port_scanner'
-  require 'ronin/scanners/udp_port_scanner'
-  require 'ronin/scanners/url_scanner'
-  require 'ronin/scanners/site_map_scanner'
-  require 'ronin/scanners/nmap_scanner'
+require 'resolv'
+
+module Ronin
+  module Scanners
+    class ReverseLookupScanner < HostNameScanner
+
+      parameter :ip, :description => 'The IP address to reverse lookup'
+
+      protected
+
+      #
+      # Performs a reverse lookup on an IP address.
+      #
+      # @yield [host]
+      #   The host name associated with the IP address.
+      #
+      # @yieldparam [String] host
+      #   A host name associated with the IP address.
+      #
+      def scan(&block)
+        Resolv.getnames(self.host).each(&block)
+      end
+
+    end
+  end
 end

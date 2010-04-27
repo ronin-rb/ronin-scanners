@@ -19,22 +19,37 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/scanner'
+require 'ronin/scanners/url_scanner'
+require 'ronin/network/mixins/http'
 
-require 'nikto/task'
-require 'nikto/program'
-require 'tempfile'
+require 'nokogiri'
 
 module Ronin
   module Scanners
-    class Nikto
+    class SiteMapScanner < URLScanner
 
-      include Enumerable
-      include Scanner
+      include Network::Mixins::HTTP
+
+      # The path to the sitemap
+      SITEMAP_PATH = '/sitemap.xml'
 
       protected
 
-      def each_target(&block)
+      #
+      # Requests `sitemap.xml` from a host and parses the URLs.
+      #
+      # @yield [url]
+      #   The given block will be passed every URL within the sitemap.
+      #
+      # @yieldparam [String] url
+      #   One of the URLs from the sitemap.
+      #
+      def scan(&block)
+        sitemap = Nokogiri::XML(http_get_body(:path => SITEMAP_PATH))
+
+        sitemap.search('/urlset/url/loc/.').each do |url|
+          yield url
+        end
       end
 
     end

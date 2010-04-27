@@ -19,16 +19,32 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/version'
-require 'ronin/database'
+require 'ronin/scanners/ip_scanner'
 
-Ronin::Database.upgrade do
-  require 'ronin/scanners/scanner'
-  require 'ronin/scanners/ip_scanner'
-  require 'ronin/scanners/host_name_scanner'
-  require 'ronin/scanners/tcp_port_scanner'
-  require 'ronin/scanners/udp_port_scanner'
-  require 'ronin/scanners/url_scanner'
-  require 'ronin/scanners/site_map_scanner'
-  require 'ronin/scanners/nmap_scanner'
+require 'resolv'
+
+module Ronin
+  module Scanners
+    class ResolvScanner < IPScanner
+
+      parameter :host, :description => 'The host to resolv'
+
+      protected
+
+      #
+      # Resolvs the IP addresses for the host.
+      #
+      # @yield [ip]
+      #   The given block will be passed each IP address associated with the
+      #   host.
+      #
+      # @yieldparam [String] ip
+      #   An IP address of the host.
+      #
+      def scan(&block)
+        Resolv.getaddresses(self.host).each(&block)
+      end
+
+    end
+  end
 end

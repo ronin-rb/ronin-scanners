@@ -19,8 +19,48 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
+require 'ronin/scanners/scanner'
+require 'ronin/int/port'
+
 module Ronin
   module Scanners
-    VERSION = '0.2.0'
+    class UDPPortScanner < Scanner
+
+      contextify :ronin_udp_port_scanner
+
+      protected
+
+      #
+      # Normalizes the port number.
+      #
+      # @param [String, Integer] result
+      #   The incoming port number.
+      #
+      # @return [Integer]
+      #   The normalized port number.
+      #
+      def normalize_result(result)
+        result.to_i
+      end
+
+      #
+      # Queries or creates a new open-port resource for the given result.
+      #
+      # @param [Integer] result
+      #   The port number.
+      #
+      # @return [INT::OpenPort]
+      #   The open port resource from the Database.
+      #
+      def new_resource(result)
+        INT::OpenPort.first_or_new(
+          :port => INT::Port.first_or_new(
+            :protocol => 'udp',
+            :number => result
+          )
+        )
+      end
+
+    end
   end
 end
