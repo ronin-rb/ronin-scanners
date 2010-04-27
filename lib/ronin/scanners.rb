@@ -19,5 +19,15 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/nmap'
 require 'ronin/scanners/version'
+require 'ronin/database'
+
+Ronin::Database.upgrade do
+  require 'ronin/scanners/scanner'
+  require 'ronin/scanners/ip_scanner'
+  require 'ronin/scanners/host_name_scanner'
+  require 'ronin/scanners/tcp_port_scanner'
+  require 'ronin/scanners/udp_port_scanner'
+  require 'ronin/scanners/url_scanner'
+  require 'ronin/scanners/site_map_scanner'
+end
