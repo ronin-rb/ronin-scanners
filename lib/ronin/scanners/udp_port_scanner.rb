@@ -20,7 +20,7 @@
 #
 
 require 'ronin/scanners/scanner'
-require 'ronin/int/port'
+require 'ronin/int/open_port'
 
 module Ronin
   module Scanners
