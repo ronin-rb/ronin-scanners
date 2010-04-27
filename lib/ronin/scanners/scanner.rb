@@ -36,7 +36,6 @@ module Ronin
       include Model::HasName
       include Model::HasDescription
       include Model::HasLicense
-      include Model::HasAuthors
 
       contextify :ronin_scanner
 
