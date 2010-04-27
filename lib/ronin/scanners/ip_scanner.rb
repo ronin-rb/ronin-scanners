@@ -42,7 +42,7 @@ module Ronin
       #
       def normalize_result(result)
         unless result.kind_of?(IPAddr)
-          IPAddress.new(result.to_s)
+          IPAddr.new(result.to_s)
         else
           result
         end
