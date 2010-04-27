@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "lib/ronin/scanners/ip_scanner.rb",
      "lib/ronin/scanners/nmap.rb",
      "lib/ronin/scanners/resolv_scanner.rb",
+     "lib/ronin/scanners/reverse_lookup_scanner.rb",
      "lib/ronin/scanners/scanner.rb",
      "lib/ronin/scanners/site_map_scanner.rb",
      "lib/ronin/scanners/tcp_port_scanner.rb",
