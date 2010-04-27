@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "lib/ronin/scanners/ip_scanner.rb",
      "lib/ronin/scanners/nmap.rb",
      "lib/ronin/scanners/scanner.rb",
+     "lib/ronin/scanners/site_map_scanner.rb",
      "lib/ronin/scanners/tcp_port_scanner.rb",
      "lib/ronin/scanners/udp_port_scanner.rb",
      "lib/ronin/scanners/url_scanner.rb",
@@ -60,6 +61,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<parameters>, ["~> 0.2.1"])
+      s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.1"])
       s.add_runtime_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin-ext>, ["~> 0.1.0"])
@@ -69,6 +71,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<yard>, ["~> 0.5.3"])
     else
       s.add_dependency(%q<parameters>, ["~> 0.2.1"])
+      s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
       s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin-ext>, ["~> 0.1.0"])
@@ -79,6 +82,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<parameters>, ["~> 0.2.1"])
+    s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
     s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
     s.add_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin-ext>, ["~> 0.1.0"])

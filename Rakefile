@@ -14,6 +14,7 @@ begin
     gem.homepage = 'http://github.com/ronin-ruby/ronin-scanners'
     gem.authors = ['Postmodern']
     gem.add_dependency 'parameters', '~> 0.2.1'
+    gem.add_dependency 'nokogiri', '~> 1.4.1'
     gem.add_dependency 'ruby-nmap', '~> 0.1.0'
     gem.add_dependency 'ruby-nikto', '~> 0.1.0'
     gem.add_dependency 'ronin-ext', '~> 0.1.0'
