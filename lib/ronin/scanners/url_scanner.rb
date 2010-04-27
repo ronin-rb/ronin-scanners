@@ -43,7 +43,7 @@ module Ronin
       #   The normalized URI.
       #
       def normalize_result(result)
-        unless result.kind_of?(URI::Generic)
+        unless result.kind_of?(::URI::Generic)
           URI(result.to_s)
         else
           result
@@ -61,7 +61,7 @@ module Ronin
       #
       def new_resource(result)
         INT::Url.first_or_new(
-          :schema => result.schema,
+          :scheme => result.scheme,
           :host_name => INT::HostName.first_or_new(
             :address => result.host
           ),
