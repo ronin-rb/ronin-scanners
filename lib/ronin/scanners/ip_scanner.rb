@@ -21,6 +21,7 @@
 
 require 'ronin/scanners/scanner'
 require 'ronin/extensions/ip_addr'
+require 'ronin/int/ip_address'
 
 module Ronin
   module Scanners
@@ -39,14 +40,25 @@ module Ronin
       # @return [IPAddr]
       #   The normalized IP Address.
       #
-      # @since 0.2.0
-      #
       def normalize_result(result)
         unless result.kind_of?(IPAddr)
           IPAddress.new(result.to_s)
         else
           result
         end
+      end
+
+      #
+      # Queries or creates a new IpAddress resource for the given result.
+      #
+      # @param [IPAddr] result
+      #   The ip address.
+      #
+      # @return [INT::IpAddress]
+      #   The IpAddress resource from the Database.
+      #
+      def new_resource(result)
+        INT::IpAddress.first_or_new(:address => result)
       end
 
     end

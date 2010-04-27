@@ -20,12 +20,41 @@
 #
 
 require 'ronin/scanners/scanner'
+require 'ronin/int/host_name'
 
 module Ronin
   module Scanners
-    class PortScanner < Scanner
+    class HostNameScanner < Scanner
 
-      contextify :ronin_port_scanner
+      contextify :ronin_host_name_scanner
+
+      protected
+
+      #
+      # Normalizes the host name.
+      #
+      # @param [Object] result
+      #   The incoming host name.
+      #
+      # @return [String]
+      #   The normalized host name.
+      #
+      def normalize_result(result)
+        result.to_s
+      end
+
+      #
+      # Queries or creates a new HostName resource for the result.
+      #
+      # @param [String] result
+      #   The host name.
+      #
+      # @return [INT::HostName]
+      #   The HostName resource from the Database.
+      #
+      def new_resource(result)
+        INT::HostName.first_or_new(:address => result)
+      end
 
     end
   end

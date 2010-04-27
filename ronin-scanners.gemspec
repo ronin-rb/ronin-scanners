@@ -9,36 +9,38 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-04-06}
+  s.date = %q{2010-04-26}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{postmodern.mod3@gmail.com}
   s.executables = ["ronin-scanners"]
   s.extra_rdoc_files = [
     "ChangeLog.md",
-    "README.md"
+     "README.md"
   ]
   s.files = [
     ".gitignore",
-    ".specopts",
-    ".yardopts",
-    "COPYING.txt",
-    "ChangeLog.md",
-    "README.md",
-    "Rakefile",
-    "bin/ronin-scanners",
-    "lib/ronin/scanners.rb",
-    "lib/ronin/scanners/ip_scanner.rb",
-    "lib/ronin/scanners/nikto.rb",
-    "lib/ronin/scanners/nmap.rb",
-    "lib/ronin/scanners/port_scanner.rb",
-    "lib/ronin/scanners/scanner.rb",
-    "lib/ronin/scanners/url_scanner.rb",
-    "lib/ronin/scanners/version.rb",
-    "ronin-scanners.gemspec",
-    "spec/helpers/database.rb",
-    "spec/scanners_spec.rb",
-    "spec/spec_helper.rb"
+     ".specopts",
+     ".yardopts",
+     "COPYING.txt",
+     "ChangeLog.md",
+     "README.md",
+     "Rakefile",
+     "bin/ronin-scanners",
+     "lib/ronin/scanners.rb",
+     "lib/ronin/scanners/host_name_scanner.rb",
+     "lib/ronin/scanners/ip_scanner.rb",
+     "lib/ronin/scanners/nikto.rb",
+     "lib/ronin/scanners/nmap.rb",
+     "lib/ronin/scanners/scanner.rb",
+     "lib/ronin/scanners/tcp_port_scanner.rb",
+     "lib/ronin/scanners/udp_port_scanner.rb",
+     "lib/ronin/scanners/url_scanner.rb",
+     "lib/ronin/scanners/version.rb",
+     "ronin-scanners.gemspec",
+     "spec/helpers/database.rb",
+     "spec/scanners_spec.rb",
+     "spec/spec_helper.rb"
   ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/ronin-ruby/ronin-scanners}
@@ -48,9 +50,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.test_files = [
-    "spec/scanners_spec.rb",
     "spec/spec_helper.rb",
-    "spec/helpers/database.rb"
+     "spec/scanners_spec.rb",
+     "spec/helpers/database.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -62,6 +64,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin-ext>, ["~> 0.1.0"])
+      s.add_runtime_dependency(%q<ronin-int>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin>, ["~> 0.4.0"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
       s.add_development_dependency(%q<yard>, ["~> 0.5.3"])
@@ -70,6 +73,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin-ext>, ["~> 0.1.0"])
+      s.add_dependency(%q<ronin-int>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin>, ["~> 0.4.0"])
       s.add_dependency(%q<rspec>, ["~> 1.3.0"])
       s.add_dependency(%q<yard>, ["~> 0.5.3"])
@@ -79,6 +83,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
     s.add_dependency(%q<ruby-nikto>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin-ext>, ["~> 0.1.0"])
+    s.add_dependency(%q<ronin-int>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin>, ["~> 0.4.0"])
     s.add_dependency(%q<rspec>, ["~> 1.3.0"])
     s.add_dependency(%q<yard>, ["~> 0.5.3"])

@@ -19,58 +19,45 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanner/scanner'
-require 'ronin/extensions/uri'
-require 'ronin/int/url'
-
-require 'uri'
+require 'ronin/scanners/scanner'
+require 'ronin/int/port'
 
 module Ronin
   module Scanners
-    class URLScanner < Scanner
+    class TCPPortScanner < Scanner
 
-      contextify :ronin_url_scanner
+      contextify :ronin_tcp_port_scanner
 
       protected
 
       #
-      # Normalizes the URL.
+      # Normalizes the port number.
       #
-      # @param [String, URI::Generic] result
-      #   The incoming URL.
+      # @param [String, Integer] result
+      #   The incoming port number.
       #
-      # @return [URI::Generic]
-      #   The normalized URI.
+      # @return [Integer]
+      #   The normalized port number.
       #
       def normalize_result(result)
-        unless result.kind_of?(URI::Generic)
-          URI(result.to_s)
-        else
-          result
-        end
+        result.to_i
       end
 
       #
-      # Queries or creates a new Url resource for the given result.
+      # Queries or creates a new open-port resource for the given result.
       #
-      # @param [URI::Generic] result
-      #   The URL.
+      # @param [Integer] result
+      #   The port number.
       #
-      # @return [INT::Url]
-      #   The Url resource from the Database.
+      # @return [INT::OpenPort]
+      #   The open port resource from the Database.
       #
       def new_resource(result)
-        INT::Url.first_or_new(
-          :schema => result.schema,
-          :host_name => INT::HostName.first_or_new(
-            :address => result.host
-          ),
-          :port => INT::TcpPort.first_or_new(
-            :number => result.port,
-            :protocol => 'tcp'
-          ),
-          :path => result.path,
-          :query => result.query
+        INT::OpenPort.first_or_new(
+          :port => INT::Port.first_or_new(
+            :protocol => 'tcp',
+            :number => result
+          )
         )
       end
 

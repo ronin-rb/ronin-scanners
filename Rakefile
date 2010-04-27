@@ -17,6 +17,7 @@ begin
     gem.add_dependency 'ruby-nmap', '~> 0.1.0'
     gem.add_dependency 'ruby-nikto', '~> 0.1.0'
     gem.add_dependency 'ronin-ext', '~> 0.1.0'
+    gem.add_dependency 'ronin-int', '~> 0.1.0'
     gem.add_dependency 'ronin', '~> 0.4.0'
     gem.add_development_dependency 'rspec', '~> 1.3.0'
     gem.add_development_dependency 'yard', '~> 0.5.3'
