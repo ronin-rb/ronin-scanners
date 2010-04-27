@@ -1,6 +1,7 @@
 require 'ronin/scanners/scanner'
 
 require 'spec_helper'
+require 'helpers/database'
 
 describe Scanners::Scanner do
   it "should be cacheable" do
@@ -80,12 +81,20 @@ describe Scanners::Scanner do
       @scanner = ronin_scanner do
       end
     end
+
+    it "should return an Enumerator if no block is given" do
+      @scanner.each_resource.class.should == Enumerator
+    end
   end
 
   describe "import_each" do
     before(:all) do
       @scanner = ronin_scanner do
       end
+    end
+
+    it "should return an Enumerator if no block is given" do
+      @scanner.import_each.class.should == Enumerator
     end
   end
 end
