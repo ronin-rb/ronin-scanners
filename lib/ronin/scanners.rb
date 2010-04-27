@@ -29,6 +29,8 @@ Ronin::Database.upgrade do
   require 'ronin/scanners/tcp_port_scanner'
   require 'ronin/scanners/udp_port_scanner'
   require 'ronin/scanners/url_scanner'
+  require 'ronin/scanners/resolv_scanner'
+  require 'ronin/scanners/reverse_lookup_scanner'
   require 'ronin/scanners/site_map_scanner'
   require 'ronin/scanners/nmap_scanner'
 end
