@@ -75,7 +75,11 @@ module Ronin
         return enum_for(:each) unless block_given?
 
         scan do |result|
-          yield normalize_result(result)
+          result = normalize_result(result)
+
+          if result
+            yield result
+          end
         end
 
         return self
