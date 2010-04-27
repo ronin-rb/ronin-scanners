@@ -30,7 +30,7 @@ module Ronin
   module Scanners
     class Scanner
 
-      include Enumerable
+      include ::Enumerable
       include Parameters
       include Platform::Cacheable
       include Model::HasName
@@ -99,7 +99,7 @@ module Ronin
       # @since 0.2.0
       #
       def each_resource
-        return enum_for(:import) unless block_given?
+        return enum_for(:each_resource) unless block_given?
 
         scan do |result|
           if result
