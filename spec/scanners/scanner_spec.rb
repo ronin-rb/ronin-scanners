@@ -3,6 +3,18 @@ require 'ronin/scanners/scanner'
 require 'spec_helper'
 
 describe Scanners::Scanner do
+  it "should be cacheable" do
+    Scanners::Scanner.should include(Platform::Cacheable)
+  end
+
+  it "should allow parameters" do
+    Scanners::Scanner.should include(Parameters)
+  end
+
+  it "should be Enumerable" do
+    Scanners::Scanner.should include(Enumerable)
+  end
+
   describe "each" do
     before(:all) do
       @scanner = ronin_scanner do
@@ -48,10 +60,6 @@ describe Scanners::Scanner do
 
       results.should_not include(22)
       results.should_not include(nil)
-    end
-
-    it "should be enumerable" do
-      @scanner.kind_of?(Enumerable)
     end
 
     it "should return an Enumerator if no block is given" do
