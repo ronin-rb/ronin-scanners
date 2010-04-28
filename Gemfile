@@ -18,6 +18,7 @@ group :development do
   gem 'ruby-graphviz',	'~> 0.9.10'
   gem 'dm-visualizer',	'~> 0.1.0', :git => 'git://github.com/postmodern/dm-visualizer.git'
   gem 'yard',		'~> 0.5.3'
+  gem 'yard-parameters','~> 0.1.0'
 end
 
 gem 'rspec',	'~> 1.3.0', :group => [:development, :test]
