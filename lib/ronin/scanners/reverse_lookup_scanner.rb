@@ -44,6 +44,25 @@ module Ronin
         Resolv.getnames(self.host).each(&block)
       end
 
+      #
+      # Queries or creates a new HostName resource for the result.
+      #
+      # @param [String] result
+      #   The host name.
+      #
+      # @return [INT::HostName]
+      #   The HostName resource from the Database.
+      #
+      def new_resource(result)
+        # get a host name
+        host_name = INT::HostName.first_or_new(:address => result)
+
+        # associate the host name with the IP address we are looking up
+        host_name.ip_addresses.first_or_new(:address => self.host.to_s)
+
+        return host_name
+      end
+
     end
   end
 end
