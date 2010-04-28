@@ -30,7 +30,7 @@ module Ronin
   module Scanners
     class Scanner
 
-      include ::Enumerable
+      include Enumerable
       include Parameters
       include Platform::Cacheable
       include Model::HasName
