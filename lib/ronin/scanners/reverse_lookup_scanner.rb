@@ -27,7 +27,7 @@ module Ronin
   module Scanners
     class ReverseLookupScanner < HostNameScanner
 
-      parameter :ip, :description => 'The IP address to reverse lookup'
+      parameter :host, :description => 'The IP address to reverse lookup'
 
       protected
 
