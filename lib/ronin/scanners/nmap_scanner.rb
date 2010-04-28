@@ -133,14 +133,13 @@ module Ronin
       #   The IpAddress resource from the Database.
       #
       def new_resource(result)
+        # if the host does not have an ip, then skip it
+        return nil unless result.ip
+
         ip_version, ip_address = if result.ipv6
                                    [6, result.ipv6]
                                  elsif result.ipv4
                                    [4, result.ipv4]
-                                 else
-                                   # if the host does not have an ip,
-                                   # skip it
-                                   return nil
                                  end
 
         ip = INT::IpAddress.first_or_new(
