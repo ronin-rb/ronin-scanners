@@ -33,6 +33,6 @@ describe Scanners::URLScanner do
     resource.host_name.address.should == 'www.example.com'
     resource.port.number.should == 80
     resource.path.should == '/path'
-    resource.query.should == 'bla=1'
+    resource.query_string.should == 'bla=1'
   end
 end

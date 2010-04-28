@@ -70,7 +70,7 @@ module Ronin
             :protocol => 'tcp'
           ),
           :path => result.path,
-          :query => result.query
+          :query_string => result.query
         )
       end
 
