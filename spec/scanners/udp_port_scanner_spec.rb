@@ -1,7 +1,7 @@
-require 'ronin/scanners/udp_port_scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/udp_port_scanner'
 
 describe Scanners::UDPPortScanner do
   before(:all) do

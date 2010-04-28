@@ -1,7 +1,7 @@
-require 'ronin/scanners/ip_scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/ip_scanner'
 
 describe Scanners::IPScanner do
   before(:all) do

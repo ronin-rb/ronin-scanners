@@ -1,6 +1,6 @@
-require 'ronin/scanners/version'
-
 require 'spec_helper'
+
+require 'ronin/scanners/version'
 
 describe Ronin do
   it "should have a version" do

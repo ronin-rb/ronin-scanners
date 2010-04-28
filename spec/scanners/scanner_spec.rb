@@ -1,7 +1,7 @@
-require 'ronin/scanners/scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/scanner'
 
 describe Scanners::Scanner do
   it "should be cacheable" do

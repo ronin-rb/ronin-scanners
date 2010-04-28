@@ -1,7 +1,7 @@
-require 'ronin/scanners/host_name_scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/host_name_scanner'
 
 describe Scanners::HostNameScanner do
   before(:all) do

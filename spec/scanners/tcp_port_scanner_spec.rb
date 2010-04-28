@@ -1,7 +1,7 @@
-require 'ronin/scanners/tcp_port_scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/tcp_port_scanner'
 
 describe Scanners::TCPPortScanner do
   before(:all) do

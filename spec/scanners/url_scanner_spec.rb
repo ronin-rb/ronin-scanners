@@ -1,7 +1,7 @@
-require 'ronin/scanners/url_scanner'
-
 require 'spec_helper'
 require 'helpers/database'
+
+require 'ronin/scanners/url_scanner'
 
 describe Scanners::URLScanner do
   before(:all) do
