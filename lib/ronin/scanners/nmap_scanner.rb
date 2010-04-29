@@ -45,7 +45,7 @@ module Ronin
                         :description => 'The ports to scan'
 
       # Specifies that a Ping Scan will be performed.
-      parameter :ping, :default => true
+      parameter :ping_scan, :default => true
 
       # Specifies that a Connect Scan will be performed.
       parameter :connect_scan, :default => true
@@ -116,12 +116,7 @@ module Ronin
       #
       def scan(&block)
         Tempfile.open('ronin_scanners_nmap') do |tempfile|
-          options = Nmap::Task.new do |nmap|
-            # set the nmap options en-mass using the parameters
-            self.params.each do |name,param|
-              nmap.options[name] = param.value
-            end
-
+          options = nmap_options do |nmap|
             # set the xml output path
             nmap.xml = tempfile.path
           end
@@ -139,6 +134,55 @@ module Ronin
 
           # enumerate the scanned hosts
           Nmap::XML.new(tempfile.path).each_host(&block)
+        end
+      end
+
+      #
+      # Populates options to call `nmap` with.
+      #
+      # @yield [nmap]
+      #   If a block is given, it will be passed the nmap options.
+      #
+      # @yieldparam [Nmap::Task] nmap
+      #   The nmap options.
+      #
+      # @return [Nmap::Task]
+      #   The populated nmap options.
+      #
+      def nmap_options(&block)
+        Nmap::Task.new do |nmap|
+          if self.exclude.kind_of?(Array)
+            nmap.exclude += self.exclude
+          else
+            nmap.exclude << self.exclude
+          end
+
+          if self.targets.kind_of?(Array)
+            nmap.targets += self.targets
+          else
+            nmap.targets << self.targets
+          end
+
+          if self.ports.kind_of?(Array)
+            nmap.ports += self.ports
+          else
+            nmap.ports << self.ports
+          end
+
+          nmap.ping = self.ping_scan
+          nmap.connect_scan = self.connect_scan
+          nmap.syn_scan = self.syn_scan
+          nmap.ack_scan = self.ack_scan
+          nmap.fin_scan = self.fin_scan
+          nmap.null_scan = self.null_scan
+          nmap.xmas_scan = self.xmas_scan
+          nmap.udp_scan = self.udp_scan
+          nmap.service_scan = self.service_scan
+          nmap.idle_scan = self.idle_scan
+          nmap.window_scan = self.window_scan
+          nmap.maimon_scan = self.maimon_scan
+
+          block.call(nmap) if block
         end
       end
 
