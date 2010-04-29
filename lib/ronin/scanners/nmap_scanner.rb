@@ -43,8 +43,6 @@ module Ronin
 
       parameter :ping, :default => true
 
-      parameter :ip_scan, :default => false
-
       parameter :connect_scan, :default => true
 
       parameter :syn_scan, :default => false
@@ -60,6 +58,12 @@ module Ronin
       parameter :udp_scan, :default => false
 
       parameter :service_scan, :default => true
+
+      parameter :idle_scan, :default => false
+
+      parameter :window_scan, :default => false
+
+      parameter :maimon_scam, :default => false
 
       #
       # The path to the `nmap` utility.
