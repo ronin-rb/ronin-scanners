@@ -45,7 +45,7 @@ module Ronin
                         :description => 'The ports to scan'
 
       # Specifies that a Ping Scan will be performed.
-      parameter :ping_scan, :default => true
+      parameter :ping_scan, :default => false
 
       # Specifies that a Connect Scan will be performed.
       parameter :connect_scan, :default => true
