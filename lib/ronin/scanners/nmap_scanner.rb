@@ -32,37 +32,52 @@ module Ronin
 
       contextify :ronin_nmap_scanner
 
+      # The targets which will be scanned.
       parameter :targets, :default => [],
                           :description => 'The targets to scan with Nmap'
 
+      # The targets or ranges to exclude from the scan.
       parameter :exclude, :default => [],
                           :description => 'The targets to exclude'
 
+      # The ports or port ranges which will be scanned.
       parameter :ports, :default => [],
                         :description => 'The ports to scan'
 
+      # Specifies that a Ping Scan will be performed.
       parameter :ping, :default => true
 
+      # Specifies that a Connect Scan will be performed.
       parameter :connect_scan, :default => true
 
+      # Specifies that a TCP SYN scan will be performed.
       parameter :syn_scan, :default => false
 
+      # Specifies that a TCP ACK scan will be performed.
       parameter :ack_scan, :default => false
 
+      # Specifies that a TCP NULL scan will be performed.
       parameter :null_scan, :default => false
 
+      # Specifies that a TCP FIN scan will be performed.
       parameter :fin_scam, :default => false
 
+      # Specifies that a TCP XMAS scan will be performed.
       parameter :xmas_scan, :default => false
 
+      # Specifies that a UDP scan will be performed.
       parameter :udp_scan, :default => false
 
+      # Specifies that a Service scan will be performed.
       parameter :service_scan, :default => true
 
+      # Specifies that an Idle Scan will be performed.
       parameter :idle_scan, :default => false
 
+      # Specifies that a Window Scan will be performed.
       parameter :window_scan, :default => false
 
+      # Specifies that a Mainmon Scan will be performed.
       parameter :maimon_scam, :default => false
 
       #
