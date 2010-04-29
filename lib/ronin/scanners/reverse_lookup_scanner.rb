@@ -40,6 +40,8 @@ module Ronin
       # @yieldparam [String] host
       #   A host name associated with the IP address.
       #
+      # @since 0.2.0
+      #
       def scan(&block)
         Resolv.getnames(self.host).each(&block)
       end
@@ -52,6 +54,8 @@ module Ronin
       #
       # @return [INT::HostName]
       #   The HostName resource from the Database.
+      #
+      # @since 0.2.0
       #
       def new_resource(result)
         # get a host name

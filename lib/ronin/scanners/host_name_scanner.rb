@@ -39,6 +39,8 @@ module Ronin
       # @return [String]
       #   The normalized host name.
       #
+      # @since 0.2.0
+      #
       def normalize_result(result)
         result.to_s
       end
@@ -51,6 +53,8 @@ module Ronin
       #
       # @return [INT::HostName]
       #   The HostName resource from the Database.
+      #
+      # @since 0.2.0
       #
       def new_resource(result)
         INT::HostName.first_or_new(:address => result)

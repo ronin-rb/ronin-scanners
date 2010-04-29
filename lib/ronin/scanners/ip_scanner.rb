@@ -40,6 +40,8 @@ module Ronin
       # @return [IPAddr]
       #   The normalized IP Address.
       #
+      # @since 0.2.0
+      #
       def normalize_result(result)
         unless result.kind_of?(IPAddr)
           IPAddr.new(result.to_s)
@@ -56,6 +58,8 @@ module Ronin
       #
       # @return [INT::IPAddress]
       #   The IPAddress resource from the Database.
+      #
+      # @since 0.2.0
       #
       def new_resource(result)
         INT::IPAddress.first_or_new(:address => result)

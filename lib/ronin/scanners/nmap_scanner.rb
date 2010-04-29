@@ -86,6 +86,8 @@ module Ronin
       # @return [String, nil]
       #   The path to the `nmap` utility.
       #
+      # @since 0.2.0
+      #
       def NmapScanner.path
         @@nmap_program_path
       end
@@ -98,6 +100,8 @@ module Ronin
       #
       # @return [String]
       #   The new path to the `nmap` utility.
+      #
+      # @since 0.2.0
       #
       def NmapScanner.path=(new_path)
         @@nmap_program_path = File.expand_path(new_path)
@@ -113,6 +117,8 @@ module Ronin
       #
       # @yieldparam [Nmap::Host] host
       #   A host from the nmap scan.
+      #
+      # @since 0.2.0
       #
       def scan(&block)
         Tempfile.open('ronin_scanners_nmap') do |tempfile|
@@ -148,6 +154,8 @@ module Ronin
       #
       # @return [Nmap::Task]
       #   The populated nmap options.
+      #
+      # @since 0.2.0
       #
       def nmap_options(&block)
         Nmap::Task.new do |nmap|
@@ -194,6 +202,8 @@ module Ronin
       #
       # @return [INT::IPAddress]
       #   The IPAddress resource from the Database.
+      #
+      # @since 0.2.0
       #
       def new_resource(result)
         # if the host does not have an ip, then skip it
