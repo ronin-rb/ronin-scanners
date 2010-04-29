@@ -159,23 +159,9 @@ module Ronin
       #
       def nmap_options(&block)
         Nmap::Task.new do |nmap|
-          if self.exclude.kind_of?(Array)
-            nmap.exclude += self.exclude
-          else
-            nmap.exclude << self.exclude
-          end
-
-          if self.targets.kind_of?(Array)
-            nmap.targets += self.targets
-          else
-            nmap.targets << self.targets
-          end
-
-          if self.ports.kind_of?(Array)
-            nmap.ports += self.ports
-          else
-            nmap.ports << self.ports
-          end
+          nmap.exclude = self.exclude
+          nmap.targets = self.targets
+          nmap.ports = self.ports
 
           nmap.ping = self.ping_scan
           nmap.connect_scan = self.connect_scan
