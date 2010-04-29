@@ -78,7 +78,7 @@ module Ronin
       parameter :window_scan, :default => false
 
       # Specifies that a Mainmon Scan will be performed.
-      parameter :maimon_scam, :default => false
+      parameter :maimon_scan, :default => false
 
       #
       # The path to the `nmap` utility.
