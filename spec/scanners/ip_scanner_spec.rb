@@ -21,7 +21,7 @@ describe Scanners::IPScanner do
   it "should convert results into INT::IpAddress resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::IpAddress
+    resource.class.should == INT::IPAddress
     resource.address.should == '127.0.0.1'
   end
 end

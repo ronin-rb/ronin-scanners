@@ -124,13 +124,13 @@ module Ronin
       end
 
       #
-      # Queries or creates an IpAddress resource from the given host.
+      # Queries or creates an IPAddress resource from the given host.
       #
       # @param [Nmap::Host] result
       #   The host scanned by `nmap`.
       #
-      # @return [INT::IpAddress]
-      #   The IpAddress resource from the Database.
+      # @return [INT::IPAddress]
+      #   The IPAddress resource from the Database.
       #
       def new_resource(result)
         # if the host does not have an ip, then skip it
@@ -142,7 +142,7 @@ module Ronin
                                    [4, result.ipv4]
                                  end
 
-        ip = INT::IpAddress.first_or_new(
+        ip = INT::IPAddress.first_or_new(
           :version => ip_version,
           :address => ip_address
         )

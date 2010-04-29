@@ -46,17 +46,17 @@ module Ronin
       end
 
       #
-      # Queries or creates a new IpAddress resource for the given result.
+      # Queries or creates a new IPAddress resource for the given result.
       #
       # @param [IPAddr] result
       #   The ip address.
       #
-      # @return [INT::IpAddress]
-      #   The IpAddress resource from the Database.
+      # @return [INT::IPAddress]
+      #   The IPAddress resource from the Database.
       #
       def new_resource(result)
         # get an IP address
-        ip = INT::IpAddress.first_or_new(:address => result)
+        ip = INT::IPAddress.first_or_new(:address => result)
 
         # associate the IP address with the host we are resolving
         ip.host_names.first_or_new(:address => self.host.to_s)

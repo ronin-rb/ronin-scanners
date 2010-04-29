@@ -49,16 +49,16 @@ module Ronin
       end
 
       #
-      # Queries or creates a new IpAddress resource for the given result.
+      # Queries or creates a new IPAddress resource for the given result.
       #
       # @param [IPAddr] result
       #   The ip address.
       #
-      # @return [INT::IpAddress]
-      #   The IpAddress resource from the Database.
+      # @return [INT::IPAddress]
+      #   The IPAddress resource from the Database.
       #
       def new_resource(result)
-        INT::IpAddress.first_or_new(:address => result)
+        INT::IPAddress.first_or_new(:address => result)
       end
 
     end

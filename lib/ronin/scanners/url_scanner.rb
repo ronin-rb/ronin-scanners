@@ -60,12 +60,12 @@ module Ronin
       #   The Url resource from the Database.
       #
       def new_resource(result)
-        INT::Url.first_or_new(
+        INT::URL.first_or_new(
           :scheme => result.scheme,
           :host_name => INT::HostName.first_or_new(
             :address => result.host
           ),
-          :port => INT::TcpPort.first_or_new(
+          :port => INT::TCPPort.first_or_new(
             :number => result.port,
             :protocol => 'tcp'
           ),
