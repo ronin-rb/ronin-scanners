@@ -60,7 +60,7 @@ module Ronin
       parameter :null_scan, :default => false
 
       # Specifies that a TCP FIN scan will be performed.
-      parameter :fin_scam, :default => false
+      parameter :fin_scan, :default => false
 
       # Specifies that a TCP XMAS scan will be performed.
       parameter :xmas_scan, :default => false
