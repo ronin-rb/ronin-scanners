@@ -37,12 +37,10 @@ module Ronin
                           :description => 'The targets to scan with Nmap'
 
       # The targets or ranges to exclude from the scan.
-      parameter :exclude, :default => [],
-                          :description => 'The targets to exclude'
+      parameter :exclude, :description => 'The targets to exclude'
 
       # The ports or port ranges which will be scanned.
-      parameter :ports, :default => [],
-                        :description => 'The ports to scan'
+      parameter :ports, :description => 'The ports to scan'
 
       # Specifies that a Ping Scan will be performed.
       parameter :ping_scan, :default => false
@@ -159,9 +157,15 @@ module Ronin
       #
       def nmap_options(&block)
         Nmap::Task.new do |nmap|
-          nmap.exclude = self.exclude
           nmap.targets = self.targets
-          nmap.ports = self.ports
+
+          if self.exclude
+            nmap.exclude = self.exclude
+          end
+
+          if self.ports
+            nmap.ports = self.ports
+          end
 
           nmap.ping = self.ping_scan
           nmap.connect_scan = self.connect_scan
