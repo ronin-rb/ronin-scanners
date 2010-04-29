@@ -89,7 +89,7 @@ module Ronin
       # @since 0.2.0
       #
       def NmapScanner.path
-        @@nmap_program_path
+        @@nmap_program_path ||= nil
       end
 
       #
