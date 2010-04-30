@@ -190,7 +190,7 @@ module Ronin
       # @param [Nmap::Host] result
       #   The host scanned by `nmap`.
       #
-      # @return [INT::IPAddress]
+      # @return [IPAddress]
       #   The IPAddress resource from the Database.
       #
       # @since 0.2.0
@@ -205,7 +205,7 @@ module Ronin
                                    [4, result.ipv4]
                                  end
 
-        ip = INT::IPAddress.first_or_new(
+        ip = IPAddress.first_or_new(
           :version => ip_version,
           :address => ip_address
         )
@@ -221,14 +221,14 @@ module Ronin
         # fill in the open ports
         result.each_open_port do |open_port|
           # find or create the port
-          port = INT::Port.first_or_new(
+          port = Port.first_or_new(
             :protocol => open_port.protocol.to_s,
             :number => open_port.number
           )
 
           # find or create the service, if the port has a service
           service = if open_port.service
-                      INT::Service.first_or_new(:name => open_port.service)
+                      Service.first_or_new(:name => open_port.service)
                     end
 
           # find or create the open port

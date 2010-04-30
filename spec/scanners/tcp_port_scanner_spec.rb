@@ -21,7 +21,7 @@ describe Scanners::TCPPortScanner do
   it "should convert results into OpenPort resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::OpenPort
+    resource.class.should == OpenPort
     resource.port.protocol.should == 'tcp'
     resource.port.number.should == 80
   end

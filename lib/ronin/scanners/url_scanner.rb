@@ -21,7 +21,7 @@
 
 require 'ronin/scanner/scanner'
 require 'ronin/extensions/uri'
-require 'ronin/int/url'
+require 'ronin/url'
 
 require 'uri'
 
@@ -58,18 +58,18 @@ module Ronin
       # @param [URI::Generic] result
       #   The URL.
       #
-      # @return [INT::Url]
+      # @return [Url]
       #   The Url resource from the Database.
       #
       # @since 0.2.0
       #
       def new_resource(result)
-        INT::URL.first_or_new(
+        URL.first_or_new(
           :scheme => result.scheme,
-          :host_name => INT::HostName.first_or_new(
+          :host_name => HostName.first_or_new(
             :address => result.host
           ),
-          :port => INT::TCPPort.first_or_new(
+          :port => TCPPort.first_or_new(
             :number => result.port,
             :protocol => 'tcp'
           ),

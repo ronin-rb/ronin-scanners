@@ -18,10 +18,10 @@ describe Scanners::IPScanner do
     @scanner.first.should == IPAddr.new('127.0.0.1')
   end
 
-  it "should convert results into INT::IpAddress resources" do
+  it "should convert results into IpAddress resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::IPAddress
+    resource.class.should == IPAddress
     resource.address.should == '127.0.0.1'
   end
 end

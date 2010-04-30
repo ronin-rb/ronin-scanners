@@ -52,14 +52,14 @@ module Ronin
       # @param [String] result
       #   The host name.
       #
-      # @return [INT::HostName]
+      # @return [HostName]
       #   The HostName resource from the Database.
       #
       # @since 0.2.0
       #
       def new_resource(result)
         # get a host name
-        host_name = INT::HostName.first_or_new(:address => result)
+        host_name = HostName.first_or_new(:address => result)
 
         # associate the host name with the IP address we are looking up
         host_name.ip_addresses.first_or_new(:address => self.host.to_s)

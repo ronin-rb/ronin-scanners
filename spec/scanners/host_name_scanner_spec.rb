@@ -21,7 +21,7 @@ describe Scanners::HostNameScanner do
   it "should convert results into HostName resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::HostName
+    resource.class.should == HostName
     resource.address.should == 'www.example.com'
   end
 end

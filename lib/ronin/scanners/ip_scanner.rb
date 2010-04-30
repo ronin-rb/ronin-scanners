@@ -21,7 +21,7 @@
 
 require 'ronin/scanners/scanner'
 require 'ronin/extensions/ip_addr'
-require 'ronin/int/ip_address'
+require 'ronin/ip_address'
 
 module Ronin
   module Scanners
@@ -56,13 +56,13 @@ module Ronin
       # @param [IPAddr] result
       #   The ip address.
       #
-      # @return [INT::IPAddress]
+      # @return [IPAddress]
       #   The IPAddress resource from the Database.
       #
       # @since 0.2.0
       #
       def new_resource(result)
-        INT::IPAddress.first_or_new(:address => result)
+        IPAddress.first_or_new(:address => result)
       end
 
     end

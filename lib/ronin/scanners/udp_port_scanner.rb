@@ -20,7 +20,7 @@
 #
 
 require 'ronin/scanners/scanner'
-require 'ronin/int/open_port'
+require 'ronin/open_port'
 
 module Ronin
   module Scanners
@@ -51,14 +51,14 @@ module Ronin
       # @param [Integer] result
       #   The port number.
       #
-      # @return [INT::OpenPort]
+      # @return [OpenPort]
       #   The open port resource from the Database.
       #
       # @since 0.2.0
       #
       def new_resource(result)
-        INT::OpenPort.first_or_new(
-          :port => INT::Port.first_or_new(
+        OpenPort.first_or_new(
+          :port => Port.first_or_new(
             :protocol => 'udp',
             :number => result
           )

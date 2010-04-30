@@ -20,7 +20,7 @@
 #
 
 require 'ronin/scanners/scanner'
-require 'ronin/int/host_name'
+require 'ronin/host_name'
 
 module Ronin
   module Scanners
@@ -51,13 +51,13 @@ module Ronin
       # @param [String] result
       #   The host name.
       #
-      # @return [INT::HostName]
+      # @return [HostName]
       #   The HostName resource from the Database.
       #
       # @since 0.2.0
       #
       def new_resource(result)
-        INT::HostName.first_or_new(:address => result)
+        HostName.first_or_new(:address => result)
       end
 
     end

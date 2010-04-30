@@ -16,7 +16,7 @@ describe Scanners::ReverseLookupScanner do
   it "should convert host names to HostName resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::HostName
+    resource.class.should == HostName
     resource.address.should == @host
   end
 

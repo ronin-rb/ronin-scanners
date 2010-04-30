@@ -16,7 +16,7 @@ describe Scanners::ResolvScanner do
   it "should convert IP addresses to IpAddress resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::IPAddress
+    resource.class.should == IPAddress
     resource.address.should == @ip
   end
 

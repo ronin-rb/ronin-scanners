@@ -1,5 +1,4 @@
 require 'ronin/database'
-require 'ronin/int'
 
 require 'spec_helper'
 

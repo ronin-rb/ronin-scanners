@@ -28,7 +28,7 @@ describe Scanners::URLScanner do
   it "should convert results into Url resources" do
     resource = @scanner.each_resource.first
 
-    resource.class.should == INT::URL
+    resource.class.should == URL
     resource.scheme.should == 'http'
     resource.host_name.address.should == 'www.example.com'
     resource.port.number.should == 80
