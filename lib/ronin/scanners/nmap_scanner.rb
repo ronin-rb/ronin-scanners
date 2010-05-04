@@ -155,7 +155,7 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def nmap_options(&block)
+      def nmap_options
         Nmap::Task.new do |nmap|
           nmap.targets = self.targets
 
@@ -180,7 +180,7 @@ module Ronin
           nmap.window_scan = self.window_scan
           nmap.maimon_scan = self.maimon_scan
 
-          block.call(nmap) if block
+          yield nmap if block_given?
         end
       end
 
