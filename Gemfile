@@ -3,7 +3,7 @@ ronin_ruby = 'git://github.com/ronin-ruby'
 
 group :runtime do
   gem 'open_namespace',	'~> 0.3.0'
-  gem 'parameters',	'~> 0.2.1', :git => 'git://github.com/postmodern/parameters.git'
+  gem 'parameters',	'~> 0.2.1'
   gem 'nokogiri',	'~> 1.4.1'
   gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
   gem 'ronin-support',	'~> 0.1.0', :git => "#{ronin_ruby}/ronin-support.git"
