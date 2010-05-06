@@ -28,6 +28,66 @@ require 'parameters'
 
 module Ronin
   module Scanners
+    #
+    # The {Scanner} base class allows for defining various types of
+    # scanners. All scanners are Enumerable, have Parameters and are
+    # Cacheable.
+    #
+    # # Metadata
+    #
+    # A {Scanner} can be described by metadata, which is cached into the
+    # Ronin Database. The cacheable metadata must be defined within a
+    # `cache` block, so that the metadata is set only before the scanner
+    # is cached:
+    #
+    #     cache do
+    #       self.name = 'ZIP Scanner'
+    #       self.description = %{
+    #         A scanner which finds ZIP files on a system.
+    #       }
+    #     end
+    #
+    # ## License
+    #
+    # A {Scanner} may be associated with a specific software license using
+    # the `license!` method:
+    # 
+    #     cache do
+    #       # ...
+    #
+    #       self.license! :mit
+    #     end
+    #
+    # # Methods
+    #
+    # The primary method which will perform the scanning and yielding back
+    # of results is {#scan}.
+    #
+    # The {Scanner} class defines three other methods for enumerating
+    # results using {#scan}:
+    #
+    # * {#each} - enumerates over the normalized results, using
+    #   {#noramalize_result} to normalize the results.
+    # * {#each_resource} - enumerates over resources that were
+    #   created from the results, using {#new_resource}.
+    # * {#import_each} - saves the resources into the Database, while
+    #   enumerating over the resources.
+    #
+    # # Scanner Base Classes
+    #
+    # * {IPScanner}
+    # * {HostNameScanner}
+    # * {TCPPortScanner}
+    # * {UDPPortScanner}
+    # * {URLScanner}
+    #
+    # # Specialized Scanner Classes
+    #
+    # * {ResolvScanner}
+    # * {ReverseLookupScanner}
+    # * {SiteMapScanner}
+    # * {NmapScanner}
+    #
     class Scanner
 
       include Enumerable
