@@ -150,7 +150,7 @@ module Ronin
       # @yield [resource]
       #   The given block will be passed each resource.
       #
-      # @yieldparam [DataMapper::Resource]
+      # @yieldparam [DataMapper::Resource] resource
       #   A new or pre-existing resource.
       #
       # @return [Scanner, Enumerator]
@@ -179,7 +179,7 @@ module Ronin
       #   The given block will be passed each resource, after it has
       #   been saved into the Database.
       #
-      # @yieldparam [DataMapper::Resource]
+      # @yieldparam [DataMapper::Resource] resource
       #   A resource that exists in the Database.
       #
       # @return [Scanner, Enumerator]
@@ -215,7 +215,7 @@ module Ronin
       #
       # Creates a new Database resource.
       #
-      # @param [result]
+      # @param [Object] result
       #   A result from the scan.
       #
       # @return [DataMapper::Resource, nil]
