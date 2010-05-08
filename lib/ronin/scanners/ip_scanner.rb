@@ -25,6 +25,10 @@ require 'ronin/ip_address'
 
 module Ronin
   module Scanners
+    #
+    # The {IPScanner} class represents scanners that yield `IPAddr` results
+    # and `IPAddress` resources.
+    #
     class IPScanner < Scanner
 
       contextify :ronin_ip_scanner

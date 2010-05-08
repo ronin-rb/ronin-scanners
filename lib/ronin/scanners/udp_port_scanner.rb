@@ -24,6 +24,10 @@ require 'ronin/open_port'
 
 module Ronin
   module Scanners
+    #
+    # The {UDPPortScanner} class represents scanners that yield UDP port
+    # number results and `OpenPort` resources.
+    #
     class UDPPortScanner < Scanner
 
       contextify :ronin_udp_port_scanner

@@ -25,6 +25,9 @@ require 'resolv'
 
 module Ronin
   module Scanners
+    #
+    # The {ResolvScanner} scans the IP addresses associated with a host-name.
+    #
     class ResolvScanner < IPScanner
 
       parameter :host, :description => 'The host to resolv'

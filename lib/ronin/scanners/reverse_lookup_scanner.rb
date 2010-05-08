@@ -25,6 +25,10 @@ require 'resolv'
 
 module Ronin
   module Scanners
+    #
+    # The {ReverseLookupScanner} scans the host-name(s) associated with
+    # an IP address.
+    #
     class ReverseLookupScanner < HostNameScanner
 
       parameter :host, :description => 'The IP address to reverse lookup'

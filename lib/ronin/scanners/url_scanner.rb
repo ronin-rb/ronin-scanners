@@ -27,6 +27,10 @@ require 'uri'
 
 module Ronin
   module Scanners
+    #
+    # The {URLScanner} class represents scanners that yield `URI` results
+    # and `URL` resources.
+    #
     class URLScanner < Scanner
 
       contextify :ronin_url_scanner

@@ -24,6 +24,10 @@ require 'ronin/host_name'
 
 module Ronin
   module Scanners
+    #
+    # The {HostNameScanner} class represents scanners that yield host-name
+    # results and `HostName` resources.
+    #
     class HostNameScanner < Scanner
 
       contextify :ronin_host_name_scanner

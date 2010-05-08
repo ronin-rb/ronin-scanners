@@ -24,6 +24,10 @@ require 'ronin/open_port'
 
 module Ronin
   module Scanners
+    #
+    # The {TCPPortScanner} class represents scanners that yield TCP port
+    # number results and `OpenPort` resources.
+    #
     class TCPPortScanner < Scanner
 
       contextify :ronin_tcp_port_scanner

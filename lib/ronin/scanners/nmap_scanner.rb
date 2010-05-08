@@ -28,6 +28,10 @@ require 'tempfile'
 
 module Ronin
   module Scanners
+    #
+    # The {NmapScanner} scans the open-ports found on the targeted IP
+    # addresses, using the Nmap security / port scanner.
+    #
     class NmapScanner < Scanner
 
       contextify :ronin_nmap_scanner
