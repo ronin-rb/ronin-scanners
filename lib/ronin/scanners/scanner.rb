@@ -97,6 +97,30 @@ module Ronin
       include Model::HasDescription
       include Model::HasLicense
 
+      #
+      # Creates a new scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new scanner object.
+      #
+      # @return [Scanner]
+      #   The new scanner object.
+      #
+      # @example
+      #   ronin_scanner do
+      #     cache do
+      #       self.name = 'some scanner'
+      #       self.description = %{
+      #         This is an example scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_scanner
 
       # The primary-key of the scanner

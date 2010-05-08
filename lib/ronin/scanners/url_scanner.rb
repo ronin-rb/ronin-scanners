@@ -33,6 +33,30 @@ module Ronin
     #
     class URLScanner < Scanner
 
+      #
+      # Creates a new URL scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new URL scanner object.
+      #
+      # @return [URLScanner]
+      #   The new URL scanner object.
+      #
+      # @example
+      #   ronin_url_scanner do
+      #     cache do
+      #       self.name = 'some URL scanner'
+      #       self.description = %{
+      #         This is an example URL scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_url_scanner
 
       protected

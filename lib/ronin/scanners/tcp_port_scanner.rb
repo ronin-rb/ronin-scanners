@@ -30,6 +30,31 @@ module Ronin
     #
     class TCPPortScanner < Scanner
 
+      #
+      # Creates a new TCP port scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new TCP port scanner
+      #   object.
+      #
+      # @return [TCPPortScanner]
+      #   The new TCP port scanner object.
+      #
+      # @example
+      #   ronin_tcp_port_scanner do
+      #     cache do
+      #       self.name = 'some TCP port scanner'
+      #       self.description = %{
+      #         This is an example TCP port scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_tcp_port_scanner
 
       protected

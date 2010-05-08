@@ -30,6 +30,31 @@ module Ronin
     #
     class UDPPortScanner < Scanner
 
+      #
+      # Creates a new UDP port scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new UDP port scanner
+      #   object.
+      #
+      # @return [UDPPortScanner]
+      #   The new UDP port scanner object.
+      #
+      # @example
+      #   ronin_udp_port_scanner do
+      #     cache do
+      #       self.name = 'some UDP port scanner'
+      #       self.description = %{
+      #         This is an example UDP port scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_udp_port_scanner
 
       protected

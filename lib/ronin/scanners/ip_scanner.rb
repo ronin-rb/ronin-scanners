@@ -31,6 +31,30 @@ module Ronin
     #
     class IPScanner < Scanner
 
+      #
+      # Creates a new IP scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new IP scanner object.
+      #
+      # @return [IPScanner]
+      #   The new IP scanner object.
+      #
+      # @example
+      #   ronin_ip_scanner do
+      #     cache do
+      #       self.name = 'some IP scanner'
+      #       self.description = %{
+      #         This is an example IP scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_ip_scanner
 
       protected

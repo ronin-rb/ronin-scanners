@@ -30,6 +30,31 @@ module Ronin
     #
     class HostNameScanner < Scanner
 
+      #
+      # Creates a new host-name scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new host-name scanner
+      #   object.
+      #
+      # @return [HostNameScanner]
+      #   The new host-name scanner object.
+      #
+      # @example
+      #   ronin_host_name_scanner do
+      #     cache do
+      #       self.name = 'some host-name scanner'
+      #       self.description = %{
+      #         This is an example host-name scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
       contextify :ronin_host_name_scanner
 
       protected
