@@ -34,8 +34,6 @@ module Ronin
     #
     class NmapScanner < Scanner
 
-      contextify :ronin_nmap_scanner
-
       # The targets which will be scanned.
       parameter :targets, :default => [],
                           :description => 'The targets to scan with Nmap'
