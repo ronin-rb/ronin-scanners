@@ -6,6 +6,7 @@ group :runtime do
   gem 'parameters',	'~> 0.2.1'
   gem 'nokogiri',	'~> 1.4.1'
   gem 'spidr',		'~> 0.2.4'
+  gem 'rprogram',	'~> 0.1.8'
   gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
   gem 'dm-is-predefined','~> 0.3.0', :git => "git://github.com/postmodern/dm-is-predefined.git"
   gem 'ronin-support',	'~> 0.1.0', :git => "#{ronin_ruby}/ronin-support.git"
