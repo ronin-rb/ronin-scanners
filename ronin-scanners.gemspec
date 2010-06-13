@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-05-27}
+  s.date = %q{2010-06-12}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{postmodern.mod3@gmail.com}
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/udp_port_scanner.rb",
     "lib/ronin/scanners/url_scanner.rb",
     "lib/ronin/scanners/version.rb",
+    "lib/ronin/scanners/web_scanner.rb",
     "ronin-scanners.gemspec",
     "spec/helpers/database.rb",
     "spec/scanners/host_name_scanner_spec.rb",
@@ -82,7 +83,9 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<open_namespace>, ["~> 0.3.0"])
       s.add_runtime_dependency(%q<parameters>, ["~> 0.2.1"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.1"])
+      s.add_runtime_dependency(%q<spidr>, ["~> 0.2.4"])
       s.add_runtime_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
+      s.add_runtime_dependency(%q<dm-is-predefined>, ["~> 0.3.0"])
       s.add_runtime_dependency(%q<ronin-support>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin>, ["~> 0.4.0"])
       s.add_development_dependency(%q<bundler>, ["~> 0.9.24"])
@@ -93,7 +96,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
       s.add_dependency(%q<parameters>, ["~> 0.2.1"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
+      s.add_dependency(%q<spidr>, ["~> 0.2.4"])
       s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
+      s.add_dependency(%q<dm-is-predefined>, ["~> 0.3.0"])
       s.add_dependency(%q<ronin-support>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin>, ["~> 0.4.0"])
       s.add_dependency(%q<bundler>, ["~> 0.9.24"])
@@ -105,7 +110,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
     s.add_dependency(%q<parameters>, ["~> 0.2.1"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
+    s.add_dependency(%q<spidr>, ["~> 0.2.4"])
     s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
+    s.add_dependency(%q<dm-is-predefined>, ["~> 0.3.0"])
     s.add_dependency(%q<ronin-support>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin>, ["~> 0.4.0"])
     s.add_dependency(%q<bundler>, ["~> 0.9.24"])
