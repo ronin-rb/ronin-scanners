@@ -1,25 +1,25 @@
 source 'http://rubygems.org'
-ronin_ruby = 'git://github.com/ronin-ruby'
 
-group :runtime do
+RONIN = 'git://github.com/ronin-ruby'
+
+group(:runtime) do
   gem 'open_namespace',	'~> 0.3.0'
   gem 'parameters',	'~> 0.2.1'
   gem 'nokogiri',	'~> 1.4.1'
   gem 'spidr',		'~> 0.2.4'
   gem 'rprogram',	'~> 0.1.8'
   gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
-  gem 'dm-is-predefined','~> 0.3.0', :git => "git://github.com/postmodern/dm-is-predefined.git"
-  gem 'ronin-support',	'~> 0.1.0', :git => "#{ronin_ruby}/ronin-support.git"
-  gem 'ronin',		'~> 0.4.0', :git => "#{ronin_ruby}/ronin.git"
+  gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
+  gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
 end
 
-group :development do
+group(:development) do
   gem 'bundler',	'~> 0.9.24'
   gem 'rake',		'~> 0.8.7'
   gem 'jeweler',	'~> 1.4.0', :git => 'git://github.com/technicalpickles/jeweler.git'
 end
 
-group :doc do
+group(:doc) do
   case RUBY_PLATFORM
   when 'java'
     gem 'maruku',	'~> 0.6.0'
