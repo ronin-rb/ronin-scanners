@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-07-09}
+  s.date = %q{2010-08-06}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{postmodern.mod3@gmail.com}
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "COPYING.txt",
     "ChangeLog.md",
     "Gemfile",
+    "Gemfile.lock",
     "README.md",
     "Rakefile",
     "bin/ronin-scanners",
@@ -83,41 +84,41 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<open_namespace>, ["~> 0.3.0"])
-      s.add_runtime_dependency(%q<parameters>, ["~> 0.2.1"])
+      s.add_runtime_dependency(%q<parameters>, ["~> 0.2.2"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.1"])
       s.add_runtime_dependency(%q<spidr>, ["~> 0.2.4"])
       s.add_runtime_dependency(%q<rprogram>, ["~> 0.1.8"])
       s.add_runtime_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin-support>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<ronin>, ["~> 0.4.0"])
-      s.add_development_dependency(%q<bundler>, ["~> 0.9.24"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.4.0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.0.0.beta.16"])
     else
       s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
-      s.add_dependency(%q<parameters>, ["~> 0.2.1"])
+      s.add_dependency(%q<parameters>, ["~> 0.2.2"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
       s.add_dependency(%q<spidr>, ["~> 0.2.4"])
       s.add_dependency(%q<rprogram>, ["~> 0.1.8"])
       s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin-support>, ["~> 0.1.0"])
       s.add_dependency(%q<ronin>, ["~> 0.4.0"])
-      s.add_dependency(%q<bundler>, ["~> 0.9.24"])
+      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
       s.add_dependency(%q<rspec>, ["~> 2.0.0.beta.16"])
     end
   else
     s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
-    s.add_dependency(%q<parameters>, ["~> 0.2.1"])
+    s.add_dependency(%q<parameters>, ["~> 0.2.2"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
     s.add_dependency(%q<spidr>, ["~> 0.2.4"])
     s.add_dependency(%q<rprogram>, ["~> 0.1.8"])
     s.add_dependency(%q<ruby-nmap>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin-support>, ["~> 0.1.0"])
     s.add_dependency(%q<ronin>, ["~> 0.4.0"])
-    s.add_dependency(%q<bundler>, ["~> 0.9.24"])
+    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.4.0"])
     s.add_dependency(%q<rspec>, ["~> 2.0.0.beta.16"])
