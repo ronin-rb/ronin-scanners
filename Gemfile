@@ -4,7 +4,7 @@ RONIN = 'git://github.com/ronin-ruby'
 
 group(:runtime) do
   gem 'open_namespace',	'~> 0.3.0'
-  gem 'parameters',	'~> 0.2.1'
+  gem 'parameters',	'~> 0.2.2'
   gem 'nokogiri',	'~> 1.4.1'
   gem 'spidr',		'~> 0.2.4'
   gem 'rprogram',	'~> 0.1.8'
