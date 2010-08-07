@@ -11,5 +11,6 @@ end
 
 require 'rspec'
 require 'ronin/scanners/version'
+require 'ronin/spec/database'
 
 include Ronin
