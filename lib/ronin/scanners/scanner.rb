@@ -19,12 +19,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/platform/cacheable'
-require 'ronin/model/has_name'
-require 'ronin/model/has_description'
-require 'ronin/model/has_license'
-
-require 'parameters'
+require 'ronin/module'
 
 module Ronin
   module Scanners
@@ -91,11 +86,7 @@ module Ronin
     class Scanner
 
       include Enumerable
-      include Parameters
-      include Platform::Cacheable
-      include Model::HasName
-      include Model::HasDescription
-      include Model::HasLicense
+      include Ronin::Module
 
       #
       # Creates a new scanner object.
