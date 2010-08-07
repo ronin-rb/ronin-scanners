@@ -5,15 +5,15 @@ require 'ronin/scanners/scanner'
 
 describe Scanners::Scanner do
   it "should be cacheable" do
-    Scanners::Scanner.should include(Platform::Cacheable)
+    Scanners::Scanner.should < Platform::Cacheable
   end
 
   it "should allow parameters" do
-    Scanners::Scanner.should include(Parameters)
+    Scanners::Scanner.should < Parameters
   end
 
   it "should be Enumerable" do
-    Scanners::Scanner.should include(Enumerable)
+    Scanners::Scanner.should < Enumerable
   end
 
   describe "each" do
