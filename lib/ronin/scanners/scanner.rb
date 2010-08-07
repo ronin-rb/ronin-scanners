@@ -85,8 +85,8 @@ module Ronin
     #
     class Scanner
 
+      include Module
       include Enumerable
-      include Ronin::Module
 
       #
       # Creates a new scanner object.
