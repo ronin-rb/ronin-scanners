@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 RONIN = 'git://github.com/ronin-ruby'
 
 group(:runtime) do
+  # DataMapper dependencies
+  gem 'dm-core',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-core.git'
+  gem 'dm-migrations',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-migrations.git'
+
   gem 'open_namespace',	'~> 0.3.0'
   gem 'parameters',	'~> 0.2.2'
   gem 'nokogiri',	'~> 1.4.1'
