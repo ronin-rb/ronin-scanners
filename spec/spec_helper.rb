@@ -10,7 +10,8 @@ rescue Bundler::BundlerError => e
 end
 
 require 'rspec'
-require 'ronin/scanners/version'
+require 'ronin/database/migrations/scanners'
 require 'ronin/spec/database'
+require 'ronin/scanners/version'
 
 include Ronin

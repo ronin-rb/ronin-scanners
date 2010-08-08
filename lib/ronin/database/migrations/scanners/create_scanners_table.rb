@@ -19,17 +19,29 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/scanners'
+require 'ronin/database/migrations/migrations'
 
-require 'ronin/scanners/scanner'
-require 'ronin/scanners/ip_scanner'
-require 'ronin/scanners/host_name_scanner'
-require 'ronin/scanners/tcp_port_scanner'
-require 'ronin/scanners/udp_port_scanner'
-require 'ronin/scanners/url_scanner'
-require 'ronin/scanners/resolv_scanner'
-require 'ronin/scanners/reverse_lookup_scanner'
-require 'ronin/scanners/site_map_scanner'
-require 'ronin/scanners/nmap_scanner'
-require 'ronin/scanners/version'
-require 'ronin/scanners/scanners'
+module Ronin
+  module Database
+    module Migrations
+      migration(:ronin_scanners, '0.2.0', :create_scanners_table) do
+        up do
+          create_table :ronin_scanners_scanners do
+            column :id, Integer, :serial => true
+            column :type, String, :not_null => true
+            column :name, String, :not_null => true
+            column :version, String, :default => '0.1'
+            column :description, Text
+            column :license_id, Integer
+          end
+
+          create_index :ronin_scanners_scanners, :name
+        end
+
+        down do
+          drop_table :ronin_scanners_scanners
+        end
+      end
+    end
+  end
+end

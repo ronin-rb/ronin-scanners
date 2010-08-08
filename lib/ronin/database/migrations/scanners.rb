@@ -19,17 +19,4 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/scanners'
-
-require 'ronin/scanners/scanner'
-require 'ronin/scanners/ip_scanner'
-require 'ronin/scanners/host_name_scanner'
-require 'ronin/scanners/tcp_port_scanner'
-require 'ronin/scanners/udp_port_scanner'
-require 'ronin/scanners/url_scanner'
-require 'ronin/scanners/resolv_scanner'
-require 'ronin/scanners/reverse_lookup_scanner'
-require 'ronin/scanners/site_map_scanner'
-require 'ronin/scanners/nmap_scanner'
-require 'ronin/scanners/version'
-require 'ronin/scanners/scanners'
+require 'ronin/database/migrations/scanners/create_scanners_table'
