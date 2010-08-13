@@ -2,27 +2,25 @@ require 'spec_helper'
 require 'ronin/scanners/reverse_lookup_scanner'
 
 describe Scanners::ReverseLookupScanner do
-  before(:all) do
-    @ip = '192.0.32.10'
-    @host = 'www.example.com'
+  let(:ip) { '192.0.32.10' }
+  let(:host) { 'www.example.com' }
 
-    @scanner = Scanners::ReverseLookupScanner.new(:host => @ip)
-  end
+  subject { Scanners::ReverseLookupScanner.new(:host => ip) }
 
   it "should perform reverse lookups on IP addresses" do
-    @scanner.each.to_a.should == [@host]
+    subject.each.to_a.should == [host]
   end
 
   it "should convert host names to HostName resources" do
-    resource = @scanner.each_resource.first
+    resource = subject.each_resource.first
 
     resource.class.should == HostName
-    resource.address.should == @host
+    resource.address.should == host
   end
 
   it "should associate HostName resources with the queried IpAddress" do
-    resource = @scanner.each_resource.first
+    resource = subject.each_resource.first
 
-    resource.ip_addresses[0].address.should == @ip
+    resource.ip_addresses[0].address.should == ip
   end
 end

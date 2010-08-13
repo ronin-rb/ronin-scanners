@@ -4,22 +4,23 @@ require 'helpers/database'
 require 'ronin/scanners/scanner'
 
 describe Scanners::Scanner do
+  subject { Scanners::Scanner }
+
   it "should be cacheable" do
-    Scanners::Scanner.should < Platform::Cacheable
+    should < Platform::Cacheable
   end
 
   it "should allow parameters" do
-    Scanners::Scanner.should < Parameters
+    should < Parameters
   end
 
   it "should be Enumerable" do
-    Scanners::Scanner.should < Enumerable
+    should < Enumerable
   end
 
   describe "each" do
-    before(:all) do
-      @scanner = ronin_scanner do
-
+    subject do
+      ronin_scanner do
         def scan
           yield 1
           yield 3
@@ -32,14 +33,13 @@ describe Scanners::Scanner do
             result * 2
           end
         end
-
       end
     end
 
     it "should skip nil results" do
       results = []
 
-      @scanner.each { |i| results << i }
+      subject.each { |i| results << i }
 
       results.should_not include(nil)
     end
@@ -47,7 +47,7 @@ describe Scanners::Scanner do
     it "should normalize the results" do
       results = []
 
-      @scanner.each { |i| results << i }
+      subject.each { |i| results << i }
 
       results.should_not include(1)
       results.should_not include(3)
@@ -57,44 +57,38 @@ describe Scanners::Scanner do
     it "should skip normalized results which are nil" do
       results = []
 
-      @scanner.each { |i| results << i }
+      subject.each { |i| results << i }
 
       results.should_not include(22)
       results.should_not include(nil)
     end
 
     it "should return an Enumerator if no block is given" do
-      @scanner.each.class.should == Enumerator
+      subject.each.class.should == Enumerator
     end
 
     it "should enumerate over Ruby primitives" do
       results = []
 
-      @scanner.each { |i| results << i }
+      subject.each { |i| results << i }
 
       results.should == [2, 6]
     end
   end
 
   describe "each_resource" do
-    before(:all) do
-      @scanner = ronin_scanner do
-      end
-    end
+    subject { ronin_scanner() { } }
 
     it "should return an Enumerator if no block is given" do
-      @scanner.each_resource.class.should == Enumerator
+      subject.each_resource.class.should == Enumerator
     end
   end
 
   describe "import_each" do
-    before(:all) do
-      @scanner = ronin_scanner do
-      end
-    end
+    subject { ronin_scanner() { } }
 
     it "should return an Enumerator if no block is given" do
-      @scanner.import_each.class.should == Enumerator
+      subject.import_each.class.should == Enumerator
     end
   end
 end
