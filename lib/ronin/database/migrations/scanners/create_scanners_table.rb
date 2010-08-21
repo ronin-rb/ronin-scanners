@@ -20,11 +20,12 @@
 #
 
 require 'ronin/database/migrations/migrations'
+require 'ronin/database/migrations/create_licenses_table'
 
 module Ronin
   module Database
     module Migrations
-      migration(:ronin_scanners, '0.2.0', :create_scanners_table) do
+      migration(:create_scanners_table, :needs => :create_licenses_table) do
         up do
           create_table :ronin_scanners_scanners do
             column :id, Integer, :serial => true
