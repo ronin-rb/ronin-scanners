@@ -7,8 +7,9 @@ GIT
       extlib (~> 0.9.15)
 
 GIT
-  remote: git://github.com/datamapper/dm-migrations.git
-  revision: c2a0167
+  remote: git://github.com/postmodern/dm-migrations.git
+  revision: a352ef2
+  branch: runner
   specs:
     dm-migrations (1.0.0)
       dm-core (~> 1.0.0)
@@ -23,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/ronin-ruby/ronin-support.git
-  revision: 11ea346
+  revision: be4228d
   specs:
     ronin-support (0.1.0)
       chars (~> 0.1.2)
@@ -31,7 +32,7 @@ GIT
 
 GIT
   remote: git://github.com/ronin-ruby/ronin.git
-  revision: f63298d
+  revision: 9a89133
   specs:
     ronin (0.4.0)
       activesupport (~> 3.0.0.beta3)
@@ -66,7 +67,7 @@ GIT
 
 GIT
   remote: git://github.com/technicalpickles/jeweler.git
-  revision: d3b29e1
+  revision: 6326c46
   specs:
     jeweler (1.4.0)
       bundler (>= 1.0.0.rc.5)
