@@ -2,20 +2,18 @@ source 'https://rubygems.org'
 
 RONIN = 'git://github.com/ronin-ruby'
 
-group(:runtime) do
-  # DataMapper dependencies
-  gem 'dm-core',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-core.git'
-  gem 'dm-migrations',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-migrations.git'
+# DataMapper dependencies
+gem 'dm-core',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-core.git'
+gem 'dm-migrations',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-migrations.git'
 
-  gem 'open_namespace',	'~> 0.3.0'
-  gem 'parameters',	'~> 0.2.2'
-  gem 'nokogiri',	'~> 1.4.1'
-  gem 'spidr',		'~> 0.2.4'
-  gem 'rprogram',	'~> 0.1.8'
-  gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
-  gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
-  gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
-end
+gem 'open_namespace',	'~> 0.3.0'
+gem 'parameters',	'~> 0.2.2'
+gem 'nokogiri',	'~> 1.4.1'
+gem 'spidr',		'~> 0.2.4'
+gem 'rprogram',	'~> 0.1.8'
+gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
+gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
+gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
 
 group(:development) do
   gem 'bundler',	'~> 1.0.0'
