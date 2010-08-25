@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
 
+DATA_MAPPER = 'git://github.com/datamapper'
 RONIN = 'git://github.com/ronin-ruby'
 
 # DataMapper dependencies
-gem 'dm-core',	'~> 1.0.0', :git => 'git://github.com/datamapper/dm-core.git'
+gem 'dm-core',		'~> 1.0.0', :git => "#{DATA_MAPPER}/dm-core.git"
 gem 'dm-migrations',	'~> 1.0.0', :git => 'git://github.com/postmodern/dm-migrations.git', :branch => 'runner'
 
 gem 'open_namespace',	'~> 0.3.0'
 gem 'parameters',	'~> 0.2.2'
-gem 'nokogiri',	'~> 1.4.1'
+gem 'nokogiri',		'~> 1.4.1'
 gem 'spidr',		'~> 0.2.4'
-gem 'rprogram',	'~> 0.1.8'
+gem 'rprogram',		'~> 0.1.8'
 gem 'ruby-nmap',	'~> 0.1.0', :git => 'git://github.com/sophsec/ruby-nmap.git'
 gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
 gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
