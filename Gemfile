@@ -30,11 +30,10 @@ group(:doc) do
     gem 'rdiscount',	'~> 1.6.3'
   end
 
-  gem 'ruby-graphviz',	'~> 0.9.10'
-  gem 'dm-visualizer',	'~> 0.1.0'
-  gem 'yard',		'~> 0.5.3'
-  gem 'yard-contextify','~> 0.1.0'
-  gem 'yard-parameters','~> 0.1.0'
+  gem 'dm-visualizer',		'~> 0.1.0'
+  gem 'yard',			'~> 0.5.3'
+  gem 'yard-contextify',	'~> 0.1.0'
+  gem 'yard-parameters',	'~> 0.1.0'
 end
 
 gem 'rspec',	'~> 2.0.0.beta.20', :group => [:development, :test]
