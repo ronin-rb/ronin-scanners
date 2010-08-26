@@ -15,14 +15,6 @@ GIT
       dm-core (~> 1.0.0)
 
 GIT
-  remote: http://github.com/postmodern/yard-contextify.git
-  revision: 1119c69
-  specs:
-    yard-contextify (0.1.0)
-      yard (>= 0.4.0)
-      yard (~> 0.5.3)
-
-GIT
   remote: http://github.com/ronin-ruby/ronin-support.git
   revision: 037d416
   specs:
@@ -145,6 +137,8 @@ GEM
     tzinfo (0.3.23)
     uuidtools (2.1.1)
     yard (0.5.8)
+    yard-contextify (0.1.0)
+      yard (>= 0.4.0)
     yard-parameters (0.1.1)
       yard (>= 0.4.0)
 
@@ -170,5 +164,5 @@ DEPENDENCIES
   ruby-nmap (~> 0.1.0)!
   spidr (~> 0.2.4)
   yard (~> 0.5.3)
-  yard-contextify (~> 0.1.0)!
+  yard-contextify (~> 0.1.0)
   yard-parameters (~> 0.1.0)
