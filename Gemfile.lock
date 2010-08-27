@@ -21,6 +21,32 @@ GIT
       dm-core (~> 1.0.0)
 
 GIT
+  remote: http://github.com/ronin-ruby/ronin-exploits.git
+  revision: 53df8fb
+  specs:
+    ronin-exploits (0.4.0)
+      data_paths (~> 0.2.1)
+      dm-core (~> 1.0.0)
+      dm-migrations (~> 1.0.0)
+      open_namespace (~> 0.3.0)
+      parameters (~> 0.2.2)
+      pullr (~> 0.1.2)
+      ronin (~> 0.4.0)
+      ronin-gen (~> 0.3.0)
+      ronin-support (~> 0.1.0)
+
+GIT
+  remote: http://github.com/ronin-ruby/ronin-gen.git
+  revision: 5145b87
+  specs:
+    ronin-gen (0.3.0)
+      data_paths (~> 0.2.1)
+      open_namespace (~> 0.3.0)
+      ronin (~> 0.4.0)
+      ronin-support (~> 0.1.0)
+      thor (~> 0.14.0)
+
+GIT
   remote: http://github.com/ronin-ruby/ronin-support.git
   revision: 037d416
   specs:
@@ -157,6 +183,8 @@ DEPENDENCIES
   rake (~> 0.8.7)
   rdiscount (~> 1.6.3)
   ronin (~> 0.4.0)!
+  ronin-exploits (~> 0.4.0)!
+  ronin-gen (~> 0.3.0)!
   ronin-support (~> 0.1.0)!
   rprogram (~> 0.1.8)
   rspec (~> 2.0.0.beta.20)
