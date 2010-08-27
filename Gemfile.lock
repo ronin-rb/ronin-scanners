@@ -22,7 +22,8 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-exploits.git
-  revision: 53df8fb
+  revision: 3c19829
+  branch: vulns
   specs:
     ronin-exploits (0.4.0)
       data_paths (~> 0.2.1)
