@@ -26,14 +26,35 @@ require 'spidr/agent'
 
 module Ronin
   module Scanners
+    #
+    # The {WebScanner} class represents scanners that spider web pages,
+    # yielding `Spidr::Page` results and `URL` resources.
+    #
     class WebScanner < URLScanner
 
+      # The URL to start spidering at.
       parameter :start_at, :type => URI::HTTP,
                            :description => 'The URI to start scanning at'
 
+      # The hosts to spider.
       parameter :hosts, :default => Set[],
                         :description => 'The hosts to scan'
 
+      #
+      # Creates a new web spider agent.
+      #
+      # @yield [agent]
+      #   The given block will be passed the newly created web spider
+      #   agent.
+      #
+      # @yieldparam [Spidr::Agent] agent
+      #   The newly created web spider agent to configure.
+      #
+      # @return [Spidr::Agent]
+      #   The newly created web spider agent.
+      #
+      # @since 0.2.0
+      #   
       def agent(&block)
         options = {
           :proxy => Network::HTTP.proxy,
@@ -45,16 +66,49 @@ module Ronin
 
       protected
 
+      #
+      # Begins spidering web pages.
+      #
+      # @yield [page]
+      #   The given block will be passed each spidered web page.
+      #
+      # @yieldparam [Spidr::Page] page
+      #   A page visited by the web spider.
+      #
+      # @since 0.2.0
+      #
       def scan(&block)
         spider = agent()
 
         spider.start_at(self.start_at,&block)
       end
 
+      #
+      # Normalizes a visited web page.
+      #
+      # @param [Spidr::Page] page
+      #   A visited web page.
+      #
+      # @return [Spidr::Page]
+      #   The visited web page.
+      #
+      # @since 0.2.0
+      #
       def normalize_result(page)
         page
       end
 
+      #
+      # Converts a visited web page into a URL resource.
+      #
+      # @param [Spidr::Page] page
+      #   A visited web page.
+      #
+      # @return [URL]
+      #   The URL resource for the web page.
+      #
+      # @since 0.2.0
+      #
       def new_resource(page)
         super(page.uri)
       end
