@@ -8,6 +8,7 @@ gem 'dm-core',		'~> 1.0.0', :git => "#{DATA_MAPPER}/dm-core.git"
 gem 'dm-migrations',	'~> 1.0.0', :git => 'http://github.com/postmodern/dm-migrations.git', :branch => 'runner'
 
 gem 'open_namespace',	'~> 0.3.0'
+gem 'contextify',	'~> 0.1.6', :git => 'http://github.com/postmodern/contextify.git'
 gem 'parameters',	'~> 0.2.2'
 gem 'nokogiri',		'~> 1.4.1'
 gem 'spidr',		'~> 0.2.4'
