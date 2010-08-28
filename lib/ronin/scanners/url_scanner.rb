@@ -95,7 +95,7 @@ module Ronin
       #
       def new_resource(result)
         URL.first_or_new(
-          :scheme => result.scheme,
+          :scheme => URLScheme.first_or_new(:name => result.scheme),
           :host_name => HostName.first_or_new(
             :address => result.host
           ),
