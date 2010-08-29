@@ -20,7 +20,6 @@
 #
 
 require 'ronin/scanners/scanner'
-require 'ronin/extensions/uri'
 require 'ronin/url'
 
 require 'uri'
