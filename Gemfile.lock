@@ -146,7 +146,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
   contextify (~> 0.1.6)!
   dm-core (~> 1.0.0)!
   dm-migrations (~> 1.0.0)!
