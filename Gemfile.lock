@@ -136,7 +136,7 @@ GEM
     thor (0.14.0)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
-    yard (0.5.8)
+    yard (0.6.0)
     yard-contextify (0.1.0)
       yard (>= 0.4.0)
     yard-parameters (0.1.1)
@@ -162,6 +162,6 @@ DEPENDENCIES
   rspec (~> 2.0.0.beta.20)
   ruby-nmap (~> 0.1.0)!
   spidr (~> 0.2.4)
-  yard (~> 0.5.3)
+  yard (~> 0.6.0)
   yard-contextify (~> 0.1.0)
   yard-parameters (~> 0.1.0)
