@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-08-31}
+  s.date = %q{2010-09-01}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{postmodern.mod3@gmail.com}
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
     "lib/ronin/database/migrations/scanners.rb",
     "lib/ronin/database/migrations/scanners/create_scanners_table.rb",
     "lib/ronin/scanners.rb",
+    "lib/ronin/scanners/credential_scanner.rb",
     "lib/ronin/scanners/host_name_scanner.rb",
     "lib/ronin/scanners/ip_scanner.rb",
     "lib/ronin/scanners/nmap_scanner.rb",
