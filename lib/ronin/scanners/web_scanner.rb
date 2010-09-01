@@ -32,6 +32,34 @@ module Ronin
     #
     class WebScanner < URLScanner
 
+      #
+      # Creates a new web scanner object.
+      #
+      # @yield []
+      #   The given block will be used to create a new web scanner object.
+      #
+      # @return [WebScanner]
+      #   The new web scanner object.
+      #
+      # @example
+      #   ronin_web_scanner do
+      #     cache do
+      #       self.name = 'some web scanner'
+      #       self.description = %{
+      #         This is an example web scanner.
+      #       }
+      #     end
+      #
+      #     protected
+      #
+      #     def scan
+      #     end
+      #   end
+      #
+      # @since 0.2.0
+      #
+      contextify :ronin_web_scanner
+
       # The URL to start spidering at.
       parameter :start_at, :type => URI::HTTP,
                            :description => 'The URI to start scanning at'
