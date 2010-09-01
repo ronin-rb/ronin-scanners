@@ -55,6 +55,8 @@ module Ronin
       #     end
       #   end
       #
+      # @since 0.2.0
+      #
       contextify :ronin_udp_port_scanner
 
       protected

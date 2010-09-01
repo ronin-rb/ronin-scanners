@@ -112,6 +112,8 @@ module Ronin
       #     end
       #   end
       #
+      # @since 0.2.0
+      #
       contextify :ronin_scanner
 
       # The primary-key of the scanner
