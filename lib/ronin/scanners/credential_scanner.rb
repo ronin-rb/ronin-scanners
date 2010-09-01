@@ -57,7 +57,7 @@ module Ronin
       #
       # @since 0.2.0
       #
-      contextify :credential_scanner
+      contextify :ronin_credential_scanner
 
     end
   end
