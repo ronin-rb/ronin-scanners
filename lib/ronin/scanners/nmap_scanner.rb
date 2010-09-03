@@ -217,7 +217,7 @@ module Ronin
 
         # fill in the host names
         result.each_hostname do |name|
-          ip.hostnames.first_or_new(:address => name)
+          ip.host_names.first_or_new(:address => name)
         end
 
         # fill in the open ports
