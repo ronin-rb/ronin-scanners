@@ -17,8 +17,7 @@ gem 'ruby-nmap',	'~> 0.1.0', :git => 'http://github.com/sophsec/ruby-nmap.git'
 gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
 gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
 gem 'ronin-gen',	'~> 0.3.0', :git => "#{RONIN}/ronin-gen.git"
-gem 'ronin-exploits',	'~> 0.4.0', :git => "#{RONIN}/ronin-exploits.git",
-                                    :branch => 'vulns'
+gem 'ronin-exploits',	'~> 0.4.0', :git => "#{RONIN}/ronin-exploits.git"
 
 group(:development) do
   gem 'rake',		'~> 0.8.7'
