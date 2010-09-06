@@ -28,7 +28,7 @@ describe Scanners::URLScanner do
     resource = subject.each_resource.first
 
     resource.class.should == URL
-    resource.scheme.should == url.scheme
+    resource.scheme.name.should == url.scheme
     resource.host_name.address.should == url.host
     resource.port.number.should == url.port
     resource.path.should == url.path
