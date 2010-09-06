@@ -50,7 +50,6 @@ Gem::Specification.new do |s|
     "lib/ronin/sqlmap.rb",
     "lib/ronin/sqlmap_task.rb",
     "ronin-scanners.gemspec",
-    "spec/helpers/database.rb",
     "spec/scanners/host_name_scanner_spec.rb",
     "spec/scanners/ip_scanner_spec.rb",
     "spec/scanners/resolv_scanner_spec.rb",
@@ -69,7 +68,6 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.test_files = [
-    "spec/helpers/database.rb",
     "spec/scanners/host_name_scanner_spec.rb",
     "spec/scanners/ip_scanner_spec.rb",
     "spec/scanners/resolv_scanner_spec.rb",
