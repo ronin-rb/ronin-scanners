@@ -14,15 +14,11 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-exploits.git
-  revision: e381aef47af771caf0a452845fb1cd37bb195e85
+  revision: e7757f5d091d46d923a5085e1129cc9ab1deb8b8
   specs:
     ronin-exploits (0.4.0)
-      contextify (~> 0.1.6)
       data_paths (~> 0.2.1)
-      dm-migrations (~> 1.0.1)
       open_namespace (~> 0.3.0)
-      parameters (~> 0.2.2)
-      pullr (~> 0.1.2)
       ronin (~> 0.4.0)
       ronin-gen (~> 0.3.0)
       ronin-support (~> 0.1.0)
@@ -176,7 +172,6 @@ DEPENDENCIES
   jeweler (~> 1.5.0.pre)
   nokogiri (~> 1.4.1)
   open_namespace (~> 0.3.0)
-  parameters (~> 0.2.2)
   rake (~> 0.8.7)
   rdiscount (~> 1.6.3)
   ronin (~> 0.4.0)!
