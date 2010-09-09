@@ -20,3 +20,7 @@
 #
 
 require 'ronin/database/migrations/scanners/create_scanners_table'
+
+require 'ronin/database/database'
+
+Ronin::Database.upgrade!
