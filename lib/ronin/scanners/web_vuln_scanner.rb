@@ -41,18 +41,18 @@ module Ronin
       # Adds a test to the {WebVulnScanner}. Tests should either return
       # `nil` or a `Vulns::WebVuln` resource.
       #
-      # @yield [scanner,page]
+      # @yield [page,callback]
       #   The given block will be passed the scanner and the page currently
       #   being scanned.
-      #
-      # @yieldparam [WebVulnScanner] scanner
-      #   The scanner.
       #
       # @yieldparam [Spidr::Page] page
       #   The page currently being scanned.
       #
+      # @yieldparam [Proc] callback
+      #   The callback to pass back multiple `Vulns::WebVuln` objects.
+      #
       # @example
-      #   Ronin::Scanners::WebVulnScanner.test do |scanner,page|
+      #   Ronin::Scanners::WebVulnScanner.test do |page,callback|
       #     # ...
       #   end
       #
@@ -76,10 +76,10 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def scan
+      def scan(&block)
         super do |page|
-          WebVulnScanner.tests.each do |block|
-            yield block.call(self,page)
+          WebVulnScanner.tests.each do |test_block|
+            test_block.call(page,block)
           end
         end
       end
