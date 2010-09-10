@@ -75,9 +75,14 @@ Calling Nikto from Ruby:
 
 ## Requirements
 
-* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) >= 0.1.0
-* [ruby-nikto](http://github.com/sophsec/ruby-nikto/) >= 0.1.0
-* [ronin](http://ronin.rubyforge.org/) >= 0.4.0
+* [open_namespace](http://github.com/postmodern/open_namespace) ~> 0.3.0
+* [nokogiri](http://nokogiri.org) ~> 1.4.1
+* [spidr](http://github.com/postmodern/spidr) ~> 0.2.4
+* [rprogram](http://github.com/postmodern/rprogram) ~> 0.1.8
+* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.1.0
+* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.1.0
+* [ronin](http://github.com/ronin-ruby/ronin) ~> 0.4.0
+* [ronin-exploits](http://github.com/ronin-ruby/ronin-exploits) ~> 0.4.0
 
 ## Install
 
