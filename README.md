@@ -76,7 +76,7 @@ Calling Nikto from Ruby:
 ## Requirements
 
 * [open_namespace](http://github.com/postmodern/open_namespace) ~> 0.3.0
-* [nokogiri](http://nokogiri.org) ~> 1.4.1
+* [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4.1
 * [spidr](http://github.com/postmodern/spidr) ~> 0.2.4
 * [rprogram](http://github.com/postmodern/rprogram) ~> 0.1.8
 * [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.1.0
