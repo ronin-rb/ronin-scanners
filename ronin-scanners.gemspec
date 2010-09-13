@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-09-07}
+  s.date = %q{2010-09-13}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
-  s.email = %q{postmodern.mod3@gmail.com}
+  s.email = %q{ronin-ruby@googlegroups.com}
   s.executables = ["ronin-scanners"]
   s.extra_rdoc_files = [
     "ChangeLog.md",

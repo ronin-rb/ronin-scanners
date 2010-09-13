@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.licenses = ['GPL-2']
   gem.summary = %Q{A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   gem.description = %Q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
-  gem.email = 'postmodern.mod3@gmail.com'
+  gem.email = 'ronin-ruby@googlegroups.com'
   gem.homepage = 'http://github.com/ronin-ruby/ronin-scanners'
   gem.authors = ['Postmodern']
   gem.has_rdoc = 'yard'
