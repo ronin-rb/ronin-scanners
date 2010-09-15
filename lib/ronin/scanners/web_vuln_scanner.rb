@@ -61,7 +61,7 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def WebVulnScanner.test(name,&block)
+      def WebVulnScanner.test_for(name,&block)
         WebVulnScanner.tests[name] << block
       end
 
