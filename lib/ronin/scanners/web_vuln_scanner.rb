@@ -28,18 +28,21 @@ module Ronin
       #
       # The tests to perform on scanned pages.
       #
-      # @return [Array<Proc>]
+      # @return [Hash{Symbol => Array<Proc>}]
       #   The tests to perform.
       #
       # @since 0.2.0
       #
       def WebVulnScanner.tests
-        @web_vuln_scanner_tests ||= []
+        @web_vuln_scanner_tests ||= Hash.new { |hash,key| hash[key] = [] }
       end
 
       #
       # Adds a test to the {WebVulnScanner}. Tests should either return
       # `nil` or a `Vulns::WebVuln` resource.
+      #
+      # @param [Symbol] name
+      #   The name of the test.
       #
       # @yield [page,callback]
       #   The given block will be passed the scanner and the page currently
@@ -58,8 +61,8 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def WebVulnScanner.test(&block)
-        WebVulnScanner.tests << block
+      def WebVulnScanner.test(name,&block)
+        WebVulnScanner.tests[name] << block
       end
 
       protected
@@ -78,8 +81,8 @@ module Ronin
       #
       def scan(&block)
         super do |page|
-          WebVulnScanner.tests.each do |test_block|
-            test_block.call(page,block)
+          WebVulnScanner.tests.each do |name,tests|
+            tests.each { |test_block| test_block.call(page,block) }
           end
         end
       end
