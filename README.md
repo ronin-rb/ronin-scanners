@@ -1,6 +1,5 @@
 # Ronin Scanners
 
-* [ronin.rubyforge.org/scanners](http://ronin.rubyforge.org/scanners/)
 * [github.com/ronin-ruby/ronin-scanners](http://github.com/ronin-ruby/ronin-scanners/)
 * [github.com/ronin-ruby/ronin-scanners/issues](http://github.com/ronin-ruby/ronin-scanners/issues)
 * [groups.google.com/group/ronin-ruby](http://groups.google.com/group/ronin-ruby)
