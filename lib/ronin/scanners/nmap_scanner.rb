@@ -80,33 +80,6 @@ module Ronin
       # Specifies that a Mainmon Scan will be performed.
       parameter :maimon_scan, :default => false
 
-      #
-      # The path to the `nmap` utility.
-      #
-      # @return [String, nil]
-      #   The path to the `nmap` utility.
-      #
-      # @since 0.2.0
-      #
-      def NmapScanner.path
-        @@nmap_program_path ||= nil
-      end
-
-      #
-      # Sets the path to the `nmap` utility.
-      #
-      # @param [String] new_path
-      #   The path to the `nmap` utility.
-      #
-      # @return [String]
-      #   The new path to the `nmap` utility.
-      #
-      # @since 0.2.0
-      #
-      def NmapScanner.path=(new_path)
-        @@nmap_program_path = File.expand_path(new_path)
-      end
-
       protected
 
       #
@@ -118,6 +91,8 @@ module Ronin
       # @yieldparam [Nmap::Host] host
       #   A host from the nmap scan.
       #
+      # @see http://rubydoc.info/gems/ruby-nmap/Nmap/Host
+      #
       # @since 0.2.0
       #
       def scan(&block)
@@ -127,13 +102,7 @@ module Ronin
             nmap.xml = tempfile.path
           end
 
-          nmap = if NmapScanner.path
-                   # use the previously specified path to nmap
-                   Nmap::Program.new(NmapScanner.path)
-                 else
-                   # find nmap
-                   Nmap::Program.find()
-                 end
+          nmap = Nmap::Program.find()
 
           # run nmap
           nmap.run_task(options)
