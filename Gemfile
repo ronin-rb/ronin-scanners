@@ -7,7 +7,7 @@ RONIN = 'http://github.com/ronin-ruby'
 gem 'open_namespace',	'~> 0.3.0'
 gem 'nokogiri',		'~> 1.4.1'
 gem 'spidr',		'~> 0.2.4'
-gem 'rprogram',		'~> 0.1.8'
+gem 'rprogram',		'~> 0.2.0'
 gem 'ruby-nmap',	'~> 0.1.0', :git => 'http://github.com/sophsec/ruby-nmap.git'
 gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
 gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
