@@ -77,9 +77,6 @@ module Ronin
       # Specifies that a Window Scan will be performed.
       parameter :window_scan, :default => false
 
-      # Specifies that a Mainmon Scan will be performed.
-      parameter :maimon_scan, :default => false
-
       protected
 
       #
@@ -149,7 +146,6 @@ module Ronin
           nmap.service_scan = self.service_scan
           nmap.idle_scan = self.idle_scan
           nmap.window_scan = self.window_scan
-          nmap.maimon_scan = self.maimon_scan
 
           yield nmap if block_given?
         end
