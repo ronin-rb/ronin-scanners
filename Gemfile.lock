@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-exploits.git
-  revision: e7757f5d091d46d923a5085e1129cc9ab1deb8b8
+  revision: f5dea67bce44390121032b44b5182d75f4701618
   specs:
     ronin-exploits (0.4.0)
       data_paths (~> 0.2.1)
@@ -22,30 +22,32 @@ GIT
       ronin (~> 0.4.0)
       ronin-gen (~> 0.3.0)
       ronin-support (~> 0.1.0)
+      uri-query_params (~> 0.4.0)
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-gen.git
-  revision: b3eaccc0dbffd0e405a6338a562cb61eaa5865a0
+  revision: 0a5efba63221c62198fba688a2c2c0cd6ff120d6
   specs:
     ronin-gen (0.3.0)
       data_paths (~> 0.2.1)
       open_namespace (~> 0.3.0)
       ronin (~> 0.4.0)
       ronin-support (~> 0.1.0)
-      thor (~> 0.14.0)
+      thor (~> 0.14.2)
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-support.git
-  revision: e3b3170bfeafb33cda54d39015ed1e10505b62ee
+  revision: a7d96dda391dea15f7fc6934953624e7afb0ba4a
   specs:
     ronin-support (0.1.0)
       chars (~> 0.1.2)
+      combinatorics (~> 0.2.0)
       data_paths (~> 0.2.1)
       uri-query_params (~> 0.4.0)
 
 GIT
   remote: http://github.com/ronin-ruby/ronin.git
-  revision: b9bdaa7e5744628aa7ce1e72e1a2088b27d01a6c
+  revision: 88994579a4ed5bcc75f6b7a2d728e18eec7c4bd3
   specs:
     ronin (0.4.0)
       activesupport (~> 3.0.0)
@@ -67,7 +69,7 @@ GIT
       parameters (~> 0.2.2)
       pullr (~> 0.1.2)
       ronin-support (~> 0.1.0)
-      thor (~> 0.14.0)
+      thor (~> 0.14.2)
       tzinfo (~> 0.3.22)
       uri-query_params (~> 0.4.0)
 
@@ -86,6 +88,7 @@ GEM
     addressable (2.2.1)
     chars (0.1.2)
       yard (>= 0.2.3.5)
+    combinatorics (0.2.0)
     data_objects (0.10.2)
       addressable (~> 2.1)
     data_paths (0.2.1)
@@ -141,20 +144,20 @@ GEM
     rake (0.8.7)
     rdiscount (1.6.5)
     rprogram (0.2.0)
-    rspec (2.0.0.rc)
-      rspec-core (= 2.0.0.rc)
-      rspec-expectations (= 2.0.0.rc)
-      rspec-mocks (= 2.0.0.rc)
-    rspec-core (2.0.0.rc)
-    rspec-expectations (2.0.0.rc)
+    rspec (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+      rspec-mocks (= 2.0.0)
+    rspec-core (2.0.0)
+    rspec-expectations (2.0.0)
       diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.rc)
-      rspec-core (= 2.0.0.rc)
-      rspec-expectations (= 2.0.0.rc)
+    rspec-mocks (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
     ruby-graphviz (0.9.17)
     spidr (0.2.7)
     stringex (1.1.0)
-    thor (0.14.0)
+    thor (0.14.3)
     tzinfo (0.3.23)
     uri-query_params (0.4.0)
     uuidtools (2.1.1)
@@ -181,7 +184,7 @@ DEPENDENCIES
   ronin-gen (~> 0.3.0)!
   ronin-support (~> 0.1.0)!
   rprogram (~> 0.2.0)
-  rspec (~> 2.0.0.rc)
+  rspec (~> 2.0.0)
   ruby-nmap (~> 0.1.0)!
   spidr (~> 0.2.4)
   yard (~> 0.6.0)

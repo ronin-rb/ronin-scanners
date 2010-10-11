@@ -40,4 +40,4 @@ group(:doc) do
   gem 'yard-parameters',	'~> 0.1.0'
 end
 
-gem 'rspec',	'~> 2.0.0.rc', :group => [:development, :test]
+gem 'rspec',	'~> 2.0.0', :group => [:development, :test]

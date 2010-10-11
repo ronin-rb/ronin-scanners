@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
-  s.date = %q{2010-10-05}
+  s.date = %q{2010-10-10}
   s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{ronin-ruby@googlegroups.com}
@@ -95,7 +95,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<ronin-exploits>, ["~> 0.4.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.0.0.rc"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.0.0"])
     else
       s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.1"])
@@ -107,7 +107,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ronin-exploits>, ["~> 0.4.0"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
-      s.add_dependency(%q<rspec>, ["~> 2.0.0.rc"])
+      s.add_dependency(%q<rspec>, ["~> 2.0.0"])
     end
   else
     s.add_dependency(%q<open_namespace>, ["~> 0.3.0"])
@@ -120,7 +120,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ronin-exploits>, ["~> 0.4.0"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
-    s.add_dependency(%q<rspec>, ["~> 2.0.0.rc"])
+    s.add_dependency(%q<rspec>, ["~> 2.0.0"])
   end
 end
 
