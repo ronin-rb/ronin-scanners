@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/postmodern/contextify.git
-  revision: 4970af00b40a2467682a8159e972f65b43f87d94
+  revision: 6b1b1bba1fc0c923d2dea83140ffe982a6624ca4
   specs:
     contextify (0.1.6)
 
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-support.git
-  revision: a7d96dda391dea15f7fc6934953624e7afb0ba4a
+  revision: 065fd3e745923e93380036666abc5563e75fd07a
   specs:
     ronin-support (0.1.0)
       chars (~> 0.1.2)
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin.git
-  revision: 88994579a4ed5bcc75f6b7a2d728e18eec7c4bd3
+  revision: 08bba9582e2658d916808210e0125d15f26a8bc5
   specs:
     ronin (0.4.0)
       activesupport (~> 3.0.0)
@@ -75,7 +75,7 @@ GIT
 
 GIT
   remote: http://github.com/sophsec/ruby-nmap.git
-  revision: ec8815263bb9baab8e4e4362a0857a55b52fb69b
+  revision: 141e5f529f2e41f095cfa4cfe53034d9a8ace625
   specs:
     ruby-nmap (0.1.2)
       nokogiri (>= 1.3.0)
@@ -84,8 +84,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (3.0.0)
-    addressable (2.2.1)
+    activesupport (3.0.1)
+    addressable (2.2.2)
     chars (0.1.2)
       yard (>= 0.2.3.5)
     combinatorics (0.2.0)
