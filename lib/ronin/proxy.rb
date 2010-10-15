@@ -130,7 +130,7 @@ module Ronin
     #
     # @since 0.2.0
     #
-    def test!
+    def test
       if http?
         proxy = http_proxy
 
@@ -138,13 +138,9 @@ module Ronin
           self.alive = true
           self.anonymous = proxy.anonymous?
           self.latency = proxy.latency
-
-          save
           return true
         else
           self.alive = false
-
-          save
           return false
         end
       elsif socks?
