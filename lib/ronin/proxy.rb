@@ -144,7 +144,8 @@ module Ronin
           return false
         end
       elsif socks?
-        raise(NotImplementedError,"SOCKS proxies not supported yet")
+        # simply return if it is a SOCKS proxy
+        return true
       end
     end
 
