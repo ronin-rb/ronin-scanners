@@ -19,10 +19,13 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/create_proxies_table'
-require 'ronin/database/migrations/add_proxy_id_column_to_credentials_table'
-require 'ronin/database/migrations/scanners/create_scanners_table'
+require 'ronin/credential'
+require 'ronin/proxy'
 
-require 'ronin/database/database'
+module Ronin
+  class ProxyCredential < Credential
 
-Ronin::Database.upgrade!
+    belongs_to :proxy, :required => false
+
+  end
+end

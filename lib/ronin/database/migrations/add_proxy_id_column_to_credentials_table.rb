@@ -1,8 +1,7 @@
 #
-# Ronin Scanners - A Ruby library for Ronin that provides Ruby interfaces to
-# various third-party security scanners.
+# Ronin - A Ruby platform for exploit development and security research.
 #
-# Copyright (c) 2008-2010 Hal Brodigan (postmodern.mod3 at gmail.com)
+# Copyright (c) 2006-2010 Hal Brodigan (postmodern.mod3 at gmail.com)
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,10 +18,26 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
+require 'ronin/database/migrations/create_credentials_table'
 require 'ronin/database/migrations/create_proxies_table'
-require 'ronin/database/migrations/add_proxy_id_column_to_credentials_table'
-require 'ronin/database/migrations/scanners/create_scanners_table'
+require 'ronin/database/migrations/migrations'
 
-require 'ronin/database/database'
+module Ronin
+  module Database
+    module Migrations
+      migration(
+        :add_proxy_id_column_to_credentials_table,
+        :needs => [:create_credentials_table, :create_proxies_table]
+      ) do
+        up do
+          modify_table :ronin_credentials do
+            add_column :proxy_id, Integer
+          end
+        end
 
-Ronin::Database.upgrade!
+        down do
+        end
+      end
+    end
+  end
+end
