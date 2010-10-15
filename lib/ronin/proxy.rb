@@ -114,12 +114,11 @@ module Ronin
     def use!
       if http?
         Network::HTTP.proxy = http_proxy
-        return true
       elsif socks?
         raise(NotImplementedError,"SOCKS proxies not supported yet")
       end
 
-      return false
+      return true
     end
 
     #
