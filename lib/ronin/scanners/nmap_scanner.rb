@@ -34,12 +34,12 @@ module Ronin
     #
     class NmapScanner < Scanner
 
-      # The targets which will be scanned.
-      parameter :targets, :default => [],
-                          :description => 'The targets to scan with Nmap'
+      # The hosts which will be scanned.
+      parameter :hosts, :default => [],
+                        :description => 'The hosts to scan with Nmap'
 
-      # The targets or ranges to exclude from the scan.
-      parameter :exclude, :description => 'The targets to exclude'
+      # The hosts or ranges to exclude from the scan.
+      parameter :exclude, :description => 'The hosts to exclude'
 
       # The ports or port ranges which will be scanned.
       parameter :ports, :description => 'The ports to scan'
@@ -125,7 +125,7 @@ module Ronin
       #
       def nmap_options
         Nmap::Task.new do |nmap|
-          nmap.targets = self.targets
+          nmap.targets = self.hosts
 
           if self.exclude
             nmap.exclude = self.exclude
