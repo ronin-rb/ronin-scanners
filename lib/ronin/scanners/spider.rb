@@ -27,26 +27,26 @@ require 'spidr/agent'
 module Ronin
   module Scanners
     #
-    # The {WebSpider} class represents scanners that spider web pages,
+    # The {Spider} class represents a scanner that spider web pages,
     # yielding `Spidr::Page` results and `URL` resources.
     #
-    class WebSpider < URLScanner
+    class Spider < URLScanner
 
       #
-      # Creates a new web scanner object.
+      # Creates a new web spider object.
       #
       # @yield []
-      #   The given block will be used to create a new web scanner object.
+      #   The given block will be used to create a new web spider object.
       #
-      # @return [WebScanner]
-      #   The new web scanner object.
+      # @return [Scanner]
+      #   The new spider object.
       #
       # @example
-      #   ronin_web_spider do
+      #   ronin_spider do
       #     cache do
-      #       self.name = 'some web scanner'
+      #       self.name = 'some web spider'
       #       self.description = %{
-      #         This is an example web scanner.
+      #         This is an example web spider.
       #       }
       #     end
       #
@@ -61,7 +61,7 @@ module Ronin
       #
       # @since 0.2.0
       #
-      contextify :ronin_web_spider
+      contextify :ronin_spider
 
       # The URL to start spidering at.
       parameter :start_at, :type => URI::HTTP,
