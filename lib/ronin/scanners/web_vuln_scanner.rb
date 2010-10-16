@@ -19,11 +19,11 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/web_scanner'
+require 'ronin/scanners/web_spider'
 
 module Ronin
   module Scanners
-    class WebVulnScanner < WebScanner
+    class WebVulnScanner < WebSpider
 
       #
       # The tests to perform on scanned pages.

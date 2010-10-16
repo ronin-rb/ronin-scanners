@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/udp_port_scanner.rb",
     "lib/ronin/scanners/url_scanner.rb",
     "lib/ronin/scanners/version.rb",
-    "lib/ronin/scanners/web_scanner.rb",
+    "lib/ronin/scanners/web_spider.rb",
     "lib/ronin/scanners/web_vuln_scanner.rb",
     "lib/ronin/sqlmap.rb",
     "lib/ronin/sqlmap_task.rb",
