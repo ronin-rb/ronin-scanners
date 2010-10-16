@@ -51,7 +51,7 @@ module Ronin
       #
       def scan
         super do |host|
-          host.each_tcp_port do |port|
+          host.each_open_port do |port|
             type = case port.service
                        when /SOCKS/i
                          'socks'
