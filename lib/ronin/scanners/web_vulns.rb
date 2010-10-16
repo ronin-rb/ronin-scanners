@@ -19,11 +19,11 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/web_spider'
+require 'ronin/scanners/spider'
 
 module Ronin
   module Scanners
-    class WebVulnScanner < WebSpider
+    class WebVulns < Spider
 
       #
       # The tests to perform on scanned pages.
@@ -33,12 +33,12 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def WebVulnScanner.tests
-        @web_vuln_scanner_tests ||= Hash.new { |hash,key| hash[key] = [] }
+      def WebVulns.tests
+        @web_vuln_tests ||= Hash.new { |hash,key| hash[key] = [] }
       end
 
       #
-      # Adds a test to the {WebVulnScanner}. Tests should either return
+      # Adds a test to the {WebVulns}. Tests should either return
       # `nil` or a `Vulns::WebVuln` resource.
       #
       # @param [Symbol] name
@@ -55,14 +55,14 @@ module Ronin
       #   The callback to pass back multiple `Vulns::WebVuln` objects.
       #
       # @example
-      #   Ronin::Scanners::WebVulnScanner.test do |page,callback|
+      #   Ronin::Scanners::WebVulns.test do |page,callback|
       #     # ...
       #   end
       #
       # @since 0.2.0
       #
-      def WebVulnScanner.test_for(name,&block)
-        WebVulnScanner.tests[name] << block
+      def WebVulns.test_for(name,&block)
+        WebVulns.tests[name] << block
       end
 
       protected
@@ -81,7 +81,7 @@ module Ronin
       #
       def scan(&block)
         super do |page|
-          WebVulnScanner.tests.each do |name,tests|
+          WebVulns.tests.each do |name,tests|
             tests.each { |test_block| test_block.call(page,block) }
           end
         end
