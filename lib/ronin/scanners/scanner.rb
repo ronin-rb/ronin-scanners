@@ -65,7 +65,7 @@ module Ronin
     #   {#noramalize_result} to normalize the results.
     # * {#each_resource} - enumerates over resources that were
     #   created from the results, using {#new_resource}.
-    # * {#import_each} - saves the resources into the Database, while
+    # * {#save_each} - saves the resources into the Database, while
     #   enumerating over the resources.
     #
     # # Scanner Base Classes
@@ -207,8 +207,8 @@ module Ronin
       #
       # @since 0.2.0
       #
-      def import_each
-        return enum_for(:import_each) unless block_given?
+      def save_each
+        return enum_for(:save_each) unless block_given?
 
         each_resource do |result|
           yield resource if resource.save

@@ -83,11 +83,11 @@ describe Scanners::Scanner do
     end
   end
 
-  describe "import_each" do
+  describe "save_each" do
     subject { ronin_scanner() { } }
 
     it "should return an Enumerator if no block is given" do
-      subject.import_each.class.should == Enumerator
+      subject.save_each.class.should == Enumerator
     end
   end
 end

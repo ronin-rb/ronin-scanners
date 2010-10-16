@@ -36,7 +36,7 @@ module Ronin
         #
         def scan!
           enum = if options.save?
-                   @scanner.import_each
+                   @scanner.save_each
                  else
                    @scanner.each
                  end
