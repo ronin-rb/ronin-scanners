@@ -36,6 +36,8 @@ module Ronin
         #
         # Performs a scan using the `@scanner` instance variable.
         #
+        # @since 0.2.0
+        #
         def scan!
           enum = if options.save?
                    @scanner.save_each
@@ -44,10 +46,38 @@ module Ronin
                  end
 
           enum.each_with_index do |result,index|
-            puts result
+            if result.kind_of?(DataMapper::Resource)
+              print_resource(result)
+            else
+              print_result(result)
+            end
 
             break if (options[:first] && index+1 == options[:first])
           end
+        end
+
+        #
+        # Displays a result from the scanner.
+        #
+        # @param [Object] result
+        #   A result yielded from the scanner.
+        #
+        # @since 0.2.0
+        #
+        def print_result(result)
+          puts result
+        end
+
+        #
+        # Displays a resource from the scanner.
+        #
+        # @param [Model] resource
+        #   A resource yielded from the scanner.
+        #
+        # @since 0.2.0
+        #
+        def print_resource(resource)
+          puts resource
         end
 
       end
