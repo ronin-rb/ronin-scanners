@@ -41,6 +41,7 @@ module Ronin
 
           # Specifies whether to enable verbose output
           class_option :verbose, :default => Scanners::Proxies.verbose,
+                                 :type => :boolean,
                                  :aliases => '-v'
 
           # The input file to read hosts/ports from

@@ -29,7 +29,7 @@ module Ronin
       class ScannerCommand < Command
 
         class_option :first, :type => :numeric, :aliases => '-n'
-        class_option :save, :default => false, :aliases => '-S'
+        class_option :save, :type => :boolean, :aliases => '-S'
 
         protected
 
