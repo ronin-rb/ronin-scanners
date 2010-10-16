@@ -92,14 +92,6 @@ module Ronin
                 scanners = scanners.licensed_under(options[:license])
               end
 
-              if options[:arch]
-                scanners = scanners.targeting_arch(options[:arch])
-              end
-
-              if options[:os]
-                scanners = scanners.targeting_os(options[:os])
-              end
-
               scanners
             end
           end
