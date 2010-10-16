@@ -19,7 +19,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/nmap_scanner'
+require 'ronin/scanners/nmap'
 require 'ronin/proxy'
 
 module Ronin
@@ -28,7 +28,7 @@ module Ronin
     # The {ProxyScanner} scans known proxy ports and tests if they are running
     # a HTTP or SOCKS proxy.
     #
-    class ProxyScanner < NmapScanner
+    class ProxyScanner < Nmap
 
       parameter :ports, :description => 'The ports to scan for proxies',
                         :default => [

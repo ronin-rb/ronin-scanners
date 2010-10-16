@@ -29,10 +29,10 @@ require 'tempfile'
 module Ronin
   module Scanners
     #
-    # The {NmapScanner} scans the open-ports found on the targeted IP
+    # The {Nmap} scans the open-ports found on the targeted IP
     # addresses, using the Nmap security / port scanner.
     #
-    class NmapScanner < Scanner
+    class Nmap < Scanner
 
       # The hosts which will be scanned.
       parameter :hosts, :default => [],
@@ -103,7 +103,7 @@ module Ronin
       # @since 0.2.0
       #
       def nmap_options
-        nmap = Nmap::Task.new
+        nmap = ::Nmap::Task.new
         nmap.targets = self.hosts
 
         if self.exclude
@@ -165,7 +165,9 @@ module Ronin
       # @since 0.2.0
       #
       def scan(&block)
-        each_host = lambda { |path| Nmap::XML.new(path).each_host(&block) }
+        each_host = lambda { |path|
+          ::Nmap::XML.new(path).each_host(&block)
+        }
 
         if self.import
           each_host.call(self.import)
@@ -174,7 +176,7 @@ module Ronin
             options = nmap_options
             options.xml = path
 
-            nmap = Nmap::Program.find()
+            nmap = ::Nmap::Program.find()
             nmap.run_task(options)
 
             each_host.call(path)

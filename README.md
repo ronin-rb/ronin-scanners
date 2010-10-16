@@ -48,7 +48,7 @@ install or update Overlays.
   * {Ronin::Scanners::ResolvScanner}
   * {Ronin::Scanners::ReverseLookupScanner}
   * {Ronin::Scanners::SiteMapScanner}
-  * {Ronin::Scanners::NmapScanner}
+  * {Ronin::Scanners::Nmap}
   * {Ronin::Scanners::ProxyScanner}
 
 ## Synopsis
