@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-support.git
-  revision: 065fd3e745923e93380036666abc5563e75fd07a
+  revision: 78a8d1c8efcd6a3deea523ef3a513453dd013376
   specs:
     ronin-support (0.1.0)
       chars (~> 0.1.2)
