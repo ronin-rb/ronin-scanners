@@ -210,7 +210,7 @@ module Ronin
       def save_each
         return enum_for(:save_each) unless block_given?
 
-        each_resource do |result|
+        each_resource do |resource|
           yield resource if resource.save
         end
       end
