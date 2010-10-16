@@ -18,6 +18,7 @@ group(:edge) do
   gem 'dm-migrations',	DM_VERSION, :git => 'http://github.com/postmodern/dm-migrations.git', :branch => 'runner'
 
   gem 'contextify',	'~> 0.1.6', :git => 'http://github.com/postmodern/contextify.git'
+  gem 'parameters',	'~> 0.2.2', :git => 'http://github.com/postmodern/parameters.git'
   gem 'ronin-gen',	'~> 0.3.0', :git => "#{RONIN}/ronin-gen.git"
 end
 

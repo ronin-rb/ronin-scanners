@@ -13,6 +13,12 @@ GIT
       dm-core (~> 1.0.2)
 
 GIT
+  remote: http://github.com/postmodern/parameters.git
+  revision: aad48aa72ab5b5054970a74a502fd777170fbc43
+  specs:
+    parameters (0.2.2)
+
+GIT
   remote: http://github.com/postmodern/rprogram.git
   revision: d6738e211133562fb78a88a96480d7a1bcb1a180
   specs:
@@ -53,7 +59,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin.git
-  revision: d90ceaa2f6b208944e4fa843e088df913b8dfc27
+  revision: f49805e3d85b32ed1dbdff7d1785cbd3b3e49f12
   specs:
     ronin (0.4.0)
       activesupport (~> 3.0.0)
@@ -144,7 +150,6 @@ GEM
     json_pure (1.4.6)
     nokogiri (1.4.3.1)
     open_namespace (0.3.0)
-    parameters (0.2.2)
     pullr (0.1.3)
       addressable (>= 2.1.1)
     rake (0.8.7)
@@ -182,6 +187,7 @@ DEPENDENCIES
   jeweler (~> 1.5.0.pre)
   nokogiri (~> 1.4.1)
   open_namespace (~> 0.3.0)
+  parameters (~> 0.2.2)!
   rake (~> 0.8.7)
   rdiscount (~> 1.6.3)
   ronin (~> 0.4.0)!
