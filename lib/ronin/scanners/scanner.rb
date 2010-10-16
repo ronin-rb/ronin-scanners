@@ -80,7 +80,7 @@ module Ronin
     #
     # * {ResolvScanner}
     # * {ReverseLookupScanner}
-    # * {SiteMapScanner}
+    # * {SiteMap}
     # * {Nmap}
     # * {Proxies}
     #

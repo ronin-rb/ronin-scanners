@@ -27,10 +27,9 @@ require 'nokogiri'
 module Ronin
   module Scanners
     #
-    # The {SiteMapScanner} scans the URLs listed in a websites `sitemap.xml`
-    # file.
+    # The {SiteMap} scans the URLs listed in a websites `sitemap.xml` file.
     #
-    class SiteMapScanner < URLScanner
+    class SiteMap < URLScanner
 
       include Network::Mixins::HTTP
 
