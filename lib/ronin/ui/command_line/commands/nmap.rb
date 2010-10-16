@@ -81,6 +81,8 @@ module Ronin
           #
           # Runs the nmap scanner.
           #
+          # @since 0.2.0
+          #
           def execute
             Database.setup
 
@@ -89,6 +91,40 @@ module Ronin
             @scanner.params = options
 
             scan!
+          end
+
+          protected
+
+          #
+          # Prints a scanned host result.
+          #
+          # @param [Nmap::Host] host
+          #   A scanned host.
+          #
+          # @since 0.2.0
+          #
+          def print_result(host)
+            puts
+
+            print_hash({
+              :started => host.start_time,
+              :ended => host.end_time,
+              :status => "#{host.status.state} (#{host.status.reason})"
+            }, :title => host)
+
+            indent do
+              if options.verbose?
+                print_array host.each_address, :title => 'Addresses'
+                print_array host.each_hostname, :title => 'Hostname'
+              end
+
+              puts "[ Port ]\t[ State ]\t[ Service/Version ]\n"
+
+              host.each_port do |port|
+                puts "  #{port}/#{port.protocol}\t  #{port.state}\t  #{port.service}"
+              end
+              puts
+            end
           end
 
         end
