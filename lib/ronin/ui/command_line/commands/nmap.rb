@@ -27,6 +27,9 @@ module Ronin
     module CommandLine
       module Commands
         class Nmap < ScannerCommand
+
+          desc 'Automates nmap scans and imports them into the Database'
+
           # The hosts or ranges to exclude from the scan.
           class_option :exclude
 
