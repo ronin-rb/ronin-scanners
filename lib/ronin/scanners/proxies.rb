@@ -25,10 +25,10 @@ require 'ronin/proxy'
 module Ronin
   module Scanners
     #
-    # The {ProxyScanner} scans known proxy ports and tests if they are running
+    # The {Proxies} scans known proxy ports and tests if they are running
     # a HTTP or SOCKS proxy.
     #
-    class ProxyScanner < Nmap
+    class Proxies < Nmap
 
       parameter :ports, :description => 'The ports to scan for proxies',
                         :default => [

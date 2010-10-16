@@ -82,7 +82,7 @@ module Ronin
     # * {ReverseLookupScanner}
     # * {SiteMapScanner}
     # * {Nmap}
-    # * {ProxyScanner}
+    # * {Proxies}
     #
     class Scanner
 

@@ -49,7 +49,7 @@ install or update Overlays.
   * {Ronin::Scanners::ReverseLookupScanner}
   * {Ronin::Scanners::SiteMapScanner}
   * {Ronin::Scanners::Nmap}
-  * {Ronin::Scanners::ProxyScanner}
+  * {Ronin::Scanners::Proxies}
 
 ## Synopsis
 
