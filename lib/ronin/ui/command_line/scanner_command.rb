@@ -28,7 +28,7 @@ module Ronin
     module CommandLine
       class ScannerCommand < Command
 
-        class_option :first, :type => :numeric, :aliases => '-n'
+        class_option :first, :type => :numeric, :aliases => '-N'
         class_option :save, :type => :boolean, :aliases => '-S'
 
         protected
