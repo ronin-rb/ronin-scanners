@@ -20,6 +20,8 @@
 #
 
 require 'ronin/ui/command_line/command'
+require 'ronin/database/migrations/scanners'
+require 'ronin/database'
 
 module Ronin
   module UI
