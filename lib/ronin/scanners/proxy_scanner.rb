@@ -51,8 +51,8 @@ module Ronin
       #
       def scan
         super do |host|
-          host.each_open_port do |port|
-            type = case port.service
+          host.each_open_port do |open_port|
+            type = case open_port.service
                        when /SOCKS/i
                          'socks'
                        when /HTTP/i
@@ -62,11 +62,11 @@ module Ronin
                          next
                        end
 
-            proxy = Proxy.first_or_new(
-              :ip_address => {:address => host.ip},
-              :port => {:number => port.number},
-              :type => type
-            )
+            ip = new_ip(host)
+            port = new_port(open_port)
+
+            proxy = Proxy.first_or_new(:ip_address => ip, :port => port)
+            proxy.type = type
 
             yield proxy if proxy.test
           end

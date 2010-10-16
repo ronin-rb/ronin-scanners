@@ -183,6 +183,78 @@ module Ronin
       end
 
       #
+      # Creates a new IP Address from a scanned host result.
+      #
+      # @param [Nmap::Host] host
+      #   The scanned host.
+      #
+      # @return [IPAddress]
+      #   The IP Address resource.
+      #
+      # @since 0.2.0
+      #
+      def new_ip(host)
+        # if the host does not have an ip, then skip it
+        return nil unless host.ip
+
+        ip_version, ip_address = if host.ipv6
+                                   [6, host.ipv6]
+                                 elsif host.ipv4
+                                   [4, host.ipv4]
+                                 end
+
+        ip = IPAddress.first_or_new(
+          :version => ip_version,
+          :address => ip_address
+        )
+
+        # fill in the MAC address
+        ip.mac_addresses.first_or_new(:address => host.mac)
+
+        # fill in the host names
+        host.each_hostname do |name|
+          ip.host_names.first_or_new(:address => name)
+        end
+
+        return ip
+      end
+
+      #
+      # Creates a new port from a scanned open port.
+      #
+      # @param [Nmap::Port] open_port
+      #   The scanned open port.
+      #
+      # @return [Port]
+      #   The port resource.
+      #
+      # @since 0.2.0
+      #
+      def new_port(open_port)
+        Port.first_or_new(
+          :protocol => open_port.protocol.to_s,
+          :number => open_port.number
+        )
+      end
+
+      #
+      # Creates a new service from the scanned open port.
+      #
+      # @param [Nmap::Port] open_port
+      #   The scanned open port.
+      #
+      # @return [Service]
+      #   The new service.
+      #
+      # @since 0.2.0
+      #
+      def new_service(open_port)
+        if open_port.service
+          Service.first_or_new(:name => open_port.service)
+        end
+      end
+
+      #
       # Queries or creates an IPAddress resource from the given host.
       #
       # @param [Nmap::Host] result
@@ -194,43 +266,16 @@ module Ronin
       # @since 0.2.0
       #
       def new_resource(result)
-        # if the host does not have an ip, then skip it
-        return nil unless result.ip
-
-        ip_version, ip_address = if result.ipv6
-                                   [6, result.ipv6]
-                                 elsif result.ipv4
-                                   [4, result.ipv4]
-                                 end
-
-        ip = IPAddress.first_or_new(
-          :version => ip_version,
-          :address => ip_address
-        )
-
-        # fill in the MAC address
-        ip.mac_addresses.first_or_new(:address => result.mac)
-
-        # fill in the host names
-        result.each_hostname do |name|
-          ip.host_names.first_or_new(:address => name)
-        end
+        return nil unless (ip = new_ip(result))
 
         # fill in the open ports
         result.each_open_port do |open_port|
-          # find or create the port
-          port = Port.first_or_new(
-            :protocol => open_port.protocol.to_s,
-            :number => open_port.number
-          )
+          port = new_port(open_port)
+          service = new_service(open_port)
 
-          # find or create the service, if the port has a service
-          service = if open_port.service
-                      Service.first_or_new(:name => open_port.service)
-                    end
-
-          # find or create the open port
-          ip.open_ports.first_or_new(:port => port, :service => service)
+          # find or create a new open port
+          new_open_port = ip.open_ports.first_or_new(:port => port)
+          new_open_port.service = service
         end
 
         return ip
