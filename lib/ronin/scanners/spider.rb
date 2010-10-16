@@ -64,8 +64,7 @@ module Ronin
       contextify :ronin_spider
 
       # The URL to start spidering at.
-      parameter :start_at, :type => URI::HTTP,
-                           :description => 'The URI to start scanning at'
+      parameter :start_at, :description => 'The URI to start scanning at'
 
       # The hosts to spider.
       parameter :hosts, :default => Set[],

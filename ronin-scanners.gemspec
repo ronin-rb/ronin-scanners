@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = %q{2010-10-16}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{ronin-ruby@googlegroups.com}
-  s.executables = ["ronin-nmap", "ronin-proxies", "ronin-scan", "ronin-scanners"]
+  s.executables = ["ronin-nmap", "ronin-proxies", "ronin-scan", "ronin-scanners", "ronin-spider"]
   s.extra_rdoc_files = [
     "ChangeLog.md",
     "README.md"
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "bin/ronin-proxies",
     "bin/ronin-scan",
     "bin/ronin-scanners",
+    "bin/ronin-spider",
     "lib/ronin/database/migrations/add_proxy_id_column_to_credentials_table.rb",
     "lib/ronin/database/migrations/create_proxies_table.rb",
     "lib/ronin/database/migrations/scanners.rb",
@@ -48,17 +49,18 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/scanner.rb",
     "lib/ronin/scanners/scanners.rb",
     "lib/ronin/scanners/site_map.rb",
+    "lib/ronin/scanners/spider.rb",
     "lib/ronin/scanners/tcp_port_scanner.rb",
     "lib/ronin/scanners/udp_port_scanner.rb",
     "lib/ronin/scanners/url_scanner.rb",
     "lib/ronin/scanners/version.rb",
-    "lib/ronin/scanners/web_spider.rb",
     "lib/ronin/scanners/web_vuln_scanner.rb",
     "lib/ronin/sqlmap.rb",
     "lib/ronin/sqlmap_task.rb",
     "lib/ronin/ui/command_line/commands/nmap.rb",
     "lib/ronin/ui/command_line/commands/proxies.rb",
     "lib/ronin/ui/command_line/commands/scan.rb",
+    "lib/ronin/ui/command_line/commands/spider.rb",
     "lib/ronin/ui/command_line/scanner_command.rb",
     "ronin-scanners.gemspec",
     "spec/scanners/host_name_scanner_spec.rb",
