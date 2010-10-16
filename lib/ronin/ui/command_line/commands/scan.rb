@@ -33,7 +33,10 @@ module Ronin
           # scanner options
           class_option :name, :type => :string, :aliases => '-n'
           class_option :version, :type => :string, :aliases => '-V'
-          class_option :params, :type => :hash, :default => {}, :banner => 'NAME:VALUE ...', :aliases => '-p'
+          class_option :params, :type => :hash,
+                                :default => {},
+                                :banner => 'NAME:VALUE ...',
+                                :aliases => '-p'
           class_option :file, :type => :string, :aliases => '-f'
 
           #
