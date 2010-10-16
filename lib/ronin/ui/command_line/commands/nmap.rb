@@ -90,7 +90,11 @@ module Ronin
             @scanner.hosts = hosts
             @scanner.params = options
 
+            print_info 'Saving scanned hosts and ports ...' if options.save?
+
             scan!
+
+            print_info 'All scanned hosts and ports saved.' if options.save?
           end
 
           protected
@@ -125,6 +129,26 @@ module Ronin
               end
               puts
             end
+          end
+
+          #
+          # Prints a saved host.
+          #
+          # @param [IPAddress] host
+          #   A saved host.
+          #
+          # @since 0.2.0
+          #
+          def print_resource(host)
+            print_info "Saving #{host}:"
+            print_info 'Addresses:'
+
+            print_array host.addresses.select { |address| address.new? },
+                        :title => 'Addresses'
+
+            print_array host.ports.select { |port| port.new? },
+                        :title => 'Ports'
+
           end
 
         end
