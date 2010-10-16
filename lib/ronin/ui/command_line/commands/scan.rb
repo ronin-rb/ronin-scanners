@@ -30,7 +30,7 @@ module Ronin
 
           desc 'Loads and runs a scanner'
 
-          # exploit options
+          # scanner options
           class_option :name, :type => :string, :aliases => '-n'
           class_option :version, :type => :string, :aliases => '-V'
           class_option :params, :type => :hash, :default => {}, :banner => 'NAME:VALUE ...', :aliases => '-p'
@@ -42,7 +42,7 @@ module Ronin
           def execute
             Database.setup
 
-            # Load the exploit
+            # Load the scanner
             if options[:file]
               load_scanner!
             else
@@ -72,32 +72,32 @@ module Ronin
           # Finds the cached scanner in the Database.
           #
           def find_scanner!
-            @scanner = Scanners::Scanner.load_first do
+            @scanner = Scanners::Scanner.load_first do |scanners|
               if options[:name]
-                exploits = exploits.named(options[:name])
+                scanners = scanners.named(options[:name])
               end
 
               if options[:describing]
-                exploits = exploits.describing(options[:describing])
+                scanners = scanners.describing(options[:describing])
               end
 
               if options[:version]
-                exploits = exploits.revision(options[:version])
+                scanners = scanners.revision(options[:version])
               end
 
               if options[:license]
-                exploits = exploits.licensed_under(options[:license])
+                scanners = scanners.licensed_under(options[:license])
               end
 
               if options[:arch]
-                exploits = exploits.targeting_arch(options[:arch])
+                scanners = scanners.targeting_arch(options[:arch])
               end
 
               if options[:os]
-                exploits = exploits.targeting_os(options[:os])
+                scanners = scanners.targeting_os(options[:os])
               end
 
-              exploits
+              scanners
             end
           end
 
