@@ -77,37 +77,16 @@ module Ronin
       # Specifies that a Window Scan will be performed.
       parameter :window_scan, :default => false
 
+      # Specifies whether to enable verbose output
+      parameter :verbose, :default => false
+
+      # The input file to read hosts/ports from
+      parameter :import, :description => 'XML Scan file to import'
+
+      # The output file to write hosts/ports to
+      parameter :output, :description => 'XML Scan output file'
+
       protected
-
-      #
-      # Performs a nmap scan and passes the scanned hosts to scanner rules.
-      #
-      # @yield [host]
-      #   Every host that nmap scanned, will be passed to the given block.
-      #
-      # @yieldparam [Nmap::Host] host
-      #   A host from the nmap scan.
-      #
-      # @see http://rubydoc.info/gems/ruby-nmap/Nmap/Host
-      #
-      # @since 0.2.0
-      #
-      def scan(&block)
-        Tempfile.open('ronin_scanners_nmap') do |tempfile|
-          options = nmap_options do |nmap|
-            # set the xml output path
-            nmap.xml = tempfile.path
-          end
-
-          nmap = Nmap::Program.find()
-
-          # run nmap
-          nmap.run_task(options)
-
-          # enumerate the scanned hosts
-          Nmap::XML.new(tempfile.path).each_host(&block)
-        end
-      end
 
       #
       # Populates options to call `nmap` with.
@@ -124,30 +103,82 @@ module Ronin
       # @since 0.2.0
       #
       def nmap_options
-        Nmap::Task.new do |nmap|
-          nmap.targets = self.hosts
+        nmap = Nmap::Task.new
+        nmap.targets = self.hosts
 
-          if self.exclude
-            nmap.exclude = self.exclude
+        if self.exclude
+          nmap.exclude = self.exclude
+        end
+
+        if self.ports
+          nmap.ports = self.ports
+        end
+
+        nmap.ping = self.ping_scan
+        nmap.connect_scan = self.connect_scan
+        nmap.syn_scan = self.syn_scan
+        nmap.ack_scan = self.ack_scan
+        nmap.fin_scan = self.fin_scan
+        nmap.null_scan = self.null_scan
+        nmap.xmas_scan = self.xmas_scan
+        nmap.udp_scan = self.udp_scan
+        nmap.service_scan = self.service_scan
+        nmap.idle_scan = self.idle_scan
+        nmap.window_scan = self.window_scan
+        nmap.verbose = self.verbose
+
+        return nmap
+      end
+
+      #
+      # Sets up the scan output file for nmap.
+      #
+      # @yield [output]
+      #   The block will be passed the output file.
+      #
+      # @yieldparam [String] output
+      #   The path of the output file.
+      #
+      # @since 0.2.0
+      #
+      def nmap_output
+        if self.output
+          yield self.output
+        else
+          Tempfile.open('ronin_scanners_nmap') do |tempfile|
+            yield tempfile.path
           end
+        end
+      end
 
-          if self.ports
-            nmap.ports = self.ports
+      #
+      # Performs a nmap scan and passes the scanned hosts to scanner rules.
+      #
+      # @yield [host]
+      #   Every host that nmap scanned, will be passed to the given block.
+      #
+      # @yieldparam [Nmap::Host] host
+      #   A host from the nmap scan.
+      #
+      # @see http://rubydoc.info/gems/ruby-nmap/Nmap/Host
+      #
+      # @since 0.2.0
+      #
+      def scan(&block)
+        each_host = lambda { |path| Nmap::XML.new(path).each_host(&block) }
+
+        if self.import
+          each_host.call(self.import)
+        else
+          nmap_output do |path|
+            options = nmap_options
+            options.xml = path
+
+            nmap = Nmap::Program.find()
+            nmap.run_task(options)
+
+            each_host.call(path)
           end
-
-          nmap.ping = self.ping_scan
-          nmap.connect_scan = self.connect_scan
-          nmap.syn_scan = self.syn_scan
-          nmap.ack_scan = self.ack_scan
-          nmap.fin_scan = self.fin_scan
-          nmap.null_scan = self.null_scan
-          nmap.xmas_scan = self.xmas_scan
-          nmap.udp_scan = self.udp_scan
-          nmap.service_scan = self.service_scan
-          nmap.idle_scan = self.idle_scan
-          nmap.window_scan = self.window_scan
-
-          yield nmap if block_given?
         end
       end
 
