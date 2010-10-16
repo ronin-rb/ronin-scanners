@@ -53,14 +53,11 @@ module Ronin
         super do |host|
           host.each_open_port do |open_port|
             type = case open_port.service
-                       when /SOCKS/i
-                         'socks'
-                       when /HTTP/i
-                         'http'
-                       else
-                         # skip unidentifiable proxies
-                         next
-                       end
+                   when /SOCKS/i
+                     'socks'
+                   else # assume it's an HTTP proxy
+                     'http'
+                   end
 
             ip = new_ip(host)
             port = new_port(open_port)
