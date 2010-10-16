@@ -148,5 +148,17 @@ module Ronin
       end
     end
 
+    #
+    # Converts the proxy to a String.
+    #
+    # @return [String]
+    #   The String representation of the proxy.
+    #
+    # @since 0.2.0
+    #
+    def to_s
+      "#{self.ip_address}:#{self.port}"
+    end
+
   end
 end
