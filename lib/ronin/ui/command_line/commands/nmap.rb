@@ -28,7 +28,7 @@ module Ronin
       module Commands
         class Nmap < ScannerCommand
           # The hosts or ranges to exclude from the scan.
-          class_option :exclude, :description => 'The hosts to exclude'
+          class_option :exclude
 
           # The ports or port ranges which will be scanned.
           class_option :ports, :type => :string, :aliases => '-p'
