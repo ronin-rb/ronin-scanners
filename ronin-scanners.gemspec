@@ -10,10 +10,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Postmodern"]
   s.date = %q{2010-10-16}
-  s.default_executable = %q{ronin-scanners}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{ronin-ruby@googlegroups.com}
-  s.executables = ["ronin-scanners"]
+  s.executables = ["ronin-scan", "ronin-scanners"]
   s.extra_rdoc_files = [
     "ChangeLog.md",
     "README.md"
@@ -28,6 +27,7 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "README.md",
     "Rakefile",
+    "bin/ronin-scan",
     "bin/ronin-scanners",
     "lib/ronin/database/migrations/add_proxy_id_column_to_credentials_table.rb",
     "lib/ronin/database/migrations/create_proxies_table.rb",
@@ -54,6 +54,8 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/web_vuln_scanner.rb",
     "lib/ronin/sqlmap.rb",
     "lib/ronin/sqlmap_task.rb",
+    "lib/ronin/ui/command_line/commands/scan.rb",
+    "lib/ronin/ui/command_line/scanner_command.rb",
     "ronin-scanners.gemspec",
     "spec/scanners/host_name_scanner_spec.rb",
     "spec/scanners/ip_scanner_spec.rb",
