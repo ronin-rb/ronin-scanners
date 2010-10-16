@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = %q{2010-10-16}
   s.description = %q{Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.}
   s.email = %q{ronin-ruby@googlegroups.com}
-  s.executables = ["ronin-scan", "ronin-scanners"]
+  s.executables = ["ronin-nmap", "ronin-scan", "ronin-scanners"]
   s.extra_rdoc_files = [
     "ChangeLog.md",
     "README.md"
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "README.md",
     "Rakefile",
+    "bin/ronin-nmap",
     "bin/ronin-scan",
     "bin/ronin-scanners",
     "lib/ronin/database/migrations/add_proxy_id_column_to_credentials_table.rb",
@@ -54,6 +55,7 @@ Gem::Specification.new do |s|
     "lib/ronin/scanners/web_vuln_scanner.rb",
     "lib/ronin/sqlmap.rb",
     "lib/ronin/sqlmap_task.rb",
+    "lib/ronin/ui/command_line/commands/nmap.rb",
     "lib/ronin/ui/command_line/commands/scan.rb",
     "lib/ronin/ui/command_line/scanner_command.rb",
     "ronin-scanners.gemspec",
