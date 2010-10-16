@@ -31,46 +31,61 @@ module Ronin
           desc 'Automates nmap scans and imports them into the Database'
 
           # The hosts or ranges to exclude from the scan.
-          class_option :exclude
+          class_option :exclude, :default => Scanners::Nmap.exclude,
+                                 :type => :string
 
           # The ports or port ranges which will be scanned.
-          class_option :ports, :type => :string, :aliases => '-p'
+          class_option :ports, :default => Scanners::Nmap.ports,
+                               :type => :string,
+                               :aliases => '-p'
 
           # Specifies that a Ping Scan will be performed.
-          class_option :ping_scan, :default => false, :aliases => '-sP'
+          class_option :ping_scan, :default => Scanners::Nmap.ping_scan,
+                                   :aliases => '-sP'
 
           # Specifies that a Connect Scan will be performed.
-          class_option :connect_scan, :default => true, :aliases => '-sT'
+          class_option :connect_scan, :default => Scanners::Nmap.connect_scan,
+                                      :aliases => '-sT'
 
           # Specifies that a TCP SYN scan will be performed.
-          class_option :syn_scan, :default => false, :aliases => '-sS'
+          class_option :syn_scan, :default => Scanners::Nmap.syn_scan,
+                                  :aliases => '-sS'
 
           # Specifies that a TCP ACK scan will be performed.
-          class_option :ack_scan, :default => false, :aliases => '-sA'
+          class_option :ack_scan, :default => Scanners::Nmap.ack_scan,
+                                  :aliases => '-sA'
 
           # Specifies that a TCP NULL scan will be performed.
-          class_option :null_scan, :default => false, :aliases => '-sN'
+          class_option :null_scan, :default => Scanners::Nmap.null_scan,
+                                   :aliases => '-sN'
 
           # Specifies that a TCP FIN scan will be performed.
-          class_option :fin_scan, :default => false, :aliases => '-sF'
+          class_option :fin_scan, :default => Scanners::Nmap.fin_scan,
+                                  :aliases => '-sF'
 
           # Specifies that a TCP XMAS scan will be performed.
-          class_option :xmas_scan, :default => false, :aliases => '-sX'
+          class_option :xmas_scan, :default => Scanners::Nmap.xmas_scan,
+                                   :aliases => '-sX'
 
           # Specifies that a UDP scan will be performed.
-          class_option :udp_scan, :default => false, :aliases => '-sU'
+          class_option :udp_scan, :default => Scanners::Nmap.udp_scan,
+                                  :aliases => '-sU'
 
           # Specifies that a Service scan will be performed.
-          class_option :service_scan, :default => true, :aliases => '-sV'
+          class_option :service_scan, :default => Scanners::Nmap.service_scan,
+                                      :aliases => '-sV'
 
           # Specifies that an Idle Scan will be performed.
-          class_option :idle_scan, :default => false, :aliases => '-sI'
+          class_option :idle_scan, :default => Scanners::Nmap.idle_scan,
+                                   :aliases => '-sI'
 
           # Specifies that a Window Scan will be performed.
-          class_option :window_scan, :default => false, :aliases => '-sW'
+          class_option :window_scan, :default => Scanners::Nmap.window_scan,
+                                     :aliases => '-sW'
 
           # Specifies whether to enable verbose output
-          class_option :verbose, :default => false, :aliases => '-v'
+          class_option :verbose, :default => Scanners::Nmap.verbose,
+                                 :aliases => '-v'
 
           # The input file to read hosts/ports from
           class_option :import, :type => :string, :aliases => '-i'
