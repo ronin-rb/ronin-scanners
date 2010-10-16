@@ -21,7 +21,6 @@
 
 require 'ronin/ui/command_line/scanner_command'
 require 'ronin/scanners/scanner'
-require 'ronin/database'
 
 module Ronin
   module UI
@@ -41,7 +40,7 @@ module Ronin
           # Loads and runs the scanner.
           #
           def execute
-            Database.setup(options[:database])
+            Database.setup
 
             # Load the exploit
             if options[:file]
