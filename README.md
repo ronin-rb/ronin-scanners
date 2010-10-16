@@ -47,8 +47,9 @@ install or update Overlays.
 * Provides various specialized Scanner classes:
   * {Ronin::Scanners::ResolvScanner}
   * {Ronin::Scanners::ReverseLookupScanner}
-  * {Ronin::Scanners::WebSpider}
   * {Ronin::Scanners::SiteMap}
+  * {Ronin::Scanners::WebSpider}
+  * {Ronin::Scanners::WebVulnScanner}
   * {Ronin::Scanners::Nmap}
   * {Ronin::Scanners::Proxies}
 
