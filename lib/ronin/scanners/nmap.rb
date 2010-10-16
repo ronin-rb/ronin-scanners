@@ -20,6 +20,9 @@
 #
 
 require 'ronin/scanners/scanner'
+require 'ronin/ip_address'
+require 'ronin/port'
+require 'ronin/service'
 
 require 'nmap/task'
 require 'nmap/program'
