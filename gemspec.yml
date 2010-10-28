@@ -1,0 +1,24 @@
+name: ronin-scanners
+summary: A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.
+description:
+  Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to
+  various third-party security scanners.
+
+license: GPL-2
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: http://github.com/ronin-ruby/ronin-scanners
+has_yard: true
+
+dependencies:
+  open_namespace: ~> 0.3.0
+  contextify: ~> 0.2.0
+  parameters: ~> 0.2.3
+  nokogiri: ~> 1.4.1
+  spidr: ~> 0.2.4
+  # ruby-nmap: ~> 0.1.0
+  rprogram: ~> 0.2.1
+
+development_dependencies:
+  bundler: ~> 1.0.0
+  yard: ~> 0.6.1
