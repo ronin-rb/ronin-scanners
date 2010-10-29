@@ -16,8 +16,13 @@ dependencies:
   parameters: ~> 0.2.3
   nokogiri: ~> 1.4.1
   spidr: ~> 0.2.4
-  # ruby-nmap: ~> 0.1.0
   rprogram: ~> 0.2.1
+  # ruby-nmap: ~> 0.1.0
+  # Ronin dependencies:
+  # ronin-support: ~> 0.1.0
+  # ronin: ~> 0.4.0
+  # ronin-gen: ~> 0.3.0
+  # ronin-exploits: ~> 0.4.0
 
 development_dependencies:
   bundler: ~> 1.0.0
