@@ -10,7 +10,6 @@ gemspec
 gem 'dm-migrations',	DM_VERSION, :git => 'http://github.com/postmodern/dm-migrations.git', :branch => 'runner'
 
 # Ronin dependencies
-gem 'ruby-nmap',	'~> 0.1.0', :git => 'http://github.com/sophsec/ruby-nmap.git'
 gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN}/ronin-support.git"
 gem 'ronin',		'~> 0.4.0', :git => "#{RONIN}/ronin.git"
 gem 'ronin-gen',	'~> 0.3.0', :git => "#{RONIN}/ronin-gen.git"
