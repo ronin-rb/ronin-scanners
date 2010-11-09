@@ -93,7 +93,13 @@ module Ronin
       # @since 0.2.0
       #
       def new_resource(result)
-        URL.first_or_new(
+        query_params = []
+        
+        result.query_params.each do |name,value|
+          query_params << {:name => name, :value => value}
+        end
+
+        return URL.first_or_new(
           :scheme => URLScheme.first_or_new(:name => result.scheme),
           :host_name => HostName.first_or_new(
             :address => result.host
@@ -103,7 +109,7 @@ module Ronin
             :protocol => 'tcp'
           ),
           :path => result.path,
-          :query_string => result.query
+          :query_params => query_params
         )
       end
 
