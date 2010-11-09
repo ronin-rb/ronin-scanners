@@ -280,6 +280,7 @@ module Ronin
 
           # find or create a new open port
           new_open_port = ip.open_ports.first_or_new(:port => port)
+          new_open_port.last_scanned_at = Time.now
           new_open_port.service = service
         end
 

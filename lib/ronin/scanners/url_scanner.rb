@@ -99,7 +99,7 @@ module Ronin
           query_params << {:name => name, :value => value}
         end
 
-        return URL.first_or_new(
+        new_url = URL.first_or_new(
           :scheme => URLScheme.first_or_new(:name => result.scheme),
           :host_name => HostName.first_or_new(
             :address => result.host
@@ -111,6 +111,9 @@ module Ronin
           :path => result.path,
           :query_params => query_params
         )
+
+        new_url.last_scanned_at = Time.now
+        return new_url
       end
 
     end
