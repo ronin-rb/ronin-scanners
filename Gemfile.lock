@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: http://github.com/ronin-ruby/ronin-exploits.git
-  revision: e85ac37db0048ef7c81dd7668eac11aefbbf214f
+  revision: 2970b2d4597b72b1bf0bbbda025d8a5d9d9e99f9
   specs:
     ronin-exploits (0.4.0)
       data_paths (~> 0.2.1)

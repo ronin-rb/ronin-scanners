@@ -20,6 +20,7 @@
 #
 
 require 'ronin/scanners/spider'
+require 'ronin/vulns/web'
 
 module Ronin
   module Scanners
@@ -90,25 +91,25 @@ module Ronin
       #
       # Normalizes the web vulnerability.
       #
-      # @param [Vulns::WebVuln] vuln
+      # @param [Vulns::Web] vuln
       #   The web vulnerability.
       #
-      # @return [Vulns::WebVuln]
+      # @return [Vulns::Web]
       #   The web vulnerability.
       #
       # @since 0.2.0
       #
       def normalize_result(vuln)
-        vuln
+        vuln if vuln.kind_of?(Vulns::Web)
       end
 
       #
       # Prepares the web vulnerability to be saved into the Database.
       #
-      # @param [Vulns::WebVuln] vuln
+      # @param [Vulns::Web] vuln
       #   The web vulnerability.
       #
-      # @return [Vulns::WebVuln]
+      # @return [Vulns::Web]
       #   The web vulnerability.
       #
       # @since 0.2.0
