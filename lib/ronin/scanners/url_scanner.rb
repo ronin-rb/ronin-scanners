@@ -75,7 +75,10 @@ module Ronin
       #
       def normalize_result(result)
         unless result.kind_of?(::URI::Generic)
-          URI(result.to_s)
+          begin
+            URI.parse(result.to_s)
+          rescue URI::InvalidURIError, URI::InvalidComponentError
+          end
         else
           result
         end
