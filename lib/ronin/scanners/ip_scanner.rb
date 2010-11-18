@@ -74,7 +74,10 @@ module Ronin
       #
       def normalize_result(result)
         unless result.kind_of?(IPAddr)
-          IPAddr.new(result.to_s)
+          begin
+            IPAddr.new(result.to_s)
+          rescue ArgumentError
+          end
         else
           result
         end
