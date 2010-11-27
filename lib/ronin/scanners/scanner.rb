@@ -82,7 +82,7 @@ module Ronin
     # * {ReverseLookupScanner}
     # * {SiteMap}
     # * {Spider}
-    # * {WebVulnScanner}
+    # * {WebVulns}
     # * {Nmap}
     # * {Proxies}
     #

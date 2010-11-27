@@ -50,7 +50,7 @@ install or update Overlays.
   * {Ronin::Scanners::ReverseLookupScanner}
   * {Ronin::Scanners::SiteMap}
   * {Ronin::Scanners::Spider}
-  * {Ronin::Scanners::WebVulnScanner}
+  * {Ronin::Scanners::WebVulns}
   * {Ronin::Scanners::Nmap}
   * {Ronin::Scanners::Proxies}
 
