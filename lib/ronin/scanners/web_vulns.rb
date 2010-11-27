@@ -66,6 +66,10 @@ module Ronin
         WebVulns.tests[name] << block
       end
 
+      # The tests to perform when scanning for web vulnerabilities
+      parameter :enable_tests, :default => lambda { WebVulns.tests.keys },
+                               :description => 'Tests to perform when scanning'
+
       protected
 
       #
@@ -82,8 +86,10 @@ module Ronin
       #
       def scan(&block)
         super do |page|
-          WebVulns.tests.each do |name,tests|
-            tests.each { |test_block| test_block.call(page,block) }
+          @enabled_tests.each do |name|
+            WebVulns.tests[name].each do |tests|
+              tests.each { |test_block| test_block.call(page,block) }
+            end
           end
         end
       end
