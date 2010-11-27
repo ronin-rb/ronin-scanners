@@ -1,8 +1,9 @@
 # Ronin Scanners
 
-* [github.com/ronin-ruby/ronin-scanners](http://github.com/ronin-ruby/ronin-scanners/)
-* [github.com/ronin-ruby/ronin-scanners/issues](http://github.com/ronin-ruby/ronin-scanners/issues)
-* [groups.google.com/group/ronin-ruby](http://groups.google.com/group/ronin-ruby)
+* [Source](http://github.com/ronin-ruby/ronin-scanners)
+* [Issues](http://github.com/ronin-ruby/ronin-scanners/issues)
+* [Documentation](http://rubydoc.info/github/ronin-ruby/ronin-scanners/frames)
+* [Mailing List](http://groups.google.com/group/ronin-ruby)
 * irc.freenode.net #ronin
 
 ## Description
