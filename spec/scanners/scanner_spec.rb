@@ -6,7 +6,7 @@ describe Scanners::Scanner do
   subject { Scanners::Scanner }
 
   it "should be cacheable" do
-    should < Platform::Cacheable
+    should < Model::Cacheable
   end
 
   it "should allow parameters" do
