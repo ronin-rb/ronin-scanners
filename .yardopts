@@ -1,1 +1,3 @@
 --markup markdown --title 'Ronin Scanners Documentation' --protected
+--plugin yard-contextify
+--plugin yard-parameters
