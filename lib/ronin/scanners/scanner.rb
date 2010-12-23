@@ -62,7 +62,7 @@ module Ronin
     # results using {#scan}:
     #
     # * {#each} - enumerates over the normalized results, using
-    #   {#noramalize_result} to normalize the results.
+    #   {#normalize_result} to normalize the results.
     # * {#each_resource} - enumerates over resources that were
     #   created from the results, using {#new_resource}.
     # * {#save_each} - saves the resources into the Database, while
