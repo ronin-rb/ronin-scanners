@@ -20,6 +20,6 @@ end
 lib_dir = File.join(root_dir,'lib')
 $LOAD_PATH << lib_dir unless $LOAD_PATH.include?(lib_dir)
 
-require 'ronin/ui/command_line/commands/nmap'
+require 'ronin/ui/cli/commands/nmap'
 
-Ronin::UI::CommandLine::Commands::Nmap.start
+Ronin::UI::CLI::Commands::Nmap.start

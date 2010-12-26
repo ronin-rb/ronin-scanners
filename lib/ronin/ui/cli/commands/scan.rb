@@ -19,12 +19,12 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/ui/command_line/scanner_command'
+require 'ronin/ui/cli/scanner_command'
 require 'ronin/scanners/scanner'
 
 module Ronin
   module UI
-    module CommandLine
+    module CLI
       module Commands
         class Scan < ScannerCommand
 

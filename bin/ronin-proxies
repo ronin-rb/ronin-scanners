@@ -20,6 +20,6 @@ end
 lib_dir = File.join(root_dir,'lib')
 $LOAD_PATH << lib_dir unless $LOAD_PATH.include?(lib_dir)
 
-require 'ronin/ui/command_line/commands/proxies'
+require 'ronin/ui/cli/commands/proxies'
 
-Ronin::UI::CommandLine::Commands::Proxies.start
+Ronin::UI::CLI::Commands::Proxies.start
