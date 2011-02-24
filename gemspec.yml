@@ -1,8 +1,11 @@
 name: ronin-scanners
-summary: A Ruby library for Ronin that provides Ruby interfaces to various third-party security scanners.
+summary:
+  A Ruby library for Ronin that provides Ruby interfaces to various
+  third-party security scanners.
+
 description:
-  Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces to
-  various third-party security scanners.
+  Ronin Scanners is a Ruby library for Ronin that provides Ruby interfaces
+  to various third-party security scanners.
 
 license: GPL-2
 authors: Postmodern
