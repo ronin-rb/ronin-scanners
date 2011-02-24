@@ -10,6 +10,6 @@ rescue NameError
     retry
   rescue LoadError
     STDERR.puts "The '#{__FILE__}' file requires Ore."
-    STDERR.puts "Run `gem install ore` to install Ore."
+    STDERR.puts "Run `gem install ore-core` to install Ore."
   end
 end
