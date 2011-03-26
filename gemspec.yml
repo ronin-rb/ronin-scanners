@@ -22,9 +22,9 @@ dependencies:
   rprogram: ~> 0.2.1
   ruby-nmap: ~> 0.3.0
   # Ronin dependencies:
-  ronin-support: ~> 0.1.0.rc1
-  ronin: ~> 1.0.0.rc1
-  ronin-gen: ~> 1.0.0.rc1
+  ronin-support: ~> 0.1.0
+  ronin: ~> 1.0.0
+  ronin-gen: ~> 1.0.0
   # ronin-exploits: ~> 1.0.0
 
 development_dependencies:
