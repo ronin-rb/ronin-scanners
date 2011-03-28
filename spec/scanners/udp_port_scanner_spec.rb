@@ -6,7 +6,7 @@ describe Scanners::UDPPortScanner do
   let(:port) { 135 }
 
   subject do
-    ronin_udp_port_scanner do
+    described_class.object do
       def scan
         yield '135'
       end

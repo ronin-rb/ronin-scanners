@@ -4,7 +4,7 @@ require 'ronin/scanners/ip_scanner'
 
 describe Scanners::IPScanner do
   subject do
-    ronin_ip_scanner do
+    described_class.object do
       def scan
         yield '127.0.0.1'
       end

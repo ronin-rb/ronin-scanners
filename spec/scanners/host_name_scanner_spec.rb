@@ -4,7 +4,7 @@ require 'ronin/scanners/host_name_scanner'
 
 describe Scanners::HostNameScanner do
   subject do
-    ronin_host_name_scanner do
+    described_class.object do
       def scan
         yield 'www.example.com'
       end

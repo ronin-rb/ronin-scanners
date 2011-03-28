@@ -6,7 +6,7 @@ describe Scanners::URLScanner do
   let(:url) { URI('http://www.example.com/path?bla=1') }
 
   subject do
-    ronin_url_scanner do
+    described_class.object do
       def scan
         yield 'http://www.example.com/path?bla=1'
       end

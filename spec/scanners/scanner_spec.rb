@@ -19,7 +19,7 @@ describe Scanners::Scanner do
 
   describe "each" do
     subject do
-      ronin_scanner do
+      described_class.object do
         def scan
           yield 1
           yield 3
@@ -76,7 +76,7 @@ describe Scanners::Scanner do
   end
 
   describe "each_resource" do
-    subject { ronin_scanner() { } }
+    subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
       subject.each_resource.class.should == Enumerator
@@ -84,7 +84,7 @@ describe Scanners::Scanner do
   end
 
   describe "save_each" do
-    subject { ronin_scanner() { } }
+    subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
       subject.save_each.class.should == Enumerator

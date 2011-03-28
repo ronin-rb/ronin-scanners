@@ -6,7 +6,7 @@ describe Scanners::TCPPortScanner do
   let(:port) { 80 }
 
   subject do
-    ronin_tcp_port_scanner do
+    described_class.object do
       def scan
         yield '80'
       end
