@@ -32,37 +32,6 @@ module Ronin
     #
     class Spider < URLScanner
 
-      #
-      # Creates a new web spider object.
-      #
-      # @yield []
-      #   The given block will be used to create a new web spider object.
-      #
-      # @return [Scanner]
-      #   The new spider object.
-      #
-      # @example
-      #   ronin_spider do
-      #     cache do
-      #       self.name = 'some web spider'
-      #       self.description = %{
-      #         This is an example web spider.
-      #       }
-      #     end
-      #
-      #     protected
-      #
-      #     def scan
-      #       super do |page|
-      #         # ...
-      #       end
-      #     end
-      #   end
-      #
-      # @since 0.2.0
-      #
-      contextify :ronin_spider
-
       # The URL to start spidering at.
       parameter :start_at, :description => 'The URI to start scanning at'
 

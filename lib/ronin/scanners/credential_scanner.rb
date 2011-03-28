@@ -30,35 +30,6 @@ module Ronin
     #
     class CredentialScanner < Scanner
 
-      #
-      # Creates a new credential scanner object.
-      #
-      # @yield []
-      #   The given block will be used to create a new credential scanner
-      #   object.
-      #
-      # @return [CredentialScanner]
-      #   The new credential scanner object.
-      #
-      # @example
-      #   ronin_credential_scanner do
-      #     cache do
-      #       self.name = 'some credential scanner'
-      #       self.description = %{
-      #         This is an example credential scanner.
-      #       }
-      #     end
-      #
-      #     protected
-      #
-      #     def scan
-      #     end
-      #   end
-      #
-      # @since 0.2.0
-      #
-      contextify :ronin_credential_scanner
-
     end
   end
 end
