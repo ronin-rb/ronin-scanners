@@ -19,5 +19,5 @@ group :development do
   gem 'rspec',		    '~> 2.4'
 
   gem 'kramdown',         '~> 0.12'
-  gem 'dm-visualizer',		'~> 0.1.0'
+  gem 'dm-visualizer',		'~> 0.2.0'
 end
