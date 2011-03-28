@@ -14,13 +14,11 @@ homepage: http://github.com/ronin-ruby/ronin-scanners
 has_yard: true
 
 dependencies:
-  open_namespace: ~> 0.3.0
-  contextify: ~> 0.2.0
-  parameters: ~> 0.2.3
+  open_namespace: ~> 0.3
   nokogiri: ~> 1.4.1
-  spidr: ~> 0.2.4
-  rprogram: ~> 0.2.1
-  ruby-nmap: ~> 0.3.0
+  spidr: ~> 0.2, >= 0.2.4
+  rprogram: ~> 0.2, >= 0.2.1
+  ruby-nmap: ~> 0.3
   # Ronin dependencies:
   ronin-support: ~> 0.1.0
   ronin: ~> 1.0.0
@@ -28,7 +26,6 @@ dependencies:
   # ronin-exploits: ~> 1.0.0
 
 development_dependencies:
-  bundler: ~> 1.0.0
+  bundler: ~> 1.0.10
   yard: ~> 0.6.4
-  yard-contextify: ~> 0.1.0
   yard-parameters: ~> 0.1.0
