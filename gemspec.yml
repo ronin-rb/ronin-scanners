@@ -17,8 +17,8 @@ dependencies:
   open_namespace: ~> 0.3
   nokogiri: ~> 1.4.1
   spidr: ~> 0.2, >= 0.2.4
-  rprogram: ~> 0.2, >= 0.2.1
-  ruby-nmap: ~> 0.3
+  rprogram: ~> 0.3
+  ruby-nmap: ~> 0.5
   # Ronin dependencies:
   ronin-support: ~> 0.1.0
   ronin: ~> 1.0.0

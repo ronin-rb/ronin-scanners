@@ -84,8 +84,8 @@ Calling Nmap from Ruby:
 * [open_namespace](http://github.com/postmodern/open_namespace) ~> 0.3
 * [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4.1
 * [spidr](http://github.com/postmodern/spidr) ~> 0.2.4
-* [rprogram](http://github.com/postmodern/rprogram) ~> 0.2, >= 0.2.1
-* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.1.0
+* [rprogram](http://github.com/postmodern/rprogram) ~> 0.3
+* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.5
 * [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.1.0
 * [ronin](http://github.com/ronin-ruby/ronin) ~> 1.0.0
 * [ronin-exploits](http://github.com/ronin-ruby/ronin-exploits) ~> 1.0.0
