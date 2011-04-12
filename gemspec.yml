@@ -15,7 +15,7 @@ has_yard: true
 
 dependencies:
   open_namespace: ~> 0.3
-  nokogiri: ~> 1.4.1
+  nokogiri: ~> 1.4
   spidr: ~> 0.2, >= 0.2.4
   rprogram: ~> 0.3
   ruby-nmap: ~> 0.5
