@@ -34,3 +34,6 @@ require 'ronin/scanners/spider'
 require 'ronin/scanners/web_vulns'
 require 'ronin/scanners/version'
 require 'ronin/scanners/scanners'
+require 'ronin/config'
+
+Ronin::Config.load :scanners
