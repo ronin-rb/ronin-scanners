@@ -109,7 +109,7 @@ module Ronin
           argument :hosts, :required => true
 
           #
-          # Runs the nmap scanner.
+          # Runs the {Ronin::Scanners::Nmap} scanner.
           #
           # @since 0.2.0
           #
