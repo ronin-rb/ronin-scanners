@@ -103,7 +103,7 @@ module Ronin
       # @return [Nmap::Task]
       #   The populated nmap options.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def nmap_options
         nmap = ::Nmap::Task.new
@@ -142,7 +142,7 @@ module Ronin
       # @yieldparam [String] output
       #   The path of the output file.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def nmap_output
         if self.output
@@ -165,7 +165,7 @@ module Ronin
       #
       # @see http://rubydoc.info/gems/ruby-nmap/Nmap/Host
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan(&block)
         each_host = lambda { |path|
@@ -196,7 +196,7 @@ module Ronin
       # @return [IPAddress]
       #   The IP Address resource.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_ip(host)
         # if the host does not have an ip, then skip it
@@ -233,7 +233,7 @@ module Ronin
       # @return [Port]
       #   The port resource.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_port(open_port)
         Port.first_or_new(
@@ -251,7 +251,7 @@ module Ronin
       # @return [Service]
       #   The new service.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_service(open_port)
         if open_port.service
@@ -268,7 +268,7 @@ module Ronin
       # @return [IPAddress]
       #   The IPAddress resource from the Database.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(result)
         return nil unless (ip = new_ip(result))

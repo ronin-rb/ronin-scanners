@@ -43,7 +43,7 @@ module Ronin
       # @return [URI::Generic]
       #   The normalized URI.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def normalize_result(result)
         unless result.kind_of?(::URI::Generic)
@@ -65,7 +65,7 @@ module Ronin
       # @return [Url]
       #   The Url resource from the Database.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(result)
         query_params = []

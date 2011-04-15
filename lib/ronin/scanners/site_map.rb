@@ -47,7 +47,7 @@ module Ronin
       # @yieldparam [String] url
       #   One of the URLs from the sitemap.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan(&block)
         sitemap = Nokogiri::XML(http_get_body(:path => SITEMAP_PATH))

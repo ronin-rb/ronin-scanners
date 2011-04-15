@@ -100,7 +100,7 @@ module Ronin
       # @param [Hash] options
       #   Additional options for the scanner.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def initialize(options={})
         super(options)
@@ -120,7 +120,7 @@ module Ronin
       # @return [Scanner, Enumerator]
       #   If no block was given, an `Enumerator` object will be returned.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def each
         return enum_for(:each) unless block_given?
@@ -148,7 +148,7 @@ module Ronin
       # @return [Scanner, Enumerator]
       #   If no block was given, an `Enumerator` object will be returned.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def each_resource
         return enum_for(:each_resource) unless block_given?
@@ -177,7 +177,7 @@ module Ronin
       # @return [Scanner, Enumerator]
       #   If no block was given, an `Enumerator` object will be returned.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def save_each
         return enum_for(:save_each) unless block_given?
@@ -198,7 +198,7 @@ module Ronin
       # @return [Object]
       #   The normalized result.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def normalize_result(result)
         result
@@ -214,7 +214,7 @@ module Ronin
       #   The resource created from the result, or `nil` if a resource
       #   could not be created from the result.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(result)
         nil
@@ -223,7 +223,7 @@ module Ronin
       #
       # The default method which will actually perform the scanning.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan(&block)
       end

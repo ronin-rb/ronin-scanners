@@ -56,7 +56,7 @@ module Ronin
           #
           # Runs the nmap scanner.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def execute
             Database.setup
@@ -80,7 +80,7 @@ module Ronin
           # @param [Proxy] proxy
           #   A scanned proxy.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def print_result(proxy)
             print_hash({
@@ -96,7 +96,7 @@ module Ronin
           # @param [Proxy] proxy
           #   A saved proxy.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def print_resource(proxy)
             print_result(proxy)

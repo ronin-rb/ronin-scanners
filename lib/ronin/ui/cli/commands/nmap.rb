@@ -111,7 +111,7 @@ module Ronin
           #
           # Runs the {Ronin::Scanners::Nmap} scanner.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def execute
             Database.setup
@@ -135,7 +135,7 @@ module Ronin
           # @param [Nmap::Host] host
           #   A scanned host.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def print_result(host)
             puts
@@ -167,7 +167,7 @@ module Ronin
           # @param [IPAddress] host
           #   A saved host.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def print_resource(host)
             print_info "Saving #{host}:"

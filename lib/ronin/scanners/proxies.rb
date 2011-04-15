@@ -47,7 +47,7 @@ module Ronin
       # @yieldparam [Proxy]
       #   A tested and working proxy.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan
         super do |host|
@@ -79,7 +79,7 @@ module Ronin
       # @return [Proxy]
       #   The normalized proxy.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(proxy)
         proxy

@@ -41,7 +41,7 @@ module Ronin
       # @return [Integer]
       #   The normalized port number.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def normalize_result(result)
         result.to_i
@@ -56,7 +56,7 @@ module Ronin
       # @return [OpenPort]
       #   The open port resource from the Database.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(result)
         OpenPort.first_or_new(

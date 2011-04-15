@@ -36,7 +36,7 @@ module Ronin
           #
           # Spider one or more websites.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def execute
             Database.setup
@@ -60,7 +60,7 @@ module Ronin
           # @param [Spidr::Page] page
           #   A spidered page.
           #
-          # @since 0.2.0
+          # @since 1.0.0
           #
           def print_result(page)
             print_info page.url

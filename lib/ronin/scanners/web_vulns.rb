@@ -32,7 +32,7 @@ module Ronin
       # @return [Hash{Symbol => Array<Proc>}]
       #   The tests to perform.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def WebVulns.tests
         @web_vuln_tests ||= Hash.new { |hash,key| hash[key] = [] }
@@ -60,7 +60,7 @@ module Ronin
       #     # ...
       #   end
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def WebVulns.test_for(name,&block)
         WebVulns.tests[name] << block
@@ -82,7 +82,7 @@ module Ronin
       # @yieldparam [Vulns::WebVuln, nil]
       #   A newly discovered web vulnerability.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan(&block)
         super do |page|
@@ -103,7 +103,7 @@ module Ronin
       # @return [Vulns::Web]
       #   The web vulnerability.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def normalize_result(vuln)
         vuln if vuln.kind_of?(Vulns::Web)
@@ -118,7 +118,7 @@ module Ronin
       # @return [Vulns::Web]
       #   The web vulnerability.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(vuln)
         vuln

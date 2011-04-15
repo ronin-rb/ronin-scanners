@@ -52,7 +52,7 @@ module Ronin
       # @return [Spidr::Agent]
       #   The newly created web spider agent.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #   
       def agent(&block)
         options = {
@@ -74,7 +74,7 @@ module Ronin
       # @yieldparam [Spidr::Page] page
       #   A page visited by the web spider.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def scan(&block)
         spider = agent()
@@ -91,7 +91,7 @@ module Ronin
       # @return [Spidr::Page]
       #   The visited web page.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def normalize_result(page)
         page
@@ -106,7 +106,7 @@ module Ronin
       # @return [URL]
       #   The URL resource for the web page.
       #
-      # @since 0.2.0
+      # @since 1.0.0
       #
       def new_resource(page)
         super(page.uri)

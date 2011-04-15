@@ -36,7 +36,7 @@ module Ronin
         #
         # Performs a scan using the `@scanner` instance variable.
         #
-        # @since 0.2.0
+        # @since 1.0.0
         #
         def scan!
           enum = if options.save?
@@ -62,7 +62,7 @@ module Ronin
         # @param [Object] result
         #   A result yielded from the scanner.
         #
-        # @since 0.2.0
+        # @since 1.0.0
         #
         def print_result(result)
           puts result
@@ -74,7 +74,7 @@ module Ronin
         # @param [Model] resource
         #   A resource yielded from the scanner.
         #
-        # @since 0.2.0
+        # @since 1.0.0
         #
         def print_resource(resource)
           puts resource
