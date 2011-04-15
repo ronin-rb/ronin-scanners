@@ -32,8 +32,8 @@ require 'tempfile'
 module Ronin
   module Scanners
     #
-    # The {Nmap} scans the open-ports found on the targeted IP
-    # addresses, using the Nmap security / port scanner.
+    # {Nmap} scans the open-ports found on the targeted IP addresses,
+    # using the Nmap security / port scanner.
     #
     class Nmap < Scanner
 
