@@ -22,7 +22,7 @@ dependencies:
   net-ssh: ~> 2.1
   # Ronin dependencies:
   ronin-support: ~> 0.1.0
-  ronin: ~> 1.0.0
+  # ronin: ~> 1.0.1
   ronin-gen: ~> 1.0.0
   # ronin-exploits: ~> 1.0.0
 
