@@ -87,6 +87,7 @@ Calling Nmap from Ruby:
 * [rprogram](http://github.com/postmodern/rprogram) ~> 0.3
 * [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.5
 * [net-ssh](http://github.com/net-ssh/net-ssh) ~> 2.1
+* [wordlist](http://github.com/sophsec/wordlist) ~> 0.2
 * [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.1.0
 * [ronin](http://github.com/ronin-ruby/ronin) ~> 1.0.0
 * [ronin-exploits](http://github.com/ronin-ruby/ronin-exploits) ~> 1.0.0

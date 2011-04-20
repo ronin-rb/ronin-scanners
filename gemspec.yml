@@ -20,6 +20,7 @@ dependencies:
   rprogram: ~> 0.3
   ruby-nmap: ~> 0.5
   net-ssh: ~> 2.1
+  wordlist: ~> 0.2
   # Ronin dependencies:
   ronin-support: ~> 0.1.0
   # ronin: ~> 1.0.1

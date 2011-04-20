@@ -6,6 +6,9 @@ RONIN_URI = 'http://github.com/ronin-ruby'
 
 gemspec
 
+gem 'wordlist', '~> 0.2.0', :git => 'git://github.com/sophsec/wordlist.git',
+                            :branch => 'refactor'
+
 # Ronin dependencies
 # gem 'ronin-support',	'~> 0.1.0', :git => "#{RONIN_URI}/ronin-support.git"
 gem 'ronin',		      '~> 1.0.1', :git => "#{RONIN_URI}/ronin.git"

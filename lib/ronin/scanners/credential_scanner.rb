@@ -22,6 +22,8 @@
 require 'ronin/scanners/scanner'
 require 'ronin/credential'
 
+require 'wordlist/list'
+
 module Ronin
   module Scanners
     #
@@ -29,6 +31,32 @@ module Ronin
     # `Credential` results and resources.
     #
     class CredentialScanner < Scanner
+
+      protected
+
+      #
+      # Creates a new wordlist.
+      #
+      # @param [String] path
+      #   The path to the wordlist file.
+      #
+      # @param [Hash] options
+      #   Additional options for the wordlist.
+      #
+      # @yield [wordlist]
+      #   The given block will be passed the new wordlist.
+      #
+      # @yieldparam [Wordlist::FlatFile] wordlist
+      #   The new wordlist object.
+      #
+      # @return [Wordlist::FlatFile]
+      #   The newly created wordlist.
+      #
+      # @since 1.0.0
+      #
+      def wordlist(path,options={},&block)
+        Wordlist::FlatFile.new(path,options,&block)
+      end
 
     end
   end
