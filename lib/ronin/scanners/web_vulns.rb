@@ -40,7 +40,7 @@ module Ronin
 
       #
       # Adds a test to the {WebVulns}. Tests should either return
-      # `nil` or a `Vulns::WebVuln` resource.
+      # `nil` or a `Vulns::Web` resource.
       #
       # @param [Symbol] name
       #   The name of the test.
@@ -53,7 +53,7 @@ module Ronin
       #   The page currently being scanned.
       #
       # @yieldparam [Proc] callback
-      #   The callback to pass back multiple `Vulns::WebVuln` objects.
+      #   The callback to pass back multiple `Vulns::Web` objects.
       #
       # @example
       #   Ronin::Scanners::WebVulns.test do |page,callback|
@@ -79,7 +79,7 @@ module Ronin
       #   The given block will be passed web vulnerabilities as they are
       #   discovered.
       #
-      # @yieldparam [Vulns::WebVuln, nil]
+      # @yieldparam [Vulns::Web, nil]
       #   A newly discovered web vulnerability.
       #
       # @since 1.0.0
