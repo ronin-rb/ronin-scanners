@@ -45,7 +45,7 @@ module Ronin
       #
       # @since 1.0.0
       #
-      def normalize_result(result)
+      def normalize_result(vuln)
         vuln if vuln.kind_of?(Vulns::Web)
       end
 
@@ -60,8 +60,8 @@ module Ronin
       #
       # @since 1.0.0
       #
-      def new_resource(result)
-        result
+      def new_resource(vuln)
+        vuln
       end
 
     end
