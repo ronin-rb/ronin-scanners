@@ -6,6 +6,7 @@ RONIN_URI = 'http://github.com/ronin-ruby'
 
 gemspec
 
+gem 'data_paths', '~> 0.3.0', :git => 'git://github.com/postmodern/data_paths.git'
 gem 'wordlist', '~> 0.2.0', :git => 'git://github.com/sophsec/wordlist.git',
                             :branch => 'refactor'
 
