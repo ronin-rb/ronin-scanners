@@ -21,11 +21,15 @@
 
 require 'ronin/database/migrations/migrations'
 require 'ronin/database/migrations/create_licenses_table'
+require 'ronin/database/migrations/create_script_paths_table'
 
 module Ronin
   module Database
     module Migrations
-      migration(:create_scanners_table, :needs => :create_licenses_table) do
+      migration(
+        :create_scanners_table,
+        :needs => [:create_licenses_table, :create_script_paths_table]
+      ) do
         up do
           create_table :ronin_scanners_scanners do
             column :id, Integer, :serial => true
@@ -34,6 +38,7 @@ module Ronin
             column :version, String, :default => '0.1'
             column :description, Text
             column :license_id, Integer
+            column :script_path_id, Integer
           end
 
           create_index :ronin_scanners_scanners, :name
