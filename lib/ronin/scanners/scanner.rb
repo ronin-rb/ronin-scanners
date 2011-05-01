@@ -187,6 +187,24 @@ module Ronin
         end
       end
 
+      #
+      # Runs the scanner.
+      #
+      # @see #each
+      #
+      # @since 1.0.0
+      #
+      def run
+        print_info "Scanning ..."
+
+        each do |result|
+          print_info "Found #{result}"
+          yield result if block_given?
+        end
+
+        print_info "Scan complete."
+      end
+
       protected
 
       #
