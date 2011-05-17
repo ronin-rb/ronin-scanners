@@ -25,7 +25,7 @@ dependencies:
   # ronin-support: ~> 0.2
   ronin-support: ~> 0.2.0.rc1
   # ronin: ~> 1.1
-  # ronin-gen: ~> 1.0
+  ronin: ~> 1.1.0.rc1
   # ronin-exploits: ~> 1.0
 
 development_dependencies:
