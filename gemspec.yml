@@ -27,6 +27,7 @@ dependencies:
   # ronin: ~> 1.1
   ronin: ~> 1.1.0.rc1
   # ronin-exploits: ~> 1.0
+  ronin-exploits: ~> 1.0.0.pre1
 
 development_dependencies:
   bundler: ~> 1.0.10
