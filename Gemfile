@@ -13,10 +13,10 @@ gem 'wordlist', '~> 0.2.0', :git => 'git://github.com/sophsec/wordlist.git',
 # gem 'ronin-support',	'~> 0.2', :git => "#{RONIN_URI}/ronin-support.git"
 # gem 'ronin',		      '~> 1.1', :git => "#{RONIN_URI}/ronin.git"
 # gem 'ronin-gen',	    '~> 1.0', :git => "#{RONIN_URI}/ronin-gen.git"
-gem 'ronin-exploits',	'~> 1.0', :git => "#{RONIN_URI}/ronin-exploits.git"
+# gem 'ronin-exploits',	'~> 1.0', :git => "#{RONIN_URI}/ronin-exploits.git"
 
 group :development do
-  gem 'rake',		      '~> 0.8.7'
+  gem 'rake',		      '~> 0.8'
 
   gem 'ore-tasks',	  '~> 0.4'
   gem 'rspec',		    '~> 2.4'
