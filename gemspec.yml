@@ -15,13 +15,16 @@ has_yard: true
 
 dependencies:
   open_namespace: ~> 0.3
+  rprogram: ~> 0.3
+  # Port Scanner dependencies
+  ruby-nmap: ~> 0.5
+  # Credential Scanner dependencies
+  net-ssh: ~> 2.1
+  wordlist: ~> 0.2
+  # Web dependencies
   nokogiri: ~> 1.4
   net-http-persistent: ~> 1.8
   spidr: ~> 0.3
-  rprogram: ~> 0.3
-  ruby-nmap: ~> 0.5
-  net-ssh: ~> 2.1
-  wordlist: ~> 0.2
   # Ronin dependencies:
   ronin-support: ~> 0.2
   ronin: ~> 1.1

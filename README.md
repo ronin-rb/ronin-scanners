@@ -82,12 +82,12 @@ Calling Nmap from Ruby:
 ## Requirements
 
 * [open_namespace](http://github.com/postmodern/open_namespace) ~> 0.3
-* [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
-* [spidr](http://github.com/postmodern/spidr) ~> 0.3
 * [rprogram](http://github.com/postmodern/rprogram) ~> 0.3
 * [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.5
 * [net-ssh](http://github.com/net-ssh/net-ssh) ~> 2.1
 * [wordlist](http://github.com/sophsec/wordlist) ~> 0.2
+* [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
+* [spidr](http://github.com/postmodern/spidr) ~> 0.3
 * [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.2
 * [ronin](http://github.com/ronin-ruby/ronin) ~> 1.1
 
