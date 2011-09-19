@@ -90,7 +90,6 @@ Calling Nmap from Ruby:
 * [wordlist](http://github.com/sophsec/wordlist) ~> 0.2
 * [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.2
 * [ronin](http://github.com/ronin-ruby/ronin) ~> 1.1
-* [ronin-exploits](http://github.com/ronin-ruby/ronin-exploits) ~> 1.0
 
 ## Install
 
