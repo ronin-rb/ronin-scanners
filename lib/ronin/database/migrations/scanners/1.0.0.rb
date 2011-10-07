@@ -19,9 +19,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/database/migrations/migrations'
-require 'ronin/database/migrations/create_licenses_table'
-require 'ronin/database/migrations/create_script_paths_table'
+require 'ronin/database/migrations'
 
 module Ronin
   module Database
