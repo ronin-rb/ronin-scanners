@@ -71,7 +71,7 @@ module Ronin
         query_params = []
         
         result.query_params.each do |name,value|
-          query_params << {:name => name, :value => value}
+          query_params << {:name => {:name => name}, :value => value}
         end
 
         new_url = URL.first_or_new(
