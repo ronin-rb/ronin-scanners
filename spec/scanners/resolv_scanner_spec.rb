@@ -2,8 +2,8 @@ require 'spec_helper'
 require 'ronin/scanners/resolv_scanner'
 
 describe Scanners::ResolvScanner do
-  let(:host) { 'www.example.com' }
-  let(:ip) { IPAddr.new('192.0.32.10') }
+  let(:host) { 'localhost' }
+  let(:ip)   { IPAddr.new('127.0.0.1') }
 
   subject { Scanners::ResolvScanner.new(:host => host) }
 
