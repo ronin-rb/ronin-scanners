@@ -68,24 +68,7 @@ module Ronin
       # @since 1.0.0
       #
       def new_resource(result)
-        query_params = []
-        
-        result.query_params.each do |name,value|
-          query_params << {:name => {:name => name}, :value => value}
-        end
-
-        new_url = URL.first_or_new(
-          :scheme => URLScheme.first_or_new(:name => result.scheme),
-          :host_name => HostName.first_or_new(
-            :address => result.host
-          ),
-          :port => TCPPort.first_or_new(
-            :number => result.port,
-            :protocol => 'tcp'
-          ),
-          :path => result.path,
-          :query_params => query_params
-        )
+        new_url = URL.from(result)
 
         new_url.last_scanned_at = Time.now
         return new_url
