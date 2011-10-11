@@ -24,5 +24,35 @@ require 'open_namespace'
 module Ronin
   module Scanners
     include OpenNamespace
+
+    #
+    # Performs an nmap scan.
+    #
+    # @param [Hash] options
+    #   Options to pass to {Nmap}.
+    #
+    # @yield [host]
+    #   The given block will be passed each scanned IP Address.
+    #
+    # @yieldparam [IPAddress] host
+    #   A scanned IP Address.
+    #
+    # @return [Array<IPAddress>]
+    #   If no block is given, an Array of scanned IP Addresses will be returned.
+    #
+    # @see Nmap
+    #
+    # @api public
+    #
+    def Scanners.nmap(options={},&block)
+      nmap = Nmap.new
+      nmap.params = options
+
+      if block
+        nmap.each_resource(&block)
+      else
+        nmap.each_resource.to_a
+      end
+    end
   end
 end
