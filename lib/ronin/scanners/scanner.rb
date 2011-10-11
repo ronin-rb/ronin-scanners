@@ -108,6 +108,35 @@ module Ronin
       end
 
       #
+      # Initializes the scanner and performs a scan.
+      #
+      # @param [Hash] options
+      #   Options for the scanner.
+      #
+      # @yield [resource]
+      #   The given block will be passed every scanned resource.
+      #
+      # @yieldparam [DataMapper::Resource] resource
+      #   A resource found by the scanner.
+      #
+      # @return [Array<DataMapper::Resource>]
+      #   If no block is given, an Array of scanned resources will be returned.
+      #
+      # @since 1.0.0
+      #
+      # @api public
+      #
+      def self.scan(options={},&block)
+        scanner = new(options)
+
+        if block
+          scanner.each_resource(&block)
+        else
+          scanner.each_resource.to_a
+        end
+      end
+
+      #
       # Performs the scan.
       #
       # @yield [result]
