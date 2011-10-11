@@ -122,6 +122,8 @@ module Ronin
       # @return [Array<DataMapper::Resource>]
       #   If no block is given, an Array of scanned resources will be returned.
       #
+      # @see #each_resource
+      #
       # @since 1.0.0
       #
       # @api public
