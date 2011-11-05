@@ -87,8 +87,8 @@ Calling Nmap from Ruby:
 * [wordlist](http://github.com/sophsec/wordlist) ~> 0.2
 * [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
 * [spidr](http://github.com/postmodern/spidr) ~> 0.3
-* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.2
-* [ronin](http://github.com/ronin-ruby/ronin) ~> 1.1
+* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.3
+* [ronin](http://github.com/ronin-ruby/ronin) ~> 1.3
 
 ## Install
 
