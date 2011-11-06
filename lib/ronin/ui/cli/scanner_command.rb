@@ -29,7 +29,7 @@ module Ronin
       class ScannerCommand < Command
 
         class_option :first, :type => :numeric, :aliases => '-N'
-        class_option :save, :type => :boolean, :aliases => '-S'
+        class_option :import, :type => :boolean, :aliases => '-I'
 
         protected
 
@@ -40,7 +40,7 @@ module Ronin
         #
         def scan!
           enum = if options.save?
-                   @scanner.save_each
+                   @scanner.import
                  else
                    @scanner.each
                  end

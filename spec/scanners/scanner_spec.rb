@@ -13,7 +13,7 @@ describe Scanners::Scanner do
     should < Enumerable
   end
 
-  describe "each" do
+  describe "#each" do
     subject do
       described_class.object do
         def scan
@@ -71,7 +71,7 @@ describe Scanners::Scanner do
     end
   end
 
-  describe "each_resource" do
+  describe "#each_resource" do
     subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
@@ -79,11 +79,11 @@ describe Scanners::Scanner do
     end
   end
 
-  describe "save_each" do
+  describe "#import" do
     subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
-      subject.save_each.class.should == Enumerator
+      subject.import.class.should == Enumerator
     end
   end
 end
