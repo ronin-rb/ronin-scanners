@@ -106,7 +106,7 @@ module Ronin
           class_option :output, :type => :string, :aliases => '-o -oX'
 
           # The hosts which will be scanned.
-          argument :hosts, :required => true
+          argument :targets, :required => true
 
           #
           # Runs the {Ronin::Scanners::Nmap} scanner.
@@ -117,8 +117,8 @@ module Ronin
             Database.setup
 
             @scanner = Scanners::Nmap.new
-            @scanner.hosts = hosts
-            @scanner.params = options
+            @scanner.targets = targets
+            @scanner.params  = options
 
             print_info 'Saving scanned hosts and ports ...' if options.save?
 
