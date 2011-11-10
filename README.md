@@ -45,6 +45,7 @@ install or update Overlays.
   * {Ronin::Scanners::TCPPortScanner}
   * {Ronin::Scanners::UDPPortScanner}
   * {Ronin::Scanners::URLScanner}
+  * {Ronin::Scanners::CredentialScanner}
 * Provides various specialized Scanner classes:
   * {Ronin::Scanners::ResolvScanner}
   * {Ronin::Scanners::ReverseLookupScanner}
