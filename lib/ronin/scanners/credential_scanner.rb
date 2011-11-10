@@ -35,16 +35,16 @@ module Ronin
     class CredentialScanner < Scanner
 
       # Paths to a word-list file(s)
-      parameter :wordlists, :type => Array[String],
-                            :default => [],
+      parameter :wordlists, :type        => Array[String],
+                            :default     => [],
                             :description => 'Wordlist file(s) to use'
 
       # Mutation rules to apply to words from the {#wordlist}
-      parameter :mutations, :default => {},
+      parameter :mutations, :default     => {},
                             :description => 'Hash of mutations to perform'
 
       # String generator template
-      parameter :generator, :type => Array,
+      parameter :generator, :type        => Array,
                             :description => 'String generator template'
 
       # Primary username to use
