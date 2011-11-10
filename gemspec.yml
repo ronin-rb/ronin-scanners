@@ -20,13 +20,12 @@ dependencies:
   ruby-nmap: ~> 0.5
   # Credential Scanner dependencies
   net-ssh: ~> 2.1
-  wordlist: ~> 0.2
   # Web dependencies
   nokogiri: ~> 1.4
   net-http-persistent: ~> 1.8
   spidr: ~> 0.3
   # Ronin dependencies:
-  ronin-support: ~> 0.3
+  # ronin-support: ~> 0.4
   ronin: ~> 1.3
 
 development_dependencies:
