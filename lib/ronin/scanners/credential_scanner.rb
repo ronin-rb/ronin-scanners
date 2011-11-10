@@ -47,6 +47,25 @@ module Ronin
       parameter :generator, :type => Array,
                             :description => 'String generator template'
 
+      # Primary username to use
+      parameter :username, :type        => String,
+                           :description => 'Primary username to use'
+
+      # Additional user-names to try
+      parameter :usernames, :type        => Array[String],
+                            :default     => [],
+                            :description => 'Additional user-names to try'
+
+      # Minimum number of words to combine
+      parameter :min_words, :type        => Integer,
+                            :default     => 1,
+                            :description => 'Minimum number of words to use'
+
+      # Maximum number of words to combine
+      parameter :max_words, :type        => Integer,
+                            :default     => 1,
+                            :description => 'Maximum number of words to use'
+
       protected
 
       #
@@ -123,6 +142,70 @@ module Ronin
       #
       def each_n_words(n,&block)
         String.generate([each_word, n],&block)
+      end
+
+      #
+      # Iterates over every user-name.
+      #
+      # @yield [username]
+      #   The given block will be passed each user-name.
+      #
+      # @yieldparam [String] username
+      #   A user-name.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      def each_username(&block)
+        return enum_for(:each_username) unless block
+
+        # primary username
+        yield self.username if self.username
+
+        # additional usernames
+        self.usernames.each(&block)
+      end
+
+      #
+      # Iterates over every password.
+      #
+      # @yield [password]
+      #   The given block will be passed each password.
+      #
+      # @yieldparam [String] password
+      #   A generated password.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      def each_password
+        each_n_words((self.min_words..self.max_words),&block)
+      end
+
+      #
+      # Itereates over every credential.
+      #
+      # @yield [username, password]
+      #   The given block will be passed every user-name and password
+      #   combination.
+      #
+      # @yieldparam [String] username
+      #   A possible user-name.
+      #
+      # @yieldparam [String] password
+      #   A generated password.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      def each_credential
+        return enum_for(:each_credential) unless block_given?
+
+        each_username do |username|
+          each_password do |password|
+            yield username, password
+          end
+        end
       end
 
     end
