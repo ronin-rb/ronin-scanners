@@ -92,10 +92,7 @@ module Ronin
       # @since 1.0.0
       #
       def scan
-        options = {
-          :port => self.port,
-          :auth_methods => ['password']
-        }
+        options = {:port => self.port, :auth_methods => ['password']}
 
         File.open(self.user_list) do |users|
           users.each_line do |user|
@@ -111,8 +108,7 @@ module Ronin
                   Net::SSH.start(self.host, user, options) do |ssh|
                     yield(:user => user, :password => password)
                   end
-                rescue SystemCallError,
-                       Net::SSH::AuthenticationFailed
+                rescue SystemCallError, Net::SSH::AuthenticationFailed
                 end
               end
             end
