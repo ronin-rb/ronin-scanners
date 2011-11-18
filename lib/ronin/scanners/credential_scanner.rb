@@ -101,10 +101,17 @@ module Ronin
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
       #
+      # @raise [Parameters::MissingParam]
+      #   The {#wordlists} or {#generator} parameters must be specified.
+      #
       # @api semipublic
       #
       def each_word(&block)
         return enum_for(:each_word) unless block
+
+        unless (self.wordlists || self.generator)
+          raise(Parameters::MissingParam,"no wordlist(s) or String generator given")
+        end
 
         if self.wordlists
           self.wordlists.each do |path|
@@ -159,11 +166,8 @@ module Ronin
       def each_username(&block)
         return enum_for(:each_username) unless block
 
-        # primary username
-        yield self.username if self.username
-
-        # additional usernames
-        self.usernames.each(&block)
+        # filter out `nil` and duplicate usernames
+        ([self.username] + self.usernames).compact.uniq.each(&block)
       end
 
       #
