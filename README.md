@@ -94,11 +94,11 @@ Calling Nmap from Ruby:
 
 ## Install
 
-Stable:
+### Stable
 
     $ gem install ronin-scanners
 
-Edge:
+### Edge
 
     $ git clone git://github.com/ronin-ruby/ronin-scanners.git
     $ cd ronin-scanners/
