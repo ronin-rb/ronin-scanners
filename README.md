@@ -45,6 +45,7 @@ install or update Overlays.
   * {Ronin::Scanners::TCPPortScanner}
   * {Ronin::Scanners::UDPPortScanner}
   * {Ronin::Scanners::URLScanner}
+  * {Ronin::Scanners::CredentialScanner}
 * Provides various specialized Scanner classes:
   * {Ronin::Scanners::ResolvScanner}
   * {Ronin::Scanners::ReverseLookupScanner}
@@ -52,6 +53,7 @@ install or update Overlays.
   * {Ronin::Scanners::Spider}
   * {Ronin::Scanners::Nmap}
   * {Ronin::Scanners::Proxies}
+  * {Ronin::Scanners::DatabaseCredentialScanner}
 
 ## Synopsis
 
@@ -84,10 +86,9 @@ Calling Nmap from Ruby:
 * [rprogram](http://github.com/postmodern/rprogram) ~> 0.3
 * [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.5
 * [net-ssh](http://github.com/net-ssh/net-ssh) ~> 2.1
-* [wordlist](http://github.com/sophsec/wordlist) ~> 0.2
 * [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
 * [spidr](http://github.com/postmodern/spidr) ~> 0.3
-* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.3
+* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.4
 * [ronin](http://github.com/ronin-ruby/ronin) ~> 1.3
 
 ## Install
