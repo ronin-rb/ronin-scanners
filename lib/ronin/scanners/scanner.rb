@@ -75,6 +75,8 @@ module Ronin
     # * {TCPPortScanner}
     # * {UDPPortScanner}
     # * {URLScanner}
+    # * {CredentialScanner}
+    # * {ServiceCredentialScanner}
     #
     # # Specialized Scanner Classes
     #
