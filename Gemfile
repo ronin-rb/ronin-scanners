@@ -9,7 +9,8 @@ gemspec
 # Ronin dependencies
 gem 'ronin-support',	'~> 0.4', :git => "#{RONIN_URI}/ronin-support.git",
                                 :branch => '0.4.0'
-# gem 'ronin',		      '~> 1.1', :git => "#{RONIN_URI}/ronin.git"
+gem 'ronin',		      '~> 1.4', :git => "#{RONIN_URI}/ronin.git",
+                                :branch => '1.4.0'
 # gem 'ronin-gen',	    '~> 1.0', :git => "#{RONIN_URI}/ronin-gen.git"
 # gem 'ronin-exploits',	'~> 1.0', :git => "#{RONIN_URI}/ronin-exploits.git"
 

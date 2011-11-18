@@ -89,7 +89,7 @@ Calling Nmap from Ruby:
 * [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
 * [spidr](http://github.com/postmodern/spidr) ~> 0.3
 * [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.4
-* [ronin](http://github.com/ronin-ruby/ronin) ~> 1.3
+* [ronin](http://github.com/ronin-ruby/ronin) ~> 1.4
 
 ## Install
 
