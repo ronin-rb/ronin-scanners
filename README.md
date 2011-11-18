@@ -94,7 +94,7 @@ Calling Nmap from Ruby:
 
 ## Install
 
-    $ sudo gem install ronin-scanners
+    $ gem install ronin-scanners
 
 ## License
 
