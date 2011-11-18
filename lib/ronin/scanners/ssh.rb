@@ -19,10 +19,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanners/credential_scanner'
-require 'ronin/service_credential'
+require 'ronin/scanners/service_credential_scanner'
 
-require 'resolv'
 require 'net/ssh'
 
 module Ronin
@@ -31,7 +29,7 @@ module Ronin
     # {SSH} attempts to login to an SSH Service, using wordlists of
     # user-names and passwords.
     #
-    class SSH < CredentialScanner
+    class SSH < ServiceCredentialScanner
 
       # The host that will be scanned
       parameter :host, :type => String,
@@ -40,34 +38,6 @@ module Ronin
       # The port SSH is listening on
       parameter :port, :default => 22,
                        :description => 'The port that SSH is listening on'
-
-      #
-      # Creates new Service Credentials from the SSH Scanner results.
-      #
-      # @yield [credential]
-      #   The given block will be passed each Service Credential.
-      #
-      # @yieldparam [ServiceCredential] credential
-      #   A new or pre-existing Service Credential.
-      #
-      # @return [SSH, Enumerator]
-      #   If no block was given, an `Enumerator` object will be returned.
-      #
-      # @since 1.0.0
-      #
-      def each_resource(&block)
-        @open_port = OpenPort.first_or_new(
-          :ip_address => IPAddress.first_or_new(
-            :address => Resolv.getaddress(self.host)
-          ),
-
-          :port => Port.first_or_new(
-            :number => self.port
-          )
-        )
-
-        return super(&block)
-      end
 
       protected
 
@@ -98,30 +68,6 @@ module Ronin
         end
       end
 
-      #
-      # Creates a new Service Credential from the SSH Scanner result.
-      #
-      # @param [Hash{Symbol => String}] result
-      #   A SSH Scanner result.
-      #
-      # @return [ServiceCredential]
-      #   The new Service Credential.
-      #
-      # @since 1.0.0
-      #
-      def new_resource(result)
-        ServiceCredential.first_or_new(
-          :user_name => UserName.first_or_new(
-            :name => result[:username]
-          ),
-
-          :password => Password.first_or_new(
-            :clear_text => result[:password]
-          ),
-
-          :open_port => @open_port
-        )
-      end
     end
   end
 end

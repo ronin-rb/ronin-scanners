@@ -19,13 +19,13 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanner/credential_scanner'
+require 'ronin/scanner/service_credential_scanner'
 
 require 'data_objects'
 
 module Ronin
   module Scanners
-    class DatabaseCredentialScanner < CredentialScanner
+    class DatabaseCredentialScanner < ServiceCredentialScanner
 
       parameter :type, :type        => Symbol,
                        :description => 'The type of database'
@@ -56,7 +56,7 @@ module Ronin
 
             DataObject::Connection.new(uri)
 
-            yield username, password
+            yield(:username => username, :password => password)
           rescue DataObject::Error
           end
         end
