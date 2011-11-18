@@ -41,14 +41,6 @@ module Ronin
       parameter :port, :default => 22,
                        :description => 'The port that SSH is listening on'
 
-      # The path to the SSH user-names wordlist
-      parameter :user_list, :type => String,
-                            :description => 'The user-list'
-
-      # The path to the SSH passwords wordlist
-      parameter :password_list, :type => String,
-                                :description => 'The password-list'
-
       #
       # Creates new Service Credentials from the SSH Scanner results.
       #
@@ -86,7 +78,7 @@ module Ronin
       #   The given block will be passed each valid credential.
       #
       # @yieldparam [Hash{Symbol => String}] credential
-      #   A valid credential is a Hash containing `:user` and `:password`
+      #   A valid credential is a Hash containing `:username` and `:password`
       #   keys.
       #
       # @since 1.0.0
@@ -94,24 +86,14 @@ module Ronin
       def scan
         options = {:port => self.port, :auth_methods => ['password']}
 
-        File.open(self.user_list) do |users|
-          users.each_line do |user|
-            user.chomp!
+        each_credential do |username,password|
+          options[:password] = password
 
-            File.open(self.password_list) do |passwords|
-              passwords.each_line do |password|
-                password.chomp!
-
-                options[:password] = password
-
-                begin
-                  Net::SSH.start(self.host, user, options) do |ssh|
-                    yield(:user => user, :password => password)
-                  end
-                rescue SystemCallError, Net::SSH::AuthenticationFailed
-                end
-              end
+          begin
+            Net::SSH.start(self.host, username, options) do |ssh|
+              yield(:username => username, :password => password)
             end
+          rescue SystemCallError, Net::SSH::AuthenticationFailed
           end
         end
       end
@@ -130,7 +112,7 @@ module Ronin
       def new_resource(result)
         ServiceCredential.first_or_new(
           :user_name => UserName.first_or_new(
-            :name => result[:user]
+            :name => result[:username]
           ),
 
           :password => Password.first_or_new(
