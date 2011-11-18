@@ -86,6 +86,7 @@ module Ronin
     # * {Spider}
     # * {Nmap}
     # * {Proxies}
+    # * {Database}
     #
     class Scanner
 

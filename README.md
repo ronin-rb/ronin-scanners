@@ -54,7 +54,7 @@ install or update Overlays.
   * {Ronin::Scanners::Spider}
   * {Ronin::Scanners::Nmap}
   * {Ronin::Scanners::Proxies}
-  * {Ronin::Scanners::DatabaseCredentialScanner}
+  * {Ronin::Scanners::Database}
 
 ## Synopsis
 
