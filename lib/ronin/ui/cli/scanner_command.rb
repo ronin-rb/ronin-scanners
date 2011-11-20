@@ -88,6 +88,7 @@ module Ronin
 
           options[:type]    ||= OPTION_TYPES[param.type || param.value.class]
           options[:default] ||= param.value
+          options[:desc]    ||= param.description
 
           class_option(name,options)
         end
