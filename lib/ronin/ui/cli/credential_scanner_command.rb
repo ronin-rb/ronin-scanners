@@ -36,9 +36,9 @@ module Ronin
                                  :banner  => 'STRING:SUBSTITUTE',
                                  :desc    => 'Hash of mutations to perform'
 
-        class_option :word_template, :type    => :array,
+        class_option :word_template, :type    => :hash,
                                      :aliases => '-g',
-                                     :banner  => 'CHARS[,LENGTH] [...]',
+                                     :banner  => 'CHARSET:LEN[-LEN] [...]'
                                      :desc    => 'String generator template'
 
         class_option :username, :type    => :string,
@@ -62,6 +62,28 @@ module Ronin
                                  :desc    => 'Maximum number of words to use'
 
         protected
+
+        #
+        # Sets up the credential scanner.
+        #
+        # @api semipublic
+        #
+        def setup!
+          super
+
+          @scanner.word_template = options[:word_template].map do |charset,len|
+            charset = charset.to_sym
+            length  = if len.include?('-')
+                        start, stop = length.split('-',2)
+
+                        (start.to_i..stop.to_i)
+                      else
+                        length.to_i
+                      end
+
+            [charset, length]
+          end
+        end
 
         #
         # Prints a credential result.
