@@ -19,6 +19,8 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
+require 'ronin/database/migrations/scanners'
+
 require 'ronin/scanners/scanners'
 require 'ronin/scanners/version'
 require 'ronin/config'
