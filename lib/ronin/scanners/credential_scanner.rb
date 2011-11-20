@@ -22,7 +22,7 @@
 require 'ronin/extensions/file'
 require 'ronin/scanners/scanner'
 require 'ronin/credential'
-require 'ronin/fuzzing'
+require 'ronin/wordlist'
 
 module Ronin
   module Scanners
@@ -34,10 +34,8 @@ module Ronin
     #
     class CredentialScanner < Scanner
 
-      # Paths to a word-list file(s)
-      parameter :wordlists, :type        => Array[String],
-                            :default     => [],
-                            :description => 'Wordlist file(s) to use'
+      # Paths to the wordlist file or list of words.
+      parameter :wordlist, :description => 'Wordlist file or list of words'
 
       # Mutation rules to apply to words from the {#wordlist}
       parameter :mutations, :default     => {},
@@ -107,27 +105,6 @@ module Ronin
       end
 
       #
-      # Reads each line from a wordlist file.
-      #
-      # @param [String] path
-      #   The path to the wordlist file.
-      #
-      # @yield [word]
-      #   The given block will be passed each word from the file.
-      #
-      # @yieldparam [String] word
-      #   A word from the wordlist.
-      #
-      # @return [Enumerator]
-      #   If no block is given, an Enumerator will be returned.
-      #
-      # @api semipublic
-      #
-      def wordlist(path,&block)
-        File.each_line(path,&block)
-      end
-
-      #
       # Iterates over each word from the {#wordlist} or String {#word_template}.
       #
       # @yield [word]
@@ -147,18 +124,16 @@ module Ronin
       def each_word(&block)
         return enum_for(:each_word) unless block
 
-        unless (self.wordlists || self.word_template)
-          raise(Parameters::MissingParam,"no wordlist(s) or word template given")
+        unless (self.wordlist || self.word_template)
+          raise(Parameters::MissingParam,"no wordlist or word template given")
         end
 
-        if self.wordlists
-          self.wordlists.each do |path|
-            wordlist(path) do |word|
-              unless self.mutations.empty?
-                word.mutate(mutations,&block)
-              else
-                yield word
-              end
+        if self.wordlist
+          Wordlist.new(self.wordlist) do |wordlist|
+            if (self.min_words > 1 || self.max_words > 1)
+              wordlist.each_n_words((self.min_words..self.max_words),&block)
+            else
+              wordlist.each(&block)
             end
           end
         end
@@ -166,27 +141,6 @@ module Ronin
         if self.word_template
           String.generate(self.word_template,&block)
         end
-      end
-
-      #
-      # Iterates over every n words.
-      #
-      # @param [Integer, Range, Array] n
-      #   The number of words to combine.
-      #
-      # @yield [words]
-      #   The given block will be passed every combination of `n` words.
-      #
-      # @yieldparam [String]
-      #    The combination of `n` words.
-      #
-      # @return [Enumerator]
-      #   If no block is given, an Enumerator will be returned.
-      #
-      # @api semipublic
-      #
-      def each_n_words(n,&block)
-        String.generate([each_word, n],&block)
       end
 
       #
@@ -220,8 +174,8 @@ module Ronin
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
       #
-      def each_password
-        each_n_words((self.min_words..self.max_words),&block)
+      def each_password(&block)
+        each_word(&block)
       end
 
       #
