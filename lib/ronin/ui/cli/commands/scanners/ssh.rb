@@ -50,31 +50,6 @@ module Ronin
               print_info 'All valid SSH credentials saved.' if options.save?
             end
 
-            protected
-
-            #
-            # Prints a SSH scan result.
-            #
-            # @param [Hash{Symbol => String}] credential
-            #   The SSH scan result to print.
-            #
-            # @since 1.0.0
-            #
-            def print_result(credential)
-              puts "#{credential[:username]}:#{credential[:password]}"
-            end
-
-            #
-            # Prints a Service Credential.
-            #
-            # @param [ServiceCredential] credential
-            #   The Service Credential to print.
-            #
-            # @since 1.0.0
-            #
-            def print_resource(credential)
-              puts credential
-            end
           end
         end
       end

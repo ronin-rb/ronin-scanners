@@ -56,6 +56,32 @@ module Ronin
                                  :banner  => 'MAX',
                                  :desc    => 'Maximum number of words to use'
 
+        protected
+
+        #
+        # Prints a credential result.
+        #
+        # @param [Hash{Symbol => String}] credential
+        #   The credential result to print.
+        #
+        # @api semipublic
+        #
+        def print_result(credential)
+          puts "#{credential[:username]}:#{credential[:password]}"
+        end
+
+        #
+        # Prints a Credential.
+        #
+        # @param [Credential] credential
+        #   The Credential to print.
+        #
+        # @api semipublic
+        #
+        def print_resource(credential)
+          puts credential
+        end
+
       end
     end
   end
