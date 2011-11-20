@@ -57,6 +57,41 @@ module Ronin
 
         protected
 
+        OPTION_TYPES = {
+          TrueClass  => :boolean,
+          FalseClass => :boolean,
+
+          Integer => :numeric,
+          Fixnum  => :numeric,
+          Float   => :numeric,
+
+          String => :string,
+
+          Array => :array,
+          Hash  => :hash
+        }
+
+        #
+        # Defines an option that maps to a parameter in the Scanner.
+        #
+        # @param [Symbol] name
+        #   The name of the option.
+        #
+        # @param [Hash] options
+        #   Additional options for the option.
+        #
+        # @api semipublic
+        #
+        def self.scanner_option(name,options={})
+          param   = scanner.get_param(name)
+          options = options.dup
+
+          options[:type]    ||= OPTION_TYPES[param.type || param.value.class]
+          options[:default] ||= param.value
+
+          class_option(name,options)
+        end
+
         #
         # Sets up the scanner command.
         #

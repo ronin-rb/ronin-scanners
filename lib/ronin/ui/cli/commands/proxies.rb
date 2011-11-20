@@ -31,24 +31,13 @@ module Ronin
           desc 'Scans for proxies and saves them into the Database'
 
           # The hosts or ranges to exclude from the scan.
-          class_option :exclude, :default => Scanners::Proxies.exclude,
-                                 :type => :string
+          scanner_option :exclude
 
           # The ports or port ranges which will be scanned.
-          class_option :ports, :default => Scanners::Proxies.ports,
-                               :type => :string,
-                               :aliases => '-p'
+          scanner_option :ports, :aliases => '-p'
 
           # Specifies whether to enable verbose output
-          class_option :verbose, :default => Scanners::Proxies.verbose,
-                                 :type => :boolean,
-                                 :aliases => '-v'
-
-          # The input file to read hosts/ports from
-          class_option :import, :type => :string, :aliases => '-i'
-
-          # The output file to write hosts/ports to
-          class_option :output, :type => :string, :aliases => '-o -oX'
+          scanner_option :verbose, :aliases => '-v'
 
           # The hosts which will be scanned.
           argument :hosts, :required => true

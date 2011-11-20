@@ -31,17 +31,13 @@ module Ronin
           desc 'Performs SSH bruteforcing against a host'
 
           # The port that SSH is listening on
-          class_option :port, :type => :numeric,
-                              :default => scanner.port,
-                              :aliases => '-p'
+          scanner_option :port, :aliases => '-p'
 
           # The path to the user-name wordlist
-          class_option :user_list, :type => :string,
-                                   :aliases => '-U'
+          scanner_option :user_list, :aliases => '-U'
 
           # The path to the password wordlist
-          class_option :password_list, :type => :string,
-                                       :aliases => '-P'
+          scanner_option :password_list, :aliases => '-P'
 
           # The host that is running SSH
           argument :host, :required => true
