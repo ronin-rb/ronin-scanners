@@ -26,46 +26,48 @@ module Ronin
   module UI
     module CLI
       module Commands
-        class Spider < ScannerCommand
+        module Scanners
+          class Spider < ScannerCommand
 
-          desc 'Spiders a website and saves URLs into the Database'
+            desc 'Spiders a website and saves URLs into the Database'
 
-          scanner_option :start_at, :aliases => '-s'
+            scanner_option :start_at, :aliases => '-s'
 
-          argument :hosts, :type => :array
+            argument :hosts, :type => :array
 
-          #
-          # Spider one or more websites.
-          #
-          # @since 1.0.0
-          #
-          def execute
-            print_info 'Saving spidered URLs ...' if options.save?
+            #
+            # Spider one or more websites.
+            #
+            # @since 1.0.0
+            #
+            def execute
+              print_info 'Saving spidered URLs ...' if options.save?
 
-            scan!
+              scan!
 
-            print_info 'All spidered URLs saved.' if options.save?
-          end
-
-          protected
-
-          #
-          # Prints a spidered page.
-          #
-          # @param [Spidr::Page] page
-          #   A spidered page.
-          #
-          # @since 1.0.0
-          #
-          def print_result(page)
-            print_info page.url
-
-            if options.verbose?
-              print_hash page.headers
-              puts page.body
+              print_info 'All spidered URLs saved.' if options.save?
             end
-          end
 
+            protected
+
+            #
+            # Prints a spidered page.
+            #
+            # @param [Spidr::Page] page
+            #   A spidered page.
+            #
+            # @since 1.0.0
+            #
+            def print_result(page)
+              print_info page.url
+
+              if options.verbose?
+                print_hash page.headers
+                puts page.body
+              end
+            end
+
+          end
         end
       end
     end
