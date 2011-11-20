@@ -130,7 +130,9 @@ module Ronin
 
         if self.wordlist
           Wordlist.new(self.wordlist) do |wordlist|
-            if (self.min_words > 1 || self.max_words > 1)
+            if self.min_words > self.max_words
+              wordlist.each_n_words(self.min_words,&block)
+            elsif self.max_words > 1
               wordlist.each_n_words((self.min_words..self.max_words),&block)
             else
               wordlist.each(&block)
