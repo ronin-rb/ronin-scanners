@@ -26,17 +26,35 @@ module Ronin
     module CLI
       class CredentialScannerCommand < ScannerCommand
 
-        class_option :wordlists, :type => :array, :aliases => '-w'
+        class_option :wordlists, :type    => :array,
+                                 :aliases => '-w',
+                                 :banner  => 'FILE [...]',
+                                 :desc    => 'Wordlist file(s) to use'
 
-        class_option :mutations, :type => :hash, :aliases => '-m'
+        class_option :mutations, :type    => :hash,
+                                 :aliases => '-m',
+                                 :banner  => 'STRING:SUBSTITUTE',
+                                 :desc    => 'Hash of mutations to perform'
 
-        class_option :username, :type => :string, :aliases => '-u'
+        class_option :username, :type    => :string,
+                                :aliases => '-u',
+                                :banner  => 'USER',
+                                :desc    => 'String generator template'
 
-        class_option :usernames, :type => :array, :aliases => '-U'
+        class_option :usernames, :type    => :array,
+                                 :aliases => '-U',
+                                 :banner  => 'USER [...]',
+                                 :desc    => 'Additional user-names to try'
 
-        class_option :min_words, :type => :numeric, :aliases => '-m'
+        class_option :min_words, :type    => :numeric,
+                                 :aliases => '-m',
+                                 :banner  => 'MIN',
+                                 :desc    => 'Minimum number of words to use'
 
-        class_option :max_words, :type => :numeric, :aliases => '-M'
+        class_option :max_words, :type    => :numeric,
+                                 :aliases => '-M',
+                                 :banner  => 'MAX',
+                                 :desc    => 'Maximum number of words to use'
 
       end
     end
