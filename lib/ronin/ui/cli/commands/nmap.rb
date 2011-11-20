@@ -114,12 +114,6 @@ module Ronin
           # @since 1.0.0
           #
           def execute
-            Database.setup
-
-            @scanner = Scanners::Nmap.new
-            @scanner.targets = targets
-            @scanner.params  = options
-
             print_info 'Saving scanned hosts and ports ...' if options.save?
 
             scan!

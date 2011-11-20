@@ -39,12 +39,6 @@ module Ronin
           # @since 1.0.0
           #
           def execute
-            Database.setup
-
-            @scanner = Scanners::Spider.new
-            @scanner.params = options
-            @scanner.hosts = hosts
-
             print_info 'Saving spidered URLs ...' if options.save?
 
             scan!

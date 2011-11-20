@@ -52,12 +52,6 @@ module Ronin
           # @since 1.0.0
           #
           def execute
-            Database.setup
-
-            @scanner = Scanners::SSH.new
-            @scanner.host = host
-            @scanner.params = options
-
             print_info 'Saving captured SSH credentials ...' if options.saved?
 
             scan!

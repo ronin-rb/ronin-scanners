@@ -59,12 +59,6 @@ module Ronin
           # @since 1.0.0
           #
           def execute
-            Database.setup
-
-            @scanner = Scanners::Proxies.new
-            @scanner.hosts = hosts
-            @scanner.params = options
-
             print_info 'Saving scanned proxies ...' if options.save?
 
             scan!

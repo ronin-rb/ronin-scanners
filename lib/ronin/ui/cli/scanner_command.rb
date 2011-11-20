@@ -28,10 +28,61 @@ module Ronin
     module CLI
       class ScannerCommand < Command
 
+        class_option :database, :type => :string, :aliases => '-D'
         class_option :first, :type => :numeric, :aliases => '-N'
         class_option :import, :type => :boolean, :aliases => '-I'
 
+        #
+        # The Scanner class with the same name as the command.
+        #
+        # @return [Class]
+        #   The Scanner class, loaded from {Ronin::Scanners}.
+        #
+        # @api semipublic
+        #
+        def self.scanner
+          @scanner ||= Scanners.const_get(name.split('::').last)
+        end
+
+        #
+        # Invokes the scanner.
+        #
+        # @see #scan!
+        #
+        # @api semipublic
+        #
+        def execute
+          scan!
+        end
+
         protected
+
+        #
+        # Sets up the scanner command.
+        #
+        # @api semipublic 
+        #
+        def setup
+          super
+
+          if self.options[:database]
+            Database.repositories[:default] = options[:database]
+          end
+
+          Database.setup
+
+          @scanner = self.class.scanner.new
+
+          # populate parameters with command options
+          @scanner.params = options
+
+          # populate additional parameters that map to arguments
+          self.class.arguments.each do |argument|
+            if @scanner.has_param?(argument.name)
+              @scanner.get_param(argument.name).value = send(argument.name)
+            end
+          end
+        end
 
         #
         # Performs a scan using the `@scanner` instance variable.
