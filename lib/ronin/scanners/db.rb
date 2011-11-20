@@ -19,7 +19,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/scanner/service_credential_scanner'
+require 'ronin/scanners/service_credential_scanner'
 
 require 'data_objects'
 
