@@ -20,14 +20,14 @@
 #
 
 require 'ronin/ui/cli/credential_scanner_command'
-require 'ronin/scanners/database'
+require 'ronin/scanners/db'
 
 module Ronin
   module UI
     module CLI
       module Commands
         module Scanners
-          class Database < CredentialScannerCommand
+          class DB < CredentialScannerCommand
 
             desc 'Performs bruteforcing against a Database server'
 

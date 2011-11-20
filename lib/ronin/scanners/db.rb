@@ -25,7 +25,7 @@ require 'data_objects'
 
 module Ronin
   module Scanners
-    class Database < ServiceCredentialScanner
+    class DB < ServiceCredentialScanner
 
       parameter :type, :type        => Symbol,
                        :description => 'The type of database'
