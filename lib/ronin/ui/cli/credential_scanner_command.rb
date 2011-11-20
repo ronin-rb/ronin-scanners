@@ -36,6 +36,11 @@ module Ronin
                                  :banner  => 'STRING:SUBSTITUTE',
                                  :desc    => 'Hash of mutations to perform'
 
+        class_option :word_template, :type    => :array,
+                                     :aliases => '-g',
+                                     :banner  => 'CHARS[,LENGTH] [...]',
+                                     :desc    => 'String generator template'
+
         class_option :username, :type    => :string,
                                 :aliases => '-u',
                                 :banner  => 'USER',

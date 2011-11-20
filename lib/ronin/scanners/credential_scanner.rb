@@ -43,9 +43,9 @@ module Ronin
       parameter :mutations, :default     => {},
                             :description => 'Hash of mutations to perform'
 
-      # String generator template
-      parameter :generator, :type        => Array,
-                            :description => 'String generator template'
+      # Word generator template
+      parameter :word_template, :type        => Array,
+                                :description => 'String generator template'
 
       # Primary username to use
       parameter :username, :type        => String,
@@ -128,27 +128,27 @@ module Ronin
       end
 
       #
-      # Iterates over each word from the {#wordlist} or String {#generator}.
+      # Iterates over each word from the {#wordlist} or String {#word_template}.
       #
       # @yield [word]
       #   The given block will be passed each word.
       #
       # @yieldparam [String] word
-      #   A word from the {#wordlist} or String {#generator}.
+      #   A word from the {#wordlist} or String {#word_template}.
       #
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
       #
       # @raise [Parameters::MissingParam]
-      #   The {#wordlists} or {#generator} parameters must be specified.
+      #   The {#wordlists} or {#word_template} parameters must be specified.
       #
       # @api semipublic
       #
       def each_word(&block)
         return enum_for(:each_word) unless block
 
-        unless (self.wordlists || self.generator)
-          raise(Parameters::MissingParam,"no wordlist(s) or String generator given")
+        unless (self.wordlists || self.word_template)
+          raise(Parameters::MissingParam,"no wordlist(s) or word template given")
         end
 
         if self.wordlists
@@ -163,8 +163,8 @@ module Ronin
           end
         end
 
-        if self.generator
-          String.generate(self.generator,&block)
+        if self.word_template
+          String.generate(self.word_template,&block)
         end
       end
 
