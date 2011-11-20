@@ -104,6 +104,8 @@ module Ronin
       #
       # @since 1.0.0
       #
+      # @api public
+      #
       def initialize(options={})
         super(options)
 
@@ -155,6 +157,8 @@ module Ronin
       #
       # @since 1.0.0
       #
+      # @api public
+      #
       def each
         return enum_for(:each) unless block_given?
 
@@ -182,6 +186,8 @@ module Ronin
       #   If no block was given, an `Enumerator` object will be returned.
       #
       # @since 1.0.0
+      #
+      # @api public
       #
       def each_resource
         return enum_for(:each_resource) unless block_given?
@@ -212,6 +218,8 @@ module Ronin
       #
       # @since 1.0.0
       #
+      # @api public
+      #
       def import
         return enum_for(:import) unless block_given?
 
@@ -226,6 +234,8 @@ module Ronin
       # @see #each
       #
       # @since 1.0.0
+      #
+      # @api public
       #
       def run
         print_info "Scanning ..."
@@ -251,6 +261,8 @@ module Ronin
       #
       # @since 1.0.0
       #
+      # @api semipublic
+      #
       def normalize_result(result)
         result
       end
@@ -267,6 +279,8 @@ module Ronin
       #
       # @since 1.0.0
       #
+      # @api semipublic
+      #
       def new_resource(result)
         nil
       end
@@ -275,6 +289,8 @@ module Ronin
       # The default method which will actually perform the scanning.
       #
       # @since 1.0.0
+      #
+      # @api semipublic
       #
       def scan(&block)
       end

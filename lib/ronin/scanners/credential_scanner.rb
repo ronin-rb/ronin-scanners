@@ -81,7 +81,7 @@ module Ronin
       # @raise [Parameters::MissingParam]
       #   The {#wordlists} or {#word_template} parameters must be specified.
       #
-      # @api semipublic
+      # @api public
       #
       def each_word(&block)
         return enum_for(:each_word) unless block
@@ -119,6 +119,8 @@ module Ronin
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
       #
+      # @api public
+      #
       def each_username(&block)
         return enum_for(:each_username) unless block
 
@@ -137,6 +139,8 @@ module Ronin
       #
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
+      #
+      # @api public
       #
       def each_password(&block)
         each_word(&block)
@@ -158,6 +162,8 @@ module Ronin
       # @return [Enumerator]
       #   If no block is given, an Enumerator will be returned.
       #
+      # @api public
+      #
       def each_credential
         return enum_for(:each_credential) unless block_given?
 
@@ -177,6 +183,8 @@ module Ronin
       # @return [Hash]
       #   A hash containing the `:username` and `:password` keys.
       #
+      # @api semipublic
+      #
       def normalize_result(result)
         if result.kind_of?(Hash)
           if (result.has_key?(:username) && result.has_key?(:password))
@@ -194,6 +202,8 @@ module Ronin
       #
       # @return [Credential]
       #   A credential resource.
+      #
+      # @api semipublic
       #
       def new_resource(result)
         Credential.first_or_new(
