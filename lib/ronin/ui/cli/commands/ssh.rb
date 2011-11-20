@@ -32,7 +32,7 @@ module Ronin
 
           # The port that SSH is listening on
           class_option :port, :type => :numeric,
-                              :default => Scanners::SSH.port,
+                              :default => scanner.port,
                               :aliases => '-p'
 
           # The path to the user-name wordlist
@@ -70,7 +70,7 @@ module Ronin
           # @since 1.0.0
           #
           def print_result(credential)
-            puts "#{credential[:user]}:#{credential[:password]}"
+            puts "#{credential[:username]}:#{credential[:password]}"
           end
 
           #
