@@ -67,44 +67,6 @@ module Ronin
       protected
 
       #
-      # Normalizes results from the Credential Scanner.
-      #
-      # @param [Object] result
-      #   A result from the Credential Scanner.
-      #
-      # @return [Hash]
-      #   A hash containing the `:username` and `:password` keys.
-      #
-      def normalize_result(result)
-        if result.kind_of?(Hash)
-          if (result.has_key?(:username) && result.has_key?(:password))
-            result
-          end
-        end
-      end
-
-      #
-      # Creates a new resource from a result.
-      #
-      # @param [Hash] result
-      #   A hash containing the `:username` and `:password` keys.
-      #   The optional `:email_address` key is also respected.
-      #
-      # @return [Credential]
-      #   A credential resource.
-      #
-      def new_resource(result)
-        Credential.first_or_new(
-          :user_name     => UserName.parse(result[:username]),
-          :password      => Password.parse(result[:password]),
-
-          :email_address => if result[:email_address]
-                              EmailAddress.parse(result[:email_address])
-                            end
-        )
-      end
-
-      #
       # Iterates over each word from the {#wordlist} or String {#word_template}.
       #
       # @yield [word]
@@ -204,6 +166,44 @@ module Ronin
             yield username, password
           end
         end
+      end
+
+      #
+      # Normalizes results from the Credential Scanner.
+      #
+      # @param [Object] result
+      #   A result from the Credential Scanner.
+      #
+      # @return [Hash]
+      #   A hash containing the `:username` and `:password` keys.
+      #
+      def normalize_result(result)
+        if result.kind_of?(Hash)
+          if (result.has_key?(:username) && result.has_key?(:password))
+            result
+          end
+        end
+      end
+
+      #
+      # Creates a new resource from a result.
+      #
+      # @param [Hash] result
+      #   A hash containing the `:username` and `:password` keys.
+      #   The optional `:email_address` key is also respected.
+      #
+      # @return [Credential]
+      #   A credential resource.
+      #
+      def new_resource(result)
+        Credential.first_or_new(
+          :user_name     => UserName.parse(result[:username]),
+          :password      => Password.parse(result[:password]),
+
+          :email_address => if result[:email_address]
+                              EmailAddress.parse(result[:email_address])
+                            end
+        )
       end
 
     end
