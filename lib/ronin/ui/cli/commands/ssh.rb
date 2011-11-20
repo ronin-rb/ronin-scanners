@@ -19,25 +19,19 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/ui/cli/scanner_command'
+require 'ronin/ui/cli/credential_scanner_command'
 require 'ronin/scanners/ssh'
 
 module Ronin
   module UI
     module CLI
       module Commands
-        class SSH < ScannerCommand
+        class SSH < CredentialScannerCommand
 
           desc 'Performs SSH bruteforcing against a host'
 
           # The port that SSH is listening on
           scanner_option :port, :aliases => '-p'
-
-          # The path to the user-name wordlist
-          scanner_option :user_list, :aliases => '-U'
-
-          # The path to the password wordlist
-          scanner_option :password_list, :aliases => '-P'
 
           # The host that is running SSH
           argument :host, :required => true
