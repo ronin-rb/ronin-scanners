@@ -26,7 +26,7 @@ module Ronin
   module UI
     module CLI
       module Commands
-        class Scan < ScannerCommand
+        class Scanner < ScannerCommand
 
           desc 'Loads and runs a scanner'
 
