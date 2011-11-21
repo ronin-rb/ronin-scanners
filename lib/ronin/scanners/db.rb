@@ -37,6 +37,7 @@ module Ronin
                        :description => 'The port to scan against'
 
       parameter :database, :type        => String,
+                           :default     => 'information_schema',
                            :description => 'The database to try loggin into'
 
       protected
