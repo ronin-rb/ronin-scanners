@@ -47,7 +47,7 @@ module Ronin
           :schema => self.type,
           :host   => self.host,
           :port   => self.port,
-          :path   => "/#{self.database}"
+          :path   => self.database
         )
 
         each_credential do |username,password|
