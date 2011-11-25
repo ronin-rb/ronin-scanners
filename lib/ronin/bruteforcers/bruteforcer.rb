@@ -20,15 +20,32 @@
 #
 
 require 'ronin/script'
+require 'ronin/wordlist'
+require 'ronin/user_name'
+require 'ronin/password'
+require 'ronin/email_address'
+require 'ronin/credential'
+
+require 'thread'
+require 'ostruct'
 
 module Ronin
   module Bruteforcers
-    class Bruteforce
+    class Bruteforcer
 
       include Script
 
       # The primary-key of the bruteforcer
       property :id, Serial
+
+      # Primary username to use
+      parameter :username, :type        => String,
+                           :description => 'Primary username to use'
+
+      # Additional user-names to try
+      parameter :usernames, :type        => Array[String],
+                            :default     => [],
+                            :description => 'Additional user-names to try'
 
       # Paths to the wordlist file or list of words.
       parameter :wordlist, :description => 'Wordlist file or list of words'
@@ -56,57 +73,245 @@ module Ronin
                           :default     => 0,
                           :description => 'Number of separate threads'
 
-      protected
+      #
+      # Creates a new {Bruteforcer} object.
+      #
+      # @param [Hash] options
+      #   Additional options for the bruteforcer.
+      #
+      # @api public
+      #
+      def initialize(options={})
+        super(options)
 
-      def bruteforce(username,password)
+        initialize_params(options)
       end
 
-      def single_threaded_bruteforce(username)
-        each_password do |password|
-          credential = begin
-                         bruteforce(username,password)
-                       rescue
-                       end
-
-          if credential
-            yield credential
-            break
+      def bruteforce(&block)
+        each_username do |username|
+          if self.threads > 0
+            bruteforce_multi_threaded(username,&block)
+          else
+            bruteforce_single_threaded(username,&block)
           end
         end
       end
 
-      def multi_threaded_bruteforce(username)
-        credential_queue = Queue.new
-        password_queue   = Queue.new
+      protected
+
+      #
+      # Default method that handles initializes and destroying bruteforcing
+      # sessions.
+      #
+      # @yield [session]
+      #   The given block will be passed the initialized session.
+      # 
+      # @yieldparam [OpenStruct] session
+      #   The initializes session.
+      #
+      # @abstract
+      #
+      # @api public
+      #
+      def session
+        yield OpenStruct.new
+      end
+
+      #
+      # Default method which handles authenticating with credentials.
+      #
+      # @param [OpenStruct] session
+      #   The session object.
+      #
+      # @param [String] username
+      #   The username to try authenticating with.
+      #
+      # @param [String] password
+      #   The password to try authenticating with.
+      #
+      # @return [Hash]
+      #   The successful credential attributes.
+      #
+      # @abstract
+      #
+      # @api public
+      #
+      def authenticate(session,username,password)
+      end
+
+      #
+      # Creates a new Credential resource.
+      #
+      # @param [Hash] attributes
+      #   Attributes for the new Credential.
+      #
+      # @return [Credential]
+      #   A new or previously saved Credential resource from the Database.
+      #
+      # @api semipublic
+      #
+      def new_credential(attributes)
+        Credential.first_or_new(
+          :user_name     => UserName.parse(result[:username]),
+          :password      => Password.parse(result[:password]),
+
+          :email_address => if result[:email_address]
+                              EmailAddress.parse(result[:email_address])
+                            end
+        )
+      end
+
+      #
+      # Iterates over each word from the {#wordlist} or String {#word_template}.
+      #
+      # @yield [word]
+      #   The given block will be passed each word.
+      #
+      # @yieldparam [String] word
+      #   A word from the {#wordlist} or String {#word_template}.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      # @raise [Parameters::MissingParam]
+      #   The {#wordlists} or {#word_template} parameters must be specified.
+      #
+      # @api public
+      #
+      def each_word(&block)
+        return enum_for(:each_word) unless block
+
+        unless (self.wordlist || self.word_template)
+          raise(Parameters::MissingParam,"no wordlist or word template given")
+        end
+
+        if self.wordlist
+          Wordlist.new(self.wordlist) do |wordlist|
+            if self.min_words > self.max_words
+              wordlist.each_n_words(self.min_words,&block)
+            elsif self.max_words > 1
+              wordlist.each_n_words((self.min_words..self.max_words),&block)
+            else
+              wordlist.each(&block)
+            end
+          end
+        end
+
+        if self.word_template
+          String.generate(self.word_template,&block)
+        end
+      end
+
+      #
+      # Iterates over every user-name.
+      #
+      # @yield [username]
+      #   The given block will be passed each user-name.
+      #
+      # @yieldparam [String] username
+      #   A user-name.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      # @api public
+      #
+      def each_username(&block)
+        return enum_for(:each_username) unless block
+
+        # filter out `nil` and duplicate usernames
+        ([self.username] + self.usernames).compact.uniq.each(&block)
+      end
+
+      #
+      # Iterates over every password.
+      #
+      # @yield [password]
+      #   The given block will be passed each password.
+      #
+      # @yieldparam [String] password
+      #   A generated password.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      # @api public
+      #
+      def each_password(&block)
+        each_word(&block)
+      end
+
+      #
+      # Bruteforces the username.
+      #
+      # @param [String] username
+      #   The username to use while bruteforcing.
+      #
+      # @yield [username, password]
+      #   The given block will be passed the first valid username and password
+      #   pair.
+      #
+      def bruteforce_single_threaded(username)
+        session do |session|
+          each_password do |password|
+            print_debug "Trying #{username} :: #{password} ..."
+
+            if authenticate(session,username,password)
+              print_debug "Found #{username} :: #{password}"
+              yield username, password
+            end
+          end
+        end
+      end
+
+      #
+      # Bruteforces the username, using multiple Threads.
+      #
+      # @param [String] username
+      #   The username to use while bruteforcing.
+      #
+      # @yield [username, password]
+      #   The given block will be passed the first valid username and password
+      #   pair.
+      #
+      def bruteforce_multi_threaded(username)
+        passwords       = SizedQueue.new(self.threads)
+        password_thread = Thread.new do
+          each_password do |password|
+            passwords.push password
+
+            print_debug "Trying #{username} :: #{password} ..."
+          end
+
+          # push stop messages
+          self.threads.times { passwords.push :stop }
+        end
+
+        valid_password = nil
 
         thread_pool = Array.new(self.threads) do
           Thread.new do
-            loop do
-              password   = password_queue.pop
-              credential = begin
-                             bruteforce(username,password)
-                           rescue
-                           end
+            session do |session|
+              until valid_password
+                password = passwords.pop
 
-              if credential
-                credential_queue.push credential
+                # stop the thread, once we've ran out of passwords
+                break if password == :stop
+
+                if authenticate(session,username,password)
+                  valid_password = password
+                end
               end
             end
           end
         end
 
-        password_thread = Thread.new do
-          each_password do |password|
-            break if thread_pool.all? { |thread| thread.stop? }
+        thread_pool.each(&:join)
 
-            password_queue.push password
-          end
+        if valid_password
+          print_debug "Found #{username} :: #{valid_password}"
+          yield username, valid_password
         end
-
-        yield credential_queue.pop
-
-        password_thread.stop
-        thread_pool.each { |thread| thread.stop }
       end
 
     end
