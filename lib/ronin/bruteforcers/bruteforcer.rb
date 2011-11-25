@@ -100,68 +100,6 @@ module Ronin
       protected
 
       #
-      # Default method that handles initializes and destroying bruteforcing
-      # sessions.
-      #
-      # @yield [session]
-      #   The given block will be passed the initialized session.
-      # 
-      # @yieldparam [OpenStruct] session
-      #   The initializes session.
-      #
-      # @abstract
-      #
-      # @api public
-      #
-      def session
-        yield OpenStruct.new
-      end
-
-      #
-      # Default method which handles authenticating with credentials.
-      #
-      # @param [OpenStruct] session
-      #   The session object.
-      #
-      # @param [String] username
-      #   The username to try authenticating with.
-      #
-      # @param [String] password
-      #   The password to try authenticating with.
-      #
-      # @return [Hash]
-      #   The successful credential attributes.
-      #
-      # @abstract
-      #
-      # @api public
-      #
-      def authenticate(session,username,password)
-      end
-
-      #
-      # Creates a new Credential resource.
-      #
-      # @param [Hash] attributes
-      #   Attributes for the new Credential.
-      #
-      # @return [Credential]
-      #   A new or previously saved Credential resource from the Database.
-      #
-      # @api semipublic
-      #
-      def new_credential(attributes)
-        Credential.first_or_new(
-          :user_name     => UserName.parse(result[:username]),
-          :password      => Password.parse(result[:password]),
-
-          :email_address => if result[:email_address]
-                              EmailAddress.parse(result[:email_address])
-                            end
-        )
-      end
-
-      #
       # Iterates over each word from the {#wordlist} or String {#word_template}.
       #
       # @yield [word]
@@ -239,6 +177,68 @@ module Ronin
       #
       def each_password(&block)
         each_word(&block)
+      end
+
+      #
+      # Default method that handles initializes and destroying bruteforcing
+      # sessions.
+      #
+      # @yield [session]
+      #   The given block will be passed the initialized session.
+      # 
+      # @yieldparam [OpenStruct] session
+      #   The initializes session.
+      #
+      # @abstract
+      #
+      # @api public
+      #
+      def session
+        yield OpenStruct.new
+      end
+
+      #
+      # Default method which handles authenticating with credentials.
+      #
+      # @param [OpenStruct] session
+      #   The session object.
+      #
+      # @param [String] username
+      #   The username to try authenticating with.
+      #
+      # @param [String] password
+      #   The password to try authenticating with.
+      #
+      # @return [Hash]
+      #   The successful credential attributes.
+      #
+      # @abstract
+      #
+      # @api public
+      #
+      def authenticate(session,username,password)
+      end
+
+      #
+      # Creates a new Credential resource.
+      #
+      # @param [Hash] attributes
+      #   Attributes for the new Credential.
+      #
+      # @return [Credential]
+      #   A new or previously saved Credential resource from the Database.
+      #
+      # @api semipublic
+      #
+      def new_credential(attributes)
+        Credential.first_or_new(
+          :user_name     => UserName.parse(result[:username]),
+          :password      => Password.parse(result[:password]),
+
+          :email_address => if result[:email_address]
+                              EmailAddress.parse(result[:email_address])
+                            end
+        )
       end
 
       #
