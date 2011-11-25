@@ -43,6 +43,8 @@ module Ronin
       protected
 
       def scan
+        require "do_#{self.type}"
+
         uri = Addressable::URI.new(
           :schema => self.type,
           :host   => self.host,
@@ -55,10 +57,10 @@ module Ronin
             uri.user     = username
             uri.password = password
 
-            DataObject::Connection.new(uri)
+            DataObjects::Connection.new(uri)
 
             yield(:username => username, :password => password)
-          rescue DataObject::Error
+          rescue DataObjects::Error
           end
         end
       end
