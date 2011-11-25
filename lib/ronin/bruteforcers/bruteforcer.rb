@@ -284,7 +284,7 @@ module Ronin
             print_debug "Trying #{username} :: #{password} ..."
           end
 
-          # push stop messages
+          # no more passwords, push stop messages
           self.threads.times { passwords.push :stop }
         end
 
