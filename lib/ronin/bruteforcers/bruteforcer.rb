@@ -259,6 +259,7 @@ module Ronin
             if authenticate(session,username,password)
               print_debug "Found #{username} :: #{password}"
               yield username, password
+              break
             end
           end
         end
@@ -288,18 +289,21 @@ module Ronin
         end
 
         valid_password = nil
+        password_mutex = Mutex.new
 
         thread_pool = Array.new(self.threads) do
           Thread.new do
             session do |session|
-              until valid_password
+              until password_mutex.synchronize { valid_password }
                 password = passwords.pop
 
                 # stop the thread, once we've ran out of passwords
                 break if password == :stop
 
                 if authenticate(session,username,password)
-                  valid_password = password
+                  password_mutex.synchronize do
+                    valid_password = password
+                  end
                 end
               end
             end
