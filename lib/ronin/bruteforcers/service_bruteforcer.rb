@@ -34,6 +34,8 @@ module Ronin
       parameter :port, :type        => Integer,
                        :description => 'Port that the Service is running on'
 
+      protected
+
       #
       # Creates a new Credential.
       #
