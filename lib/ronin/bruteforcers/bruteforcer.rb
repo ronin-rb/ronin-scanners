@@ -131,6 +131,25 @@ module Ronin
         end
       end
 
+      #
+      # Runs the bruteforcer.
+      #
+      # @see #bruteforce_all
+      #
+      # @api public
+      #
+      def run
+        print_info "Bruteforcing ..."
+
+        bruteforce_all do |*attributes|
+          print_info "Found: #{attributes.join("\t")}"
+
+          yield(*attributes) if block_given?
+        end
+
+        print_info "Bruteforce complete."
+      end
+
       protected
 
       #
