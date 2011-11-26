@@ -107,6 +107,30 @@ module Ronin
         end
       end
 
+      def bruteforce_credential
+        bruteforce do |*attributes|
+          yield new_credential(*attributes)
+        end
+      end
+
+      def bruteforce_credentials
+        bruteforce_all do |*attributes|
+          yield new_credential(*attributes)
+        end
+      end
+
+      def import_credential
+        bruteforce_credential do |credential|
+          yield credential if credential.save
+        end
+      end
+
+      def import_credentials
+        bruteforce_credentials do |credential|
+          yield credential if credential.save
+        end
+      end
+
       protected
 
       #
@@ -232,22 +256,21 @@ module Ronin
       #
       # Creates a new Credential resource.
       #
-      # @param [Hash] attributes
-      #   Attributes for the new Credential.
+      # @param [String] username
+      #   The username for the credential.
+      #
+      # @param [String] password
+      #   The password for the credential.
       #
       # @return [Credential]
       #   A new or previously saved Credential resource from the Database.
       #
       # @api semipublic
       #
-      def new_credential(attributes)
+      def new_credential(username,password)
         Credential.first_or_new(
-          :user_name     => UserName.parse(result[:username]),
-          :password      => Password.parse(result[:password]),
-
-          :email_address => if result[:email_address]
-                              EmailAddress.parse(result[:email_address])
-                            end
+          :user_name     => UserName.parse(username),
+          :password      => Password.parse(password)
         )
       end
 
