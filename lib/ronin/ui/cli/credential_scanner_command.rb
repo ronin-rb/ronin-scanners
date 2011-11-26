@@ -68,7 +68,7 @@ module Ronin
         #
         # @api semipublic
         #
-        def setup!
+        def setup
           super
 
           @scanner.word_template = options[:word_template].map do |charset,len|
