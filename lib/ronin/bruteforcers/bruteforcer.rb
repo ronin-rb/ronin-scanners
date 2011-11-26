@@ -344,6 +344,7 @@ module Ronin
         end
 
         thread_pool.each(&:join)
+        password_thread.kill
 
         if valid_password
           print_debug "Found #{username} :: #{valid_password}"
