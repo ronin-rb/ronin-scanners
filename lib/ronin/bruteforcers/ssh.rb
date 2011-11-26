@@ -19,7 +19,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/bruteforcers/bruteforcer'
+require 'ronin/bruteforcers/service_bruteforcer'
 
 require 'net/ssh'
 
@@ -29,11 +29,7 @@ module Ronin
     # {SSH} attempts to login to an SSH Service, using wordlists of
     # user-names and passwords.
     #
-    class SSH < Bruteforcer
-
-      # The host that will be scanned
-      parameter :host, :type => String,
-                       :description => 'The host to scan'
+    class SSH < ServiceBruteforcer
 
       # The port SSH is listening on
       parameter :port, :default => 22,

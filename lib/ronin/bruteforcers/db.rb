@@ -19,22 +19,16 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/bruteforcers/bruteforcer'
+require 'ronin/bruteforcers/service_bruteforcer'
 
 require 'data_objects'
 
 module Ronin
   module Bruteforcers
-    class DB < Bruteforcer
+    class DB < ServiceBruteforcer
 
       parameter :type, :type        => String,
                        :description => 'The type of database'
-
-      parameter :host, :type        => String,
-                       :description => 'The host to scan against'
-
-      parameter :port, :type        => Integer,
-                       :description => 'The port to scan against'
 
       parameter :database, :type        => String,
                            :default     => 'information_schema',
