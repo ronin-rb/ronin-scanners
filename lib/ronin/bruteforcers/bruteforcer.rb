@@ -88,6 +88,16 @@ module Ronin
       end
 
       def bruteforce(&block)
+        username = each_username.first
+
+        if self.threads > 0
+          bruteforce_multi_threaded(username,&block)
+        else
+          bruteforce_single_threaded(username,&block)
+        end
+      end
+
+      def bruteforce_all(&block)
         each_username do |username|
           if self.threads > 0
             bruteforce_multi_threaded(username,&block)
