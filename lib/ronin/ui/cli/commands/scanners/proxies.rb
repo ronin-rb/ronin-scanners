@@ -51,7 +51,7 @@ module Ronin
             def execute
               print_info 'Saving scanned proxies ...' if options.save?
 
-              scan!
+              scan
 
               print_info 'All scanned proxies saved.' if options.save?
             end

@@ -90,7 +90,7 @@ module Ronin
             def execute
               print_info 'Saving scanned hosts and ports ...' if options.save?
 
-              scan!
+              scan
 
               print_info 'All scanned hosts and ports saved.' if options.save?
             end

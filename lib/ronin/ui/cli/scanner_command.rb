@@ -42,7 +42,7 @@ module Ronin
         # @api semipublic
         #
         def execute
-          scan!
+          scan
         end
 
         protected
@@ -69,7 +69,7 @@ module Ronin
         #
         # @since 1.0.0
         #
-        def scan!
+        def scan
           enum = if options.save?
                    scanner.import
                  else

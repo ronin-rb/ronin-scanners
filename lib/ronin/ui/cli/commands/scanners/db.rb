@@ -43,7 +43,7 @@ module Ronin
             def execute
               print_info 'Saving captured Database credentials ...' if options.saved?
 
-              scan!
+              scan
 
               print_info 'All valid Database credentials saved.' if options.save?
             end

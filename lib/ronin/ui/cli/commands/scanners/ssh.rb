@@ -45,7 +45,7 @@ module Ronin
             def execute
               print_info 'Saving captured SSH credentials ...' if options.saved?
 
-              scan!
+              scan
 
               print_info 'All valid SSH credentials saved.' if options.save?
             end

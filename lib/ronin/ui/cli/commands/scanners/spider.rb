@@ -43,7 +43,7 @@ module Ronin
             def execute
               print_info 'Saving spidered URLs ...' if options.save?
 
-              scan!
+              scan
 
               print_info 'All spidered URLs saved.' if options.save?
             end
