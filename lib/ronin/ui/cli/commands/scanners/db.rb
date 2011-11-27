@@ -32,7 +32,7 @@ module Ronin
             desc 'Performs bruteforcing against a Database server'
 
             # The port that Database is listening on
-            scanner_option :port, :aliases => '-p'
+            param_option :port, :aliases => '-p'
 
             # The host that is running Database
             argument :host, :required => true

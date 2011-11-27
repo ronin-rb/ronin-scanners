@@ -32,70 +32,70 @@ module Ronin
             desc 'Performs Google Dorks'
 
             # The host to submit queries to
-            scanner_option :search_host, :aliases => '-H',
+            param_option :search_host, :aliases => '-H',
                                          :banner  => 'HOST'
 
             # The type of query to perform (`:web` or `:ajax`)
-            scanner_option :query_type, :aliases => '-t',
+            param_option :query_type, :aliases => '-t',
                                         :banner  => '[web|ajax]'
 
             # Number of seconds to pause between queries
-            scanner_option :query_pause, :aliases => '-p',
+            param_option :query_pause, :aliases => '-p',
                                          :banner  => 'SECONDS'
 
             # The raw query
-            scanner_option :raw_query, :aliases => '-q'
+            param_option :raw_query, :aliases => '-q'
 
             # The search language
-            scanner_option :language
+            param_option :language
 
             # Search 'link' modifier
-            scanner_option :link
+            param_option :link
 
             # Search 'related' modifier
-            scanner_option :related
+            param_option :related
 
             # Search 'info' modifier
-            scanner_option :info
+            param_option :info
 
             # Search 'site' modifier
-            scanner_option :site
+            param_option :site
 
             # Search 'filetype' modifier
-            scanner_option :filetype
+            param_option :filetype
 
             # Search 'allintitle' modifier
-            scanner_option :allintitle
+            param_option :allintitle
 
             # Search 'intitle' modifier
-            scanner_option :intitle
+            param_option :intitle
 
             # Search 'allinurl' modifier
-            scanner_option :allinurl
+            param_option :allinurl
 
             # Search 'inurl' modifier
-            scanner_option :inurl
+            param_option :inurl
 
             # Search 'allintext' modifier
-            scanner_option :allintext
+            param_option :allintext
 
             # Search 'intext' modifier
-            scanner_option :intext
+            param_option :intext
 
             # Search for results containing the exact phrase
-            scanner_option :exact_phrase
+            param_option :exact_phrase
 
             # Search for results with the words
-            scanner_option :with_words
+            param_option :with_words
 
             # Search for results with-out the words
-            scanner_option :without_words
+            param_option :without_words
 
             # Search for results containing the definitions of the keywords
-            scanner_option :define
+            param_option :define
 
             # Search for results containing numbers between the range
-            scanner_option :numeric_range, :banner => 'NUM..NUM'
+            param_option :numeric_range, :banner => 'NUM..NUM'
 
           end
         end

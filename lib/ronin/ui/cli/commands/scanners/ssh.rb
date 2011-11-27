@@ -32,7 +32,7 @@ module Ronin
             desc 'Performs SSH bruteforcing against a host'
 
             # The port that SSH is listening on
-            scanner_option :port, :aliases => '-p'
+            param_option :port, :aliases => '-p'
 
             # The host that is running SSH
             argument :host, :required => true

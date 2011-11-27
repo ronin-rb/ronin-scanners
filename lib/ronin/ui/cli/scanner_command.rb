@@ -19,30 +19,20 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/ui/cli/command'
-require 'ronin/database/migrations/scanners'
+require 'ronin/ui/cli/class_command'
+require 'ronin/scanners'
 require 'ronin/database'
 
 module Ronin
   module UI
     module CLI
-      class ScannerCommand < Command
+      class ScannerCommand < ClassCommand
+
+        class_namespace Scanners
 
         class_option :database, :type => :string, :aliases => '-D'
         class_option :first, :type => :numeric, :aliases => '-N'
         class_option :import, :type => :boolean, :aliases => '-I'
-
-        #
-        # The Scanner class with the same name as the command.
-        #
-        # @return [Class]
-        #   The Scanner class, loaded from {Ronin::Scanners}.
-        #
-        # @api semipublic
-        #
-        def self.scanner
-          @scanner ||= Scanners.const_get(name.split('::').last)
-        end
 
         #
         # Invokes the scanner.
@@ -57,40 +47,16 @@ module Ronin
 
         protected
 
-        OPTION_TYPES = {
-          TrueClass  => :boolean,
-          FalseClass => :boolean,
-
-          Integer => :numeric,
-          Fixnum  => :numeric,
-          Float   => :numeric,
-
-          String => :string,
-
-          Array => :array,
-          Hash  => :hash
-        }
-
         #
-        # Defines an option that maps to a parameter in the Scanner.
+        # The scanner object.
         #
-        # @param [Symbol] name
-        #   The name of the option.
-        #
-        # @param [Hash] options
-        #   Additional options for the option.
+        # @return [Scanners::Scanner]
+        #   The scanner object.
         #
         # @api semipublic
         #
-        def self.scanner_option(name,options={})
-          param   = scanner.get_param(name)
-          options = options.dup
-
-          options[:type]    ||= OPTION_TYPES[param.type || param.value.class]
-          options[:default] ||= param.value
-          options[:desc]    ||= param.description
-
-          class_option(name,options)
+        def scanner
+          @object
         end
 
         #
@@ -98,26 +64,14 @@ module Ronin
         #
         # @api semipublic 
         #
-        def setup
-          super
-
+        def setup(*arguments)
           if self.options[:database]
             Database.repositories[:default] = options[:database]
           end
 
           Database.setup
 
-          @scanner = self.class.scanner.new
-
-          # populate parameters with command options
-          @scanner.params = options
-
-          # populate additional parameters that map to arguments
-          self.class.arguments.each do |argument|
-            if @scanner.has_param?(argument.name)
-              @scanner.get_param(argument.name).value = send(argument.name)
-            end
-          end
+          super(*arguments)
         end
 
         #
@@ -127,9 +81,9 @@ module Ronin
         #
         def scan!
           enum = if options.save?
-                   @scanner.import
+                   scanner.import
                  else
-                   @scanner.each
+                   scanner.each
                  end
 
           enum.each_with_index do |result,index|

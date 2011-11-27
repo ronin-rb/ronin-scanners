@@ -32,52 +32,52 @@ module Ronin
             desc 'Automates nmap scans and imports them into the Database'
 
             # The hosts or ranges to exclude from the scan.
-            scanner_option :exclude
+            param_option :exclude
 
             # The ports or port ranges which will be scanned.
-            scanner_option :ports, :aliases => '-p'
+            param_option :ports, :aliases => '-p'
 
             # Specifies that a Ping Scan will be performed.
-            scanner_option :ping_scan, :aliases => '-sP'
+            param_option :ping_scan, :aliases => '-sP'
 
             # Specifies that a Connect Scan will be performed.
-            scanner_option :connect_scan, :aliases => '-sT'
+            param_option :connect_scan, :aliases => '-sT'
 
             # Specifies that a TCP SYN scan will be performed.
-            scanner_option :syn_scan, :aliases => '-sS'
+            param_option :syn_scan, :aliases => '-sS'
 
             # Specifies that a TCP ACK scan will be performed.
-            scanner_option :ack_scan, :aliases => '-sA'
+            param_option :ack_scan, :aliases => '-sA'
 
             # Specifies that a TCP NULL scan will be performed.
-            scanner_option :null_scan, :aliases => '-sN'
+            param_option :null_scan, :aliases => '-sN'
 
             # Specifies that a TCP FIN scan will be performed.
-            scanner_option :fin_scan, :aliases => '-sF'
+            param_option :fin_scan, :aliases => '-sF'
 
             # Specifies that a TCP XMAS scan will be performed.
-            scanner_option :xmas_scan, :aliases => '-sX'
+            param_option :xmas_scan, :aliases => '-sX'
 
             # Specifies that a UDP scan will be performed.
-            scanner_option :udp_scan, :aliases => '-sU'
+            param_option :udp_scan, :aliases => '-sU'
 
             # Specifies that a Service scan will be performed.
-            scanner_option :service_scan, :aliases => '-sV'
+            param_option :service_scan, :aliases => '-sV'
 
             # Specifies that an Idle Scan will be performed.
-            scanner_option :idle_scan, :aliases => '-sI'
+            param_option :idle_scan, :aliases => '-sI'
 
             # Specifies that a Window Scan will be performed.
-            scanner_option :window_scan, :aliases => '-sW'
+            param_option :window_scan, :aliases => '-sW'
 
             # Specifies whether to enable verbose output
-            scanner_option :verbose, :aliases => '-v'
+            param_option :verbose, :aliases => '-v'
 
             # The input file to read hosts/ports from
-            scanner_option :import, :type => :string, :aliases => '-i'
+            param_option :import, :type => :string, :aliases => '-i'
 
             # The output file to write hosts/ports to
-            scanner_option :output, :type => :string, :aliases => '-o -oX'
+            param_option :output, :type => :string, :aliases => '-o -oX'
 
             # The hosts which will be scanned.
             argument :targets, :required => true

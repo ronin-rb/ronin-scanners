@@ -31,7 +31,7 @@ module Ronin
 
             desc 'Spiders a website and saves URLs into the Database'
 
-            scanner_option :start_at, :aliases => '-s'
+            param_option :start_at, :aliases => '-s'
 
             argument :hosts, :type => :array
 

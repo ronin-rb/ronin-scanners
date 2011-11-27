@@ -71,7 +71,7 @@ module Ronin
         def setup
           super
 
-          @scanner.word_template = options[:word_template].map do |charset,len|
+          scanner.word_template = options[:word_template].map do |charset,len|
             charset = charset.to_sym
             length  = if len.include?('-')
                         start, stop = length.split('-',2)
