@@ -70,18 +70,14 @@ module Ronin
         # @since 1.0.0
         #
         def scan
-          enum = if options.import?
-                   scanner.import
-                 else
-                   scanner.each
-                 end
+          enum, printer = if options.import?
+                            [scanner.import, method(:print_resource)]
+                          else
+                            [scanner.each, method(:print_result)]
+                          end
 
           enum.each_with_index do |result,index|
-            if result.kind_of?(DataMapper::Resource)
-              print_resource(result)
-            else
-              print_result(result)
-            end
+            printer.call(result)
 
             break if (options[:first] && index+1 == options[:first])
           end
