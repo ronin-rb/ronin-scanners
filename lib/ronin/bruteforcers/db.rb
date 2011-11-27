@@ -30,9 +30,9 @@ module Ronin
       parameter :type, :type        => String,
                        :description => 'The type of database'
 
-      parameter :database, :type        => String,
-                           :default     => 'information_schema',
-                           :description => 'The database to try loggin into'
+      parameter :db, :type        => String,
+                     :default     => 'information_schema',
+                     :description => 'The database to try loggin into'
 
       protected
 
@@ -43,7 +43,7 @@ module Ronin
           :scheme => self.type,
           :host   => self.host,
           :port   => self.port,
-          :path   => self.database
+          :path   => self.db
         )
       end
 
