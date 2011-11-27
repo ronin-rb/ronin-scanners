@@ -40,12 +40,12 @@ module Ronin
 
       # Primary username to use
       parameter :username, :type        => String,
-                           :description => 'Primary username to use'
+                           :description => 'Primary username to bruteforce'
 
       # Additional user-names to try
       parameter :usernames, :type        => Array[String],
                             :default     => [],
-                            :description => 'Additional user-names to try'
+                            :description => 'Additional usernames to bruteforce'
 
       # Paths to the wordlist file or list of words.
       parameter :wordlist, :description => 'Wordlist file or list of words'
