@@ -41,11 +41,11 @@ module Ronin
             # Runs the {Ronin::Scanners::Database} scanner.
             #
             def execute
-              print_info 'Saving captured Database credentials ...' if options.saved?
+              print_info 'Saving captured Database credentials ...' if options.import?
 
               scan
 
-              print_info 'All valid Database credentials saved.' if options.save?
+              print_info 'All valid Database credentials saved.' if options.import?
             end
 
           end

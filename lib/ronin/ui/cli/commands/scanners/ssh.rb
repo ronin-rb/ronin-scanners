@@ -43,11 +43,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving captured SSH credentials ...' if options.saved?
+              print_info 'Saving captured SSH credentials ...' if options.import?
 
               scan
 
-              print_info 'All valid SSH credentials saved.' if options.save?
+              print_info 'All valid SSH credentials saved.' if options.import?
             end
 
           end

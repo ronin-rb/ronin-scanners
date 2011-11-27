@@ -88,11 +88,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving scanned hosts and ports ...' if options.save?
+              print_info 'Saving scanned hosts and ports ...' if options.import?
 
               scan
 
-              print_info 'All scanned hosts and ports saved.' if options.save?
+              print_info 'All scanned hosts and ports saved.' if options.import?
             end
 
             protected

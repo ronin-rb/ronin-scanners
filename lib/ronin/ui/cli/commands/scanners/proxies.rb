@@ -49,11 +49,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving scanned proxies ...' if options.save?
+              print_info 'Saving scanned proxies ...' if options.import?
 
               scan
 
-              print_info 'All scanned proxies saved.' if options.save?
+              print_info 'All scanned proxies saved.' if options.import?
             end
 
             protected

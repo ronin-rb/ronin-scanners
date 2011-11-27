@@ -70,7 +70,7 @@ module Ronin
         # @since 1.0.0
         #
         def scan
-          enum = if options.save?
+          enum = if options.import?
                    scanner.import
                  else
                    scanner.each

@@ -41,11 +41,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving spidered URLs ...' if options.save?
+              print_info 'Saving spidered URLs ...' if options.import?
 
               scan
 
-              print_info 'All spidered URLs saved.' if options.save?
+              print_info 'All spidered URLs saved.' if options.import?
             end
 
             protected
