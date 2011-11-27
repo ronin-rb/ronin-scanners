@@ -47,17 +47,7 @@ module Ronin
 
         protected
 
-        #
-        # The scanner object.
-        #
-        # @return [Scanners::Scanner]
-        #   The scanner object.
-        #
-        # @api semipublic
-        #
-        def scanner
-          @object
-        end
+        alias scanner object
 
         #
         # Sets up the scanner command.
