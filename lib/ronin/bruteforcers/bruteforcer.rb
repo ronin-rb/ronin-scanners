@@ -309,7 +309,6 @@ module Ronin
             print_debug "Trying #{username} :: #{password} ..."
 
             if authenticate(session,username,password)
-              print_debug "Found #{username} :: #{password}"
               yield username, password
               break
             end
@@ -366,7 +365,6 @@ module Ronin
         password_thread.kill
 
         if valid_password
-          print_debug "Found #{username} :: #{valid_password}"
           yield username, valid_password
         end
       end
