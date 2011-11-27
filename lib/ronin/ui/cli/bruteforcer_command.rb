@@ -117,7 +117,9 @@ module Ronin
                        :import_credential
                      end
 
-            printer = lambda { |credential| puts credential }
+            printer = lambda { |credential|
+              print_info "Found: #{credential.to_ary.join("\t")}"
+            }
           else
             method = if options.all?
                        :bruteforce_all
@@ -125,7 +127,9 @@ module Ronin
                        :bruteforce
                      end
 
-            printer = lambda { |*credentials| puts credentials.join("\t") }
+            printer = lambda { |*credentials|
+              print_info "Found: #{credentials.join("\t")}"
+            }
           end
 
           bruteforcer.send(method,&printer)
