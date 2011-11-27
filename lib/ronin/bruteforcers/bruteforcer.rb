@@ -306,7 +306,7 @@ module Ronin
       def bruteforce_single_threaded(username)
         session do |session|
           each_password do |password|
-            print_debug "Trying #{username} :: #{password} ..."
+            print_debug "Trying #{username}\t#{password} ..."
 
             if authenticate(session,username,password)
               yield username, password
@@ -332,7 +332,7 @@ module Ronin
           each_password do |password|
             passwords.push password
 
-            print_debug "Trying #{username} :: #{password} ..."
+            print_debug "Trying #{username}\t#{password} ..."
           end
 
           # no more passwords, push stop messages
