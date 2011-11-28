@@ -44,19 +44,23 @@ module Ronin
       #
       # Opens a POP3 session.
       #
-      # @yield [pop3]
-      #   The given block will be passed the POP3 session.
-      #   After the block has returned, the POP3 session will be closed.
+      # @return [Net::POP3]
+      #   The new Net::POP3 session.
       #
-      # @yieldparam [Net::POP3] pop3
-      #   The Net::POP3 session.
-      #
-      def session(&block)
+      def open_session
         pop3 = Net::POP3.new(self.host,self.port)
         pop3.enable_ssl if self.ssl
 
-        yield pop3
+        return pop3
+      end
 
+      #
+      # Closes a POP3 session.
+      #
+      # @param [Net::POP3] pop3
+      #   A Net::POP3 session.
+      #
+      def close_session(pop3)
         pop3.finish if pop3.started?
       end
 

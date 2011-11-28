@@ -49,28 +49,24 @@ module Ronin
       #
       # Opens a SMTP session.
       #
-      # @yield [smtp]
-      #   The given block will be passed the SMTP session.
-      #   After the block has returned, the SMTP session will be closed.
+      # @return [Net::SMTP]
+      #   The new Net::SMTP session.
       #
-      # @yieldparam [Net::SMTP] smtp
-      #   The Net::SMTP session.
-      #
-      def session(&block)
+      def open_session
         smtp = Net::SMTP.new(self.host,self.port)
         smtp.enable_ssl if self.ssl
 
-        begin
-          smtp.start(self.helo)
-        rescue => e
-          print_error "#{e.class}: #{e.message}"
+        smtp.start(self.helo)
+        return smtp
+      end
 
-          sleep 4
-          retry
-        end
-
-        yield smtp
-
+      #
+      # Closes a SMTP session.
+      #
+      # @param [Net::SMTP] smtp
+      #   A Net::SMTP session.
+      #
+      def close_session(smtp)
         smtp.finish
       end
 

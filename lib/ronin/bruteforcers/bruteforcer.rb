@@ -73,6 +73,11 @@ module Ronin
                           :default     => 0,
                           :description => 'Number of separate threads'
 
+      # Maximum number of times to reconnect
+      parameter :max_retries, :type    => Integer,
+                              :default => 4,
+                              :description => 'Number of connection retries'
+
       #
       # Creates a new {Bruteforcer} object.
       #
@@ -233,21 +238,30 @@ module Ronin
       end
 
       #
-      # Default method that handles initializes and destroying bruteforcing
-      # sessions.
+      # Default method that handles initializing a session.
       #
-      # @yield [session]
-      #   The given block will be passed the initialized session.
-      # 
-      # @yieldparam [OpenStruct] session
-      #   The initializes session.
+      # @return [OpenStruct]
+      #   The new session Object.
       #
       # @abstract
       #
       # @api public
       #
-      def session
+      def open_session
         yield OpenStruct.new
+      end
+
+      #
+      # Default method that handles closing a session.
+      #
+      # @param [Object] param
+      #   The session to close.
+      #
+      # @abstract
+      #
+      # @api public
+      #
+      def close_session(session)
       end
 
       #
@@ -291,6 +305,38 @@ module Ronin
           :user_name     => UserName.parse(username),
           :password      => Password.parse(password)
         )
+      end
+
+      #
+      # Creates a temporary session.
+      #
+      # @yield [session]
+      #   The given block will be passed the newly created session.
+      #   After the block has returned, the session will be closed.
+      #
+      # @yieldparam [Object] session
+      #   The session Object.
+      #
+      # @api semipublic
+      #
+      def session
+        error_count = 0
+
+        begin
+          session = open_session
+
+          yield session
+        rescue SystemCallError, SocketError, IOError, Timeout::Error => e
+          print_error "#{e.class}: #{e.message}"
+
+          error_count += 1
+          retry if error_count < self.max_retries
+        ensure
+          begin
+            close_session(session)
+          rescue
+          end
+        end
       end
 
       #

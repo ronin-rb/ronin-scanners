@@ -40,14 +40,11 @@ module Ronin
       #
       # Passes options for the SSH session.
       #
-      # @yield [options]
-      #   The options for SSH session.
-      #
-      # @yieldparam [Hash] options
+      # @return [Hash]
       #   The option Hash for Net::SSH.
       #
-      def session
-        yield(:port => self.port, :auth_methods => ['password'])
+      def open_session
+        {:port => self.port, :auth_methods => ['password']}
       end
 
       #

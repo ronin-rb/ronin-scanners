@@ -36,10 +36,10 @@ module Ronin
 
       protected
 
-      def session
+      def open_session
         require "do_#{self.type}"
 
-        yield Addressable::URI.new(
+        return Addressable::URI.new(
           :scheme => self.type,
           :host   => self.host,
           :port   => self.port,

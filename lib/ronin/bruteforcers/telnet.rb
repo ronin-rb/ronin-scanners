@@ -40,25 +40,20 @@ module Ronin
       #
       # Opens a Telnet session.
       #
-      # @yield [telnet]
-      #   The given block will be passed the Telnet session.
-      #   After the block has returned, the Telnet session will be closed.
+      # @return [Net::Telnet]
+      #   The new Net::Telnet session.
       #
-      # @yieldparam [Net::Telnet] telnet
-      #   The Net::Telnet session.
+      def open_session
+        Net::Telnet.new('Host' => self.host, 'Port' => self.port)
+      end
+
       #
-      def session(&block)
-        telnet = begin
-                   Net::Telnet.new('Host' => self.host, 'Port' => self.port)
-                 rescue SystemCallError => e
-                   print_error "#{e.class}: #{e.message}"
-
-                   sleep 4
-                   retry
-                 end
-
-        yield telnet
-
+      # Closes a Telnet session.
+      #
+      # @param [Net::Telnet] telnet
+      #   A Net::Telnet session.
+      #
+      def close_session(telnet)
         telnet.close
       end
 

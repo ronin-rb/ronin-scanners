@@ -40,27 +40,23 @@ module Ronin
       #
       # Opens a FTP session.
       #
-      # @yield [ftp]
-      #   The given block will be passed the FTP session.
-      #   After the block has returned, the FTP session will be closed.
+      # @return [Net::FTP]
+      #   The new Net::FTP session.
       #
-      # @yieldparam [Net::FTP] ftp
-      #   The Net::FTP session.
-      #
-      def session(&block)
+      def open_session
         ftp = Net::FTP.new
+        ftp.connect(self.host,self.port)
 
-        begin
-          ftp.connect(self.host,self.port)
-        rescue Net::FTPConnectionError, SystemCallError => e
-          print_error "#{e.class}: #{e.message}"
+        return ftp
+      end
 
-          sleep 4
-          retry
-        end
-
-        yield ftp
-
+      #
+      # Closes a FTP session.
+      #
+      # @param [Net::FTP] ftp
+      #   A Net::FTP session.
+      #
+      def close_session(ftp)
         ftp.close
       end
 

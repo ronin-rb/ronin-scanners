@@ -44,27 +44,20 @@ module Ronin
       #
       # Opens a IMAP session.
       #
-      # @yield [imap]
-      #   The given block will be passed the IMAP session.
-      #   After the block has returned, the IMAP session will be closed.
-      #
-      # @yieldparam [Net::IMAP] imap
+      # @return [Net::IMAP]
       #   The Net::IMAP session.
       #
-      def session(&block)
-        imap = begin
-                 Net::IMAP.new(self.host, :port => self.port, :ssl => self.ssl)
-               rescue Net::IMAP::ByeResponseError,
-                      SystemCallError,
-                      SocketError => e
-                 print_error "#{e.class} #{e.message}"
+      def open_session
+        Net::IMAP.new(self.host, :port => self.port, :ssl => self.ssl)
+      end
 
-                 sleep 4
-                 retry
-               end
-
-        yield imap
-
+      #
+      # Closes an IMAP session.
+      #
+      # @param [Net::IMAP] imap
+      #   A Net::IMAP session.
+      #
+      def close_session(imap)
         imap.disconnect
       end
 
