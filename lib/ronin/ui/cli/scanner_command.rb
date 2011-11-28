@@ -76,10 +76,15 @@ module Ronin
                             [scanner.each, method(:print_result)]
                           end
 
-          enum.each_with_index do |result,index|
+          first_n = options.fetch(:first,Float::INFINITY)
+          count   = 0
+
+          enum.each do |result|
+            count += 1
+
             printer.call(result)
 
-            break if (options[:first] && index+1 == options[:first])
+            break if count >= first_n
           end
         end
 
