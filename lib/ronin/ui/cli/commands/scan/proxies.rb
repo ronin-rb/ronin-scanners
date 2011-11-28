@@ -26,7 +26,7 @@ module Ronin
   module UI
     module CLI
       module Commands
-        module Scanners
+        module Scan
           class Proxies < ScannerCommand
 
             desc 'Scans for proxies and saves them into the Database'

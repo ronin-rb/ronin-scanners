@@ -26,7 +26,7 @@ module Ronin
   module UI
     module CLI
       module Commands
-        module Scanners
+        module Scan
           class Spider < ScannerCommand
 
             desc 'Spiders a website and saves URLs into the Database'

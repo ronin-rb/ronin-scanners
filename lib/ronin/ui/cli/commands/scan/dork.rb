@@ -26,7 +26,7 @@ module Ronin
   module UI
     module CLI
       module Commands
-        module Scanners
+        module Scan
           class Dork < ScannerCommand
 
             desc 'Performs Google Dorks'

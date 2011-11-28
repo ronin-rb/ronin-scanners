@@ -26,7 +26,7 @@ module Ronin
   module UI
     module CLI
       module Commands
-        module Scanners
+        module Scan
           class Nmap < ScannerCommand
 
             desc 'Automates nmap scans and imports them into the Database'
