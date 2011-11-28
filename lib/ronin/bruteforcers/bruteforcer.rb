@@ -139,20 +139,51 @@ module Ronin
       #
       # Runs the bruteforcer.
       #
+      # @param [Hash] options
+      #   Additional options.
+      #
+      # @option options [Boolean] :first
+      #   Specifies whether to bruteforcer all usernames, or stop after the
+      #   first valid credential is found.
+      #
+      # @option options [Boolean] :import
+      #   Specifies whether to import found Credentials into the Database.
+      #
+      # @see #bruteforce
       # @see #bruteforce_all
+      # @see #import_credential
+      # @see #import_credentials
       #
       # @api public
       #
-      def run
-        print_info "Bruteforcing ..."
+      def run(options={})
+        if options[:import]
+          bruteforce_method = if options[:first]
+                                method(:import_credential)
+                              else
+                                method(:import_credentials)
+                              end
 
-        bruteforce_all do |*attributes|
-          print_info "Found: #{attributes.join("\t")}"
+          formatter = lambda { |credential| credential.to_ary.join("\t") }
+        else
+          bruteforce_method = if options[:first]
+                                method(:bruteforce)
+                              else
+                                method(:bruteforce_all)
+                              end
+
+          formatter = lambda { |*credentials| credentials.join("\t") }
+        end
+
+        print_info "[#{self}] Bruteforcing ..."
+
+        bruteforce_method.call do |*credentials|
+          print_info "Found: #{formatter.call(*credentials)}"
 
           yield(*attributes) if block_given?
         end
 
-        print_info "Bruteforce complete."
+        print_info "[#{self}] Bruteforce complete."
       end
 
       protected
