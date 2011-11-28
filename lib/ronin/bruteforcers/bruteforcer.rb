@@ -201,7 +201,7 @@ module Ronin
       #   If no block is given, an Enumerator will be returned.
       #
       # @raise [Parameters::MissingParam]
-      #   The {#wordlists} or {#word_template} parameters must be specified.
+      #   The {#wordlist} or {#word_template} parameters must be specified.
       #
       # @api public
       #
