@@ -19,83 +19,34 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
 
-require 'ronin/ui/cli/scanner_command'
+require 'ronin/ui/cli/script_command'
 require 'ronin/scanners/scanner'
 
 module Ronin
   module UI
     module CLI
       module Commands
-        class Scanner < ScannerCommand
+        class Scanner < ScriptCommand
 
           desc 'Loads and runs a scanner'
 
+          script_class Ronin::Scanners::Scanner
+
           # scanner options
-          class_option :name, :type => :string, :aliases => '-n'
-          class_option :version, :type => :string, :aliases => '-V'
-          class_option :describing, :type => :string, :aliases => '-d'
-          class_option :license, :type => :string, :aliases => '-l'
-          class_option :params, :type => :hash,
-                                :default => {},
-                                :banner => 'NAME:VALUE ...',
-                                :aliases => '-p'
-          class_option :file, :type => :string, :aliases => '-f'
+          class_option :first, :type => :numeric, :aliases => '-N'
+          class_option :import, :type => :boolean, :aliases => '-I'
 
           #
           # Loads and runs the scanner.
           #
           def execute
-            Database.setup
-
-            # Load the scanner
-            if options[:file]
-              load_scanner!
-            else
-              find_scanner!
-            end
-
-            unless @scanner
+            unless (@scanner = load_script)
               print_error "Could not find the specified scanner"
               exit -1
             end
 
             @scanner.params = options[:params]
-
-            scan!
-          end
-
-          protected
-
-          #
-          # Loads the scanner from the specified file.
-          #
-          def load_scanner!
-            @scanner = Scanners::Scanner.load_from(options[:file])
-          end
-
-          #
-          # Finds the cached scanner in the Database.
-          #
-          def find_scanner!
-            @scanner = Scanners::Scanner.load_first do |scanners|
-              if options[:name]
-                scanners = scanners.named(options[:name])
-              end
-
-              if options[:describing]
-                scanners = scanners.describing(options[:describing])
-              end
-
-              if options[:version]
-                scanners = scanners.revision(options[:version])
-              end
-
-              if options[:license]
-                scanners = scanners.licensed_under(options[:license])
-              end
-
-              scanners
-            end
+            @scanner.run(options)
           end
 
         end

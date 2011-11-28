@@ -228,21 +228,44 @@ module Ronin
       #
       # Runs the scanner.
       #
+      # @param [Hash] options
+      #   Additional options to run the scanner with.
+      #
+      # @option options [Integer] :first
+      #   Only print the first n results.
+      #
+      # @option options [Boolean] :import
+      #   Specifies whether to save the results in the Database.
+      #
       # @see #each
+      # @see #import
       #
       # @since 1.0.0
       #
       # @api public
       #
-      def run
-        print_info "Scanning ..."
+      def run(options={})
+        first_n = options.fetch(:first,Float::INFINITY)
+        enum    = if options[:import]
+                    import
+                  else
+                    each
+                  end
 
-        each do |result|
-          print_info "Found #{result}"
+        print_info "[#{self}] Scanning ..."
+
+        count = 0
+
+        enum.each_with_index do |result|
+          count += 1
+
+          puts result
           yield result if block_given?
+
+          break if count >= first_n
         end
 
-        print_info "Scan complete."
+        print_info "[#{self}] Scan complete."
       end
 
       protected
