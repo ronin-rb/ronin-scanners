@@ -358,7 +358,7 @@ module Ronin
 
           yield session
         rescue SystemCallError, SocketError, IOError, Timeout::Error => e
-          print_error "#{e.class}: #{e.message}"
+          print_exception(e)
 
           error_count += 1
           retry if error_count < self.max_retries
