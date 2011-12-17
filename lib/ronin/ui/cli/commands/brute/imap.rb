@@ -29,26 +29,17 @@ module Ronin
         module Brute
           class IMAP < BruteforcerCommand
 
-            desc 'Performs IMAP bruteforcing against a host'
-
-            # The port that IMAP is listening on
-            param_option :port, :aliases => '-p'
-
-            # Enables SSL for the IMAP connection(s)
-            param_option :ssl, :aliases => '-S'
-
-            # The host that is running IMAP
-            argument :host, :required => true
+            summary 'Performs IMAP bruteforcing against a host'
 
             #
             # Runs the {Ronin::Bruteforcers::IMAP} scanner.
             #
             def execute
-              print_info 'Saving captured IMAP credentials ...' if options.import?
+              print_info 'Saving captured IMAP credentials ...' if import?
 
               brute
 
-              print_info 'All valid IMAP credentials saved.' if options.import?
+              print_info 'All valid IMAP credentials saved.' if import?
             end
 
           end

@@ -29,11 +29,7 @@ module Ronin
         module Scan
           class Spider < ScannerCommand
 
-            desc 'Spiders a website and saves URLs into the Database'
-
-            param_option :start_at, :aliases => '-s'
-
-            argument :hosts, :type => :array
+            summary 'Spiders a website and saves URLs into the Database'
 
             #
             # Spider one or more websites.
@@ -41,11 +37,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving spidered URLs ...' if options.import?
+              print_info 'Saving spidered URLs ...' if import?
 
               scan
 
-              print_info 'All spidered URLs saved.' if options.import?
+              print_info 'All spidered URLs saved.' if import?
             end
 
             protected
@@ -61,7 +57,7 @@ module Ronin
             def print_result(page)
               print_info page.url
 
-              if options.verbose?
+              if verbose?
                 print_hash page.headers
                 puts page.body
               end

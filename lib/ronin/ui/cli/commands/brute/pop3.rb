@@ -29,26 +29,17 @@ module Ronin
         module Brute
           class POP3 < BruteforcerCommand
 
-            desc 'Performs POP3 bruteforcing against a host'
-
-            # The port that POP3 is listening on
-            param_option :port, :aliases => '-p'
-
-            # Enables SSL for the POP3 connection(s)
-            param_option :ssl, :aliases => '-S'
-
-            # The host that is running POP3
-            argument :host, :required => true
+            summary 'Performs POP3 bruteforcing against a host'
 
             #
             # Runs the {Ronin::Bruteforcers::POP3} scanner.
             #
             def execute
-              print_info 'Saving captured POP3 credentials ...' if options.import?
+              print_info 'Saving captured POP3 credentials ...' if import?
 
               brute
 
-              print_info 'All valid POP3 credentials saved.' if options.import?
+              print_info 'All valid POP3 credentials saved.' if import?
             end
 
           end

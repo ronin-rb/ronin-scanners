@@ -2,18 +2,24 @@ source 'https://rubygems.org'
 
 DM_URI = 'http://github.com/datamapper'
 DM_VERSION = '~> 1.1.0'
+DO_VERSION = '~> 0.10.3'
 RONIN_URI = 'http://github.com/ronin-ruby'
+
+gem 'parameters', '~> 0.4', :git => 'http://github.com/postmodern/parameters.git',
+                            :branch => '0.4.0'
 
 gemspec
 
 gem 'gscraper', '~> 0.3', :git => "http://github.com/postmodern/gscraper.git"
+gem 'do_mysql',    DO_VERSION
 
 # Ronin dependencies
 gem 'ronin-support',	'~> 0.4', :git => "#{RONIN_URI}/ronin-support.git",
                                 :branch => '0.4.0'
 gem 'ronin',		      '~> 1.4', :git => "#{RONIN_URI}/ronin.git",
                                 :branch => '1.4.0'
-# gem 'ronin-gen',	    '~> 1.0', :git => "#{RONIN_URI}/ronin-gen.git"
+gem 'ronin-gen',	    '~> 1.1', :git => "#{RONIN_URI}/ronin-gen.git",
+                                :branch => '1.1.0'
 # gem 'ronin-exploits',	'~> 1.0', :git => "#{RONIN_URI}/ronin-exploits.git"
 
 group :development do

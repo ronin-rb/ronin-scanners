@@ -29,32 +29,17 @@ module Ronin
         module Brute
           class DB < BruteforcerCommand
 
-            desc 'Performs bruteforcing against a Database server'
-
-            # The type of the Database
-            param_option :type, :aliases => '-t',
-                                :banner  => '[mysql|postgres]'
-
-            # The Database name to bruteforce
-            param_option :db, :aliases => '-d',
-                              :banner  => 'NAME'
-
-            # The port that Database is listening on
-            param_option :port, :aliases => '-p',
-                                :banner  => 'PORT'
-
-            # The host that is running Database
-            argument :host, :required => true
+            summary 'Performs bruteforcing against a Database server'
 
             #
             # Runs the {Ronin::Scanners::Database} scanner.
             #
             def execute
-              print_info 'Saving captured Database credentials ...' if options.import?
+              print_info 'Saving captured Database credentials ...' if import?
 
               brute
 
-              print_info 'All valid Database credentials saved.' if options.import?
+              print_info 'All valid Database credentials saved.' if import?
             end
 
           end

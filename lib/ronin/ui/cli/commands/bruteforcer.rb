@@ -28,26 +28,13 @@ module Ronin
       module Commands
         class Bruteforcer < ScriptCommand
 
-          desc 'Loads and runs a bruteforcer'
+          summary 'Loads and runs a bruteforcer'
 
           script_class Ronin::Bruteforcers::Bruteforcer
 
           # scanner options
-          class_option :first, :type => :boolean, :aliases => '-N'
-          class_option :import, :type => :boolean, :aliases => '-I'
-
-          #
-          # Loads and runs the scanner.
-          #
-          def execute
-            unless (@bruteforcer = load_script)
-              print_error "Could not find the specified bruteforcer"
-              exit -1
-            end
-
-            @bruteforcer.params = options[:params]
-            @bruteforcer.run(options)
-          end
+          option :first, :type => true, :flag => '-N'
+          option :import, :type => true, :flag => '-I'
 
         end
       end

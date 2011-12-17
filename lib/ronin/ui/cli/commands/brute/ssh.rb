@@ -29,13 +29,7 @@ module Ronin
         module Brute
           class SSH < BruteforcerCommand
 
-            desc 'Performs SSH bruteforcing against a host'
-
-            # The port that SSH is listening on
-            param_option :port, :aliases => '-p'
-
-            # The host that is running SSH
-            argument :host, :required => true
+            summary 'Performs SSH bruteforcing against a host'
 
             #
             # Runs the {Ronin::Scanners::SSH} scanner.
@@ -43,11 +37,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving captured SSH credentials ...' if options.import?
+              print_info 'Saving captured SSH credentials ...' if import?
 
               brute
 
-              print_info 'All valid SSH credentials saved.' if options.import?
+              print_info 'All valid SSH credentials saved.' if import?
             end
 
           end

@@ -29,23 +29,17 @@ module Ronin
         module Brute
           class Telnet < BruteforcerCommand
 
-            desc 'Performs Telnet bruteforcing against a host'
-
-            # The port that Telnet is listening on
-            param_option :port, :aliases => '-p'
-
-            # The host that is running Telnet
-            argument :host, :required => true
+            summary 'Performs Telnet bruteforcing against a host'
 
             #
             # Runs the {Ronin::Bruteforcers::Telnet} scanner.
             #
             def execute
-              print_info 'Saving captured Telnet credentials ...' if options.import?
+              print_info 'Saving captured Telnet credentials ...' if import?
 
               brute
 
-              print_info 'All valid Telnet credentials saved.' if options.import?
+              print_info 'All valid Telnet credentials saved.' if import?
             end
 
           end

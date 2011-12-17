@@ -29,19 +29,7 @@ module Ronin
         module Scan
           class Proxies < ScannerCommand
 
-            desc 'Scans for proxies and saves them into the Database'
-
-            # The hosts or ranges to exclude from the scan.
-            param_option :exclude
-
-            # The ports or port ranges which will be scanned.
-            param_option :ports, :aliases => '-p'
-
-            # Specifies whether to enable verbose output
-            param_option :verbose, :aliases => '-v'
-
-            # The hosts which will be scanned.
-            argument :hosts, :required => true
+            summary 'Scans for proxies and saves them into the Database'
 
             #
             # Runs the nmap scanner.
@@ -49,11 +37,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving scanned proxies ...' if options.import?
+              print_info 'Saving scanned proxies ...' if import?
 
               scan
 
-              print_info 'All scanned proxies saved.' if options.import?
+              print_info 'All scanned proxies saved.' if import?
             end
 
             protected

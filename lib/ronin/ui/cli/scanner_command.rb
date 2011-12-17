@@ -30,9 +30,11 @@ module Ronin
 
         class_namespace Scanners
 
-        class_option :database, :type => :string, :aliases => '-D'
-        class_option :first, :type => :numeric, :aliases => '-N'
-        class_option :import, :type => :boolean, :aliases => '-I'
+        option :database, :type => String, :flag => '-D'
+        option :first, :type => Integer, :flag => '-N'
+        option :import, :type => true, :flag => '-I'
+
+        alias scanner object
 
         #
         # Invokes the scanner.
@@ -47,16 +49,14 @@ module Ronin
 
         protected
 
-        alias scanner object
-
         #
         # Sets up the scanner command.
         #
         # @api semipublic 
         #
         def setup(*arguments)
-          if self.options[:database]
-            Database.repositories[:default] = options[:database]
+          if database?
+            Database.repositories[:default] = @database
           end
 
           Database.setup
@@ -70,13 +70,13 @@ module Ronin
         # @since 1.0.0
         #
         def scan
-          enum, printer = if options.import?
+          enum, printer = if import?
                             [scanner.import, method(:print_resource)]
                           else
                             [scanner.each, method(:print_result)]
                           end
 
-          first_n = options.fetch(:first,Float::INFINITY)
+          first_n = (@first || Float::INFINITY)
           count   = 0
 
           enum.each do |result|

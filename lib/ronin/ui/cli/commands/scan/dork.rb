@@ -29,73 +29,7 @@ module Ronin
         module Scan
           class Dork < ScannerCommand
 
-            desc 'Performs Google Dorks'
-
-            # The host to submit queries to
-            param_option :search_host, :aliases => '-H',
-                                         :banner  => 'HOST'
-
-            # The type of query to perform (`:web` or `:ajax`)
-            param_option :query_type, :aliases => '-t',
-                                        :banner  => '[web|ajax]'
-
-            # Number of seconds to pause between queries
-            param_option :query_pause, :aliases => '-p',
-                                         :banner  => 'SECONDS'
-
-            # The raw query
-            param_option :raw_query, :aliases => '-q'
-
-            # The search language
-            param_option :language
-
-            # Search 'link' modifier
-            param_option :link
-
-            # Search 'related' modifier
-            param_option :related
-
-            # Search 'info' modifier
-            param_option :info
-
-            # Search 'site' modifier
-            param_option :site
-
-            # Search 'filetype' modifier
-            param_option :filetype
-
-            # Search 'allintitle' modifier
-            param_option :allintitle
-
-            # Search 'intitle' modifier
-            param_option :intitle
-
-            # Search 'allinurl' modifier
-            param_option :allinurl
-
-            # Search 'inurl' modifier
-            param_option :inurl
-
-            # Search 'allintext' modifier
-            param_option :allintext
-
-            # Search 'intext' modifier
-            param_option :intext
-
-            # Search for results containing the exact phrase
-            param_option :exact_phrase
-
-            # Search for results with the words
-            param_option :with_words
-
-            # Search for results with-out the words
-            param_option :without_words
-
-            # Search for results containing the definitions of the keywords
-            param_option :define
-
-            # Search for results containing numbers between the range
-            param_option :numeric_range, :banner => 'NUM..NUM'
+            summary 'Performs Google Dorks'
 
           end
         end

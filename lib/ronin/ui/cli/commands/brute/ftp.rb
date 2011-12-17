@@ -29,23 +29,17 @@ module Ronin
         module Brute
           class FTP < BruteforcerCommand
 
-            desc 'Performs FTP bruteforcing against a host'
-
-            # The port that FTP is listening on
-            param_option :port, :aliases => '-p'
-
-            # The host that is running FTP
-            argument :host, :required => true
+            summary 'Performs FTP bruteforcing against a host'
 
             #
             # Runs the {Ronin::Bruteforcers::FTP} scanner.
             #
             def execute
-              print_info 'Saving captured FTP credentials ...' if options.import?
+              print_info 'Saving captured FTP credentials ...' if import?
 
               brute
 
-              print_info 'All valid FTP credentials saved.' if options.import?
+              print_info 'All valid FTP credentials saved.' if import?
             end
 
           end

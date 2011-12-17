@@ -28,26 +28,13 @@ module Ronin
       module Commands
         class Scanner < ScriptCommand
 
-          desc 'Loads and runs a scanner'
+          summary 'Loads and runs a scanner'
 
           script_class Ronin::Scanners::Scanner
 
           # scanner options
-          class_option :first, :type => :numeric, :aliases => '-N'
-          class_option :import, :type => :boolean, :aliases => '-I'
-
-          #
-          # Loads and runs the scanner.
-          #
-          def execute
-            unless (@scanner = load_script)
-              print_error "Could not find the specified scanner"
-              exit -1
-            end
-
-            @scanner.params = options[:params]
-            @scanner.run(options)
-          end
+          option :first, :type => Integer, :flag => '-N'
+          option :import, :type => true, :flag => '-I'
 
         end
       end

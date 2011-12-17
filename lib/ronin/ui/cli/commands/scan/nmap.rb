@@ -29,58 +29,7 @@ module Ronin
         module Scan
           class Nmap < ScannerCommand
 
-            desc 'Automates nmap scans and imports them into the Database'
-
-            # The hosts or ranges to exclude from the scan.
-            param_option :exclude
-
-            # The ports or port ranges which will be scanned.
-            param_option :ports, :aliases => '-p'
-
-            # Specifies that a Ping Scan will be performed.
-            param_option :ping_scan, :aliases => '-sP'
-
-            # Specifies that a Connect Scan will be performed.
-            param_option :connect_scan, :aliases => '-sT'
-
-            # Specifies that a TCP SYN scan will be performed.
-            param_option :syn_scan, :aliases => '-sS'
-
-            # Specifies that a TCP ACK scan will be performed.
-            param_option :ack_scan, :aliases => '-sA'
-
-            # Specifies that a TCP NULL scan will be performed.
-            param_option :null_scan, :aliases => '-sN'
-
-            # Specifies that a TCP FIN scan will be performed.
-            param_option :fin_scan, :aliases => '-sF'
-
-            # Specifies that a TCP XMAS scan will be performed.
-            param_option :xmas_scan, :aliases => '-sX'
-
-            # Specifies that a UDP scan will be performed.
-            param_option :udp_scan, :aliases => '-sU'
-
-            # Specifies that a Service scan will be performed.
-            param_option :service_scan, :aliases => '-sV'
-
-            # Specifies that an Idle Scan will be performed.
-            param_option :idle_scan, :aliases => '-sI'
-
-            # Specifies that a Window Scan will be performed.
-            param_option :window_scan, :aliases => '-sW'
-
-            # Specifies whether to enable verbose output
-            param_option :verbose, :aliases => '-v'
-
-            # The input file to read hosts/ports from
-            param_option :import, :type => :string, :aliases => '-i'
-
-            # The output file to write hosts/ports to
-            param_option :output, :type => :string, :aliases => '-o -oX'
-
-            # The hosts which will be scanned.
-            argument :targets, :required => true
+            summary 'Automates nmap scans and imports them into the Database'
 
             #
             # Runs the {Ronin::Scanners::Nmap} scanner.
@@ -88,11 +37,11 @@ module Ronin
             # @since 1.0.0
             #
             def execute
-              print_info 'Saving scanned hosts and ports ...' if options.import?
+              print_info 'Saving scanned hosts and ports ...' if import?
 
               scan
 
-              print_info 'All scanned hosts and ports saved.' if options.import?
+              print_info 'All scanned hosts and ports saved.' if import?
             end
 
             protected
@@ -141,12 +90,11 @@ module Ronin
               print_info "Saving #{host}:"
               print_info 'Addresses:'
 
-              print_array host.addresses.select { |address| address.new? },
-                :title => 'Addresses'
+              print_array host.addresses.select(&:new?),
+                          :title => 'Addresses'
 
-              print_array host.ports.select { |port| port.new? },
-                :title => 'Ports'
-
+              print_array host.ports.select(&:new?),
+                          :title => 'Ports'
             end
 
           end

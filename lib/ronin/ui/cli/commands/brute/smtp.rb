@@ -29,29 +29,17 @@ module Ronin
         module Brute
           class SMTP < BruteforcerCommand
 
-            desc 'Performs SMTP bruteforcing against a host'
-
-            # The port that SMTP is listening on
-            param_option :port, :aliases => '-p'
-
-            # Enables SSL for the SMTP connection(s)
-            param_option :ssl, :aliases => '-S'
-
-            # HELO to send the SMTP Server
-            param_option :helo, :alias => '-H'
-
-            # The host that is running SMTP
-            argument :host, :required => true
+            summary 'Performs SMTP bruteforcing against a host'
 
             #
             # Runs the {Ronin::Bruteforcers::SMTP} scanner.
             #
             def execute
-              print_info 'Saving captured SMTP credentials ...' if options.import?
+              print_info 'Saving captured SMTP credentials ...' if import?
 
               brute
 
-              print_info 'All valid SMTP credentials saved.' if options.import?
+              print_info 'All valid SMTP credentials saved.' if import?
             end
 
           end
