@@ -10,6 +10,10 @@ gem 'parameters', '~> 0.4', :git => 'http://github.com/postmodern/parameters.git
 
 gemspec
 
+platforms :jruby do
+  gem 'jruby-openssl',	'~> 0.7.0'
+end
+
 gem 'gscraper', '~> 0.3', :git => "http://github.com/postmodern/gscraper.git"
 gem 'do_mysql',    DO_VERSION
 
