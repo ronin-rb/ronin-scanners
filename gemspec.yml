@@ -26,8 +26,8 @@ dependencies:
   spidr: ~> 0.3
   # gscraper: ~> 0.3
   # Ronin dependencies:
-  # ronin-support: ~> 0.4
-  # ronin: ~> 1.4
+  ronin-support: ~> 0.4.0.rc
+  ronin: ~> 1.4.0.rc
 
 development_dependencies:
   bundler: ~> 1.0.10
