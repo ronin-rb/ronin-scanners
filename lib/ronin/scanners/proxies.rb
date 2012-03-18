@@ -20,13 +20,11 @@
 #
 
 require 'ronin/scanners/nmap'
-require 'ronin/proxy'
 
 module Ronin
   module Scanners
     #
-    # The {Proxies} scans known proxy ports and tests if they are running
-    # a HTTP or SOCKS proxy.
+    # The {Proxies} scanner scans known proxy ports.
     #
     class Proxies < Nmap
 
@@ -35,55 +33,6 @@ module Ronin
                           80, 280, 443, 591, 593, 808, 3128, 5800..5803,
                           8008, 8080, 8888, 8443, 9050, 9999
                         ]
-
-      protected
-
-      #
-      # Scans the given ports for proxies.
-      #
-      # @yield [proxy]
-      #   The given block will be passed valid proxies.
-      #
-      # @yieldparam [Proxy]
-      #   A tested and working proxy.
-      #
-      # @since 1.0.0
-      #
-      def scan
-        super do |host|
-          host.each_open_port do |open_port|
-            type = case open_port.service
-                   when /SOCKS/i
-                     'socks'
-                   else # assume it's an HTTP proxy
-                     'http'
-                   end
-
-            ip = new_ip(host)
-            port = new_port(open_port)
-
-            proxy = Proxy.first_or_new(:ip_address => ip, :port => port)
-            proxy.type = type
-
-            yield proxy if proxy.test
-          end
-        end
-      end
-
-      #
-      # Normalizes a proxy.
-      #
-      # @param [Proxy] proxy
-      #   The proxy.
-      #
-      # @return [Proxy]
-      #   The normalized proxy.
-      #
-      # @since 1.0.0
-      #
-      def new_resource(proxy)
-        proxy
-      end
 
     end
   end
