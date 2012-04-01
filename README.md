@@ -1,7 +1,7 @@
 # Ronin Scanners
 
-* [Source](http://github.com/ronin-ruby/ronin-scanners)
-* [Issues](http://github.com/ronin-ruby/ronin-scanners/issues)
+* [Source](https://github.com/ronin-ruby/ronin-scanners)
+* [Issues](https://github.com/ronin-ruby/ronin-scanners/issues)
 * [Documentation](http://rubydoc.info/github/ronin-ruby/ronin-scanners/frames)
 * [Mailing List](http://groups.google.com/group/ronin-ruby)
 * [irc.freenode.net #ronin](http://webchat.freenode.net/?channels=ronin&uio=Mj10cnVldd)
@@ -80,15 +80,15 @@ Calling Nmap from Ruby:
 
 ## Requirements
 
-* [open_namespace](http://github.com/postmodern/open_namespace) ~> 0.3
-* [rprogram](http://github.com/postmodern/rprogram) ~> 0.3
-* [ruby-nmap](http://github.com/sophsec/ruby-nmap/) ~> 0.5
-* [net-ssh](http://github.com/net-ssh/net-ssh) ~> 2.1
-* [nokogiri](http://github.com/tenderlove/nokogiri) ~> 1.4
-* [spidr](http://github.com/postmodern/spidr) ~> 0.3
-* [gscraper](http://github.com/postmodern/gscraper) ~> 0.3
-* [ronin-support](http://github.com/ronin-ruby/ronin-support) ~> 0.4
-* [ronin](http://github.com/ronin-ruby/ronin) ~> 1.4
+* [open_namespace](https://github.com/postmodern/open_namespace) ~> 0.3
+* [rprogram](https://github.com/postmodern/rprogram) ~> 0.3
+* [ruby-nmap](https://github.com/sophsec/ruby-nmap/) ~> 0.5
+* [net-ssh](https://github.com/net-ssh/net-ssh) ~> 2.1
+* [nokogiri](https://github.com/tenderlove/nokogiri) ~> 1.4
+* [spidr](https://github.com/postmodern/spidr) ~> 0.3
+* [gscraper](https://github.com/postmodern/gscraper) ~> 0.3
+* [ronin-support](https://github.com/ronin-ruby/ronin-support) ~> 0.4
+* [ronin](https://github.com/ronin-ruby/ronin) ~> 1.4
 
 ## Install
 
