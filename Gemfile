@@ -12,7 +12,6 @@ platforms :jruby do
 end
 
 gem 'gscraper', '~> 0.3', :git => "http://github.com/postmodern/gscraper.git"
-gem 'do_mysql',    DO_VERSION
 
 # Ronin dependencies
 # gem 'ronin-support',	'~> 0.4', :git => "#{RONIN_URI}/ronin-support.git"
@@ -27,6 +26,10 @@ group :development do
 
   gem 'kramdown',         '~> 0.12'
   gem 'dm-visualizer',		'~> 0.2.0'
+end
+
+group :test do
+  gem 'do_mysql',    DO_VERSION
 end
 
 #
