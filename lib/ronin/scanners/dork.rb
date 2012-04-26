@@ -35,6 +35,7 @@ module Ronin
 
       # The host to submit queries to
       parameter :search_host, :type => String,
+                              :default => GScraper::Search::Query::DEFAULT_HOST,
                               :description => 'The host to submit queries to'
 
       # The type of query to perform (`:web` or `:ajax`)
