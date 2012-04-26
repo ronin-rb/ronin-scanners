@@ -11,8 +11,6 @@ platforms :jruby do
   gem 'jruby-openssl',	'~> 0.7'
 end
 
-gem 'gscraper', '~> 0.3', :git => "http://github.com/postmodern/gscraper.git"
-
 # Ronin dependencies
 # gem 'ronin-support',	'~> 0.4', :git => "#{RONIN_URI}/ronin-support.git"
 # gem 'ronin',		      '~> 1.4', :git => "#{RONIN_URI}/ronin.git"

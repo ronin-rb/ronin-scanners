@@ -86,7 +86,7 @@ Calling Nmap from Ruby:
 * [net-ssh](https://github.com/net-ssh/net-ssh) ~> 2.1
 * [nokogiri](https://github.com/tenderlove/nokogiri) ~> 1.4
 * [spidr](https://github.com/postmodern/spidr) ~> 0.3
-* [gscraper](https://github.com/postmodern/gscraper) ~> 0.3
+* [gscraper](https://github.com/postmodern/gscraper) ~> 0.4
 * [ronin-support](https://github.com/ronin-ruby/ronin-support) ~> 0.4
 * [ronin](https://github.com/ronin-ruby/ronin) ~> 1.4
 

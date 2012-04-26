@@ -24,7 +24,7 @@ dependencies:
   nokogiri: ~> 1.4
   net-http-persistent: ~> 1.8
   spidr: ~> 0.3
-  # gscraper: ~> 0.3
+  gscraper: ~> 0.4
   # Ronin dependencies:
   ronin-support: ~> 0.4
   ronin: ~> 1.4
