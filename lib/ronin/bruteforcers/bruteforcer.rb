@@ -285,7 +285,7 @@ module Ronin
       #
       # Default method that handles closing a session.
       #
-      # @param [Object] param
+      # @param [Object] session
       #   The session to close.
       #
       # @abstract
