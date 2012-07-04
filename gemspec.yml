@@ -22,7 +22,7 @@ dependencies:
   net-ssh: ~> 2.1
   # Web dependencies
   nokogiri: ~> 1.4
-  net-http-persistent: ~> 1.8
+  net-http-persistent: ~> 2.0
   spidr: ~> 0.3
   gscraper: ~> 0.4
   # Ronin dependencies:
