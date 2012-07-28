@@ -206,7 +206,7 @@ module Ronin
       # @api public
       #
       def each_word(&block)
-        return enum_for(:each_word) unless block
+        return enum_for(__method__) unless block
 
         unless (self.wordlist || self.word_template)
           raise(Parameters::MissingParam,"no wordlist or word template given")
@@ -244,7 +244,7 @@ module Ronin
       # @api public
       #
       def each_username(&block)
-        return enum_for(:each_username) unless block
+        return enum_for(__method__) unless block
 
         # filter out `nil` and duplicate usernames
         ([self.username] + self.usernames).compact.uniq.each(&block)

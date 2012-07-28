@@ -157,7 +157,7 @@ module Ronin
       # @api public
       #
       def each
-        return enum_for(:each) unless block_given?
+        return enum_for(__method__) unless block_given?
 
         scan do |result|
           if result
@@ -187,7 +187,7 @@ module Ronin
       # @api public
       #
       def each_resource
-        return enum_for(:each_resource) unless block_given?
+        return enum_for(__method__) unless block_given?
 
         scan do |result|
           if result
@@ -218,7 +218,7 @@ module Ronin
       # @api public
       #
       def import
-        return enum_for(:import) unless block_given?
+        return enum_for(__method__) unless block_given?
 
         each_resource do |resource|
           yield resource if resource.save
