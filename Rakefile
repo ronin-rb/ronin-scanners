@@ -5,7 +5,7 @@ begin
 rescue LoadError => e
   STDERR.puts e.message
   STDERR.puts "Run `gem install bundler` to install Bundler."
-  exit e.status_code
+  exit -1
 end
 
 begin
