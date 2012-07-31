@@ -59,16 +59,16 @@ Calling Nmap from Ruby:
 
 ## Requirements
 
-* [open_namespace](https://github.com/postmodern/open_namespace) ~> 0.3
-* [rprogram](https://github.com/postmodern/rprogram) ~> 0.3
-* [ruby-nmap](https://github.com/sophsec/ruby-nmap/) ~> 0.5
-* [net-ssh](https://github.com/net-ssh/net-ssh) ~> 2.1
-* [nokogiri](https://github.com/tenderlove/nokogiri) ~> 1.4
-* [net-http-persistent](http://docs.seattlerb.org/net-http-persistent/) ~> 2.0
-* [spidr](https://github.com/postmodern/spidr) ~> 0.3
-* [gscraper](https://github.com/postmodern/gscraper) ~> 0.4
-* [ronin-support](https://github.com/ronin-ruby/ronin-support) ~> 0.5
-* [ronin](https://github.com/ronin-ruby/ronin) ~> 1.5
+* [open_namespace] ~> 0.3
+* [rprogram] ~> 0.3
+* [ruby-nmap] ~> 0.5
+* [net-ssh] ~> 2.1
+* [nokogiri] ~> 1.4
+* [net-http-persistent] ~> 2.0
+* [spidr] ~> 0.3
+* [gscraper] ~> 0.4
+* [ronin-support] ~> 0.5
+* [ronin] ~> 1.5
 
 ## Install
 
@@ -105,3 +105,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 [Ronin]: http://ronin-ruby.github.com/
+
+[open_namespace]: https://github.com/postmodern/open_namespace#readme
+[rprogram]: https://github.com/postmodern/rprogram#readme
+[ruby-nmap]: https://github.com/sophsec/ruby-nmap#readme
+[net-ssh]: https://github.com/net-ssh/net-ssh#readme
+[nokogiri]: https://github.com/tenderlove/nokogiri#readme
+[net-http-persistent]: http://docs.seattlerb.org/net-http-persistent
+[spidr]: https://github.com/postmodern/spidr#readme
+[gscraper]: https://github.com/postmodern/gscraper#readme
+[ronin-support]: https://github.com/ronin-ruby/ronin-support#readme
+[ronin]: https://github.com/ronin-ruby/ronin#readme
