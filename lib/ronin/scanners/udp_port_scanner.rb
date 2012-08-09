@@ -62,7 +62,7 @@ module Ronin
         OpenPort.first_or_new(
           :port => Port.first_or_new(
             :protocol => 'udp',
-            :number => result
+            :number   => result
           )
         )
       end
