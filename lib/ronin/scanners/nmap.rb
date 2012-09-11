@@ -201,10 +201,8 @@ module Ronin
         # if the host does not have an ip, then skip it
         return nil unless host.ip
 
-        ip_version, ip_address = if host.ipv6
-                                   [6, host.ipv6]
-                                 elsif host.ipv4
-                                   [4, host.ipv4]
+        ip_version, ip_address = if    host.ipv6  then [6, host.ipv6]
+                                 elsif host.ipv4  then [4, host.ipv4]
                                  end
 
         ip = IPAddress.first_or_new(
@@ -239,7 +237,7 @@ module Ronin
       def new_port(open_port)
         Port.first_or_new(
           :protocol => open_port.protocol.to_s,
-          :number => open_port.number
+          :number   => open_port.number
         )
       end
 
@@ -276,7 +274,7 @@ module Ronin
 
         # fill in the open ports
         result.each_open_port do |open_port|
-          port = new_port(open_port)
+          port    = new_port(open_port)
           service = new_service(open_port)
 
           # find or create a new open port
