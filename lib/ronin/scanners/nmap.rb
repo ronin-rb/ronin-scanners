@@ -109,25 +109,24 @@ module Ronin
         nmap = ::Nmap::Task.new
         nmap.targets = self.targets
 
-        if self.exclude
-          nmap.exclude = self.exclude
+        nmap.exclude = self.exclude if self.exclude
+        nmap.ports   = self.ports if self.ports
+
+        if self.ping_scan
+          nmap.ping = self.ping_scan
+        else
+          nmap.connect_scan = self.connect_scan
+          nmap.syn_scan     = self.syn_scan
+          nmap.ack_scan     = self.ack_scan
+          nmap.fin_scan     = self.fin_scan
+          nmap.null_scan    = self.null_scan
+          nmap.xmas_scan    = self.xmas_scan
+          nmap.udp_scan     = self.udp_scan
+          nmap.service_scan = self.service_scan
+          nmap.idle_scan    = self.idle_scan
+          nmap.window_scan  = self.window_scan
         end
 
-        if self.ports
-          nmap.ports = self.ports
-        end
-
-        nmap.ping = self.ping_scan
-        nmap.connect_scan = self.connect_scan
-        nmap.syn_scan = self.syn_scan
-        nmap.ack_scan = self.ack_scan
-        nmap.fin_scan = self.fin_scan
-        nmap.null_scan = self.null_scan
-        nmap.xmas_scan = self.xmas_scan
-        nmap.udp_scan = self.udp_scan
-        nmap.service_scan = self.service_scan
-        nmap.idle_scan = self.idle_scan
-        nmap.window_scan = self.window_scan
         nmap.verbose = self.verbose
 
         return nmap
