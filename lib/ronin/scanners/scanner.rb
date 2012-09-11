@@ -133,10 +133,8 @@ module Ronin
       def self.scan(options={},&block)
         scanner = new(options)
 
-        if block
-          scanner.each_resource(&block)
-        else
-          scanner.each_resource.to_a
+        if block then scanner.each_resource(&block)
+        else          scanner.each_resource.to_a
         end
       end
 
@@ -246,10 +244,8 @@ module Ronin
       #
       def run(options={})
         first_n = options.fetch(:first,Float::INFINITY)
-        enum    = if options[:import]
-                    import
-                  else
-                    each
+        enum    = if options[:import] then import
+                  else                     each
                   end
 
         print_info "[#{self}] Scanning ..."
