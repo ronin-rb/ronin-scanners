@@ -110,6 +110,31 @@ module Ronin
       end
 
       #
+      # Initializes the scanner and imports the scan results.
+      #
+      # @param [Hash] options
+      #   Options for the scanner.
+      #
+      # @yield [result]
+      #   The given block will be passed each "result" from the scan.
+      #
+      # @yieldparam [Object] result
+      #   A "result" from the scan.
+      #
+      # @return [Enumerator]
+      #   If no block is given, an Enumerator will be returned.
+      #
+      # @see #each
+      #
+      # @since 1.0.0
+      #
+      # @api public
+      #
+      def self.each(options={},&block)
+        new(options).each(&block)
+      end
+
+      #
       # Initializes the scanner and performs a scan.
       #
       # @param [Hash] options
@@ -135,6 +160,36 @@ module Ronin
 
         if block then scanner.each_resource(&block)
         else          scanner.each_resource.to_a
+        end
+      end
+
+      #
+      # Initializes the scanner and imports the scan results.
+      #
+      # @param [Hash] options
+      #   Options for the scanner.
+      #
+      # @yield [resource]
+      #   The given block will be passed every saved scanner result.
+      #
+      # @yieldparam [DataMapper::Resource] resource
+      #   A resource saved by the scanner.
+      #
+      # @return [Array<DataMapper::Resource>]
+      #   If no block is given, an Array of saved scanner resources will be
+      #   returned.
+      #
+      # @see #import
+      #
+      # @since 1.0.0
+      #
+      # @api public
+      #
+      def self.import(options={},&block)
+        scanner = new(options)
+
+        if block then scanner.import(&block)
+        else          scanner.import.to_a
         end
       end
 
