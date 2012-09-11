@@ -28,6 +28,7 @@ end
 
 group :test do
   gem 'do_mysql',    DO_VERSION
+  gem 'do_postgres', DO_VERSION
 end
 
 #
