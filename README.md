@@ -55,7 +55,16 @@ Calling Nmap from Ruby:
     #
     # Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
     # Nmap done: 1 IP address (1 host up) scanned in 11.627 seconds
-    # => nil
+    # => [#<Ronin::IPAddress: 216.52.208.185>]
+
+Importing Nmap scan results into the Database:
+
+    ips = Scanners::Nmap.import(:targets => 'www.google.com', :ports => [80,21,25], :service_scan => true)
+    # => [#<Ronin::IPAddress: 216.52.208.185>]
+    ips[0].host_names
+    # => [#<Ronin::HostName: www.google.com>, #<Ronin::HostName: pd-in-f103.1e100.net>]
+    ips[0].ports
+    # => [#<Ronin::Port: 80/tcp>]
 
 ## Requirements
 
