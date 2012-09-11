@@ -84,7 +84,7 @@ module Ronin
       parameter :verbose, :default => false
 
       # The input file to read hosts/ports from
-      parameter :import, :description => 'XML Scan file to import'
+      parameter :import_xml, :description => 'XML Scan file to import'
 
       # The output file to write hosts/ports to
       parameter :output, :description => 'XML Scan output file'
@@ -171,8 +171,8 @@ module Ronin
           ::Nmap::XML.new(path).each_host(&block)
         }
 
-        if self.import
-          each_host.call(self.import)
+        if self.import_xml
+          each_host.call(self.import_xml)
         else
           nmap_output do |path|
             options = nmap_options
