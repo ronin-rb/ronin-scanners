@@ -212,8 +212,10 @@ module Ronin
           :address => ip_address
         )
 
-        # fill in the MAC address
-        ip.mac_addresses.first_or_new(:address => host.mac)
+        if host.mac
+          # fill in the MAC address
+          ip.mac_addresses.first_or_new(:address => host.mac)
+        end
 
         # fill in the host names
         host.each_hostname do |name|
