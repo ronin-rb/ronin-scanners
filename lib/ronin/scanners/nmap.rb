@@ -80,6 +80,24 @@ module Ronin
       # Specifies that a Window Scan will be performed.
       parameter :window_scan, :default => false
 
+      # Enables paranoid-timing for nmap (`-T0`)
+      parameter :paranoid_timing, :default => false
+
+      # Enables sneaky-timing for nmap (`-T1`)
+      parameter :sneaky_timing, :default => false
+
+      # Enables polite-timing for nmap (`-T2`)
+      parameter :polite_timing, :default => false
+
+      # Enables normal-timing for nmap (`-T3`)
+      parameter :normal_timing, :default => false
+
+      # Enables aggressive-timing for nmap (`-T4`)
+      parameter :aggressive_timing, :default => false
+
+      # Enables insane-timing for nmap (`-T5`)
+      parameter :insane_timing, :default => false
+
       # Specifies whether to resolve the IP Addresses.
       parameter :dns, :default => true
 
@@ -114,6 +132,13 @@ module Ronin
 
         nmap.exclude = self.exclude if self.exclude
         nmap.ports   = self.ports if self.ports
+
+        nmap.paranoid_timing   = self.paranoid_timing
+        nmap.sneaky_timing     = self.sneaky_timing
+        nmap.polite_timing     = self.polite_timing
+        nmap.normal_timing     = self.normal_timing
+        nmap.aggressive_timing = self.aggressive_timing
+        nmap.insane_timing     = self.insane_timing
 
         if self.ping_scan
           nmap.ping = self.ping_scan
