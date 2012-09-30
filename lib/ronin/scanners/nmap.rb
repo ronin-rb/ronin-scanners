@@ -80,6 +80,9 @@ module Ronin
       # Specifies that a Window Scan will be performed.
       parameter :window_scan, :default => false
 
+      # Specifies whether to resolve the IP Addresses.
+      parameter :dns, :default => true
+
       # Specifies whether to enable verbose output
       parameter :verbose, :default => false
 
@@ -125,6 +128,10 @@ module Ronin
           nmap.service_scan = self.service_scan
           nmap.idle_scan    = self.idle_scan
           nmap.window_scan  = self.window_scan
+        end
+
+        if self.dns? then nmap.enable_dns = true
+        else              nmap.disable_dns = true
         end
 
         nmap.verbose = self.verbose
