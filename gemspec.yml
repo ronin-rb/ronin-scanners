@@ -21,8 +21,6 @@ dependencies:
   net-http-persistent: ~> 2.0
   # Ronin::Scanners::SiteMap dependencies
   nokogiri: ~> 1.4
-  # Ronin::Bruteforcers::SSH dependencies
-  net-ssh: ~> 2.1
   # Ronin::Scanners::Spider dependencies
   spidr: ~> 0.3
   # Ronin::Scanners::Dork dependencies

@@ -2,14 +2,11 @@ source 'https://rubygems.org'
 
 DM_URI     = 'http://github.com/datamapper'
 DM_VERSION = '~> 1.2'
-DO_VERSION = '~> 0.10.3'
 RONIN_URI  = 'http://github.com/ronin-ruby'
 
 gemspec
 
-platforms :jruby do
-  gem 'jruby-openssl',	'~> 0.7'
-end
+gem 'jruby-openssl',	'~> 0.7', :platforms => :jruby
 
 # Ronin dependencies
 # gem 'ronin-support',	'~> 0.5', :git => "#{RONIN_URI}/ronin-support.git"
@@ -24,11 +21,6 @@ group :development do
 
   gem 'kramdown',         '~> 0.12'
   gem 'dm-visualizer',		'~> 0.2.0'
-end
-
-group :test do
-  gem 'do_mysql',    DO_VERSION
-  gem 'do_postgres', DO_VERSION
 end
 
 #
