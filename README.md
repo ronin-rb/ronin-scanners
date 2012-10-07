@@ -69,7 +69,6 @@ Importing Nmap scan results into the Database:
 ## Requirements
 
 * [open_namespace] ~> 0.3
-* [rprogram] ~> 0.3
 * [ruby-nmap] ~> 0.5
 * [net-ssh] ~> 2.1
 * [nokogiri] ~> 1.4
@@ -116,7 +115,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 [Ronin]: http://ronin-ruby.github.com/
 
 [open_namespace]: https://github.com/postmodern/open_namespace#readme
-[rprogram]: https://github.com/postmodern/rprogram#readme
 [ruby-nmap]: https://github.com/sophsec/ruby-nmap#readme
 [net-ssh]: https://github.com/net-ssh/net-ssh#readme
 [nokogiri]: https://github.com/tenderlove/nokogiri#readme

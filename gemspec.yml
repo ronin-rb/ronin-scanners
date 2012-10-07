@@ -15,7 +15,6 @@ has_yard: true
 
 dependencies:
   open_namespace: ~> 0.3
-  rprogram: ~> 0.3
   # Ronin::Scanners::Nmap dependencies
   ruby-nmap: ~> 0.5
   # Ronin::Scanners::HTTPScanner dependencies
