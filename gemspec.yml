@@ -15,15 +15,11 @@ has_yard: true
 
 dependencies:
   open_namespace: ~> 0.3
-  # Ronin::Scanners::Nmap dependencies
+  # Ronin Scanners dependencies:
   ruby-nmap: ~> 0.5
-  # Ronin::Scanners::HTTPScanner dependencies
-  net-http-persistent: ~> 2.0
-  # Ronin::Scanners::SiteMap dependencies
+  net-http-persistent: ~> 2.0 
   nokogiri: ~> 1.4
-  # Ronin::Scanners::Spider dependencies
   spidr: ~> 0.3
-  # Ronin::Scanners::Dork dependencies
   gscraper: ~> 0.4
   # Ronin dependencies:
   ronin-support: ~> 0.5
