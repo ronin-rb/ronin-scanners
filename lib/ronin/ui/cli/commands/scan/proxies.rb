@@ -29,7 +29,7 @@ module Ronin
         module Scan
           class Proxies < ScannerCommand
 
-            summary 'Scans for proxies and saves them into the Database'
+            summary 'Scans for proxies and imports them into the Database'
 
             #
             # Runs the nmap scanner.
