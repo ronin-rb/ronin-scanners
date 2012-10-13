@@ -49,7 +49,7 @@ module Ronin
       #
       # @since 1.0.0
       #
-      def scan(&block)
+      def scan
         sitemap = Nokogiri::XML(http_get_body(:path => SITEMAP_PATH))
 
         sitemap.search('/urlset/url/loc/.').each do |url|
