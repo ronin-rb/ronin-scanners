@@ -25,6 +25,7 @@ or payloads over many common Source-Code-Management (SCM) systems.
   * {Ronin::Scanners::UDPPortScanner}
   * {Ronin::Scanners::URLScanner}
 * Provides various specialized Scanner classes:
+  * {Ronin::Scanners::Dork}
   * {Ronin::Scanners::ResolvScanner}
   * {Ronin::Scanners::ReverseLookupScanner}
   * {Ronin::Scanners::SiteMap}
