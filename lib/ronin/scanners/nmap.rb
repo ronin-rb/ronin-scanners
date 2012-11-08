@@ -274,20 +274,18 @@ module Ronin
       end
 
       #
-      # Creates a new service from the scanned open port.
+      # Creates a new service from the scanned service.
       #
-      # @param [Nmap::Port] open_port
-      #   The scanned open port.
+      # @param [Nmap::Service] service
+      #   The detected service.
       #
       # @return [Service]
       #   The new service.
       #
       # @since 1.0.0
       #
-      def new_service(open_port)
-        if open_port.service
-          Service.first_or_new(:name => open_port.service)
-        end
+      def new_service(service)
+        Service.first_or_new(:name => service) if service
       end
 
       #
@@ -306,8 +304,8 @@ module Ronin
 
         # fill in the open ports
         result.each_open_port do |open_port|
-          port    = new_port(open_port)
-          service = new_service(open_port)
+          port     = new_port(open_port)
+          service  = new_service(open_port.service)
 
           # find or create a new open port
           new_open_port = ip.open_ports.first_or_new(:port => port)
