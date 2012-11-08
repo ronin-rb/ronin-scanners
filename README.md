@@ -70,14 +70,14 @@ Importing Nmap scan results into the Database:
 ## Requirements
 
 * [open_namespace] ~> 0.3
-* [ruby-nmap] ~> 0.5
+* [ruby-nmap] ~> 0.6
 * [net-ssh] ~> 2.1
 * [nokogiri] ~> 1.4
 * [net-http-persistent] ~> 2.0
 * [spidr] ~> 0.3
 * [gscraper] ~> 0.4
 * [ronin-support] ~> 0.5
-* [ronin] ~> 1.5
+* [ronin] ~> 1.6
 
 ## Install
 
