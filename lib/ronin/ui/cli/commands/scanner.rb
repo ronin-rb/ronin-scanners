@@ -36,6 +36,34 @@ module Ronin
           option :first, :type => Integer, :flag => '-N'
           option :import, :type => true, :flag => '-I'
 
+          def execute
+            if @console
+              print_info "Starting the console with @scanner set ..."
+
+              UI::Console.start(:scanner => @script)
+            else
+              limit = (@first || Float::INFINITY)
+              enum  = if @import then @script.import
+                      else            @script.each
+                      end
+
+              print_info "Scanning ..."
+
+              count = 0
+
+              enum.each_with_index do |result|
+                count += 1
+
+                puts result
+                yield result if block_given?
+
+                break if count >= limit
+              end
+
+              print_info "Scan complete."
+            end
+          end
+
         end
       end
     end
