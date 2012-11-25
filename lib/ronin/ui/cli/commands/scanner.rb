@@ -37,12 +37,12 @@ module Ronin
           option :import, :type => true, :flag => '-I'
 
           def execute
-            if @console
-              UI::Console.start(@script)
+            if console?
+              UI::Console.start(script)
             else
-              limit = (@first || Float::INFINITY)
-              enum  = if @import then @script.import
-                      else            @script.each
+              limit = (first || Float::INFINITY)
+              enum  = if import? then script.import
+                      else            script.each
                       end
 
               print_info "Scanning ..."

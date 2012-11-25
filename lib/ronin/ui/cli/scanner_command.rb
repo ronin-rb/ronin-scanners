@@ -56,7 +56,7 @@ module Ronin
         #
         def setup(*arguments)
           if database?
-            Database.repositories[:default] = @database
+            Database.repositories[:default] = database
           end
 
           Database.setup
