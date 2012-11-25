@@ -289,6 +289,26 @@ module Ronin
       end
 
       #
+      # Creates new software from the scanned service.
+      #
+      # @param [Nmap::Service] service
+      #   The detected service.
+      #
+      # @return [Software]
+      #   The new software.
+      #
+      # @since 1.0.0
+      #
+      def new_software(service)
+        if (service && service.product)
+          Software.first_or_new(
+            :name    => service.product,
+            :version => service.version.to_s
+          )
+        end
+      end
+
+      #
       # Queries or creates an IPAddress resource from the given host.
       #
       # @param [Nmap::Host] result
@@ -306,11 +326,13 @@ module Ronin
         result.each_open_port do |open_port|
           port     = new_port(open_port)
           service  = new_service(open_port.service)
+          software = new_software(open_port.service)
 
           # find or create a new open port
           new_open_port = ip.open_ports.first_or_new(:port => port)
+          new_open_port.service         = service
+          new_open_port.software        = software
           new_open_port.last_scanned_at = Time.now
-          new_open_port.service = service
         end
 
         return ip

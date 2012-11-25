@@ -38,9 +38,7 @@ module Ronin
 
           def execute
             if @console
-              print_info "Starting the console with @scanner set ..."
-
-              UI::Console.start(:scanner => @script)
+              UI::Console.start(@script)
             else
               limit = (@first || Float::INFINITY)
               enum  = if @import then @script.import
