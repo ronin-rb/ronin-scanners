@@ -52,11 +52,9 @@ module Ronin
               count = 0
 
               enum.each_with_index do |result|
-                count += 1
-
                 puts result
-                yield result if block_given?
 
+                count += 1
                 break if count >= limit
               end
 
