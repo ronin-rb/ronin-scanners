@@ -34,7 +34,7 @@ module Ronin
         option :first, :type => Integer, :flag => '-N'
         option :import, :type => true, :flag => '-I'
 
-        alias scanner object
+        alias scanner instance
 
         #
         # Invokes the scanner.
