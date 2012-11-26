@@ -65,16 +65,18 @@ module Ronin
 
               indent do
                 if options.verbose?
-                  print_array host.each_address, :title => 'Addresses'
+                  print_array host.each_address,  :title => 'Addresses'
                   print_array host.each_hostname, :title => 'Hostname'
                 end
 
-                puts "[ Port ]\t[ State ]\t[ Service/Version ]\n"
+                puts "[ Port ]\t[ State ]\t[ Service/Version ]"
+                spacer
 
                 host.each_port do |port|
                   puts "  #{port}/#{port.protocol}\t  #{port.state}\t  #{port.service}"
                 end
-                puts
+
+                spacer
               end
             end
 
@@ -90,11 +92,8 @@ module Ronin
               print_info "Saving #{host}:"
               print_info 'Addresses:'
 
-              print_array host.addresses.select(&:new?),
-                          :title => 'Addresses'
-
-              print_array host.ports.select(&:new?),
-                          :title => 'Ports'
+              print_array host.addresses.select(&:new?), :title => 'Addresses'
+              print_array host.ports.select(&:new?),     :title => 'Ports'
             end
 
           end
