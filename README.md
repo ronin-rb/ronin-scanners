@@ -69,6 +69,7 @@ Importing Nmap scan results into the Database:
 
 ## Requirements
 
+* [Ruby] >= 1.9.1
 * [open_namespace] ~> 0.3
 * [ruby-nmap] ~> 0.6
 * [net-ssh] ~> 2.1
@@ -113,6 +114,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+[Ruby]: http://www.ruby-lang.org
 [Ronin]: http://ronin-ruby.github.com/
 
 [open_namespace]: https://github.com/postmodern/open_namespace#readme
