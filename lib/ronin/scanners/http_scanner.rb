@@ -63,15 +63,13 @@ module Ronin
       #
       def http_request(options={})
         options = Network::HTTP.normalize_options(options)
-        uri_class = if options[:ssl]
-                      URI::HTTPS
-                    else
-                      URI::HTTP
+        uri_class = if options[:ssl] then URI::HTTPS
+                    else                  URI::HTTP
                     end
 
         uri = uri_class.build(
           :host => options[:host],
-          :port => options[:port],
+          :port => options[:port]
         )
         request = Network::HTTP.request(options)
 
