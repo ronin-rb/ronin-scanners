@@ -28,8 +28,8 @@ module Ronin
     #
     class Proxies < Nmap
 
-      parameter :ports, :description => 'The ports to scan for proxies',
-                        :default => [
+      parameter :ports, description: 'The ports to scan for proxies',
+                        default: [
                           80, 280, 443, 591, 593, 808, 3128, 5800..5803,
                           8008, 8080, 8888, 8443, 9050, 9999
                         ]

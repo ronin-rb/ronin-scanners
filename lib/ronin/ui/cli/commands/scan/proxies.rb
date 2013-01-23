@@ -55,11 +55,11 @@ module Ronin
             # @since 1.0.0
             #
             def print_result(proxy)
-              print_hash({
-                :type => proxy.type,
-                :anonymous => proxy.anonymous?,
-                :latency => proxy.latency
-              }, :title => proxy.ip_address)
+              print_hash {
+                type:      proxy.type,
+                anonymous: proxy.anonymous?,
+                latency:   proxy.latency
+              }, title: proxy.ip_address
             end
 
             #

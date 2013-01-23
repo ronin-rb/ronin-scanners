@@ -33,11 +33,11 @@ module Ronin
     class Spider < URLScanner
 
       # The URL to start spidering at.
-      parameter :start_at, :description => 'The URI to start scanning at'
+      parameter :start_at, description: 'The URI to start scanning at'
 
       # The hosts to spider.
-      parameter :hosts, :default => Set[],
-                        :description => 'The hosts to scan'
+      parameter :hosts, default: Set[],
+                        description: 'The hosts to scan'
 
       #
       # Creates a new web spider agent.
@@ -56,8 +56,8 @@ module Ronin
       #   
       def agent(&block)
         options = {
-          :proxy => Network::HTTP.proxy,
-          :user_agent => Network::HTTP.user_agent
+          proxy:      Network::HTTP.proxy,
+          user_agent: Network::HTTP.user_agent
         }
 
         return Spidr::Agent.new(options,&block)

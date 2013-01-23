@@ -30,9 +30,9 @@ module Ronin
 
         class_namespace Scanners
 
-        option :database, :type => String, :flag => '-D'
-        option :first, :type => Integer, :flag => '-N'
-        option :import, :type => true, :flag => '-I'
+        option :database, type: String, flag: '-D'
+        option :first, type: Integer, flag: '-N'
+        option :import, type: true, flag: '-I'
 
         alias scanner instance
 

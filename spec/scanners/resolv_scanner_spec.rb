@@ -5,7 +5,7 @@ describe Scanners::ResolvScanner do
   let(:host) { 'localhost' }
   let(:ip)   { IPAddr.new('127.0.0.1') }
 
-  subject { Scanners::ResolvScanner.new(:host => host) }
+  subject { Scanners::ResolvScanner.new(host: host) }
 
   it "should resolv hostnames to IP addresses" do
     subject.each.to_a.should == [ip]

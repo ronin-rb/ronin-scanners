@@ -38,77 +38,77 @@ module Ronin
     class Nmap < Scanner
 
       # The hosts which will be scanned.
-      parameter :targets, :default => [],
-                          :description => 'The hosts to scan with Nmap'
+      parameter :targets, default: [],
+                          description: 'The hosts to scan with Nmap'
 
       # The hosts or ranges to exclude from the scan.
-      parameter :exclude, :description => 'The hosts to exclude'
+      parameter :exclude, description: 'The hosts to exclude'
 
       # The ports or port ranges which will be scanned.
-      parameter :ports, :description => 'The ports to scan'
+      parameter :ports, description: 'The ports to scan'
 
       # Specifies that a Ping Scan will be performed.
-      parameter :ping_scan, :default => false
+      parameter :ping_scan, default: false
 
       # Specifies that a Connect Scan will be performed.
-      parameter :connect_scan, :default => true
+      parameter :connect_scan, default: true
 
       # Specifies that a TCP SYN scan will be performed.
-      parameter :syn_scan, :default => false
+      parameter :syn_scan, default: false
 
       # Specifies that a TCP ACK scan will be performed.
-      parameter :ack_scan, :default => false
+      parameter :ack_scan, default: false
 
       # Specifies that a TCP NULL scan will be performed.
-      parameter :null_scan, :default => false
+      parameter :null_scan, default: false
 
       # Specifies that a TCP FIN scan will be performed.
-      parameter :fin_scan, :default => false
+      parameter :fin_scan, default: false
 
       # Specifies that a TCP XMAS scan will be performed.
-      parameter :xmas_scan, :default => false
+      parameter :xmas_scan, default: false
 
       # Specifies that a UDP scan will be performed.
-      parameter :udp_scan, :default => false
+      parameter :udp_scan, default: false
 
       # Specifies that a Service scan will be performed.
-      parameter :service_scan, :default => true
+      parameter :service_scan, default: true
 
       # Specifies that an Idle Scan will be performed.
-      parameter :idle_scan, :default => false
+      parameter :idle_scan, default: false
 
       # Specifies that a Window Scan will be performed.
-      parameter :window_scan, :default => false
+      parameter :window_scan, default: false
 
       # Enables paranoid-timing for nmap (`-T0`)
-      parameter :paranoid_timing, :default => false
+      parameter :paranoid_timing, default: false
 
       # Enables sneaky-timing for nmap (`-T1`)
-      parameter :sneaky_timing, :default => false
+      parameter :sneaky_timing, default: false
 
       # Enables polite-timing for nmap (`-T2`)
-      parameter :polite_timing, :default => false
+      parameter :polite_timing, default: false
 
       # Enables normal-timing for nmap (`-T3`)
-      parameter :normal_timing, :default => false
+      parameter :normal_timing, default: false
 
       # Enables aggressive-timing for nmap (`-T4`)
-      parameter :aggressive_timing, :default => false
+      parameter :aggressive_timing, default: false
 
       # Enables insane-timing for nmap (`-T5`)
-      parameter :insane_timing, :default => false
+      parameter :insane_timing, default: false
 
       # Specifies whether to resolve the IP Addresses.
-      parameter :dns, :default => true
+      parameter :dns, default: true
 
       # Specifies whether to enable verbose output
-      parameter :verbose, :default => false
+      parameter :verbose, default: false
 
       # The input file to read hosts/ports from
-      parameter :import_xml, :description => 'XML Scan file to import'
+      parameter :import_xml, description: 'XML Scan file to import'
 
       # The output file to write hosts/ports to
-      parameter :output, :description => 'XML Scan output file'
+      parameter :output, description: 'XML Scan output file'
 
       protected
 
@@ -238,18 +238,18 @@ module Ronin
                                  end
 
         ip = IPAddress.first_or_new(
-          :version => ip_version,
-          :address => ip_address
+          version: ip_version,
+          address: ip_address
         )
 
         if host.mac
           # fill in the MAC address
-          ip.mac_addresses << MACAddress.first_or_new(:address => host.mac)
+          ip.mac_addresses << MACAddress.first_or_new(address: host.mac)
         end
 
         # fill in the host names
         host.each_hostname do |name|
-          ip.host_names << HostName.first_or_new(:address => name)
+          ip.host_names << HostName.first_or_new(address: name)
         end
 
         return ip
@@ -268,8 +268,8 @@ module Ronin
       #
       def new_port(open_port)
         Port.first_or_new(
-          :protocol => open_port.protocol.to_s,
-          :number   => open_port.number
+          protocol: open_port.protocol.to_s,
+          number:   open_port.number
         )
       end
 
@@ -285,7 +285,7 @@ module Ronin
       # @since 1.0.0
       #
       def new_service(service)
-        Service.first_or_new(:name => service) if service
+        Service.first_or_new(name: service) if service
       end
 
       #
@@ -302,8 +302,8 @@ module Ronin
       def new_software(service)
         if (service && service.product)
           Software.first_or_new(
-            :name    => service.product,
-            :version => service.version.to_s
+            name:    service.product,
+            version: service.version.to_s
           )
         end
       end
@@ -329,7 +329,7 @@ module Ronin
           software = new_software(open_port.service)
 
           # find or create a new open port
-          new_open_port = ip.open_ports.first_or_new(:port => port)
+          new_open_port = ip.open_ports.first_or_new(port: port)
           new_open_port.service         = service
           new_open_port.software        = software
           new_open_port.last_scanned_at = Time.now

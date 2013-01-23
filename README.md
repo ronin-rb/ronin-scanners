@@ -45,7 +45,7 @@ Calling Nmap from Ruby:
 
     require 'ronin/scanners/nmap'
   
-    Scanners::Nmap.scan(:targets => 'www.google.com', :ports => [80,21,25], :service_scan => true)
+    Scanners::Nmap.scan(targets: 'www.google.com', ports: [80,21,25], service_scan: true)
     # Starting Nmap 4.68 ( http://nmap.org ) at 2009-01-09 16:51 PST
     # Interesting ports on mh-in-f99.google.com (209.85.173.99):
     # PORT   STATE    SERVICE VERSION
@@ -60,7 +60,7 @@ Calling Nmap from Ruby:
 
 Importing Nmap scan results into the Database:
 
-    ips = Scanners::Nmap.import(:targets => 'www.google.com', :ports => [80,21,25], :service_scan => true)
+    ips = Scanners::Nmap.import(targets: 'www.google.com', ports: [80,21,25], service_scan: true)
     # => [#<Ronin::IPAddress: 216.52.208.185>]
     ips[0].host_names
     # => [#<Ronin::HostName: www.google.com>, #<Ronin::HostName: pd-in-f103.1e100.net>]

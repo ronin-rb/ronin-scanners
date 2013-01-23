@@ -29,120 +29,120 @@ module Ronin
 
       # The query types and their `GScraper::Search::Query` classes
       QUERY_TYPES = {
-        :web  => GScraper::Search::WebQuery,
-        :ajax => GScraper::Search::AJAXQuery
+        web:  GScraper::Search::WebQuery,
+        ajax: GScraper::Search::AJAXQuery
       }
 
       # The host to submit queries to
-      parameter :search_host, :type => String,
-                              :default => GScraper::Search::Query::DEFAULT_HOST,
-                              :description => 'The host to submit queries to'
+      parameter :search_host, type: String,
+                              default: GScraper::Search::Query::DEFAULT_HOST,
+                              description: 'The host to submit queries to'
 
       # The type of query to perform (`:web` or `:ajax`)
-      parameter :query_type, :type => Symbol,
-                             :default => :web,
-                             :description => "The type of query to perform ('web' or 'ajax')"
+      parameter :query_type, type: Symbol,
+                             default: :web,
+                             description: "The type of query to perform ('web' or 'ajax')"
 
       # Number of seconds to pause between queries
-      parameter :query_pause, :type => Integer,
-                              :default => 2,
-                              :description => 'Number of seconds to pause between queries'
+      parameter :query_pause, type: Integer,
+                              default: 2,
+                              description: 'Number of seconds to pause between queries'
 
       # The raw query
-      parameter :raw_query, :type => String,
-                            :description => 'The raw query'
+      parameter :raw_query, type: String,
+                            description: 'The raw query'
 
       # The search language
-      parameter :language, :type => String,
-                           :description => 'The search language'
+      parameter :language, type: String,
+                           description: 'The search language'
 
       # Search 'link' modifier
-      parameter :link, :type => String,
-                       :description => "Search 'link' modifier"
+      parameter :link, type: String,
+                       description: "Search 'link' modifier"
 
       # Search 'related' modifier
-      parameter :related, :type => String,
-                          :description => "Search 'related' modifier"
+      parameter :related, type: String,
+                          description: "Search 'related' modifier"
 
       # Search 'info' modifier
-      parameter :info, :type => String,
-                       :description => "Search 'info' modifier"
+      parameter :info, type: String,
+                       description: "Search 'info' modifier"
 
       # Search 'site' modifier
-      parameter :site, :type => String,
-                       :description => "Search 'site' modifier"
+      parameter :site, type: String,
+                       description: "Search 'site' modifier"
 
       # Search 'filetype' modifier
-      parameter :filetype, :type => String,
-                           :description => "Search 'filetype' modifier"
+      parameter :filetype, type: String,
+                           description: "Search 'filetype' modifier"
 
       # Search 'allintitle' modifier
-      parameter :allintitle, :type => Array[String],
-                             :description => "Search 'allintitle' modifier"
+      parameter :allintitle, type: Array[String],
+                             description: "Search 'allintitle' modifier"
 
       # Search 'intitle' modifier
-      parameter :intitle, :type => String,
-                          :description => "Search 'intitle' modifier"
+      parameter :intitle, type: String,
+                          description: "Search 'intitle' modifier"
 
       # Search 'allinurl' modifier
-      parameter :allinurl, :type => Array[String],
-                           :description => "Search 'allinurl' modifier"
+      parameter :allinurl, type: Array[String],
+                           description: "Search 'allinurl' modifier"
 
       # Search 'inurl' modifier
-      parameter :inurl, :type => String,
-                        :description => "Search 'inurl' modifier"
+      parameter :inurl, type: String,
+                        description: "Search 'inurl' modifier"
 
       # Search 'allintext' modifier
-      parameter :allintext, :type => Array[String],
-                            :description => "Search 'allintext' modifier"
+      parameter :allintext, type: Array[String],
+                            description: "Search 'allintext' modifier"
 
       # Search 'intext' modifier
-      parameter :intext, :type => String,
-                         :description => "Search 'intext' modifier"
+      parameter :intext, type: String,
+                         description: "Search 'intext' modifier"
 
       # Search for results containing the exact phrase
-      parameter :exact_phrase, :type => String,
-                               :description => 'Search for results containing the exact phrase'
+      parameter :exact_phrase, type: String,
+                               description: 'Search for results containing the exact phrase'
 
       # Search for results with the words
-      parameter :with_words, :type => Array[String],
-                             :description => 'Search for results with the words'
+      parameter :with_words, type: Array[String],
+                             description: 'Search for results with the words'
 
       # Search for results with-out the words
-      parameter :without_words, :type => Array[String],
-                                :description => 'Search for results with-out the words'
+      parameter :without_words, type: Array[String],
+                                description: 'Search for results with-out the words'
 
       # Search for results containing the definitions of the keywords
-      parameter :define, :type => String,
-                         :description => 'Search for results containing the definitions of the keywords'
+      parameter :define, type: String,
+                         description: 'Search for results containing the definitions of the keywords'
 
       # Search for results containing numbers between the range
-      parameter :numeric_range, :type => String,
-                                :description => 'Search for results containing numbers between the range'
+      parameter :numeric_range, type: String,
+                                description: 'Search for results containing numbers between the range'
 
       protected
 
       def search_options
         {
-          :search_host   => self.search_host,
-          :query         => self.raw_query,
-          :language      => self.language,
-          :link          => self.link,
-          :related       => self.related,
-          :info          => self.info,
-          :site          => self.site,
-          :filetype      => self.filetype,
-          :allintitle    => self.allintitle,
-          :intitle       => self.intitle,
-          :allinurl      => self.allinurl,
-          :inurl         => self.inurl,
-          :allintext     => self.allintext,
-          :intext        => self.intext,
-          :exact_phrase  => self.exact_phrase,
-          :with_words    => self.with_words,
-          :without_words => self.without_words,
-          :define        => self.without_words,
-          :numeric_range => self.numeric_range
+          search_host:   self.search_host,
+          query:         self.raw_query,
+          language:      self.language,
+          link:          self.link,
+          related:       self.related,
+          info:          self.info,
+          site:          self.site,
+          filetype:      self.filetype,
+          allintitle:    self.allintitle,
+          intitle:       self.intitle,
+          allinurl:      self.allinurl,
+          inurl:         self.inurl,
+          allintext:     self.allintext,
+          intext:        self.intext,
+          exact_phrase:  self.exact_phrase,
+          with_words:    self.with_words,
+          without_words: self.without_words,
+          define:        self.without_words,
+          numeric_range: self.numeric_range
         }
       end
 

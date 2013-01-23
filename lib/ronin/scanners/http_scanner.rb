@@ -68,8 +68,8 @@ module Ronin
                     end
 
         uri = uri_class.build(
-          :host => options[:host],
-          :port => options[:port]
+          host: options[:host],
+          port: options[:port]
         )
         request = Network::HTTP.request(options)
 
@@ -82,7 +82,7 @@ module Ronin
       # @api semipublic
       #
       def http_copy(options={})
-        http_request(options.merge(:method => :copy))
+        http_request(options.merge(method: :copy))
       end
 
       #
@@ -91,11 +91,11 @@ module Ronin
       # @api semipublic
       #
       def http_delete(url,options={})
-        http_request(options.merge(:method => :delete))
+        http_request(options.merge(method: :delete))
       end
 
       def http_get(url,options={})
-        http_request(options.merge(:method => :get))
+        http_request(options.merge(method: :get))
       end
 
       #
@@ -104,7 +104,7 @@ module Ronin
       # @api semipublic
       #
       def http_head(url,options={})
-        http_request(options.merge(:method => :head))
+        http_request(options.merge(method: :head))
       end
 
       #
@@ -113,7 +113,7 @@ module Ronin
       # @api semipublic
       #
       def http_lock(url,options={})
-        http_request(options.merge(:method => :lock))
+        http_request(options.merge(method: :lock))
       end
 
       #
@@ -122,7 +122,7 @@ module Ronin
       # @api semipublic
       #
       def http_mkcol(url,options={})
-        http_request(options.merge(:method => :mkcol))
+        http_request(options.merge(method: :mkcol))
       end
 
       #
@@ -131,7 +131,7 @@ module Ronin
       # @api semipublic
       #
       def http_move(url,options={})
-        http_request(options.merge(:method => :move))
+        http_request(options.merge(method: :move))
       end
 
       #
@@ -140,7 +140,7 @@ module Ronin
       # @api semipublic
       #
       def http_options(url,options={})
-        http_request(options.merge(:method => :options))
+        http_request(options.merge(method: :options))
       end
 
       #
@@ -149,7 +149,7 @@ module Ronin
       # @api semipublic
       #
       def http_post(url,options={})
-        http_request(options.merge(:method => :post))
+        http_request(options.merge(method: :post))
       end
 
       #
@@ -158,7 +158,7 @@ module Ronin
       # @api semipublic
       #
       def http_prop_find(url,options={})
-        http_request(options.merge(:method => :prop_find))
+        http_request(options.merge(method: :prop_find))
       end
 
       #
@@ -167,7 +167,7 @@ module Ronin
       # @api semipublic
       #
       def http_prop_patch(url,options={})
-        http_request(options.merge(:method => :prop_patch))
+        http_request(options.merge(method: :prop_patch))
       end
 
       #
@@ -176,7 +176,7 @@ module Ronin
       # @api semipublic
       #
       def http_trace(url,options={})
-        http_request(options.merge(:method => :trace))
+        http_request(options.merge(method: :trace))
       end
 
       #
@@ -185,7 +185,7 @@ module Ronin
       # @api semipublic
       #
       def http_unlock(url,options={})
-        http_request(options.merge(:method => :unlock))
+        http_request(options.merge(method: :unlock))
       end
 
     end

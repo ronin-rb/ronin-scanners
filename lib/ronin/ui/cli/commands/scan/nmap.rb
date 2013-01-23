@@ -58,15 +58,15 @@ module Ronin
               puts
 
               print_hash({
-                :started => host.start_time,
-                :ended => host.end_time,
-                :status => "#{host.status.state} (#{host.status.reason})"
-              }, :title => host)
+                started: host.start_time,
+                ended: host.end_time,
+                status: "#{host.status.state} (#{host.status.reason})"
+              }, title: host)
 
               indent do
                 if options.verbose?
-                  print_array host.each_address,  :title => 'Addresses'
-                  print_array host.each_hostname, :title => 'Hostname'
+                  print_array host.each_address,  title: 'Addresses'
+                  print_array host.each_hostname, title: 'Hostname'
                 end
 
                 puts "[ Port ]\t[ State ]\t[ Service/Version ]"
@@ -92,8 +92,8 @@ module Ronin
               print_info "Saving #{host}:"
               print_info 'Addresses:'
 
-              print_array host.addresses.select(&:new?), :title => 'Addresses'
-              print_array host.ports.select(&:new?),     :title => 'Ports'
+              print_array host.addresses.select(&:new?), title: 'Addresses'
+              print_array host.ports.select(&:new?),     title: 'Ports'
             end
 
           end

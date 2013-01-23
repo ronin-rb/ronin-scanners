@@ -33,8 +33,8 @@ module Ronin
           script_class Ronin::Scanners::Scanner
 
           # scanner options
-          option :first, :type => Integer, :flag => '-N'
-          option :import, :type => true, :flag => '-I'
+          option :first, type: Integer, flag: '-N'
+          option :import, type: true, flag: '-I'
 
           def execute
             if console?

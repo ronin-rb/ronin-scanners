@@ -5,7 +5,7 @@ describe Scanners::ReverseLookupScanner do
   let(:ip) { '192.0.32.10' }
   let(:host) { 'www.example.com' }
 
-  subject { Scanners::ReverseLookupScanner.new(:host => ip) }
+  subject { Scanners::ReverseLookupScanner.new(host: ip) }
 
   it "should perform reverse lookups on IP addresses" do
     subject.each.to_a.should == [host]

@@ -31,7 +31,7 @@ module Ronin
     #
     class ReverseLookupScanner < HostNameScanner
 
-      parameter :host, :description => 'The IP address to reverse lookup'
+      parameter :host, description: 'The IP address to reverse lookup'
 
       protected
 
@@ -63,10 +63,10 @@ module Ronin
       #
       def new_resource(result)
         # get a host name
-        host_name = HostName.first_or_new(:address => result)
+        host_name = HostName.first_or_new(address: result)
 
         # associate the host name with the IP address we are looking up
-        host_name.ip_addresses.first_or_new(:address => self.host.to_s)
+        host_name.ip_addresses.first_or_new(address: self.host.to_s)
 
         return host_name
       end

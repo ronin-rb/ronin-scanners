@@ -60,9 +60,9 @@ module Ronin
       #
       def new_resource(result)
         OpenPort.first_or_new(
-          :port => Port.first_or_new(
-            :protocol => 'udp',
-            :number   => result
+          port: Port.first_or_new(
+            protocol: 'udp',
+            number:   result
           )
         )
       end

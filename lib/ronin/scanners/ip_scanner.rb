@@ -67,7 +67,7 @@ module Ronin
       # @since 1.0.0
       #
       def new_resource(result)
-        IPAddress.first_or_new(:address => result)
+        IPAddress.first_or_new(address: result)
       end
 
     end
