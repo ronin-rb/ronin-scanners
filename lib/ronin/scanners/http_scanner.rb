@@ -62,7 +62,7 @@ module Ronin
       # @api semipublic
       #
       def http_request(options={})
-        options = Network::HTTP.expand_options(options)
+        options = Network::HTTP.normalize_options(options)
         uri_class = if options[:ssl]
                       URI::HTTPS
                     else
