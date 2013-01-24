@@ -13,7 +13,8 @@ gem 'ronin-support',	'~> 0.6', :git    => "#{RONIN_URI}/ronin-support.git",
                                 :branch => '0.6.0'
 gem 'ronin',		      '~> 1.6', :git    => "#{RONIN_URI}/ronin.git",
                                 :branch => '1.6.0'
-# gem 'ronin-gen',	    '~> 1.2', :git => "#{RONIN_URI}/ronin-gen.git"
+gem 'ronin-gen',	    '~> 1.3', :git    => "#{RONIN_URI}/ronin-gen.git",
+                                :branch => '1.3.0'
 
 group :development do
   gem 'rake',		        '~> 10.0'
