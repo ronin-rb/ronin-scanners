@@ -13,6 +13,8 @@ email: postmodern.mod3@gmail.com
 homepage: http://ronin-ruby.github.com/scanners/
 has_yard: true
 
+required_ruby_version: ">= 1.9.1"
+
 dependencies:
   open_namespace: ~> 0.3
   # Ronin Scanners dependencies:
