@@ -8,19 +8,18 @@ describe Scanners::ResolvScanner do
   subject { Scanners::ResolvScanner.new(host: host) }
 
   it "should resolv hostnames to IP addresses" do
-    subject.each.to_a.should == [ip]
+    subject.each.to_a.should include(ip)
   end
 
   it "should convert IP addresses to IpAddress resources" do
-    resource = subject.each_resource.first
-
-    resource.class.should == IPAddress
-    resource.address.should == ip
+    subject.each_resource.any? { |resource|
+      resource.kind_of?(IPAddress) && resource.address == ip
+    }.should be_true
   end
 
   it "should associate IpAddress resources with HostNames" do
-    resource = subject.each_resource.first
-
-    resource.host_names[0].address.should == host
+    subject.each_resource.any? { |resource|
+      resource.host_names[0].address == host
+    }.should be_true
   end
 end
