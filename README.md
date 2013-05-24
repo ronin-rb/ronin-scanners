@@ -93,7 +93,7 @@ Importing Nmap scan results into the Database:
     $ git clone git://github.com/ronin-ruby/ronin-scanners.git
     $ cd ronin-scanners/
     $ bundle install
-    $ ./ronin-nmap --help
+    $ ./bin/ronin-scan-nmap --help
 
 ## License
 
