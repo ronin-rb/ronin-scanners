@@ -12,13 +12,13 @@ describe Scanners::HostNameScanner do
   end
 
   it "should normalize results into Strings" do
-    subject.first.should == 'www.example.com'
+    expect(subject.first).to eq('www.example.com')
   end
 
   it "should convert results into HostName resources" do
     resource = subject.each_resource.first
 
-    resource.class.should == HostName
-    resource.address.should == 'www.example.com'
+    expect(resource.class).to eq(HostName)
+    expect(resource.address).to eq('www.example.com')
   end
 end

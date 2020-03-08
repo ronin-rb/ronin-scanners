@@ -20,7 +20,7 @@ group :development do
   gem 'rake',		        '~> 10.0'
 
   gem 'rubygems-tasks', '~> 0.1'
-  gem 'rspec',		      '~> 2.4'
+  gem 'rspec',		      '~> 3.0'
 
   gem 'kramdown',         '~> 0.12'
   gem 'dm-visualizer',		'~> 0.2.0'

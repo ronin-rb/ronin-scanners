@@ -8,19 +8,19 @@ describe Scanners::ReverseLookupScanner do
   subject { Scanners::ReverseLookupScanner.new(host: ip) }
 
   it "should perform reverse lookups on IP addresses" do
-    subject.each.to_a.should == [host]
+    expect(subject.each.to_a).to eq([host])
   end
 
   it "should convert host names to HostName resources" do
     resource = subject.each_resource.first
 
-    resource.class.should == HostName
-    resource.address.should == host
+    expect(resource.class).to eq(HostName)
+    expect(resource.address).to eq(host)
   end
 
   it "should associate HostName resources with the queried IpAddress" do
     resource = subject.each_resource.first
 
-    resource.ip_addresses[0].address.should == ip
+    expect(resource.ip_addresses[0].address).to eq(ip)
   end
 end

@@ -16,22 +16,22 @@ describe Scanners::URLScanner do
   it "should normalize results into URI objects" do
     result = subject.first
 
-    result.class.should == URI::HTTP
-    result.scheme.should == url.scheme
-    result.host.should == url.host
-    result.port.should == url.port
-    result.path.should == url.path
-    result.query.should == url.query
+    expect(result.class).to eq(URI::HTTP)
+    expect(result.scheme).to eq(url.scheme)
+    expect(result.host).to eq(url.host)
+    expect(result.port).to eq(url.port)
+    expect(result.path).to eq(url.path)
+    expect(result.query).to eq(url.query)
   end
 
   it "should convert results into Url resources" do
     resource = subject.each_resource.first
 
-    resource.class.should == URL
-    resource.scheme.name.should == url.scheme
-    resource.host_name.address.should == url.host
-    resource.port.number.should == url.port
-    resource.path.should == url.path
-    resource.query_string.should == url.query
+    expect(resource.class).to eq(URL)
+    expect(resource.scheme.name).to eq(url.scheme)
+    expect(resource.host_name.address).to eq(url.host)
+    expect(resource.port.number).to eq(url.port)
+    expect(resource.path).to eq(url.path)
+    expect(resource.query_string).to eq(url.query)
   end
 end

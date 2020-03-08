@@ -4,6 +4,6 @@ require 'ronin/scanners/version'
 
 describe Scanners do
   it "should have a version" do
-    subject.const_get('VERSION').should_not be_nil
+    expect(subject.const_get('VERSION')).not_to be_nil
   end
 end

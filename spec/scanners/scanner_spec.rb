@@ -36,7 +36,7 @@ describe Scanners::Scanner do
 
       subject.each { |i| results << i }
 
-      results.should_not include(nil)
+      expect(results).not_to include(nil)
     end
 
     it "should normalize the results" do
@@ -44,9 +44,9 @@ describe Scanners::Scanner do
 
       subject.each { |i| results << i }
 
-      results.should_not include(1)
-      results.should_not include(3)
-      results.should_not include(11)
+      expect(results).not_to include(1)
+      expect(results).not_to include(3)
+      expect(results).not_to include(11)
     end
 
     it "should skip normalized results which are nil" do
@@ -54,12 +54,12 @@ describe Scanners::Scanner do
 
       subject.each { |i| results << i }
 
-      results.should_not include(22)
-      results.should_not include(nil)
+      expect(results).not_to include(22)
+      expect(results).not_to include(nil)
     end
 
     it "should return an Enumerator if no block is given" do
-      subject.each.class.should == Enumerator
+      expect(subject.each.class).to eq(Enumerator)
     end
 
     it "should enumerate over Ruby primitives" do
@@ -67,7 +67,7 @@ describe Scanners::Scanner do
 
       subject.each { |i| results << i }
 
-      results.should == [2, 6]
+      expect(results).to eq([2, 6])
     end
   end
 
@@ -75,7 +75,7 @@ describe Scanners::Scanner do
     subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
-      subject.each_resource.class.should == Enumerator
+      expect(subject.each_resource.class).to eq(Enumerator)
     end
   end
 
@@ -83,7 +83,7 @@ describe Scanners::Scanner do
     subject { described_class.new }
 
     it "should return an Enumerator if no block is given" do
-      subject.import.class.should == Enumerator
+      expect(subject.import.class).to eq(Enumerator)
     end
   end
 end
