@@ -17,7 +17,7 @@ gem 'ronin-gen',	    '~> 1.3', git:    "#{RONIN_URI}/ronin-gen.git",
                                 branch: '1.3.0'
 
 group :development do
-  gem 'rake',		        '~> 10.0'
+  gem 'rake'
 
   gem 'rubygems-tasks', '~> 0.1'
   gem 'rspec',		      '~> 3.0'
